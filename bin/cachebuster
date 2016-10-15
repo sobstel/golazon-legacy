@@ -1,0 +1,31 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs');
+var hashFile = require('md5-file');
+var replace = require('replace');
+
+var publicDir = __dirname + '/../public/';
+
+var assets = ['app.css', 'app.js', 'vendors.js'];
+
+assets.forEach(function(file) {
+  hashFile(publicDir + file, function (err, hash) {
+    if (err) throw err;
+
+    var newFile = hash + '.' + file;
+
+    fs.rename(publicDir + file, publicDir + newFile);
+
+    replace({
+      regex: file,
+      replacement: newFile,
+      paths: ['public/index.html'],
+      recursive: false,
+      silent: true
+    });
+
+    console.log(file + ' => ' + newFile);
+  });
+});

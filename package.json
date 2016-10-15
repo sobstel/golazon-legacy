@@ -1,0 +1,38 @@
+{
+  "name": "golazon",
+  "description": "football data mnmlist way",
+  "author": "Przemek Sobstel <przemek@sobstel.org>",
+  "license": "ISC",
+  "version": "0.0.1",
+  "repository": {
+    "url": "git+https://github.com/sobstel/golazon.git",
+    "type": "git"
+  },
+  "scripts": {
+    "env": "env",
+    "build": "npm run clean && brunch build --production",
+    "clean": "rm -rf public/*",
+    "deploy": "npm run publish",
+    "repo:commit": "GIT_DIR=public/.git git add . && GIT_DIR=public/.git git commit -m \"v${npm_package_version}\"",
+    "repo:init": "[ -d public/.git ] || (npm run clean && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
+    "repo:push": "GIT_DIR=public/.git && git push",
+    "publish": "npm run repo:init && npm run build && ./bin/cachebuster && npm run verbump && npm run repo:commit && npm run repo:push",
+    "start": "npm run clean && brunch watch --server",
+    "ver": "echo ${npm_package_version}",
+    "verbump": "npm version --no-git-tag-version -f patch",
+    "watch": "npm run start"
+  },
+  "dependencies": {
+    "auto-reload-brunch": "^2.0.0",
+    "brunch": "^2.0.0",
+    "clean-css-brunch": "^2.0.0",
+    "coffee-script-brunch": "^2.0.0",
+    "md5-file": "^3.1.1",
+    "replace": "^0.3.0",
+    "riot": "^2.6.3",
+    "riot-brunch": "^0.0.4",
+    "sass-brunch": "^2.0.0",
+    "superagent": "^2.3.0",
+    "uglify-js-brunch": "^2.0.0"
+  }
+}

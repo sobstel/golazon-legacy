@@ -2,30 +2,31 @@
 
 'use strict';
 
-var fs = require('fs');
-var hashFile = require('md5-file');
-var replace = require('replace');
+const fs = require('fs');
+const hash = require('string-hash');
+const replace = require('replace-in-file');
 
-var publicDir = __dirname + '/../public/';
+const publicDir = __dirname + '/../public/';
 
-var assets = ['app.css', 'app.js', 'vendors.js'];
+const assets = ['app.css', 'app.js', 'vendors.js'];
 
 assets.forEach(function(file) {
-  hashFile(publicDir + file, function (err, hash) {
-    if (err) throw err;
+  let fileContent = fs.readFileSync(publicDir + file, 'utf-8');
+  let newFile = file.replace('.', '.' + hash(fileContent).toString(36) + '.');
 
-    var newFile = hash + '.' + file;
+  fs.rename(publicDir + file, publicDir + newFile);
 
-    fs.rename(publicDir + file, publicDir + newFile);
-
-    replace({
-      regex: file,
-      replacement: newFile,
-      paths: ['public/index.html'],
-      recursive: false,
-      silent: true
-    });
-
-    console.log(file + ' => ' + newFile);
+  let changedFiles = replace.sync({
+    files: [
+      publicDir + '*.html',
+      publicDir + '*.css',
+      publicDir + '*.js',
+    ],
+    replace: file,
+    with: newFile,
   });
+
+  console.log(file + ' => ' + newFile);
+  console.log('modified in ', changedFiles.join(', '));
+  console.log('---')
 });

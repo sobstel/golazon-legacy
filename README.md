@@ -1,9 +1,7 @@
 Golazon
 =======
 
-## Stack
-
-brunch, riot, superagent
+*football data mnmlist way*
 
 ## Getting started
 
@@ -17,5 +15,8 @@ brunch, riot, superagent
 
 ## Decisions
 
-* Architecture: static SPA site (hosted at GitHub) + API 
+* Build tools: brunch, npm.
+* Architecture: static SPA site (hosted at GitHub) + external API.
+* Riot.js.
+
 * No images (except inline svg logo and 3rd party stuff: material icons, team logos and player pictures)

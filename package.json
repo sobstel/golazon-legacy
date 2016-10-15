@@ -15,7 +15,7 @@
     "deploy": "npm run publish",
     "repo:commit": "GIT_DIR=public/.git git add . && GIT_DIR=public/.git git commit -m \"v${npm_package_version}\"",
     "repo:init": "[ -d public/.git ] || (npm run clean && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
-    "repo:push": "GIT_DIR=public/.git && git push",
+    "repo:push": "GIT_DIR=public/.git git push origin gh-pages",
     "publish": "npm run repo:init && npm run build && ./bin/cachebuster && npm run verbump && npm run repo:commit && npm run repo:push",
     "start": "npm run clean && brunch watch --server",
     "ver": "echo ${npm_package_version}",

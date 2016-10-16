@@ -15,8 +15,7 @@ Golazon
 
 ## Decisions
 
+* Stack: Riot.js, CoffeeScript, SCSS, BEM.
 * Build tools: brunch, npm.
 * Architecture: static SPA site (hosted at GitHub) + external API.
-* Riot.js.
-
-* No images (except inline svg logo and 3rd party stuff: material icons, team logos and player pictures)
+* No images (except inline svg logo and 3rd party material icons)

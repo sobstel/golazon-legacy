@@ -1,12 +1,14 @@
 exports.config =
   files:
     javascripts:
-      joinTo:
-        'app.js': /^app/
-        'vendors.js': /^node_modules/
+      joinTo: 'app.js'
       order:
         before: [
-          'app/app.coffee'
+          /^node_modules/,
+          'app/init.coffee'
+        ],
+        after: [
+          'app/start.coffee'
         ]
     stylesheets:
       joinTo: 'app.css'
@@ -20,11 +22,11 @@ exports.config =
     sass:
       mode: 'native'
 
-  modules:
-    wrapper: false
-
   npm:
     enabled: true
+
+  modules:
+    wrapper: false
 
   server:
     port: 1987 # Messi year of birth ;-)

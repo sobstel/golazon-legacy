@@ -19,3 +19,5 @@ Golazon
 * Build tools: brunch, npm.
 * Architecture: static SPA site (hosted at GitHub) + external API.
 * No images (except inline svg logo and 3rd party material icons)
+  * Too much weight, too much data to transfer and it supposed to be extremely lightweight.
+* No general live matches page. Live matches only at competition/team/match page.

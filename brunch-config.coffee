@@ -1,14 +1,12 @@
 exports.config =
   files:
     javascripts:
-      joinTo: 'app.js'
+      joinTo:
+        'app.js': /^app/
+        'vendors.js': /^node_modules/
       order:
         before: [
-          /^node_modules/,
           'app/init.coffee'
-        ],
-        after: [
-          'app/start.coffee'
         ]
     stylesheets:
       joinTo: 'app.css'

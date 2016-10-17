@@ -8,20 +8,19 @@
 
     <link rel="shortcut icon" href="/favicon.png">
 
-    <!-- <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons"> -->
-    <!-- <link rel="stylesheet" href="//code.getmdl.io/1.2.1/material.red-orange.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.red-orange.min.css">
 
-    <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Rosario:400' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" href="/app.css">
     <style type="riot"></style>
   </head>
   <body>
     <app></app>
 
+    <script src="/vendors.js"></script>
     <script src="/app.js"></script>
+    <script>require('riot').mount('app')</script>
 
-    <!-- <script src="//code.getmdl.io/1.2.1/material.min.js"></script> -->
+    <script src="/material.min.js"></script>
+    <!-- no proper gzip: <script src="https://code.getmdl.io/1.2.1/material.min.js"></script> -->
   </body>
 </html>

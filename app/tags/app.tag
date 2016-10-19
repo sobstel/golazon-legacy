@@ -18,6 +18,8 @@
   </script>
 
   <style type="scss">
-
+    body {
+      font: medium Roboto;
+    }
   </style>
 </app>

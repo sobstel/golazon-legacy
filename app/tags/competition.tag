@@ -4,8 +4,9 @@
   <script type="coffee">
     util = require 'util'
 
-    util.request '/competition/' + opts.competition_id, (competition) =>
-      this.competition = competition
-      this.update()
+    this.on 'mount', () =>
+      util.request '/competition/' + opts.competition_id, (competition) =>
+        this.competition = competition
+        this.update()
   </script>
 </competition>

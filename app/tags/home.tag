@@ -6,5 +6,6 @@
     <li><a href="/c/1y">Bundesliga</a></li>
     <li><a href="/c/97m">Primera División</a></li>
     <li><a href="/c/2e0">Ekstraklasa</a></li>
+    <li><a href="/c/5d">Champions League</a></li>
   </ul>
 </home>

@@ -1,4 +1,4 @@
-<standings-table>
+<competition-standings-table>
   <table>
     <tr each={ standings }>
       <td>{ rank }</td>
@@ -14,4 +14,4 @@
 
   <script type="coffee">
   </script>
-</standings-table>
+</competition-standings-table>

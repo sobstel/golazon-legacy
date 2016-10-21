@@ -1,13 +1,15 @@
 <standings>
   <div each={ this.rounds }>
-    <h2>{ name }</h2>
+    <h3>{ name }</h3>
 
-    <standings-table if={ standings }></standings-table>
+    <section if={ !groups }>
+      <standings-table></standings-table>
+    </section>
 
-    <div each={ groups } if={ groups }>
-      <h3>{ name }</h3>
+    <section each={ groups } if={ groups }>
+      <h4>{ name }</h4>
       <standings-table if={ standings }></standings-table>
-    </div>
+    </section>
   </div>
 
   <script type="coffee">

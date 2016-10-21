@@ -13,6 +13,5 @@
   </table>
 
   <script type="coffee">
-
   </script>
 </standings-table>

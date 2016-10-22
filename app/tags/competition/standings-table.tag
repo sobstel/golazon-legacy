@@ -2,7 +2,7 @@
   <table>
     <tr each={ standings }>
       <td>{ rank }</td>
-      <td>{ team_name }</td>
+      <td class="cell--non-numeric">{ team_name }</td>
       <td>{ matches }</td>
       <td>{ won }</td>
       <td>{ draw }</td>
@@ -14,4 +14,18 @@
 
   <script type="coffee">
   </script>
+
+  <style type="scss">
+    competition-standings-table {
+      table {
+        width: 100%;
+      }
+      td {
+        text-align: right;
+      }
+      td.cell--non-numeric {
+        text-align: left;
+      }
+    }
+  </style>
 </competition-standings-table>

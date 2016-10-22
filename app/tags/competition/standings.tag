@@ -7,7 +7,7 @@
     </section>
 
     <section each={ groups } if={ groups }>
-      <h4>{ name }</h4>
+      <h3>{ name }</h3>
       <competition-standings-table if={ standings }></competition-standings-table>
     </section>
   </div>
@@ -22,4 +22,10 @@
         this.rounds = rounds
         this.update()
   </script>
+
+  <style type="scss">
+    competition-standings {
+      max-width: 320px;
+    }
+  </style>
 </competition-standings>

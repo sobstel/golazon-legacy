@@ -9,6 +9,7 @@
     "clean-css-brunch": "^2.0.0",
     "coffee-script-brunch": "^2.0.0",
     "html-pages-brunch": "^2.4.0",
+    "normalize.css": "^5.0.0",
     "replace-in-file": "^2.0.1",
     "riot": "^2.6.3",
     "riot-brunch": "^0.0.4",

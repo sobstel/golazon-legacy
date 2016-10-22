@@ -1,5 +1,7 @@
 <app>
-  <div id="main"></div>
+  <div>
+    <div id="main"></div>
+  </div>
 
   <script type="coffee">
     riot.route.base '/'
@@ -21,8 +23,12 @@
   </script>
 
   <style type="scss">
-    body {
-      font: medium Roboto;
+    app {
+      #main {
+        min-width: 320px;
+        max-width: 640px;
+        margin: auto;
+      }
     }
   </style>
 </app>

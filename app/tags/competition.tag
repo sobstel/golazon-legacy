@@ -1,6 +1,7 @@
 <competition>
   <h2>{this.competition.area_name} / { this.competition.name } / { this.competition.season.name }</h2>
 
+  <!-- <competition-matches></competition-matches> -->
   <competition-standings if={ competition }></competition-standings>
 
   <script type="coffee">

@@ -1,3 +1,3 @@
 <error404>
-  <p>404</p>
+  <p>Not found. Go <a href="/">home</a>.</p>
 </error404>

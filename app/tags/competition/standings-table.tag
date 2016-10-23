@@ -1,8 +1,8 @@
 <competition-standings-table>
-  <table>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
     <tr each={ standings }>
       <td>{ rank }</td>
-      <td class="cell--non-numeric">{ team_name }</td>
+      <td class="mdl-data-table__cell--non-numeric">{ team_name }</td>
       <td>{ matches }</td>
       <td>{ won }</td>
       <td>{ draw }</td>
@@ -17,15 +17,6 @@
 
   <style type="scss">
     competition-standings-table {
-      table {
-        width: 100%;
-      }
-      td {
-        text-align: right;
-      }
-      td.cell--non-numeric {
-        text-align: left;
-      }
     }
   </style>
 </competition-standings-table>

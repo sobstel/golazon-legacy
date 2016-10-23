@@ -1,6 +1,49 @@
-@import 'normalize';
+@import "primer-support/index.scss";
+@import "primer-base/index.scss";
 
-body {
-  font-family: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: medium;
+// @import "primer-utilities/index.scss";
+// @import "./lib/animations.scss";
+// @import "./lib/border.scss";
+// @import "./lib/colors.scss";
+// @import "./lib/layout.scss";
+// @import "./lib/margin.scss";
+// @import "./lib/padding.scss";
+// @import "./lib/typography.scss";
+
+@import "primer-forms/index.scss";
+@import "primer-layout/index.scss";
+// @import "primer-buttons/index.scss";
+// @import "primer-alerts/index.scss";
+// @import "primer-avatars/index.scss";
+// @import "primer-blankslate/index.scss";
+// @import "primer-navigation/index.scss";
+// @import "primer-states/index.scss";
+// @import "primer-tooltips/index.scss";
+// @import "primer-markdown/index.scss";
+//
+// @import "primer-flex-table/index.scss";
+// @import "primer-truncate/index.scss";
+
+@import "variables.scss";
+
+a {
+  color: $text-orange;
+}
+
+li {
+  list-style-type: none;
+}
+
+.container {
+  width: 100%;
+  min-width: ($min-column-size * 2);
+  max-width: ($max-column-size * 2);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box {
+  width: 49%;
+  min-width: $min-column-size;
+  max-width: $max-column-size;
 }

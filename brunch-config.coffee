@@ -20,9 +20,7 @@ exports.config =
     sass:
       mode: 'native'
       options:
-        includePaths: [
-          'node_modules/normalize.css/'
-        ]
+        includePaths: ['node_modules']
 
   npm:
     enabled: true

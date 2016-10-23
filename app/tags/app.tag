@@ -1,6 +1,8 @@
 <app>
-  <div>
-    <div id="main"></div>
+  <app-header></app-header>
+
+  <div class="container">
+    <div id="main" class="page-content"></div>
   </div>
 
   <script type="coffee">
@@ -23,12 +25,8 @@
   </script>
 
   <style type="scss">
-    app {
-      #main {
-        min-width: 320px;
-        max-width: 640px;
-        margin: auto;
-      }
+    .page-content {
+      padding: 10px 0;
     }
   </style>
 </app>

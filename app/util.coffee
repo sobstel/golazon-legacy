@@ -9,3 +9,8 @@ require.register 'util', (exports, require, module) ->
           # TODO: proper error handling
           console.log err.message if err
           callback res.body
+
+  exports.title = (title) ->
+    console.log(document.title)
+    document.title = title + ' - Golazon'
+    console.log(document.title)

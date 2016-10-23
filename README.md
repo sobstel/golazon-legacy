@@ -15,7 +15,7 @@ Golazon
 
 ## Decisions
 
-* Stack: Riot.js, CoffeeScript, SCSS.
+* Stack: Riot.js, CoffeeScript, SCSS, [Primer](http://primercss.io/).
 * Build tools: brunch, npm.
 * Architecture: static SPA site (hosted at GitHub) + external API.
 * No images (except inline svg logo and 3rd party material icons)

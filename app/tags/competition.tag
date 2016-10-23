@@ -1,5 +1,5 @@
 <competition>
-  <h2>{this.competition.area_name} / { this.competition.name } / { this.competition.season.name }</h2>
+  <h2>{ this.full_name }</h2>
 
   <!-- <competition-matches></competition-matches> -->
   <competition-standings if={ competition }></competition-standings>
@@ -10,6 +10,9 @@
     this.on 'mount', () =>
       util.request '/competition/' + opts.competition_id, (competition) =>
         this.competition = competition
+        this.full_name = competition.name + ' ' + competition.season.name + ' - ' + competition.area_name
         this.update()
+
+        util.title this.full_name
   </script>
 </competition>

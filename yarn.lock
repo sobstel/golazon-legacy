@@ -2142,108 +2142,16 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-primer-alerts@*:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/primer-alerts/-/primer-alerts-0.3.1.tgz#f8483d491bd44551051bcff9f023a2a9e3a8b79a"
-  dependencies:
-    primer-support "*"
-
-primer-avatars@*:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/primer-avatars/-/primer-avatars-0.2.4.tgz#3b159b0f36680bbd53de0b80a18847a0e94900b9"
-  dependencies:
-    primer-support "*"
-
-primer-base@*:
+primer-base:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/primer-base/-/primer-base-0.3.0.tgz#c6f41c95fb458ac388eedc06f931550773f52cbd"
   dependencies:
     normalize.css "4.1.1"
     primer-support "*"
 
-primer-blankslate@*:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/primer-blankslate/-/primer-blankslate-0.2.4.tgz#d9aa7f2b0cdd1418c0b27b946fbb6873503123df"
-
-primer-buttons@*:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/primer-buttons/-/primer-buttons-0.3.1.tgz#4cebfb8c8d90c1172a9693462e6eb8789433675a"
-  dependencies:
-    primer-support "*"
-
-primer-css:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/primer-css/-/primer-css-4.2.0.tgz#8139e4960c74815c8b74f7490792cd558a96ef12"
-  dependencies:
-    primer-alerts "*"
-    primer-avatars "*"
-    primer-base "*"
-    primer-blankslate "*"
-    primer-buttons "*"
-    primer-flex-table "*"
-    primer-forms "*"
-    primer-layout "*"
-    primer-markdown "*"
-    primer-navigation "*"
-    primer-states "*"
-    primer-support "*"
-    primer-tooltips "*"
-    primer-truncate "*"
-    primer-utilities "*"
-
-primer-flex-table@*:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/primer-flex-table/-/primer-flex-table-0.2.4.tgz#3fd5c44355ac3a3a90306c5d02273e565c6734b4"
-
-primer-forms@*:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/primer-forms/-/primer-forms-0.5.0.tgz#6f67e4d15b77af77e0f1141beaa12a7582a92f62"
-  dependencies:
-    primer-support "*"
-
-primer-layout@*:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/primer-layout/-/primer-layout-0.2.4.tgz#36b86fbc77d15350f1a816ee4df3da51d0495d64"
-  dependencies:
-    primer-support "*"
-
-primer-markdown@*:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/primer-markdown/-/primer-markdown-3.3.1.tgz#163a337ddf15823baae9ea2043b228c404ce9e34"
-  dependencies:
-    primer-support "*"
-
-primer-navigation@*:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/primer-navigation/-/primer-navigation-0.5.0.tgz#32c5a4d53ae00e59b3ea2a674a6123739dbd7c70"
-  dependencies:
-    primer-support "*"
-
-primer-states@*:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/primer-states/-/primer-states-0.3.0.tgz#3c5911e2a431b11dc02f53e3c267fd1f63a074c7"
-  dependencies:
-    primer-support "*"
-
-primer-support@*:
+primer-support, primer-support@*:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/primer-support/-/primer-support-0.6.0.tgz#94541399e16574f8aa618d9fc99746670782b2b2"
-
-primer-tooltips@*:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/primer-tooltips/-/primer-tooltips-0.4.0.tgz#d336f80d1e65a8d0b954ba63c12c4a4decd9fea2"
-  dependencies:
-    primer-support "*"
-
-primer-truncate@*:
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/primer-truncate/-/primer-truncate-0.2.4.tgz#e1f5e76dba5d172d130bdcc4d54ae033c30a698c"
-
-primer-utilities@*:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/primer-utilities/-/primer-utilities-1.0.0.tgz#4b347a11315304cd5bc04c4f742b0147ea6cd9af"
-  dependencies:
-    primer-support "*"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"

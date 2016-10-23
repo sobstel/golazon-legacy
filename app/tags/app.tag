@@ -1,8 +1,8 @@
 <app>
   <app-header></app-header>
 
-  <div class="container">
-    <div id="main" class="page-content"></div>
+  <div class="page__container">
+    <div id="main" class="page__content"></div>
   </div>
 
   <script type="coffee">
@@ -25,7 +25,12 @@
   </script>
 
   <style type="scss">
-    .page-content {
+    @import 'app/support.scss';
+
+    .page__container {
+      @include container();
+    }
+    .page__content {
       padding: 10px 0;
     }
   </style>

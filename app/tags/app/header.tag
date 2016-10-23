@@ -1,14 +1,20 @@
 <app-header>
-  <header>
-    <div class="container clearfix">
-      <div class="box">
-        <a href="/" class="logo"></a>
+  <header class="header__wrapper">
+    <div class="header__container">
+      <div class="header__main">
+        <a href="/" class="header__logo"></a>
 
-        <form role="search">
-          <input type="text" class="form-control" data-hotkey="s" name="q" placeholder="Search Golazon" aria-label="Search Golazon" autocapitalize="words">
+        <form role="search" class="header__search">
+          <input type="text"
+            class="header__search__input"
+            data-hotkey="s"
+            name="q"
+            placeholder="Search for competition"
+            aria-label="Search for competition"
+            autocapitalize="words">
         </form>
       </div>
-      <div class="box nav">
+      <div class="header__nav">
         <ul>
           <li><a href="/wtf">WTF?</a></li>
         </ul>
@@ -20,57 +26,62 @@
   </script>
 
   <style type="scss">
-    @import 'app/variables.scss';
+    @import 'app/support.scss';
 
-    header {
+    $nav-height: 44px;
+
+    .header__wrapper {
       padding: 10px 0;
       background-color: $bg-gray;
       border-bottom: 1px solid $border-gray;
     }
 
-    .header--container {
+    .header__container {
       @include container();
+      @include clearfix();
     }
 
-    .header--column {
-      @include column(left);
+    .header__main {
+      @include column();
     }
 
-    header .box {
-      float: left;
-    }
-
-    header .nav {
-      line-height: 44px;
-
-      ul {
-        margin-left: 10px;
-      }
-
-      a {
-        text-decoration: none;
-        font-weight: 600;
-        color: #333;
-      }
-    }
-
-
-    header .logo {
+    .header__logo {
       float: left;
       margin-left: -2px;
       margin-right: 10px;
       display: inline-block;
-      width: 44px;
-      height: 44px;
+      width: $nav-height;
+      height: $nav-height;
       background-image: url($logo-svg);
       background-size: contain;
     }
-    header form {
+
+    .header__search {
       overflow: auto;
       margin: 6px 0;
 
-      input.form-control {
-        width: 99%;
+      &__input {
+        border-radius: $border-radius;
+        border: 1px solid $border-gray-dark;
+        line-height: 20px;
+        min-height: 34px;
+        color: $gray-dark;
+        padding: 6px 8px;
+        width: 100%;
+      }
+    }
+
+    .header__nav {
+      @include column();
+      line-height: $nav-height;
+
+      ul {
+        margin-left: 10px;
+      }
+      a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #333;
       }
     }
   </style>

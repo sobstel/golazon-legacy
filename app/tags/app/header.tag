@@ -1,24 +1,15 @@
 <app-header>
-  <header class="header__wrapper">
+  <header class="header__wrap">
     <div class="header__container">
-      <div class="header__main">
-        <a href="/" class="header__logo"></a>
+      <a href="/" class="header__logo"></a>
 
-        <form role="search" class="header__search">
-          <input type="text"
-            class="header__search__input"
-            data-hotkey="s"
-            name="q"
-            placeholder="Search for competition"
-            aria-label="Search for competition"
-            autocapitalize="words">
-        </form>
-      </div>
-      <div class="header__nav">
-        <ul>
-          <li><a href="/wtf">WTF?</a></li>
-        </ul>
-      </div>
+      <form role="search" class="header__search">
+        <input type="text"
+          class="header__search__input"
+          data-hotkey="s"
+          name="q"
+          placeholder="Type country or competition name">
+      </form>
     </div>
   </header>
 
@@ -30,8 +21,7 @@
 
     $nav-height: 44px;
 
-    .header__wrapper {
-      padding: 10px 0;
+    .header__wrap {
       background-color: $bg-gray;
       border-bottom: 1px solid $border-gray;
     }
@@ -39,10 +29,9 @@
     .header__container {
       @include container();
       @include clearfix();
-    }
 
-    .header__main {
-      @include column();
+      padding-top: 6px;
+      padding-bottom: 6px;
     }
 
     .header__logo {
@@ -58,30 +47,26 @@
 
     .header__search {
       overflow: auto;
-      margin: 6px 0;
+      padding: 4px 0;
+      max-width: 400px;
 
       &__input {
         border-radius: $border-radius;
         border: 1px solid $border-gray-dark;
         line-height: 20px;
-        min-height: 34px;
+        min-height: ($nav-height - 8px);
         color: $gray-dark;
         padding: 6px 8px;
         width: 100%;
-      }
-    }
 
-    .header__nav {
-      @include column();
-      line-height: $nav-height;
+        @media screen and (-webkit-min-device-pixel-ratio: 0) {
+          font-size: 16px;
+        }
 
-      ul {
-        margin-left: 10px;
-      }
-      a {
-        text-decoration: none;
-        font-weight: 600;
-        color: #333;
+        &:focus {
+          outline: none;
+          border: 1px solid $border-orange;
+        }
       }
     }
   </style>

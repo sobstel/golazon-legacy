@@ -1,9 +1,13 @@
 <app>
-  <app-header></app-header>
+  <div class="page__wrap">
+    <app-header></app-header>
 
-  <div class="page__container">
-    <div id="main" class="page__content"></div>
+    <div class="page__content">
+      <div id="main"></div>
+    </div>
   </div>
+
+  <app-footer></app-footer>
 
   <script type="coffee">
     riot.route.base '/'
@@ -27,11 +31,20 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .page__container {
-      @include container();
+    .page__wrap {
+      min-height: 100%;
+      margin-bottom: -$footer-height;
     }
+    .page__wrap:after {
+      content: "";
+      display: block;
+      height: $footer-height;
+    }
+
     .page__content {
-      padding: 10px 0;
+      @include container();
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   </style>
 </app>

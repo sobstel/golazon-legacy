@@ -10,7 +10,6 @@
     "coffee-script-brunch": "^2.0.0",
     "html-pages-brunch": "^2.4.0",
     "primer-base": "^0.3.0",
-    "primer-support": "^0.6.0",
     "replace-in-file": "^2.0.1",
     "riot": "^2.6.3",
     "riot-brunch": "^0.0.4",

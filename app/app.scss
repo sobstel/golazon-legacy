@@ -1,5 +1,10 @@
 @import "./support.scss";
-@import "node_modules/primer-base/index.scss";
+
+@import 'node_modules/primer-base/index.scss';
+
+html, body {
+  height: 100%;
+}
 
 a {
   color: $text-orange;

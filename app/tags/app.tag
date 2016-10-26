@@ -42,9 +42,11 @@
     }
 
     .page__content {
+      font-size: 13px;
+
       @include container();
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
   </style>
 </app>

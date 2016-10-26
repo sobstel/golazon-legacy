@@ -1,15 +1,17 @@
 <competition-standings>
-  <div each={ this.rounds }>
-    <h3>{ name }</h3>
+  <div class="standings__wrap">
+    <div each={ this.rounds }>
+      <h2>{ name }</h2>
 
-    <section if={ !groups }>
-      <competition-standings-table></competition-standings-table>
-    </section>
+      <section if={ !groups }>
+        <competition-standings-table></competition-standings-table>
+      </section>
 
-    <section each={ groups } if={ groups }>
-      <h3>{ name }</h3>
-      <competition-standings-table if={ standings }></competition-standings-table>
-    </section>
+      <section each={ groups } if={ groups }>
+        <h3>{ name }</h3>
+        <competition-standings-table if={ standings }></competition-standings-table>
+      </section>
+    </div>
   </div>
 
   <script type="coffee">
@@ -24,8 +26,14 @@
   </script>
 
   <style type="scss">
-    competition-standings {
-      max-width: 320px;
+    @import 'app/support.scss';
+
+    .standings__wrap {
+      @include column();
+
+      h2 {
+        padding: 0 10px;
+      }
     }
   </style>
 </competition-standings>

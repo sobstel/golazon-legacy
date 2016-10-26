@@ -8,7 +8,7 @@
           class="header__search__input"
           data-hotkey="s"
           name="q"
-          placeholder="Type country or competition name">
+          placeholder="Search Golazon">
       </form>
     </div>
   </header>
@@ -19,7 +19,7 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    $nav-height: 44px;
+    $logo-size: 35px;
 
     .header__wrap {
       background-color: $bg-gray;
@@ -28,40 +28,39 @@
 
     .header__container {
       @include container();
-      @include clearfix();
+      @include container-padding();
+      overflow: visible;
 
-      padding-top: 6px;
-      padding-bottom: 6px;
+      padding-top: 10px;
+      padding-bottom: 10px;
     }
 
     .header__logo {
-      float: left;
-      margin-left: -2px;
-      margin-right: 10px;
-      display: inline-block;
-      width: $nav-height;
-      height: $nav-height;
-      background-image: url($logo-svg);
-      background-size: contain;
+      display: none;
+    }
+
+    @media (min-width: ($max-container-size + $logo-size * 2 + 20px)) {
+      .header__logo {
+        float: left;
+        margin-left: -($logo-size + 12px);
+        display: inline-block;
+        width: $logo-size;
+        height: $logo-size;
+        background-image: url($logo-svg);
+        background-size: contain;
+      }
     }
 
     .header__search {
       overflow: auto;
-      padding: 4px 0;
-      max-width: 400px;
+      max-width: ($max-container-size - 250px);
+      margin-left: -1px;
 
       &__input {
-        border-radius: $border-radius;
         border: 1px solid $border-gray-dark;
-        line-height: 20px;
-        min-height: ($nav-height - 8px);
         color: $gray-dark;
         padding: 6px 8px;
         width: 100%;
-
-        @media screen and (-webkit-min-device-pixel-ratio: 0) {
-          font-size: 16px;
-        }
 
         &:focus {
           outline: none;

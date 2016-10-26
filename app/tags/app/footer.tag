@@ -28,16 +28,15 @@
 
     .footer__container {
       @include container();
+      @include container-padding();
     }
 
     .footer__nav {
       @include column();
 
-      ul {
-        margin-left: 10px;
-      }
       li {
         display: inline;
+        margin-right: 10px;
         line-height: $footer-height;
         font-size: 12px;
         font-style: italic;

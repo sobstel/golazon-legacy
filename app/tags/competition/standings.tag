@@ -1,14 +1,14 @@
 <competition-standings>
-  <div class="standings__container">
-    <div each={ this.rounds }>
-      <h2>{ name }</h2>
+  <div class="standings__container column">
+    <div each={ this.rounds } class="standings">
+      <h2 class="hpadding">{ name }</h2>
 
       <section if={ !groups }>
         <competition-standings-table></competition-standings-table>
       </section>
 
       <section each={ groups } if={ groups }>
-        <h3>{ name }</h3>
+        <h3 class="hpadding">{ name }</h3>
         <competition-standings-table if={ standings }></competition-standings-table>
       </section>
     </div>
@@ -27,13 +27,5 @@
 
   <style type="scss">
     @import 'app/support.scss';
-
-    .standings__container {
-      @include column-layout();
-
-      h2 {
-        /*padding: 0 10px;*/
-      }
-    }
   </style>
 </competition-standings>

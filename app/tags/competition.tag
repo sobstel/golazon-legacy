@@ -1,5 +1,5 @@
 <competition class="competition">
-  <h1 class="competition__title">{ this.full_name }</h1>
+  <h1 class="competition__title hpadding">{ this.full_name }</h1>
 
   <div class="competition__container">
     <!-- <competition-matches></competition-matches> -->
@@ -19,6 +19,10 @@
   </script>
 
   <style type="scss">
+    @import 'app/support.scss';
+
+    .competition__title {
+    }
     .competition__container {
       overflow: auto;
     }

@@ -1,21 +1,21 @@
 <competition-standings-table>
-  <table class="standings-table">
+  <table>
     <thead>
       <tr>
-        <th class="standings-table__cell standings-table__cell--head">&nbsp;</th>
-        <th class="standings-table__cell standings-table__cell--head standings-table__cell--team">Team</th>
-        <th class="standings-table__cell standings-table__cell--head"><acronym title="Matches Played">MP</acronym></th>
-        <th class="standings-table__cell standings-table__cell--head"><acronym title="Goals For / Goals Against">GF&#8209;GA</acronym></th>
-        <th class="standings-table__cell standings-table__cell--head"><acronym title="Points">Pts</acronym></th>
+        <th>&nbsp;</th>
+        <th class="standings__cell--team">Team</th>
+        <th><acronym title="Matches Played">MP</acronym></th>
+        <th><acronym title="Goals For / Goals Against">GF&#8209;GA</acronym></th>
+        <th><acronym title="Points">Pts</acronym></th>
       </tr>
     </thead>
     <tbody>
-      <tr each={ standings } class="standings-table__row">
-        <td class="standings-table__cell standings-table__cell--rank" data-zone="{ zone }"><span>{ rank }</span></td>
-        <td class="standings-table__cell standings-table__cell--team" title="{ team_name }">{ team_name }</td>
-        <td class="standings-table__cell">{ matches }</td>
-        <td class="standings-table__cell">{ goals_for }&nbsp;-&nbsp;{ goals_against }</td>
-        <td class="standings-table__cell standings-table__cell--pts">{ points }</td>
+      <tr each={ standings } class="standings__row">
+        <td class="standings__cell--rank" data-zone="{ zone }"><span>{ rank }</span></td>
+        <td class="standings__cell--team" title="{ team_name }">{ team_name }</td>
+        <td>{ matches }</td>
+        <td>{ goals_for }&nbsp;-&nbsp;{ goals_against }</td>
+        <td class="standings__cell--pts">{ points }</td>
       </tr>
     </tbody>
   </table>
@@ -29,28 +29,33 @@
     $standings-border-color: #ddd;
     $blurred-text-color: #888;
 
-    .standings-table {
-      margin: 10px 0;
-      width: 100%;
+    .standings {
+      table {
+        margin: 10px 0;
+        width: 100%;
+        background: #f9f9f9;
+      }
 
-      background: #f9f9f9;
-
-      &__row {
+      tbody tr {
         border-top: 1px solid $standings-border-color;
       }
 
-      &__cell {
+      th,
+      td {
         text-align: center;
         padding: 10px 7px;
+      }
 
-        &--head {
-          text-align: center;
-          color: $blurred-text-color;
-          font-weight: normal;
-        }
+      th {
+        text-align: center;
+        color: $blurred-text-color;
+        font-weight: normal;
+      }
+
+      &__cell {
         &--team {
+          text-align: left !important;
           font-weight: 500;
-          text-align: left;
         }
         &--rank {
           color: $blurred-text-color;

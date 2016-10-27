@@ -1,6 +1,6 @@
 <app-header>
   <div class="header__wrapper">
-    <header class="header__container">
+    <header class="header__container block hpadding">
       <a href="/" class="header__logo"></a>
 
       <form role="search" class="header__search">
@@ -28,7 +28,6 @@
     }
 
     .header__container {
-      @include block-layout();
       padding-top: 10px;
       padding-bottom: 10px;
     }
@@ -63,7 +62,7 @@
 
         &:focus {
           outline: none;
-          border: 1px solid $action-color;
+          border: 1px solid $search-border-focus-color;
         }
       }
     }

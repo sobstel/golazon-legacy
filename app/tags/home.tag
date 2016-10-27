@@ -1,5 +1,5 @@
 <home>
-  <ul class="home-list">
+  <ul class="home-list hpadding">
     <li class="home-list__item"><a href="/c/04">Premier League</a></li>
     <li class="home-list__item"><a href="/c/80">La Liga</a></li>
     <li class="home-list__item"><a href="/c/rw">Serie A</a></li>
@@ -8,4 +8,16 @@
     <li class="home-list__item"><a href="/c/2e0">Ekstraklasa</a></li>
     <li class="home-list__item"><a href="/c/5d">Champions League</a></li>
   </ul>
+
+  <script type="coffee">
+    util = require 'util'
+
+    this.on 'mount', () =>
+      util.title 'Golazon'
+  </script>
+
+  <style type="scss">
+    @import 'app/support.scss';
+
+  </style>
 </home>

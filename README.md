@@ -15,9 +15,16 @@ Golazon
 
 ## Decisions
 
-* Stack: Riot.js, CoffeeScript, SCSS, BEM, [Primer](http://primercss.io/).
+* Stack: Riot.js, CoffeeScript, SCSS. See package.json for more.
 * Build tools: brunch, npm.
 * Architecture: static SPA site (hosted at GitHub) + external API.
 * No images, except inline svg logo or icons (if any).
   * Too much weight, too much data to transfer and it's supposed to be extremely lightweight.
-* No general live matches page. Live matches only at competition/team/match page.
+
+## Technical
+
+### General styles
+
+* block - full width block
+* column - one of 2 columns
+* hpadding - standard hortizonal padding

@@ -2,7 +2,7 @@
   <div class="app__container">
     <app-header></app-header>
 
-    <div class="app__content">
+    <div class="app__content block">
       <div id="main"></div>
     </div>
   </div>
@@ -44,8 +44,6 @@
 
     .app__content {
       font-size: $content-font-size;
-
-      @include block-layout();
 
       padding-top: 10px;
       padding-bottom: 10px;

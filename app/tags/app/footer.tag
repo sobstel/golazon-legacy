@@ -1,6 +1,6 @@
 <app-footer>
   <div class="footer__wrapper">
-    <footer class="footer__container">
+    <footer class="footer__container block hpadding">
       <ul class="footer__nav">
         <li>This is just a prototype.</li>
         <li><a href="/wtf">WTF?</a></li>
@@ -21,7 +21,6 @@
     }
 
     .footer__container {
-      @include block-layout();
     }
 
     .footer__nav {

@@ -3,6 +3,7 @@
 @import 'node_modules/primer-base/index.scss';
 
 html, body {
+  // needed for sticky footer
   height: 100%;
 }
 
@@ -19,7 +20,7 @@ h3 {
 }
 
 a {
-  color: $text-orange;
+  color: $action-color;
 }
 
 li {

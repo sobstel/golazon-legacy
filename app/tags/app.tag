@@ -1,8 +1,8 @@
 <app>
-  <div class="page__wrap">
+  <div class="app__container">
     <app-header></app-header>
 
-    <div class="page__content">
+    <div class="app__content">
       <div id="main"></div>
     </div>
   </div>
@@ -31,20 +31,22 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .page__wrap {
+    .app__container {
       min-height: 100%;
       margin-bottom: -$footer-height;
     }
-    .page__wrap:after {
+
+    .app__container:after {
       content: "";
       display: block;
       height: $footer-height;
     }
 
-    .page__content {
-      font-size: 13px;
+    .app__content {
+      font-size: $content-font-size;
 
-      @include container();
+      @include block-layout();
+
       padding-top: 10px;
       padding-bottom: 10px;
     }

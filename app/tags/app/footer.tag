@@ -1,14 +1,12 @@
 <app-footer>
-  <footer class="footer__wrap">
-    <div class="footer__container">
-      <div class="footer__nav">
-        <ul>
-          <li>This is just a mere prototype.</li>
-          <li><a href="/wtf">WTF?</a></li>
-        </ul>
-      </div>
-    </div>
-  </footer>
+  <div class="footer__wrapper">
+    <footer class="footer__container">
+      <ul class="footer__nav">
+        <li>This is just a prototype.</li>
+        <li><a href="/wtf">WTF?</a></li>
+      </ul>
+    </footer>
+  </div>
 
   <script type="coffee">
   </script>
@@ -16,29 +14,22 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    app-footer {
-      display: block;
-    }
-
-    .footer__wrap {
-      border-top: 1px solid $border-gray;
+    .footer__wrapper {
+      border-top: 1px solid $footer-border-color;
       height: $footer-height;
-      background-color: $bg-gray;
+      background-color: $footer-bg-color;
     }
 
     .footer__container {
-      @include container();
-      @include container-padding();
+      @include block-layout();
     }
 
     .footer__nav {
-      @include column();
-
       li {
         display: inline;
         margin-right: 10px;
         line-height: $footer-height;
-        font-size: 12px;
+        font-size: $footer-font-size;
         font-style: italic;
       }
     }

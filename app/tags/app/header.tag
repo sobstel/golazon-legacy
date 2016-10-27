@@ -1,6 +1,6 @@
 <app-header>
-  <header class="header__wrap">
-    <div class="header__container">
+  <div class="header__wrapper">
+    <header class="header__container">
       <a href="/" class="header__logo"></a>
 
       <form role="search" class="header__search">
@@ -10,8 +10,8 @@
           name="q"
           placeholder="Search Golazon">
       </form>
-    </div>
-  </header>
+    </header>
+  </div>
 
   <script type="coffee">
   </script>
@@ -21,16 +21,14 @@
 
     $logo-size: 35px;
 
-    .header__wrap {
-      background-color: $bg-gray;
-      border-bottom: 1px solid $border-gray;
+    .header__wrapper {
+      background-color: $header-bg-color;
+      border-bottom: 1px solid $header-border-color;
+      font-size: $header-font-size;
     }
 
     .header__container {
-      @include container();
-      @include container-padding();
-      overflow: visible;
-
+      @include block-layout();
       padding-top: 10px;
       padding-bottom: 10px;
     }
@@ -39,7 +37,7 @@
       display: none;
     }
 
-    @media (min-width: ($max-container-size + $logo-size * 2 + 20px)) {
+    @media (min-width: ($big-screen-width + $logo-size * 2 + 20px)) {
       .header__logo {
         float: left;
         margin-left: -($logo-size + 12px);
@@ -53,18 +51,19 @@
 
     .header__search {
       overflow: auto;
-      max-width: ($max-container-size - 250px);
       margin-left: -1px;
 
       &__input {
-        border: 1px solid $border-gray-dark;
-        color: $gray-dark;
+        border: 1px solid $search-border-color;
+        color: $footer-text-color;
         padding: 6px 8px;
         width: 100%;
+        max-width: ($big-screen-width - 20px);
+        font-size: $search-input-font-size;
 
         &:focus {
           outline: none;
-          border: 1px solid $border-orange;
+          border: 1px solid $action-color;
         }
       }
     }

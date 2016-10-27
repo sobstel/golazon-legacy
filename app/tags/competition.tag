@@ -1,8 +1,10 @@
 <competition class="competition">
   <h1 class="competition__title">{ this.full_name }</h1>
 
-  <!-- <competition-matches></competition-matches> -->
-  <competition-standings if={ competition }></competition-standings>
+  <div class="competition__container">
+    <!-- <competition-matches></competition-matches> -->
+    <competition-standings if={ competition }></competition-standings>
+  </div>
 
   <script type="coffee">
     util = require 'util'
@@ -17,8 +19,8 @@
   </script>
 
   <style type="scss">
-    .competition__title {
-      padding: 0 10px;
+    .competition__container {
+      overflow: auto;
     }
   </style>
 </competition>

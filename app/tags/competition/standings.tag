@@ -1,5 +1,5 @@
 <competition-standings>
-  <div class="standings__wrap">
+  <div class="standings__container">
     <div each={ this.rounds }>
       <h2>{ name }</h2>
 
@@ -28,11 +28,11 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .standings__wrap {
-      @include column();
+    .standings__container {
+      @include column-layout();
 
       h2 {
-        padding: 0 10px;
+        /*padding: 0 10px;*/
       }
     }
   </style>

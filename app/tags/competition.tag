@@ -21,10 +21,10 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .competition__title {
-    }
-    .competition__container {
-      overflow: auto;
+    .competition {
+      &__container {
+        overflow: auto;
+      }
     }
   </style>
 </competition>

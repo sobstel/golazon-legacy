@@ -5,14 +5,17 @@
       Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
     <p>
     <p>
-      Golazon is a prototype, an early release of a product built to test a concept. Things may break. You have been warned.
+      Golazon is <strong>a prototype</strong> built to test a concept.
+      Things may break. You have been warned.
     </p>
     <p>
       Data API is proprietary yet it's prototype either. There's no proper infrastructure behind it
       and it's not ready nor optimized for even small traffic. Not for commercial use!
     </p>
     <p>
-      Golazon is <a href="https://github.com/sobstel/golazon">open sourced</a>.
+      Golazon is an <a href="https://github.com/sobstel/golazon">open source</a> project.
+      <a href="https://github.com/sobstel/golazon/issues">Report a bug</a>
+      or <a href="https://github.com/sobstel/golazon/pulls">fix yourself</a>.
     </p>
     <p>
       Drop me a line if you feel like helping or funding this project to grow ;-)

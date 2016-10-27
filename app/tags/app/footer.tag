@@ -14,22 +14,24 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .footer__wrapper {
-      border-top: 1px solid $footer-border-color;
-      height: $footer-height;
-      background-color: $footer-bg-color;
-    }
+    .footer {
+      &__wrapper {
+        border-top: 1px solid $footer-border-color;
+        height: $footer-height;
+        background-color: $footer-bg-color;
+      }
 
-    .footer__container {
-    }
+      &__container {
+      }
 
-    .footer__nav {
-      li {
-        display: inline;
-        margin-right: 10px;
-        line-height: $footer-height;
-        font-size: $footer-font-size;
-        font-style: italic;
+      &__nav {
+        li {
+          display: inline;
+          margin-right: 10px;
+          line-height: $footer-height;
+          font-size: $footer-font-size;
+          font-style: italic;
+        }
       }
     }
   </style>

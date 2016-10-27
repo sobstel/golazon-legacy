@@ -31,22 +31,24 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .app__container {
-      min-height: 100%;
-      margin-bottom: -$footer-height;
-    }
+    .app {
+      &__container {
+        min-height: 100%;
+        margin-bottom: -$footer-height;
+      }
 
-    .app__container:after {
-      content: "";
-      display: block;
-      height: $footer-height;
-    }
+      &__container:after {
+        content: "";
+        display: block;
+        height: $footer-height;
+      }
 
-    .app__content {
-      font-size: $content-font-size;
+      &__content {
+        font-size: $content-font-size;
 
-      padding-top: 10px;
-      padding-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
   </style>
 </app>

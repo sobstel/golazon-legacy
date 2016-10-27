@@ -21,48 +21,48 @@
 
     $logo-size: 35px;
 
-    .header__wrapper {
-      background-color: $header-bg-color;
-      border-bottom: 1px solid $header-border-color;
-      font-size: $header-font-size;
-    }
-
-    .header__container {
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-
-    .header__logo {
-      display: none;
-    }
-
-    @media (min-width: ($big-screen-width + $logo-size * 2 + 20px)) {
-      .header__logo {
-        float: left;
-        margin-left: -($logo-size + 12px);
-        display: inline-block;
-        width: $logo-size;
-        height: $logo-size;
-        background-image: url($logo-svg);
-        background-size: contain;
+    .header {
+      &__wrapper {
+        background-color: $header-bg-color;
+        border-bottom: 1px solid $header-border-color;
+        font-size: $header-font-size;
       }
-    }
 
-    .header__search {
-      overflow: auto;
-      margin-left: -1px;
+      &__container {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
 
-      &__input {
-        border: 1px solid $search-border-color;
-        color: $footer-text-color;
-        padding: 6px 8px;
-        width: 100%;
-        max-width: ($big-screen-width - 20px);
-        font-size: $search-input-font-size;
+      &__logo {
+        display: none;
 
-        &:focus {
-          outline: none;
-          border: 1px solid $search-border-focus-color;
+        @media (min-width: ($big-screen-width + $logo-size * 2 + 20px)) {
+          float: left;
+          display: inline-block;
+          margin-left: -($logo-size + 10px);
+          width: $logo-size;
+          height: $logo-size;
+          background-image: url($logo-svg);
+          background-size: contain;
+        }
+      }
+
+      &__search {
+        overflow: auto;
+        margin-left: -1px;
+
+        &__input {
+          border: 1px solid $search-border-color;
+          color: $footer-text-color;
+          padding: 6px 8px;
+          width: 100%;
+          max-width: ($big-screen-width - 20px);
+          font-size: $search-input-font-size;
+
+          &:focus {
+            outline: none;
+            border: 1px solid $search-border-focus-color;
+          }
         }
       }
     }

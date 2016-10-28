@@ -14,7 +14,7 @@ assets.forEach(function(file) {
   let fileContent = fs.readFileSync(publicDir + file, 'utf-8');
   let newFile = file.replace('.', '.' + hash(fileContent).toString(36) + '.');
 
-  fs.rename(publicDir + file, publicDir + newFile);
+  fs.renameSync(publicDir + file, publicDir + newFile);
 
   let changedFiles = replace.sync({
     files: [
@@ -26,7 +26,5 @@ assets.forEach(function(file) {
     with: newFile,
   });
 
-  console.log(file + ' => ' + newFile);
-  console.log('modified in ', changedFiles.join(', '));
-  console.log('---')
+  console.log(file + ' => ' + newFile + ' modified in ', changedFiles.join(', '));
 });

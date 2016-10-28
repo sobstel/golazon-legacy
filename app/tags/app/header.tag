@@ -48,6 +48,7 @@
       }
 
       &__search {
+        visibility: hidden;
         overflow: auto;
         margin-left: -1px;
 

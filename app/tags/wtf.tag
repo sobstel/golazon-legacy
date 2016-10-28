@@ -3,7 +3,7 @@
     <h1>WTF?</h1>
     <p>
       Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
-    <p>
+    </p>
     <p>
       Golazon is <strong>a prototype</strong> built to test a concept.
       Things may break. You have been warned.

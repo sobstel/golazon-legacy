@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const fs = require('fs');
+
+const publicDir = __dirname + '/../public/';
+
+let indexContent = fs.readFileSync(publicDir + 'index.html', 'utf-8');
+
+indexContent = indexContent.replace('<app></app>', '<p>#404. Page not found. Go <a href="/">home</a>.</p>');
+indexContent = indexContent.replace('<title>Golazon</title>', '<title>404</title>');
+
+fs.writeFileSync(publicDir + '404.html', indexContent, 'utf-8');
+
+console.log('created 404 page');

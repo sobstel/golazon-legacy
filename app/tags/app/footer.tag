@@ -3,7 +3,7 @@
     <footer class="footer__container block hpadding">
       <ul class="footer__nav">
         <li>This is just a prototype.</li>
-        <li><a href="/wtf">WTF?</a></li>
+        <li><a href="/#/wtf">WTF?</a></li>
       </ul>
     </footer>
   </div>

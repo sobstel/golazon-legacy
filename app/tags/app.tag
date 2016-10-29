@@ -10,7 +10,7 @@
   <app-footer></app-footer>
 
   <script type="coffee">
-    riot.route.base '/'
+    riot.route.base '#'
 
     riot.route '/', () ->
       riot.mount '#main', 'home'

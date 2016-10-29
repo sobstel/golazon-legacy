@@ -23,6 +23,10 @@ Golazon
 
 ## Technical
 
+### Routing
+
+* Hashbang style used only because of GitHub Pages (cannot serve normal URLs without 404 http code).
+
 ### General styles
 
 * block - full width block

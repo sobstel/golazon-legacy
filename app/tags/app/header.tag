@@ -36,7 +36,7 @@
       &__logo {
         display: none;
 
-        @media (min-width: ($big-screen-width + $logo-size * 2 + 20px)) {
+        @media (min-width: ($max-width + $logo-size * 2 + 20px)) {
           float: left;
           display: inline-block;
           margin-left: -($logo-size + 10px);

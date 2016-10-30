@@ -11,6 +11,5 @@ require.register 'util', (exports, require, module) ->
           callback res.body
 
   exports.title = (title) ->
-    console.log(document.title)
     document.title = title + ' - Golazon'
-    console.log(document.title)
+    document.title = 'Golazon' if title == 'Golazon'

@@ -8,12 +8,33 @@
           class="header__search__input"
           data-hotkey="s"
           name="q"
-          placeholder="Search Golazon">
+          placeholder="Search Golazon"
+          onkeyup={ search }
+          onfocus={ search }>
       </form>
+
+      <ul class="header__search-results" if={ results.length > 0 }>
+        <li each={ results }>
+          <a href="/#/c/{ id }" onclick={ search_result_click }>{ name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span></a>
+        </li>
+      </ul>
     </header>
   </div>
 
   <script type="coffee">
+    util = require 'util'
+
+    this.search = (e) =>
+      text = e.target.value
+      if text.length > 4
+        util.request '/search?q=' + text, (results) =>
+          this.results = results
+          this.update()
+
+    this.search_result_click = (e) =>
+      this.results = []
+      this.update()
+      true
   </script>
 
   <style type="scss">
@@ -48,9 +69,7 @@
       }
 
       &__search {
-        visibility: hidden;
         overflow: auto;
-        margin-left: -1px;
 
         &__input {
           border: 1px solid $search-border-color;
@@ -65,6 +84,20 @@
             border: 1px solid $search-border-focus-color;
           }
         }
+      }
+
+      &__search-results {
+        position: absolute;
+        left: $horizontal-padding;
+        right: $horizontal-padding;
+        background: #fff;
+        border: 1px solid $search-border-color;
+        border-top: none;
+
+        padding: 8px;
+
+        min-width: $min-width - (2 * $horizontal-padding);
+        max-width: ($big-screen-width - 20px);
       }
     }
   </style>

@@ -26,3 +26,46 @@ a {
 li {
   list-style-type: none;
 }
+
+// general centered block containing other elements
+.block {
+  width: 100%;
+  min-width: $min-width;
+  margin: 0 auto;
+
+  @media screen and (min-width: $big-screen-width) {
+    max-width: $max-width;
+  }
+}
+
+// standard horizontal padding
+.hpadding {
+  padding-left: $horizontal-padding;
+  padding-right: $horizontal-padding;
+
+  @media screen and (min-width: ($max-width + 2 * $horizontal-padding)) {
+    max-width: $max-width;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// single column (one of 2) within block
+.column {
+  width: 100%;
+  min-width: $min-width;
+
+  @media screen and (min-width: $big-screen-width) {
+    float: left;
+    width: 50%;
+    max-width: ($max-width / 2);
+
+    padding-left: 0;
+    padding-right: 5px;
+
+    &:nth-child(even) {
+      padding-left: 5px;
+      padding-right: 0;
+    }
+  }
+}

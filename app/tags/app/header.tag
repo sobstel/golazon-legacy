@@ -50,6 +50,7 @@
       }
 
       &__container {
+        position: relative;
         padding-top: 10px;
         padding-bottom: 10px;
       }
@@ -79,6 +80,12 @@
           max-width: ($big-screen-width - 20px);
           font-size: $search-input-font-size;
 
+          // experimental: prevent input zoom for iphone
+          @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
+            font-size: 16px;
+            -webkit-appearance: none;
+          }
+
           &:focus {
             outline: none;
             border: 1px solid $search-border-focus-color;
@@ -98,6 +105,11 @@
 
         min-width: $min-width - (2 * $horizontal-padding);
         max-width: ($big-screen-width - 20px);
+
+        @media screen and (min-width: ($max-width + 2 * $horizontal-padding)) {
+          left: 0;
+          right: 0;
+        }
       }
     }
   </style>

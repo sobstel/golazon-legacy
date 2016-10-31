@@ -11,6 +11,11 @@
           placeholder="Search Golazon"
           onkeyup={ search }
           onfocus={ search }>
+        <button
+          class="header__search__clear-button"
+          onclick={ search_clear_click }
+          if={ clear_button_visible }>
+        </button>
       </form>
 
       <ul class="header__search-results" if={ results.length > 0 }>
@@ -27,6 +32,8 @@
     util = require 'util'
     active_result_index = -1
 
+    this.clear_button_visible = false
+
     active_result = (index) =>
       index = 0 if index >= this.results.length
       index = this.results.length - 1 if index < 0
@@ -42,11 +49,17 @@
       this.results = []
       this.update()
 
+    this.exit_search = () =>
+      exit_search()
+      true
+
     this.search_submit = (e) =>
       false
 
     this.search = (e) =>
       text = e.target.value
+
+      this.clear_button_visible = (text.length > 0 ? true : false)
 
       if e.keyCode == 40 # down arrow
         active_result(active_result_index + 1 )
@@ -74,6 +87,13 @@
     this.search_result_click = (e) =>
       exit_search()
       true
+
+    this.search_clear_click = (e) =>
+      exit_search()
+      # SMELL: any way to do it more reactive way?
+      document.querySelector('.header__search__input').value = ''
+      this.clear_button_visible = false
+      this.update()
   </script>
 
   <style type="scss">
@@ -110,7 +130,7 @@
       }
 
       &__search {
-        overflow: auto;
+        display: flex;
 
         &__input {
           border: 1px solid $search-border-color;
@@ -121,7 +141,7 @@
 
           &:focus {
             outline: none;
-            border: 1px solid $search-border-focus-color;
+            border-color: $search-border-focus-color;
           }
 
           // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
@@ -129,6 +149,18 @@
             font-size: 16px;
             -webkit-appearance: none;
           }
+        }
+
+        &__clear-button {
+          margin: 5px;
+          width: 25px;
+          height: 25px;
+          padding: 0;
+          background: darken($header-bg-color, 10%) url($cross-svg) center center no-repeat;
+          border: 0;
+          outline: none;
+
+          border-radius: 12px;
         }
       }
 
@@ -145,7 +177,6 @@
         max-width: ($big-screen-width - 20px);
 
         li {
-
           border-bottom: 1px solid $search-border-color;
         }
         a {

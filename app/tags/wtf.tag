@@ -1,12 +1,11 @@
 <wtf>
-  <div  class="hpadding">
+  <div class="wtd__container hpadding">
     <h1>WTF?</h1>
     <p>
       Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
     </p>
     <p>
-      Golazon an <a href="https://github.com/sobstel/golazon">open source</a> prototype built as a proof of concept.
-      Things may break. You have been warned.
+      <a href="https://github.com/sobstel/golazon">Open source</a> prototype built as a proof of concept.
     </p>
     <p>
       Drop me a line if you feel like helping or funding this project to grow ;-)
@@ -25,6 +24,12 @@
 
   <style type="scss">
     @import 'app/support.scss';
+
+    .wtf {
+      &__container {
+        font-size: 13px;
+      }
+    }
 
   </style>
 </wtf>

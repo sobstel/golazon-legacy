@@ -24,6 +24,7 @@
     .competition {
       &__container {
         overflow: auto;
+        font-size: 13px;
       }
     }
   </style>

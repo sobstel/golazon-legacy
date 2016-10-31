@@ -22,7 +22,7 @@
     .home-list {
       li a {
         display: inline-block;
-        padding: 7px 0;
+        padding: 5px 0;
       }
     }
   </style>

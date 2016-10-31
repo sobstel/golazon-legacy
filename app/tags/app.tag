@@ -44,8 +44,6 @@
       }
 
       &__content {
-        font-size: $content-font-size;
-
         padding-top: 10px;
         padding-bottom: 10px;
       }

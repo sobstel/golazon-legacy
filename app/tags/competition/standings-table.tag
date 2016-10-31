@@ -11,7 +11,7 @@
     </thead>
     <tbody>
       <tr each={ standings }>
-        <td class="rank { zoneClass(zone) }"><span>{ rank }</span></td>
+        <td class="rank { zone_class(zone) }"><span>{ rank }</span></td>
         <td class="team" title="{ team_name }">{ team_name }</td>
         <td>{ matches }</td>
         <td>{ goals_for }&nbsp;-&nbsp;{ goals_against }</td>
@@ -21,7 +21,7 @@
   </table>
 
   <script type="coffee">
-    this.zoneClass = (zone) =>
+    this.zone_class = (zone) =>
       return '' unless zone
       ('zone zone-' + zone)
   </script>

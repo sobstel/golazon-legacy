@@ -152,15 +152,18 @@
         }
 
         &__clear-button {
-          margin: 5px;
+          margin: 5px 7px;
           width: 25px;
           height: 25px;
+          border-radius: 13px;
           padding: 0;
           background: darken($header-bg-color, 10%) url($cross-svg) center center no-repeat;
           border: 0;
           outline: none;
 
-          border-radius: 12px;
+          &:hover {
+            background-color: darken($header-bg-color, 15%);
+          }
         }
       }
 
@@ -184,8 +187,10 @@
           padding: 7px $search-horizontal-padding;
 
           &.active {
-            text-decoration: none;
             background: $active-color;
+          }
+          &:hover {
+            text-decoration: none;
           }
         }
 

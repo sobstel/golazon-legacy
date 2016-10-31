@@ -23,6 +23,7 @@
 
       &__nav {
         li {
+          font-size: 12px;
           display: inline;
           margin-right: 10px;
           line-height: $footer-height;

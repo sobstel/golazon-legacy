@@ -16,17 +16,19 @@
         </button>
       </form>
 
-      <p class="header__hint" if={ hint }>
-        <strong>Hint:</strong> { hint }
-      </p>
+      <div class="header__extras-container">
+        <p class="header__hint" if={ hint }>
+          <strong>Hint:</strong> { hint }
+        </p>
 
-      <ul class="header__search-results" if={ results.length > 0 }>
-        <li each={ results } if={ results.length > 0 }>
-          <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
-            { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
-          </a>
-        </li>
-      </ul>
+        <ul class="header__search-results" if={ results.length > 0 }>
+          <li each={ results } if={ results.length > 0 }>
+            <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
+              { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
   </div>
 
@@ -94,13 +96,11 @@
           text = e.target.value
 
           return if text == previous_text
-            return
-
           previous_text = text
 
           req = util.request '/search?q=' + text, (results) =>
             @results = results
-            @hint = 'nothing appears if there are no matching results'
+            @hint = 'nothing appears if there are no matching results' if results.length == 0
             @update()
 
     @search_result_mouseover = (e) =>
@@ -132,7 +132,6 @@
       }
 
       &__container {
-        position: relative;
         padding-top: 10px;
         padding-bottom: 10px;
       }
@@ -174,13 +173,20 @@
         }
       }
 
+      &__extras-container {
+        position: relative;
+      }
+
       &__hint {
-        margin: 3px 0 -4px 38px;
+        padding-top: 3px;
+        padding-left: 38px;
+        margin-bottom: -4px;
         font-size: 11px;
       }
 
       &__search-results {
         position: absolute;
+        top: 0;
         left: $horizontal-padding;
         right: $horizontal-padding;
 

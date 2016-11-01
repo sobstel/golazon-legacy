@@ -21,7 +21,7 @@
   </table>
 
   <script type="coffee">
-    this.zone_class = (zone) =>
+    @zone_class = (zone) =>
       return '' unless zone
       ('zone zone-' + zone)
   </script>

@@ -43,10 +43,25 @@ li {
   padding-left: $horizontal-padding;
   padding-right: $horizontal-padding;
 
-  @media screen and (min-width: ($max-width + 2 * $horizontal-padding)) {
+  @media screen and (min-width: $padding-breakpoint) {
     max-width: $max-width;
+  }
+}
+
+.sticky.hpadding {
+  @media screen and (min-width: $padding-breakpoint) {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+.sloppy.hpadding {
+  padding-left: $horizontal-padding * 2;
+  padding-right: $horizontal-padding * 2;
+
+  @media screen and (min-width: $padding-breakpoint) {
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
   }
 }
 

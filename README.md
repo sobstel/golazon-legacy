@@ -31,4 +31,4 @@ Golazon
 
 * block - full width block
 * column - one of 2 columns
-* hpadding - standard hortizonal padding
+* hpadding/sticky-hpadding

@@ -1,5 +1,5 @@
 <competition class="competition">
-  <h1 class="competition__title hpadding">{ this.full_name }</h1>
+  <h1 class="competition__title sloppy hpadding">{ full_name }</h1>
 
   <div class="competition__container">
     <!-- <competition-matches></competition-matches> -->
@@ -9,13 +9,13 @@
   <script type="coffee">
     util = require 'util'
 
-    this.on 'mount', () =>
+    @on 'mount', () =>
       util.request '/competition/' + opts.competition_id, (competition) =>
-        this.competition = competition
-        this.full_name = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
-        this.update()
+        @competition = competition
+        @full_name = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
+        @update()
 
-        util.title this.full_name
+        util.title @full_name
   </script>
 
   <style type="scss">

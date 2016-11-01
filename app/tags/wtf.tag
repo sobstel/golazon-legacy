@@ -1,5 +1,5 @@
 <wtf>
-  <div class="wtf__container hpadding">
+  <div class="wtf__container sloppy hpadding">
     <h1>WTF?</h1>
     <p>
       Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
@@ -18,7 +18,7 @@
   <script type="coffee">
     util = require 'util'
 
-    this.on 'mount', () =>
+    @on 'mount', () =>
       util.title 'WTF'
   </script>
 

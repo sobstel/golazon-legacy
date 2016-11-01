@@ -16,8 +16,12 @@
         </button>
       </form>
 
+      <p class="header__hint" if={ hint }>
+        <strong>Hint:</strong> { hint }
+      </p>
+
       <ul class="header__search-results" if={ results.length > 0 }>
-        <li each={ results }>
+        <li each={ results } if={ results.length > 0 }>
           <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
             { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
           </a>
@@ -29,6 +33,7 @@
   <script type="coffee">
     util = require 'util'
     active_result_index = -1
+    req = delay = previous_text = null
 
     @clear_button_visible = false
 
@@ -56,6 +61,7 @@
 
     @search = (e) =>
       text = e.target.value
+      @hint = false
 
       @clear_button_visible = (text.length > 0 ? true : false)
 
@@ -73,10 +79,29 @@
         riot.route '/c/' + @results[active_result_index].id if active_result_index >= 0
         exit_search()
 
-      else if text.length >= 4
-        util.request '/search?q=' + text, (results) =>
-          @results = results
-          @update()
+      else
+        util.clear_delay(delay) if delay
+        #req.abort() if req
+
+        if text.length < 4
+          # TODO: popular only
+          @hint = 'type min 4 chars to see search results'
+          exit_search()
+          return
+
+        delay = util.delay 0.2, =>
+          # read again after delay
+          text = e.target.value
+
+          return if text == previous_text
+            return
+
+          previous_text = text
+
+          req = util.request '/search?q=' + text, (results) =>
+            @results = results
+            @hint = 'nothing appears if there are no matching results'
+            @update()
 
     @search_result_mouseover = (e) =>
       active_result((result.id for result in @results).indexOf(e.item.id))
@@ -87,7 +112,7 @@
 
     @search_clear_click = (e) =>
       exit_search()
-      # SMELL: any way to do it more reactive way?
+      # SMELL: any way to do it more react way? (or using observer?)
       document.querySelector('.header__search__input').value = ''
       @clear_button_visible = false
       @update()
@@ -147,6 +172,11 @@
           background: url($cross-svg) center 10px no-repeat;
           outline: none;
         }
+      }
+
+      &__hint {
+        margin: 3px 0 -4px 38px;
+        font-size: 11px;
       }
 
       &__search-results {

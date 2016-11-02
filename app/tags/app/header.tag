@@ -191,8 +191,8 @@
       &__search-results {
         position: absolute;
         top: 0;
-        left: $horizontal-padding;
-        right: $horizontal-padding;
+        left: 0;
+        right: 0;
 
         border: 1px solid $search-border-color;
         border-width: 0 1px;
@@ -214,11 +214,6 @@
           &:hover {
             text-decoration: none;
           }
-        }
-
-        @media screen and (min-width: $padding-breakpoint) {
-          left: 0;
-          right: 0;
         }
       }
     }

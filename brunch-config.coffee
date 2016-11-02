@@ -3,7 +3,7 @@ exports.config =
     javascripts:
       joinTo:
         'app.js': /^app/
-        'vendors.js': /^node_modules/
+        'libs.js': /^node_modules/
       order:
         before: [
           'app/init.coffee'

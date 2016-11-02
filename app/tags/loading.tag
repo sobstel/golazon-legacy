@@ -40,7 +40,5 @@
         }
       }
     }
-
-
   </style>
 </loading>

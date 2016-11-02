@@ -19,7 +19,8 @@
       </div>
 
       <div class="header__extras-container">
-        <p class="header__hint" if={ hint }>
+        <p class="header__hint" if={ results.length == 0 && (hint || loading) }>
+          <span if={ loading }>loading...</span>
           { hint }
         </p>
 
@@ -53,9 +54,15 @@
 
       @update()
 
-    exit_search = () =>
+    reset_search_results = () =>
       active_result_index = -1
       @results = []
+      @loading = false
+      @update()
+
+    exit_search = () =>
+      reset_search_results()
+      @hint = false
       @update()
 
     @search = (e) =>
@@ -88,8 +95,11 @@
         if text.length < 4
           # TODO: popular only
           @hint = 'min 4 letters'
-          exit_search()
+          reset_search_results()
           return
+
+        @loading = true
+        @update()
 
         delay = util.delay 0.2, =>
           req = util.request @, '/search?q=' + text, (results) =>

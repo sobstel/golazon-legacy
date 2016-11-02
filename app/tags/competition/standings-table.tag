@@ -77,13 +77,16 @@
           color: #fff;
         }
 
-        &-1 span { background-color: #00796B; }
-        &-2 span { background-color: #388E3C; }
-        &-3 span { background-color: #689F38; }
-        &-4 span { background-color: #AFB42B; }
+        &-1 span { background-color: #388E3C; }
+        &-2 span { background-color: #00796B; }
+        &-3 span { background-color: #0097A7; }
+        &-4 span { background-color: #1976D2; }
+        &-5 span { background-color: #303F9F; }
         &-11 span { background-color: #FFA000; }
         &-12 span { background-color: #F57C00; }
         &-13 span { background-color: #E64A19; }
+        &-14 span { background-color: #5D4037; }
+        &-15 span { background-color: #455A64; }
       }
     }
   </style>

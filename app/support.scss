@@ -6,7 +6,7 @@ $footer-bg-color: $header-bg-color;
 $header-border-color: #ddd;
 $footer-border-color: #ddd;
 $search-border-color: $header-border-color;
-$search-border-focus-color: $header-border-color;
+$search-border-focus-color: darken($header-border-color, 10%);
 $input-text-color: #666;
 
 // sizes

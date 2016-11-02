@@ -1,8 +1,10 @@
 <app-header>
   <div class="header__wrapper">
     <header class="header__container block sticky hpadding">
-      <form role="search" class="header__search" onsubmit={ search_submit }>
+
+      <div class="header__search">
         <input type="text"
+          role="search"
           class="header__search__input"
           accesskey="s"
           name="q"
@@ -14,11 +16,11 @@
           onclick={ search_clear_click }
           if={ clear_button_visible }>
         </button>
-      </form>
+      </div>
 
       <div class="header__extras-container">
         <p class="header__hint" if={ hint }>
-          <strong>Hint:</strong> { hint }
+          { hint }
         </p>
 
         <ul class="header__search-results" if={ results.length > 0 }>
@@ -36,6 +38,7 @@
     util = require 'util'
     active_result_index = -1
     req = delay = previous_text = null
+    @results = []
 
     @clear_button_visible = false
 
@@ -51,15 +54,9 @@
       @update()
 
     exit_search = () =>
+      active_result_index = -1
       @results = []
       @update()
-
-    @exit_search = () =>
-      exit_search()
-      true
-
-    @search_submit = (e) =>
-      false
 
     @search = (e) =>
       text = e.target.value
@@ -83,24 +80,21 @@
 
       else
         util.clear_delay(delay) if delay
-        #req.abort() if req
+        req.abort() if req
+
+        return if text == previous_text
+        previous_text = text
 
         if text.length < 4
           # TODO: popular only
-          @hint = 'type min 4 chars to see search results'
+          @hint = 'min 4 letters'
           exit_search()
           return
 
         delay = util.delay 0.2, =>
-          # read again after delay
-          text = e.target.value
-
-          return if text == previous_text
-          previous_text = text
-
           req = util.request '/search?q=' + text, (results) =>
             @results = results
-            @hint = 'nothing appears if there are no matching results' if results.length == 0
+            @hint = 'no results found' if results.length == 0
             @update()
 
     @search_result_mouseover = (e) =>
@@ -121,7 +115,7 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    $logo-size: 26px;
+    $logo-size: 24px;
     $search-horizontal-padding: 8px;
     $active-color: #f6f6f6;
 
@@ -212,7 +206,7 @@
           }
         }
 
-        @media screen and (min-width: ($max-width + 2 * $horizontal-padding)) {
+        @media screen and (min-width: $padding-breakpoint) {
           left: 0;
           right: 0;
         }

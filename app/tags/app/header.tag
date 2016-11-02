@@ -92,7 +92,7 @@
           return
 
         delay = util.delay 0.2, =>
-          req = util.request '/search?q=' + text, (results) =>
+          req = util.request @, '/search?q=' + text, (results) =>
             @results = results
             @hint = 'no results found' if results.length == 0
             @update()

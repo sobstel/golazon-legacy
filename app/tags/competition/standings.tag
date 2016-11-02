@@ -1,6 +1,6 @@
 <competition-standings>
   <div class="standings__container column">
-    <p class="loading sloppy hpadding" if={ loading }>loading standings</p>
+    <loading></loading>
 
     <div each={ rounds } class="standings">
       <h2 class="sloppy hpadding">{ name }</h2>
@@ -22,12 +22,8 @@
     @on 'mount', () =>
       season_id = @parent.competition.season.season_id
 
-      @loading = true
-      @update()
-
-      util.request '/season/' + season_id + '/standings', (rounds) =>
+      util.request @, '/season/' + season_id + '/standings', (rounds) =>
         @rounds = rounds
-        @loading = false
         @update()
   </script>
 

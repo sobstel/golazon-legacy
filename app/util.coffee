@@ -15,7 +15,7 @@ require.register 'util', (exports, require, module) ->
 
     request
        .get api_url + path
-       .timeout 5000
+       .timeout 7000
        .end (err, res) ->
          _this.loading = false
          _this.update()

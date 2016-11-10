@@ -38,7 +38,7 @@
   <script type="coffee">
     util = require 'util'
     active_result_index = -1
-    req = delay = previous_text = null
+    req = delay = null
     @results = []
 
     @clear_button_visible = false
@@ -89,9 +89,6 @@
         util.clear_delay(delay) if delay
         req.abort() if req
 
-        return if text == previous_text
-        previous_text = text
-
         if text.length < 4
           # TODO: popular only
           @hint = 'min 4 letters'
@@ -132,7 +129,6 @@
     .header {
       &__wrapper {
         background-color: $header-bg-color;
-        border-bottom: 1px solid $header-border-color;
       }
 
       &__container {
@@ -151,13 +147,8 @@
           width: 100%;
           max-width: ($big-screen-width - 20px);
 
-          background: #fff url($logo-svg) no-repeat 5px center;
-          background-size: $logo-size;
-          padding-left: $logo-size + 11px;
-
           &:focus {
             outline: none;
-            border-color: $search-border-focus-color;
           }
 
           // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
@@ -183,7 +174,7 @@
 
       &__hint {
         padding-top: 3px;
-        padding-left: 38px;
+        padding-left: 10px;
         margin-bottom: -4px;
         font-size: 11px;
       }

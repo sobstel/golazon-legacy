@@ -21,7 +21,6 @@
 
     .footer {
       &__wrapper {
-        border-top: 1px solid $footer-border-color;
         height: $footer-height;
         background-color: $footer-bg-color;
       }

@@ -122,9 +122,7 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    $logo-size: 24px;
     $search-horizontal-padding: 8px;
-    $active-color: #f6f6f6;
 
     .header {
       &__wrapper {
@@ -132,18 +130,19 @@
       }
 
       &__container {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 12px;
+        padding-bottom: 12px;
       }
 
       &__search {
         display: flex;
 
         &__input {
+          font-size: 16px;
           border: 1px solid $search-border-color;
           border-radius: 0;
           color: $input-text-color;
-          padding: 6px $search-horizontal-padding;
+          padding: 8px $search-horizontal-padding;
           width: 100%;
           max-width: ($big-screen-width - 20px);
 
@@ -163,7 +162,7 @@
           width: 30px;
           border: 0;
           padding: 0;
-          background: url($cross-svg) center 10px no-repeat;
+          background: url($clear-svg) center center no-repeat;
           outline: none;
         }
       }
@@ -200,7 +199,7 @@
           padding: 7px $search-horizontal-padding;
 
           &.active {
-            background: $active-color;
+            background:  #f6f6f6;
           }
           &:hover {
             text-decoration: none;

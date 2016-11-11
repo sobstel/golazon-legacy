@@ -1,30 +1,30 @@
-<app-header>
-  <div class="header__wrapper">
-    <header class="header__container block sticky hpadding">
+<search>
+  <div class="search__wrapper">
+    <header class="search__container block sticky hpadding" role="banner">
 
-      <div class="header__search">
+      <div class="search__input-container">
         <input type="text"
           role="search"
-          class="header__search__input"
+          class="search__input"
           accesskey="s"
           name="q"
           placeholder="Search Golazon"
           onkeyup={ search }
           onfocus={ search }>
         <button
-          class="header__search__clear-button"
+          class="search__clear-button"
           onclick={ search_clear_click }
           if={ clear_button_visible }>
         </button>
       </div>
 
-      <div class="header__extras-container">
-        <p class="header__hint" if={ results.length == 0 && (hint || loading) }>
+      <div class="search__extras-container">
+        <p class="search__hint" if={ results.length == 0 && (hint || loading) }>
           <span if={ loading }>loading...</span>
           { hint }
         </p>
 
-        <ul class="header__search-results" if={ results.length > 0 }>
+        <ul class="search__results" if={ results.length > 0 }>
           <li each={ results } if={ results.length > 0 }>
             <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
               { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
@@ -66,6 +66,10 @@
       @update()
 
     @search = (e) =>
+      if opts.context == "home"
+        riot.route '/s'
+        return
+
       text = e.target.value
       @hint = false
 
@@ -90,8 +94,7 @@
         req.abort() if req
 
         if text.length < 4
-          # TODO: popular only
-          @hint = 'min 4 letters'
+          @hint = 'min 4 letters' if text.length > 0
           reset_search_results()
           return
 
@@ -114,7 +117,7 @@
     @search_clear_click = (e) =>
       exit_search()
       # SMELL: any way to do it more react way? (or using observer?)
-      document.querySelector('.header__search__input').value = ''
+      document.querySelector('.search__input').value = ''
       @clear_button_visible = false
       @update()
   </script>
@@ -124,9 +127,10 @@
 
     $search-horizontal-padding: 8px;
 
-    .header {
+    .search {
       &__wrapper {
-        background-color: $header-bg-color;
+        background-color: $secondary-bg-color;
+        width: 100%;
       }
 
       &__container {
@@ -134,37 +138,37 @@
         padding-bottom: 12px;
       }
 
-      &__search {
+      &__input-container {
         display: flex;
+      }
 
-        &__input {
-          font-size: 16px;
-          border: 1px solid $search-border-color;
-          border-radius: 0;
-          color: $input-text-color;
-          padding: 8px $search-horizontal-padding;
-          width: 100%;
-          max-width: ($big-screen-width - 20px);
+      &__input {
+        font-size: 16px;
+        border: 1px solid $search-border-color;
+        border-radius: 0;
+        color: $input-text-color;
+        padding: 8px $search-horizontal-padding;
+        width: 100%;
+        max-width: $search-max-width;
 
-          &:focus {
-            outline: none;
-          }
-
-          // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
-          @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
-            font-size: 16px;
-            -webkit-appearance: none;
-          }
-        }
-
-        &__clear-button {
-          margin-left: -30px;
-          width: 30px;
-          border: 0;
-          padding: 0;
-          background: url($clear-svg) center center no-repeat;
+        &:focus {
           outline: none;
         }
+
+        // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
+        @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
+          font-size: 16px;
+          -webkit-appearance: none;
+        }
+      }
+
+      &__clear-button {
+        margin-left: -30px;
+        width: 30px;
+        border: 0;
+        padding: 0;
+        background: url($clear-svg) center center no-repeat;
+        outline: none;
       }
 
       &__extras-container {
@@ -178,7 +182,7 @@
         font-size: 11px;
       }
 
-      &__search-results {
+      &__results {
         position: absolute;
         top: 0;
         left: 0;
@@ -208,4 +212,4 @@
       }
     }
   </style>
-</app-header>
+</search>

@@ -1,29 +1,47 @@
 <app>
-  <div class="app__container">
-    <app-header></app-header>
+  <home if={ home }></home>
 
-    <div class="app__content block">
-      <div id="main"></div>
+  <virtual if={ !home }>
+    <div class="app__container">
+      <search></search>
+
+      <div class="app__content block">
+        <div id="main"></div>
+      </div>
     </div>
-  </div>
 
-  <app-footer></app-footer>
+    <app-footer></app-footer>
+  </virtual>
 
   <script type="coffee">
+    @home = false
+
+    home = (enable = true) =>
+      @home = enable
+      @update()
+
     riot.route.base '#!'
 
-    riot.route '/', () ->
-      riot.mount '#main', 'home'
+    riot.route '/', () =>
+      home(true)
+      riot.mount 'home'
 
-    riot.route '/c/*', (competition_id) ->
+    riot.route '/s', () =>
+      home(false)
+      # SMELL: any way to do it more react way? (or using observer?)
+      document.querySelector('.search__input').focus()
+
+    riot.route '/c/*', (competition_id) =>
+      home(false)
       riot.mount '#main', 'competition', competition_id: competition_id
 
-    riot.route '/wtf', () ->
+    riot.route '/wtf', () =>
+      home(false)
       riot.mount '#main', 'wtf'
 
-    riot.route () ->
+    riot.route () =>
+      home(false)
       riot.mount '#main', 'error404'
-      console.log 'not found'
 
     riot.route.start true
   </script>

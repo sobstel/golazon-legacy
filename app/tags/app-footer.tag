@@ -3,7 +3,6 @@
     <footer class="footer__container block sloppy hpadding">
       <ul class="footer__nav">
         <li><a href onclick={ scrollTop }>Search</a></li>
-        <li><a href="/">Popular</a></li>
         <li><a href="/#!/wtf">WTF?</a></li>
       </ul>
     </footer>
@@ -13,7 +12,7 @@
     @scrollTop = (e) ->
       scroll 0,0
       # SMELL: possible to do more ract-way?
-      document.querySelector('.header__search__input').focus()
+      document.querySelector('.search__input').focus()
   </script>
 
   <style type="scss">
@@ -22,7 +21,7 @@
     .footer {
       &__wrapper {
         height: $footer-height;
-        background-color: $footer-bg-color;
+        background-color: $secondary-bg-color;
       }
 
       &__nav {

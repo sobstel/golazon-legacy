@@ -26,7 +26,6 @@
     @on 'mount', () =>
       util.title 'Golazon'
 
-
     @go_to_search = () ->
       riot.route '/s'
   </script>
@@ -72,6 +71,8 @@
         flex-grow: 1;
         max-width: $search-max-width;
         margin: $margin 0;
+        padding-left: (3 * $horizontal-padding);
+        padding-right: (3 * $horizontal-padding);
       }
 
       p {

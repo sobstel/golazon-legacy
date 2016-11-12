@@ -37,6 +37,8 @@
 
   <script type="coffee">
     util = require 'util'
+    history = require 'history'
+
     active_result_index = -1
     req = delay = null
     @results = []
@@ -47,7 +49,7 @@
       index = 0 if index >= @results.length
       index = @results.length - 1 if index < 0
 
-      @results[active_result_index].active = false if active_result_index >= 0
+      result.active = false for result in @results
 
       @results[index].active = true
       active_result_index = index
@@ -56,6 +58,7 @@
 
     reset_search_results = () =>
       active_result_index = -1
+      # TODO: history.getAll(limit)
       @results = []
       @loading = false
       @update()
@@ -90,8 +93,13 @@
         exit_search()
 
       else
-        util.clear_delay(delay) if delay
+        util.terminate_delay(delay) if delay
         req.abort() if req
+
+        if text.length == 0
+          @results = history.getAll(10)
+          @update()
+          return
 
         if text.length < 4
           @hint = 'min 4 letters' if text.length > 0
@@ -111,6 +119,7 @@
       active_result((result.id for result in @results).indexOf(e.item.id))
 
     @search_result_click = (e) =>
+      history.update @results[active_result_index] if active_result_index >= 0
       exit_search()
       true
 

@@ -17,6 +17,7 @@
         @competition = competition
         @full_name = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
         @update()
+
         util.title @full_name
   </script>
 

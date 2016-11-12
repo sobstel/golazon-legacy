@@ -35,3 +35,9 @@ Golazon
 * Routing: hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)
 * Sass: sass inside of tag processed independently from each other (sharing common stuff only via explicit `@import`)
 * JS: riot variable registered globally (as generated tags use it like this; CommonJS option didn't work ok for me)
+
+### Potential improvements
+
+* ES6 or TypeScript over CoffeeScript
+* Riak Search for search engine
+* Better compatibility with Opera Mini and other less popular browsers

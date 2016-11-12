@@ -30,6 +30,5 @@
         font-size: 13px;
       }
     }
-
   </style>
 </wtf>

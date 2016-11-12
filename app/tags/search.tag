@@ -45,6 +45,10 @@
 
     @clear_button_visible = false
 
+    @on 'mount', () =>
+      # SMELL: any way to do it more react way? (or using observer?)
+      document.querySelector('.search__input').focus()
+
     active_result = (index) =>
       index = 0 if index >= @results.length
       index = @results.length - 1 if index < 0
@@ -69,10 +73,6 @@
       @update()
 
     @search = (e) =>
-      if opts.context == "home"
-        riot.route '/s'
-        return
-
       text = e.target.value
       @hint = false
 

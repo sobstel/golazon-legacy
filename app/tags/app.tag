@@ -13,7 +13,7 @@
     riot.route.base '#!'
 
     riot.route '/', () =>
-      riot.mount 'home'
+      riot.mount '#main', 'home'
 
     riot.route '/c/*', (competition_id) =>
       riot.mount '#main', 'competition', competition_id: competition_id

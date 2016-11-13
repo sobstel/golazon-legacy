@@ -2,6 +2,7 @@
   <div class="footer__wrapper">
     <footer class="footer__container block sloppy hpadding">
       <ul class="footer__nav">
+        <li><a href="/">Home</a></li>
         <li><a href onclick={ scrollTop }>Search</a></li>
         <li><a href="/#!/wtf">WTF?</a></li>
       </ul>

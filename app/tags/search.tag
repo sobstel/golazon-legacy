@@ -45,10 +45,6 @@
 
     @clear_button_visible = false
 
-    @on 'mount', () =>
-      # SMELL: any way to do it more react way? (or using observer?)
-      document.querySelector('.search__input').focus()
-
     active_result = (index) =>
       index = 0 if index >= @results.length
       index = @results.length - 1 if index < 0
@@ -62,7 +58,6 @@
 
     reset_search_results = () =>
       active_result_index = -1
-      # TODO: history.getAll(limit)
       @results = []
       @loading = false
       @update()
@@ -76,7 +71,7 @@
       text = e.target.value
       @hint = false
 
-      @clear_button_visible = (text.length > 0 ? true : false)
+      @clear_button_visible = true
 
       if e.keyCode == 40 # down arrow
         active_result(active_result_index + 1)
@@ -85,7 +80,7 @@
         active_result(active_result_index - 1)
 
       else if e.keyCode == 27 # esc
-        exit_search()
+        @search_clear_click()
 
       else if e.keyCode == 13 # enter
         # SMELL: hardcoded url to competition

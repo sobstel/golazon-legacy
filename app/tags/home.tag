@@ -9,7 +9,7 @@
   <script type="coffee">
     history = require 'history'
 
-    @results = history.getAll(100).sort (a, b) -> a.name.localeCompare(b.name)
+    @results = history.getAll(30).sort (a, b) -> a.name.localeCompare(b.name)
   </script>
 
   <style type="scss">

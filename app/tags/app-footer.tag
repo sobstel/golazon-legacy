@@ -10,10 +10,11 @@
   </div>
 
   <script type="coffee">
-    @scrollTop = (e) ->
+    util = require 'util'
+
+    @scrollTop = (e) =>
       scroll 0,0
-      # SMELL: possible to do more ract-way?
-      document.querySelector('.search__input').focus()
+      util.beholder.trigger 'search.focus'
   </script>
 
   <style type="scss">

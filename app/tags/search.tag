@@ -51,6 +51,9 @@
 
     @clear_button_visible = false
 
+    util.beholder.on 'search.focus', () =>
+      @q.focus()
+
     active_result = (index) =>
       index = 0 if index >= @results.length
       index = @results.length - 1 if index < 0
@@ -132,11 +135,9 @@
       true
 
     @search_clear_click = (e) =>
-      exit_search()
-      # SMELL: any way to do it more react way? (or using observer?)
-      document.querySelector('.search__input').value = ''
-      @clear_button_visible = false
+      @q.value = ''
       @update()
+      exit_search()
   </script>
 
   <style type="scss">

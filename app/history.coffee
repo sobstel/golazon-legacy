@@ -55,3 +55,12 @@ require.register 'history', (exports, require, module) ->
     end = limit - 1
 
     history[start..end]
+
+  #
+  # Search history
+  #
+  exports.search = (query) ->
+    history.filter (result) ->
+      return true if result.name.toLowerCase().indexOf(query.toLowerCase()) == 0
+      return true if result.area_name.toLowerCase().indexOf(query.toLowerCase()) == 0
+      false

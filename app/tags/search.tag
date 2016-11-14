@@ -20,15 +20,21 @@
 
       <div class="search__extras-container">
         <p class="search__hint" if={ results.length == 0 && (hint || loading) }>
-          <span if={ loading }>loading...</span>
+          <span if={ loading } class="loader">loading</span>
           { hint }
         </p>
 
         <ul class="search__results" if={ results.length > 0 }>
-          <li each={ results } if={ results.length > 0 }>
+          <li each={ results }>
             <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
               { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
             </a>
+          </li>
+          <li class="search__results-hint" if={ results_hint }>
+              { results_hint }
+          </li>
+          <li class="search__loader loader" if={ loading }>
+              loading more
           </li>
         </ul>
       </div>
@@ -60,6 +66,7 @@
       active_result_index = -1
       @results = []
       @loading = false
+      @clear_button_visible = false
       @update()
 
     exit_search = () =>
@@ -69,8 +76,8 @@
 
     @search = (e) =>
       text = e.target.value
-      @hint = false
 
+      @hint = false
       @clear_button_visible = true
 
       if e.keyCode == 40 # down arrow
@@ -91,16 +98,22 @@
         util.terminate_delay(delay) if delay
         req.abort() if req
 
+        @results_hint = false
+
         if text.length == 0
+          @loading = false
           @results = history.getAll(10)
           @update()
           return
 
+        @results = history.search(text)
+
         if text.length < 4
-          @hint = 'min 4 letters' if text.length > 0
-          reset_search_results()
+          @results_hint = 'type 4 letters or more to search full database...'
+          @update()
           return
 
+        # show before delay
         @loading = true
         @update()
 
@@ -194,25 +207,37 @@
 
         border: 1px solid $search-border-color;
         border-width: 0 1px;
-        background: #fff;
+        background: #fcfcfc;
+
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 
         min-width: $min-width - (2 * $horizontal-padding);
         max-width: ($big-screen-width - 20px);
 
-        li {
-          border-bottom: 1px solid $search-border-color;
-        }
         a {
           display: block;
-          padding: 7px $search-horizontal-padding;
+          padding: 5px $search-horizontal-padding;
 
           &.active {
-            background:  #f6f6f6;
+            background: #f3f3f3;
           }
           &:hover {
             text-decoration: none;
           }
+
+          font-size: 15px;
+
+          @media screen and (min-width: $big-screen-width) {
+            font-size: 14px;
+          }
         }
+      }
+
+      &__results-hint,
+      &__loader {
+        padding: 5px $search-horizontal-padding;
+        font-style: italic;
+        font-size: 13px;
       }
     }
   </style>

@@ -17,7 +17,12 @@
 
     .home {
       &__item {
-        line-height: 2;
+        line-height: 2em;
+        font-size: 15px;
+
+        @media screen and (min-width: $big-screen-width) {
+          font-size: 14px;
+        }
       }
     }
   </style>

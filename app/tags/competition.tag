@@ -3,7 +3,7 @@
   <h1 class="competition__title sloppy hpadding">{ full_name }</h1>
 
   <div class="competition__container">
-    <!-- <competition-matches></competition-matches> -->
+    <competition-matches if={ competition }></competition-matches>
     <competition-standings if={ competition }></competition-standings>
   </div>
 

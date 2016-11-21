@@ -3,27 +3,36 @@
     <loading></loading>
 
     <div>
-      <h2 class="sloppy hpadding">Future fixtures</h2>
-
-      <div class="matches__list hpadding">
-        <div each={ future_matches }>
-          { date }:
-          { host_name } - { away_name }
-          ({ time.substring(0, 5) })
-          <span if={ status == 'playing' }>(live)</span>
-          <span if={ status == 'played' }>{ ft[0] } - { ft[1] }</span>
-        </div>
-      </div>
-
       <h2 class="sloppy hpadding">Past fixtures</h2>
 
-      <div class="matches__list hpadding">
-        <div each={ past_matches }>
-          { date }:
-          { host_name } - { away_name }
-          <span if={ status == 'fixture' }>(live)</span>
-          <span if={ status == 'played' }>{ ft[0] } - { ft[1] }</span>
-        </div>
+      <div class="matches matches__list hpadding">
+        <table class="matches-table">
+          <tr each={ past_matches }>
+            <td>{ date }</td>
+            <td>{ host_name } - { away_name }</td>
+            <td>
+              <span if={ fixture }>{ time.substring(0, 5) }</span>
+              <span if={ live }>(live)</span>
+              <span if={ ended }>{ ft[0] } - { ft[1] }</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <h2 class="sloppy hpadding">Future fixtures</h2>
+
+      <div class="matches matches__list hpadding">
+        <table class="matches-table">
+          <tr each={ future_matches }>
+            <td>{ date }</td>
+            <td>{ host_name } - { away_name }</td>
+            <td>
+              <span if={ fixture }>{ time.substring(0, 5) }</span>
+              <span if={ live }>live</span>
+              <span if={ ended }>{ ft[0] } - { ft[1] }</span>
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
   </div>
@@ -45,5 +54,28 @@
 
   <style type="scss">
     @import 'app/support.scss';
+
+    $standings-border-color: #ddd;
+
+    .matches {
+      table {
+        margin: 10px 0;
+        width: 100%;
+        background: #f9f9f9;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid $standings-border-color;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
+      th,
+      td {
+        padding: 10px 7px;
+      }
+    }
   </style>
 </competition-matches>

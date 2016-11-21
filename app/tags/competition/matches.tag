@@ -74,7 +74,7 @@
 
       th,
       td {
-        padding: 10px 7px;
+        padding: 7px 4px;
       }
     }
   </style>

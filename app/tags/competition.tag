@@ -4,6 +4,7 @@
 
   <div class="competition__container" if={ competition }>
     <div class="column">
+      <h2 class="sloppy hpadding">Matches</h2>
       <competition-past-matches></competition-past-matches>
       <competition-future-matches></competition-future-matches>
     </div>

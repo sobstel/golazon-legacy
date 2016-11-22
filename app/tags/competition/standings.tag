@@ -1,32 +1,30 @@
 <competition-standings>
-  <div class="standings__container column">
+  <div class="standings__container">
     <loading></loading>
 
     <div each={ rounds } class="standings">
       <h2 class="sloppy hpadding">{ name }</h2>
 
-      <section>
-        <table class="standings-table">
-          <thead>
-            <tr>
-              <th>&nbsp;</th>
-              <th class="team">Team</th>
-              <th><acronym title="Matches Played">MP</acronym></th>
-              <th><acronym title="Goals For / Goals Against">GF&#8209;GA</acronym></th>
-              <th><acronym title="Points">Pts</acronym></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr each={ standings }>
-              <td class="rank { zone_class(zone) }"><span>{ rank }</span></td>
-              <td class="team" title="{ team_name }">{ team_name }</td>
-              <td>{ matches }</td>
-              <td>{ goals_for }&nbsp;-&nbsp;{ goals_against }</td>
-              <td class="pts">{ points }</td>
-            </tr>
-          </tbody>
-        </table>
-      </section>
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th class="team">Team</th>
+            <th><acronym title="Matches Played">MP</acronym></th>
+            <th><acronym title="Goals For / Goals Against">GF&#8209;GA</acronym></th>
+            <th><acronym title="Points">Pts</acronym></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr each={ standings }>
+            <td class="rank { zone_class(zone) }"><span>{ rank }</span></td>
+            <td class="team" title="{ team_name }">{ team_name }</td>
+            <td>{ matches }</td>
+            <td>{ goals_for }&nbsp;-&nbsp;{ goals_against }</td>
+            <td class="pts">{ points }</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 

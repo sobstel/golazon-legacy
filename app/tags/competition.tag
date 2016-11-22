@@ -2,9 +2,14 @@
   <loading></loading>
   <h1 class="competition__title sloppy hpadding">{ full_name }</h1>
 
-  <div class="competition__container">
-    <competition-matches if={ competition }></competition-matches>
-    <competition-standings if={ competition }></competition-standings>
+  <div class="competition__container" if={ competition }>
+    <div class="column">
+      <competition-past-matches></competition-past-matches>
+      <competition-future-matches></competition-future-matches>
+    </div>
+    <div class="column">
+      <competition-standings></competition-standings>
+    </div>
   </div>
 
   <script type="coffee">

@@ -1,24 +1,8 @@
-<competition-matches>
-  <div class="matches__container column">
+<competition-future-matches>
+  <div class="matches__container">
     <loading></loading>
 
     <div>
-      <h2 class="sloppy hpadding">Past fixtures</h2>
-
-      <div class="matches matches__list hpadding">
-        <table class="matches-table">
-          <tr each={ past_matches }>
-            <td>{ date }</td>
-            <td>{ host_name } - { away_name }</td>
-            <td>
-              <span if={ fixture }>{ time.substring(0, 5) }</span>
-              <span if={ live }>(live)</span>
-              <span if={ ended }>{ ft[0] } - { ft[1] }</span>
-            </td>
-          </tr>
-        </table>
-      </div>
-
       <h2 class="sloppy hpadding">Future fixtures</h2>
 
       <div class="matches matches__list hpadding">
@@ -42,10 +26,6 @@
 
     @on 'mount', () =>
       season_id = @parent.competition.season.season_id
-
-      util.request @, '/season/' + season_id + '/matches/past/10', (matches) =>
-        @past_matches = matches
-        @update()
 
       util.request @, '/season/' + season_id + '/matches/future/10', (matches) =>
         @future_matches = matches
@@ -78,4 +58,4 @@
       }
     }
   </style>
-</competition-matches>
+</competition-future-matches>

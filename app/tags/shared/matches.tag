@@ -18,7 +18,13 @@
 
   <script type="coffee">
     normalize_date = (date, time) ->
-      new Date(date + ' ' + time + ' UTC')
+      y = date[0..3]
+      m = date[5..6]
+      d = date[8..9]
+      hr = time[0..1]
+      mn = time[3..4]
+
+      new Date(Date.UTC(y, m, d, hr, mn, 0))
 
     @format_date = (date, time) ->
       d = normalize_date(date, time)

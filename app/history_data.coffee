@@ -81,6 +81,6 @@ require.register 'history_data', (exports, require, module) ->
       },
     ]
 
-    item.count = 0 for item in initial_history_list
+    item._score = { count: 1, last_visit: new Date() } for item in initial_history_list
 
     return initial_history_list

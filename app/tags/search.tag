@@ -122,8 +122,10 @@
 
         delay = util.delay 0.2, =>
           req = util.request @, '/search?q=' + text, (results) =>
-            @results = results
-            @hint = 'no results found' if results.length == 0
+            # filter out results found in search history
+            @results = @results.concat results.filter (result) =>
+              @results.filter((r) -> (r.type == result.type && r.id == result.id)).length == 0
+            @hint = 'no results found' if @results.length == 0
             @update()
 
     @search_result_mouseover = (e) =>

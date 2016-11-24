@@ -29,7 +29,8 @@
     @format_date = (date, time) ->
       d = normalize_date(date, time)
 
-      month = d.toLocaleString 'en-us', { month: "short" }
+      months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      month = months[d.getMonth() - 1]
       day = ('0' + d.getDate()).slice(-2)
 
       "#{month} #{day}"

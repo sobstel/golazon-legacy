@@ -40,5 +40,10 @@ Golazon
 
 * ES6 or TypeScript over CoffeeScript
 * Riak Search for search engine
+  * Why? AP (Availability + Partition Tolerance)
+  * Additional features: shows competition by team name, eg. shows Premier League when searching for Everton
 * Better compatibility with Opera Mini and other less popular browsers
 * Extract SCSS to separate files to leverage SCSS power in full.
+* CloudFlare (free -> TTL 2h) -> for search?
+* Mobile app with Cordova.
+* Accessibility.

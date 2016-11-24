@@ -19,7 +19,7 @@
   <script type="coffee">
     normalize_date = (date, time) ->
       y = date[0..3]
-      m = date[5..6]
+      m = date[5..6] - 1
       d = date[8..9]
       hr = time[0..1]
       mn = time[3..4]
@@ -30,7 +30,7 @@
       d = normalize_date(date, time)
 
       months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      month = months[d.getMonth() - 1]
+      month = months[d.getMonth()]
       day = ('0' + d.getDate()).slice(-2)
 
       "#{month} #{day}"

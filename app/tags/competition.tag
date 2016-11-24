@@ -19,7 +19,7 @@
     @on 'mount', () =>
       @update()
 
-      util.request @, '/competition/' + opts.competition_id, (competition) =>
+      util.request @, '/competitions/' + opts.competition_id, (competition) =>
         @competition = competition
         @full_name = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
         @update()

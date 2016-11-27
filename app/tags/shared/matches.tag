@@ -4,7 +4,7 @@
       <tbody>
         <tr each={ matches }>
           <td class="date">{ format_date(date, time) }</td>
-          <td class="host">{ host_name }</td>
+          <td class="host">{ home_name }</td>
           <td class="status">
             <span if={ fixture }>{ format_time(date, time) }</span>
             <span if={ live }>live</span>
@@ -17,31 +17,10 @@
   </div>
 
   <script type="coffee">
-    normalize_date = (date, time) ->
-      y = date[0..3]
-      m = date[5..6] - 1
-      d = date[8..9]
-      hr = time[0..1]
-      mn = time[3..4]
+    util = require 'util'
 
-      new Date(Date.UTC(y, m, d, hr, mn, 0))
-
-    @format_date = (date, time) ->
-      d = normalize_date(date, time)
-
-      months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      month = months[d.getMonth()]
-      day = ('0' + d.getDate()).slice(-2)
-
-      "#{month} #{day}"
-
-    @format_time = (date, time) ->
-      d = normalize_date(date, time)
-
-      hour = ('0' + d.getHours()).slice(-2)
-      min = ('0' + d.getMinutes()).slice(-2)
-
-      "#{hour}:#{min}"
+    @format_date = util.format_date
+    @format_time = util.format_time
 
     @on 'mount', () =>
       @matches = @opts.matches

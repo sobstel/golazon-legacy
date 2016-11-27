@@ -1,6 +1,6 @@
 <competition class="competition">
   <loading></loading>
-  <h1 class="competition__title sloppy hpadding">{ full_name }</h1>
+  <h1 class="competition__title sloppy hpadding">{ title }</h1>
 
   <div class="competition__container" if={ competition }>
     <div class="column">
@@ -21,10 +21,10 @@
 
       util.request @, '/competitions/' + opts.competition_id, (competition) =>
         @competition = competition
-        @full_name = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
+        @title = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
         @update()
 
-        util.title @full_name
+        util.title @title
   </script>
 
   <style type="scss">

@@ -18,6 +18,9 @@
     riot.route '/c/*', (competition_id) =>
       riot.mount '#main', 'competition', competition_id: competition_id
 
+    riot.route '/m/*', (match_id) =>
+      riot.mount '#main', 'match', match_id: match_id
+
     riot.route '/wtf', () =>
       riot.mount '#main', 'wtf'
 

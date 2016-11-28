@@ -5,17 +5,17 @@
   <div class="match__container" if={ match }>
     <div class="match__goals hpadding sloppy" if={ match.goals }>
       <em>Goals:</em>
-      <span each={ match.goals }>{ name } { min }'</span>
+      <span each={ match.goals }>{ name } { min }' ({ score[0] }:{ score[1] })</span>
     </div>
 
     <div class="match__players hpadding sloppy" if={ match.home_players }>
       <em>{ match.home_name }:</em>
-      <span each={ match.home_players }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
+      <span each={ match.home_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
     </div>
 
     <div class="match__players hpadding sloppy" if={ match.away_players }>
       <em>{ match.away_name }:</em>
-      <span each={ match.away_players }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
+      <span each={ match.away_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
     </div>
   </div>
 
@@ -64,13 +64,29 @@
         margin-bottom: 1em;
       }
 
-      &__players span {
-        &:after {
-          content: ', ';
+      &__players {
+        em + span {
+          &:before {
+            content: none;
+          }
         }
+        span {
+          &:before {
+            content: ', ';
+          }
 
-        &:last-child:after {
-          content: '.';
+          &.in {
+            &:before {
+              content: ' (';
+            }
+            &:after {
+              content: ')';
+            }
+          }
+
+          &:last-child:after {
+            content: '.';
+          }
         }
       }
     }

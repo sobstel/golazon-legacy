@@ -47,3 +47,4 @@ Golazon
 * CloudFlare (free -> TTL 2h) -> for search?
 * Mobile app with Cordova.
 * Accessibility.
+* Recently finished games (determined at server side).

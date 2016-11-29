@@ -3,12 +3,12 @@
     <table class="matches__container">
       <tbody>
         <tr each={ matches } onclick={ go_to_match }>
-          <td class="date">{ format_date(date, time) }</td>
+          <td class="min" if={ min }>{ min }'</td>
+          <td class="date" if={ !min }>{ format_date(date, time) }</td>
           <td class="host">{ home_name }</td>
           <td class="status">
             <span if={ fixture }>{ format_time(date, time) }</span>
-            <span if={ live }>live</span>
-            <span if={ ended }>{ ft[0] } - { ft[1] }</span>
+            <span if={ live | ended } class={ live: live }>{ ft[0] } - { ft[1] }</span>
           </td>
           <td class="away">{ away_name }</td>
         </tr>
@@ -42,6 +42,7 @@
         background: #f9f9f9;
 
         tbody tr {
+          cursor: pointer;
           border-top: 1px solid $table-border-color;
 
           &:first-child {
@@ -55,6 +56,10 @@
           text-overflow: ellipsis;
         }
 
+        .min {
+          font-weight: 600;
+        }
+
         .date {
           font-weight: 600;
         }
@@ -66,6 +71,15 @@
         .status {
           text-align: center;
           font-weight: 600;
+        }
+
+        .live {
+          color: #c33;
+          animation: blinker 2s linear infinite;
+        }
+
+        @keyframes blinker {
+          50% { opacity: 0.3; }
         }
       }
     }

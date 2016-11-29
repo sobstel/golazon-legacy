@@ -1,15 +1,14 @@
 <home>
   <div class="home__wrapper block sloppy hpadding">
-  <ul>
-    <li class="home__item" each={ results }>
-      <a href="/#!/c/{ id }">{ name } ({ area_name })</a>
-    </li>
-  </ul>
+  <matches matches={ matches } if={ matches }></matches>
 
   <script type="coffee">
-    history = require 'history'
+    util = require 'util'
 
-    @results = history.getAll(30).sort (a, b) -> a.name.localeCompare(b.name)
+    @on 'mount', () =>
+      util.request @, '/matches/live', (matches) =>
+        @matches = matches
+        @update()
   </script>
 
   <style type="scss">

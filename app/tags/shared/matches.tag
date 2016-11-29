@@ -2,7 +2,7 @@
   <div class="matches__wrapper hpadding" if={ matches }>
     <table class="matches__container">
       <tbody>
-        <tr each={ matches }>
+        <tr each={ matches } onclick={ go_to_match }>
           <td class="date">{ format_date(date, time) }</td>
           <td class="host">{ home_name }</td>
           <td class="status">
@@ -21,6 +21,9 @@
 
     @format_date = util.format_date
     @format_time = util.format_time
+
+    @go_to_match = (e) ->
+      riot.route 'm/' + e.item.match_id
 
     @on 'mount', () =>
       @matches = @opts.matches
@@ -47,7 +50,7 @@
         }
 
         td {
-          padding: 6px 4px;
+          padding: 7px 4px;
           white-space: nowrap;
           text-overflow: ellipsis;
         }

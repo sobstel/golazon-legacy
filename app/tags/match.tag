@@ -3,19 +3,24 @@
   <h1 class="match__title sloppy hpadding">{ title }</h1>
 
   <div class="match__container" if={ match }>
-    <div class="match__goals hpadding sloppy" if={ match.goals }>
-      <em>Goals:</em>
+    <div class="match__goals hpadding sloppy" if={ match.goals.length > 0 }>
+      <strong>Goals:</strong>
       <span each={ match.goals }>{ name } { min }' ({ score[0] }:{ score[1] })</span>
     </div>
 
-    <div class="match__players hpadding sloppy" if={ match.home_players }>
-      <em>{ match.home_name }:</em>
+    <div class="match__players hpadding sloppy" if={ match.home_players.length > 0 }>
+      <strong>{ match.home_name }:</strong>
       <span each={ match.home_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
     </div>
 
-    <div class="match__players hpadding sloppy" if={ match.away_players }>
-      <em>{ match.away_name }:</em>
+    <div class="match__players hpadding sloppy" if={ match.away_players.length > 0 }>
+      <strong>{ match.away_name }:</strong>
       <span each={ match.away_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
+    </div>
+
+    <div class="match__cards hpadding sloppy" if={ match.cards.length > 0 }>
+      <strong>Cards:</strong>
+      <span each={ match.cards }>{ name } { min }' ({ code })</span>
     </div>
   </div>
 
@@ -47,25 +52,27 @@
         span:first-child .separator {
           display: none;
         }
+
+        div {
+          margin: 0;
+          padding: 0.5em 2em;
+          background: #f9f9f9;
+        }
       }
 
-      &__goals span {
+      &__goals span,
+      &__cards span {
         &:after {
           content: ', ';
         }
 
         &:last-child:after {
-          content: '.';
+          content: none;
         }
       }
 
       &__players {
-        margin-top: 1em;
-        margin-bottom: 1em;
-      }
-
-      &__players {
-        em + span {
+        strong + span {
           &:before {
             content: none;
           }
@@ -82,10 +89,6 @@
             &:after {
               content: ')';
             }
-          }
-
-          &:last-child:after {
-            content: '.';
           }
         }
       }

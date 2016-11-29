@@ -3,8 +3,9 @@
     <table class="matches__container">
       <tbody>
         <tr each={ matches } onclick={ go_to_match }>
-          <td class="min" if={ min }>{ min }'</td>
-          <td class="date" if={ !min }>{ format_date(date, time) }</td>
+          <td class="min" if={ min && period != 'HT' }>{ min }'</td>
+          <td class="period" if={ period == 'HT' }>{ period }</td>
+          <td class="date" if={ !min && !period }>{ format_date(date, time) }</td>
           <td class="host">{ home_name }</td>
           <td class="status">
             <span if={ fixture }>{ format_time(date, time) }</span>
@@ -56,7 +57,8 @@
           text-overflow: ellipsis;
         }
 
-        .min {
+        .min,
+        .period {
           font-weight: 600;
         }
 

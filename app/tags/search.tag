@@ -207,6 +207,7 @@
         top: 0;
         left: 0;
         right: 0;
+        z-index: 1;
 
         border: 1px solid $search-border-color;
         border-width: 0 1px;

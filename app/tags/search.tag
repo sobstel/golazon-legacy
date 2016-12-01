@@ -1,45 +1,43 @@
 <search>
-  <div class="search__wrapper">
-    <header class="search__container block sticky hpadding" role="banner">
+  <header class="search__container block" role="banner">
 
-      <div class="search__input-container">
-        <input type="text"
-          role="search"
-          class="search__input"
-          accesskey="s"
-          name="q"
-          placeholder="Search Golazon"
-          onkeyup={ search }
-          onfocus={ search }>
-        <button
-          class="search__clear-button"
-          onclick={ search_clear_click }
-          if={ clear_button_visible }>
-        </button>
-      </div>
+    <div class="search__input-container">
+      <input type="text"
+        role="search"
+        class="search__input"
+        accesskey="s"
+        name="q"
+        placeholder="Search Golazon"
+        onkeyup={ search }
+        onfocus={ search }>
+      <button
+        class="search__clear-button"
+        onclick={ search_clear_click }
+        if={ clear_button_visible }>
+      </button>
+    </div>
 
-      <div class="search__extras-container">
-        <p class="search__hint" if={ results.length == 0 && (hint || loading) }>
-          <span if={ loading } class="loader">loading</span>
-          { hint }
-        </p>
+    <div class="search__extras-container">
+      <p class="search__hint" if={ results.length == 0 && (hint || loading) }>
+        <span if={ loading } class="loader">loading</span>
+        { hint }
+      </p>
 
-        <ul class="search__results" if={ results.length > 0 }>
-          <li each={ results }>
-            <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
-              { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
-            </a>
-          </li>
-          <li class="search__results-hint" if={ results_hint }>
-              { results_hint }
-          </li>
-          <li class="search__loader loader" if={ loading }>
-              loading more
-          </li>
-        </ul>
-      </div>
-    </header>
-  </div>
+      <ul class="search__results" if={ results.length > 0 }>
+        <li each={ results }>
+          <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
+            { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
+          </a>
+        </li>
+        <li class="search__results-hint" if={ results_hint }>
+            { results_hint }
+        </li>
+        <li class="search__loader loader" if={ loading }>
+            loading more
+        </li>
+      </ul>
+    </div>
+  </header>
 
   <script type="coffee">
     util = require 'util'
@@ -50,9 +48,6 @@
     @results = []
 
     @clear_button_visible = false
-
-    util.beholder.on 'search.focus', () =>
-      @q.focus()
 
     active_result = (index) =>
       index = 0 if index >= @results.length
@@ -148,16 +143,6 @@
     $search-horizontal-padding: 8px;
 
     .search {
-      &__wrapper {
-        background-color: $secondary-bg-color;
-        width: 100%;
-      }
-
-      &__container {
-        padding-top: 12px;
-        padding-bottom: 12px;
-      }
-
       &__input-container {
         display: flex;
       }
@@ -169,7 +154,6 @@
         color: $input-text-color;
         padding: 8px $search-horizontal-padding;
         width: 100%;
-        max-width: $search-max-width;
 
         &:focus {
           outline: none;
@@ -213,10 +197,9 @@
         border-width: 0 1px;
         background: #fcfcfc;
 
-        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
         min-width: $min-width - (2 * $horizontal-padding);
-        max-width: ($big-screen-width - 20px);
 
         a {
           display: block;
@@ -231,7 +214,7 @@
 
           font-size: 15px;
 
-          @media screen and (min-width: $big-screen-width) {
+          @media screen and (min-width: $max-width) {
             font-size: 14px;
           }
         }

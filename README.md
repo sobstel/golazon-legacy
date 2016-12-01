@@ -1,7 +1,13 @@
 Golazon
 =======
 
-*football data mnmlist way*
+Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
+<a href="https://github.com/sobstel/golazon">Open source</a> prototype built as a proof of concept.
+
+## Highlights
+
+* extremely lightweight
+* remember uses choices to personalize search results and live matches
 
 ## Getting started
 
@@ -27,7 +33,6 @@ Golazon
 
 * block - full width block
 * column - one of 2 columns
-* hpadding/sticky-hpadding
 
 ### Issues
 

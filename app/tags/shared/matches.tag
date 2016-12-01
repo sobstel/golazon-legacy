@@ -1,5 +1,5 @@
 <matches>
-  <div class="matches__wrapper hpadding" if={ matches }>
+  <div class="matches__wrapper" if={ matches }>
     <table class="matches__container">
       <tbody>
         <tr each={ matches } onclick={ go_to_match }>
@@ -38,9 +38,8 @@
 
     .matches {
       &__container {
-        margin-bottom: 1em;
         width: 100%;
-        background: #f9f9f9;
+        table-layout: fixed;
 
         tbody tr {
           cursor: pointer;
@@ -52,14 +51,17 @@
         }
 
         td {
-          padding: 7px 4px;
+          padding: 8px 5px;
           white-space: nowrap;
-          text-overflow: ellipsis;
+          overflow: hidden;
+          text-overflow: clip;
         }
 
         .min,
-        .period {
+        .period,
+        .date {
           font-weight: 600;
+          width: 70px;
         }
 
         .date {
@@ -70,9 +72,14 @@
           text-align: right;
         }
 
+        .host, .away {
+
+        }
+
         .status {
           text-align: center;
           font-weight: 600;
+          width: 70px;
         }
 
         .live {

@@ -1,6 +1,8 @@
 <home>
-  <div class="home__wrapper block sloppy hpadding">
-  <matches matches={ matches } if={ matches }></matches>
+  <div class="home__wrapper block wrapped">
+    <loading></loading>
+    <matches matches={ matches } if={ matches }></matches>
+  </div>
 
   <script type="coffee">
     util = require 'util'
@@ -14,15 +16,5 @@
   <style type="scss">
     @import 'app/support.scss';
 
-    .home {
-      &__item {
-        line-height: 2em;
-        font-size: 15px;
-
-        @media screen and (min-width: $big-screen-width) {
-          font-size: 14px;
-        }
-      }
-    }
   </style>
 </home>

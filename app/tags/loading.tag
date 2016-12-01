@@ -1,5 +1,5 @@
 <loading>
-  <div class="loading__container sloppy hpadding">
+  <div class="loading__container">
     <p class="loading__loader loader" if={ parent.loading }>loading</p>
     <p class="loading__error" if={ parent.error }>ERROR ({ parent.name }): { parent.error } (<a href="" onclick={ reload_page }>reload</a>)</p>
   </div>
@@ -13,6 +13,10 @@
     .loading {
       &__container {
         font-size: 13px;
+      }
+
+      &__loader {
+        font-weight: 400;
       }
 
       &__error {

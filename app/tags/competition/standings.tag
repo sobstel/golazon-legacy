@@ -1,9 +1,9 @@
 <competition-standings>
-  <div class="standings__container">
+  <div class="standings__container block wrapped">
     <loading></loading>
 
     <div each={ rounds } class="standings">
-      <h2 class="sloppy hpadding">{ name }</h2>
+      <h2 class="">{ name }</h2>
 
       <table class="standings-table">
         <thead>
@@ -53,7 +53,6 @@
       table {
         margin: 10px 0;
         width: 100%;
-        background: #f9f9f9;
       }
 
       tbody tr {
@@ -64,6 +63,10 @@
       td {
         text-align: center;
         padding: 10px 7px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       th {

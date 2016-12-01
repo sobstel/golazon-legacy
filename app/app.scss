@@ -2,20 +2,20 @@
 
 @import 'node_modules/primer-base/index.scss';
 
-html, body {
-  // needed for sticky footer
-  height: 100%;
+body {
+  padding: 1em 0;
   background: $primary-bg-color;
 }
 
 h1 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.2em;
+  margin-top: 1em;
+  padding: 0 5px;
 }
 
 h2 {
-  font-size: 1.17em;
-  margin-bottom: 10px;
+  font-size: 1.1em;
+  margin-bottom: 1em;
 }
 
 h3 {
@@ -31,62 +31,26 @@ li {
 }
 
 // general centered block containing other elements
-.block {
-  width: 100%;
+.block,
+h1 {
+  width: 96%;
   min-width: $min-width;
-  margin: 0 auto;
+  margin-left: 2%;
+  margin-right: 2%;
 
-  @media screen and (min-width: $big-screen-width) {
+  @media screen and (min-width: $max-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
     max-width: $max-width;
   }
-}
 
-// standard horizontal padding
-.hpadding {
-  padding-left: $horizontal-padding;
-  padding-right: $horizontal-padding;
-
-  @media screen and (min-width: $padding-breakpoint) {
-    max-width: $max-width;
-  }
-}
-
-// sticky (glued to sides) padding
-.sticky.hpadding {
-  @media screen and (min-width: $padding-breakpoint) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
-// sloppy (pushed away from sides) padding
-.sloppy.hpadding {
-  padding-left: $horizontal-padding * 2;
-  padding-right: $horizontal-padding * 2;
-
-  @media screen and (min-width: $padding-breakpoint) {
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
-  }
-}
-
-// single column (one of 2) within block
-.column {
-  width: 100%;
-  min-width: $min-width;
-
-  @media screen and (min-width: $big-screen-width) {
-    float: left;
-    width: 50%;
-    max-width: ($max-width / 2);
-
-    padding-left: 0;
-    padding-right: 5px;
-
-    &:nth-child(even) {
-      padding-left: 5px;
-      padding-right: 0;
-    }
+  &.wrapped {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: $horizontal-padding $horizontal-padding;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   }
 }
 

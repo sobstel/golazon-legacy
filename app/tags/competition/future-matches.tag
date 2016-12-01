@@ -1,6 +1,8 @@
 <competition-future-matches>
-  <loading></loading>
-  <matches matches={ matches } if={ matches }></matches>
+  <div class="block wrapped">
+    <loading></loading>
+    <matches matches={ matches } if={ matches }></matches>
+  </div>
 
   <script type="coffee">
     util = require 'util'

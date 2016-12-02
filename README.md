@@ -1,8 +1,10 @@
 Golazon
 =======
 
-Football data <a href="https://gist.github.com/sobstel/bb52784b857697b71f60ed2f040e9757">mnmlist</a> way.
+Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 <a href="https://github.com/sobstel/golazon">Open source</a> prototype built as a proof of concept.
+
+Contact: przemek@sobstel.org
 
 ## Highlights
 

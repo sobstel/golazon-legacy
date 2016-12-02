@@ -48,6 +48,10 @@
           &:first-child {
             border-top: none;
           }
+
+          &:hover {
+            background: $hover-color;
+          }
         }
 
         td {
@@ -61,7 +65,7 @@
         .period,
         .date {
           font-weight: 600;
-          width: 70px;
+          width: 60px;
         }
 
         .date {
@@ -79,7 +83,7 @@
         .status {
           text-align: center;
           font-weight: 600;
-          width: 70px;
+          width: 60px;
         }
 
         .live {

@@ -10,6 +10,7 @@
         placeholder="Search Golazon"
         onkeyup={ search }
         onfocus={ search }>
+
       <button
         class="search__clear-button"
         onclick={ search_clear_click }
@@ -46,12 +47,11 @@
     active_result_index = -1
     req = delay = null
     @results = []
-
     @clear_button_visible = false
 
     active_result = (index) =>
       index = 0 if index >= @results.length
-      index = @results.length - 1 if index < 0
+      index = Math.max(@results.length - 1, 0) if index < 0
 
       result.active = false for result in @results
 
@@ -78,10 +78,10 @@
       @hint = false
       @clear_button_visible = true
 
-      if e.keyCode == 40 # down arrow
+      if e.keyCode == 40 && @results.length > 0 # down arrow
         active_result(active_result_index + 1)
 
-      else if e.keyCode == 38 # up arrow
+      else if e.keyCode == 38 && @results.length > 0 # up arrow
         active_result(active_result_index - 1)
 
       else if e.keyCode == 27 # esc
@@ -101,6 +101,7 @@
         if text.length == 0
           @loading = false
           @results = history.getAll(10)
+          active_result(0)
           @update()
           return
 
@@ -135,6 +136,14 @@
       @q.value = ''
       @update()
       exit_search()
+
+    @go_back = () =>
+      reset_search_results()
+      window.history.go(-1)
+
+    @go_home = (e) =>
+      reset_search_results()
+      riot.route '/'
   </script>
 
   <style type="scss">
@@ -150,6 +159,7 @@
       &__input {
         font-size: 16px;
         border: 1px solid $search-border-color;
+
         border-radius: 0;
         color: $input-text-color;
         padding: 8px $search-horizontal-padding;
@@ -167,8 +177,8 @@
       }
 
       &__clear-button {
-        margin-left: -30px;
         width: 30px;
+        margin-left: -30px;
         border: 0;
         padding: 0;
         background: url($clear-svg) center center no-repeat;
@@ -206,7 +216,7 @@
           padding: 5px $search-horizontal-padding;
 
           &.active {
-            background: #f3f3f3;
+            background: $hover-color;
           }
           &:hover {
             text-decoration: none;

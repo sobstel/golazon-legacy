@@ -1,6 +1,16 @@
 <app>
   <search></search>
+
   <div id="main"></div>
+
+  <p class="block nav">
+    <a href="" click={ go_back }>back</a> &#183; <a href="/">live</a>
+  </p>
+
+  <p class="disclaimer block">
+    Football data mnmlist way. Open source prototype.<br>
+    (<a href="https://github.com/sobstel/golazon">click here to learn more</a>)
+  </p>
 
   <script type="coffee">
     riot.route.base '#!'
@@ -18,10 +28,36 @@
       riot.mount '#main', 'error404'
 
     riot.route.start true
+
+    @go_back = (e) ->
+      history.back()
   </script>
 
   <style type="scss">
     @import 'app/support.scss';
 
+    .nav {
+      margin-top: 1em;
+      margin-bottom: 2em;
+      text-align: center;
+
+      a {
+        color: #c66;
+      }
+    }
+
+    .disclaimer {
+      margin-top: 1em;
+      margin-bottom: 2em;
+      font-style: italic;
+      padding: 0 10px;
+      font-size: 12px;
+      text-align: center;
+
+      a {
+        border-bottom: 1px dotted #666;
+        text-decoration: none;
+      }
+    }
   </style>
 </app>

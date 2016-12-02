@@ -5,27 +5,23 @@
       { title }
     </h1>
 
-
-    <div class="match__container" if={ match }>
-      <div class="match__goals block wrapped" if={ match.goals.length > 0 }>
-        <strong>Goals:</strong>
-        <span each={ match.goals }>{ name } { min }' ({ score[0] }:{ score[1] })</span>
+    <div class="match__container block wrapped" if={ match }>
+      <p class="first">{ format_date(match.date, match.time) }, { format_time(match.date, match.time) }</p>
+      <div class="match__goals" if={ match.goals.length > 0 }>
+        <h3 class="first">Goals</h3>
+        <p><span each={ match.goals }>{ name } { min }' <virtual if={ code != 'G' }>[{ code }]</virtual> (<strong>{ score[0] }:{ score[1] }</strong>)</span></p>
       </div>
-
-      <div class="block wrapped">
-        <p class="match__players" if={ match.home_players.length > 0 }>
-          <strong>{ match.home_name }:</strong>
-          <span each={ match.home_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
-        </p>
-        <div class="match__players" if={ match.away_players.length > 0 }>
-          <strong>{ match.away_name }:</strong>
-          <span each={ match.away_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span>
-        </div>
+      <div class="match__players" if={ match.home_players.length > 0 }>
+        <h3>{ match.home_name } line-up</h3>
+        <p><span each={ match.home_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span></p>
       </div>
-
-      <div class="match__cards block wrapped" if={ match.cards.length > 0 }>
-        <strong>Cards:</strong>
-        <span each={ match.cards }>{ name } { min }' ({ code })</span>
+      <div class="match__players" if={ match.away_players.length > 0 }>
+        <h3>{ match.away_name } line-up</h3>
+        <p><span each={ match.away_players } class={ in: this.in }><virtual if={ this.in }>{ this.in }'</virtual> { name }</span></p>
+      </div>
+      <div class="match__cards" if={ match.cards.length > 0 }>
+        <h3>Cards</h3>
+        <p><span each={ match.cards }>{ name } { min }' ({ code })</span></p>
       </div>
     </div>
   </div>
@@ -42,8 +38,7 @@
       util.request @, '/matches/' + opts.match_id, (match) =>
         @match = match
 
-        @title = util.format_date(match.date, match.time) + ': ' +
-          match.home_name + ' ' + match.ft[0] + ' : ' + match.ft[1] + ' ' + match.away_name
+        @title = match.home_name + ' ' + match.ft[0] + ' : ' + match.ft[1] + ' ' + match.away_name
 
         @update()
 
@@ -55,8 +50,12 @@
 
     .match {
       &__container {
-        span:first-child .separator {
-          display: none;
+        p {
+          margin: 1em 0;
+        }
+
+        .first {
+          margin-top: 0;
         }
       }
 
@@ -72,12 +71,10 @@
       }
 
       &__players {
-        strong + span {
-          &:before {
+        span {
+          &:first-child:before {
             content: none;
           }
-        }
-        span {
           &:before {
             content: ', ';
           }

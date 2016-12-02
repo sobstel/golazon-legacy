@@ -20,6 +20,14 @@ h2 {
 
 h3 {
   font-size: 1em;
+  color: #878787;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  font-weight: normal;
+  margin: 1em -10px;
+  padding: 5px 10px;
 }
 
 a {
@@ -33,10 +41,9 @@ li {
 // general centered block containing other elements
 .block,
 h1 {
-  width: 96%;
-  min-width: $min-width;
-  margin-left: 2%;
-  margin-right: 2%;
+  min-width: $min-width - 12px;
+  margin-left: 6px;
+  margin-right: 6px;
 
   @media screen and (min-width: $max-width) {
     margin-left: auto;

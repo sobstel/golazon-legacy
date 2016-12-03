@@ -80,15 +80,6 @@
           width: 60px;
           white-space: normal;
         }
-
-        .live {
-          color: #c33;
-          animation: blinker 1s linear infinite;
-        }
-
-        @keyframes blinker {
-          50% { opacity: 0.5; }
-        }
       }
     }
   </style>

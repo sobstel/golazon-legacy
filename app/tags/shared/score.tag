@@ -16,4 +16,15 @@
       @match = @opts.match
       @update()
   </script>
+
+  <style type="scss">
+    .live {
+      color: #c33;
+      animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+      50% { opacity: 0.5; }
+    }
+  </style>
 </score>

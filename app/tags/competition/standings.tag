@@ -85,14 +85,14 @@
         font-weight: 500;
       }
       .mp {
-        width: 45px;
+        width: 40px;
       }
       .gd {
-        width: 65px;
+        width: 60px;
       }
       .pts {
         font-weight: 700;
-        width: 45px;
+        width: 40px;
       }
 
       .zone {
@@ -115,6 +115,11 @@
         &-13 span { background-color: #E64A19; }
         &-14 span { background-color: #5D4037; }
         &-15 span { background-color: #455A64; }
+      }
+
+      @media screen and (min-width: $max-width) {
+        table { table-layout: auto; }
+        .mp, .gd { width: auto; }
       }
     }
   </style>

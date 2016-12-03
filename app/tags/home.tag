@@ -15,7 +15,9 @@
     util = require 'util'
     history = require 'history'
 
-    @on 'mount', () =>
+    timeout = null
+
+    refresh_data = () =>
       util.request @, '/matches/live', (matches) =>
         competition_matches = {}
 
@@ -47,6 +49,14 @@
         @suggested_competitions = history.getAll(20) unless @grouped_matches && @grouped_matches.length > 0
 
         @update()
+
+        timeout = setTimeout(refresh_data, 30 * 1000)
+
+    @on 'mount', () =>
+      refresh_data()
+
+    @on 'unmount', () =>
+      clearTimeout(timeout) if timeout
 
     @go_to_competition = (e) ->
       competition_id = e.item.item.competition.id

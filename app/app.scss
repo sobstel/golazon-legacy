@@ -31,6 +31,12 @@ loading + div h2 {
 
 a {
   color: $action-color;
+  border-bottom: 1px dotted #999;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 li {

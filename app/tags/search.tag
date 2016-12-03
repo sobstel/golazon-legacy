@@ -214,6 +214,7 @@
         a {
           display: block;
           padding: 5px $search-horizontal-padding;
+          border: none;
 
           &.active {
             background: $hover-color;

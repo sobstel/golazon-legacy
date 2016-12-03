@@ -79,6 +79,13 @@ require.register 'history_data', (exports, require, module) ->
         teamtype: "default",
         type: "competition",
       },
+      {
+        area_name: "Poland",
+        id: "2e0",
+        name: "Ekstraklasa",
+        teamtype: "default",
+        type: "competition",
+      }
     ]
 
     item._score = { count: 1, last_visit: new Date() } for item in initial_history_list

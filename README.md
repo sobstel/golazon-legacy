@@ -4,13 +4,19 @@ Golazon
 Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 Open source prototype built as a proof of concept.
 
+It has some glitches here and there yet it works pretty well already.
+
 Contact: przemek@sobstel.org
 
 ## Main concepts
 
-* extremely lightweight (~25KB in total!)
+* follows a spirit of idea <a href="http://mnmlist.com/w/">minimal web</a>
+* extremely lightweight (~26KB gzipped in total!)
+* leverages http caching to full extent (so content usually loaded from cache)
 * remembers user choices to personalize order of search results and live matches
-* leverage http caching as much as possible
+
+Real reason: wanted to have scores & standings website for myself, so I can check
+scores on very slow connection (when on holidays, off to mountains or woods, etc).
 
 ## Getting started
 
@@ -33,7 +39,7 @@ Contact: przemek@sobstel.org
 
 ### Issues
 
-* Data: search API is very inefficient (would be good to rewrite to custom solution based on Riak Search.
+* Data: search API backend is very inefficient (would be good to rewrite to custom solution based on Riak Search).
 * Routing: hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)
 * Sass: sass inside of tag processed independently from each other (sharing common stuff only via explicit `@import`)
 * JS: riot variable registered globally (as generated tags use it like this; CommonJS option didn't work ok for me)

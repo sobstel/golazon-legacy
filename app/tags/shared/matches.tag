@@ -7,10 +7,7 @@
           <td class="period" if={ period == 'HT' }>{ period }</td>
           <td class="date" if={ !min && period != 'HT' }>{ format_date(date, time) }</td>
           <td class="host">{ home_name }</td>
-          <td class="status">
-            <span if={ fixture }>{ format_time(date, time) }</span>
-            <span if={ live | ended } class={ live: live }>{ ft[0] } - { ft[1] }</span>
-          </td>
+          <td class="status"><score match={ this }></score></td>
           <td class="away">{ away_name }</td>
         </tr>
       </tbody>
@@ -22,9 +19,10 @@
 
     @format_date = util.format_date
     @format_time = util.format_time
+    @format_score = util.format_score
 
     @go_to_match = (e) ->
-      riot.route 'm/' + e.item.match_id
+      riot.route '/m/' + e.item.match_id
 
     @on 'mount', () =>
       @matches = @opts.matches
@@ -76,14 +74,11 @@
           text-align: right;
         }
 
-        .host, .away {
-
-        }
-
         .status {
           text-align: center;
           font-weight: 600;
           width: 60px;
+          white-space: normal;
         }
 
         .live {

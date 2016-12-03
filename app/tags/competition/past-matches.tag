@@ -1,7 +1,7 @@
 <competition-past-matches>
-  <div class="block wrapped">
+  <div class="block wrapped" if={ matches.length > 0 }>
     <loading></loading>
-    <matches matches={ matches } if={ matches }></matches>
+    <matches matches={ matches }></matches>
   </div>
 
   <script type="coffee">

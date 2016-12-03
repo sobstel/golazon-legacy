@@ -36,6 +36,13 @@
         grouped_matches = []
         grouped_matches.push item for key, item of competition_matches
 
+        grouped_matches.sort (a, b) ->
+          ha = history.get('competition', a.competition.id)
+          hb = history.get('competition', b.competition.id)
+          ha = { '_score': {'count': 0} } if !ha
+          hb = { '_score': {'count': 0} } if !hb
+          hb['_score']['count'] - ha['_score']['count']
+
         @grouped_matches = grouped_matches
         @suggested_competitions = history.getAll(20) unless @grouped_matches && @grouped_matches.length > 0
 

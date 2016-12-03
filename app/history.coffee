@@ -49,6 +49,12 @@ require.register 'history', (exports, require, module) ->
     localStorage.setItem(storage_key, JSON.stringify(history))
 
   #
+  # Get by type, id
+  #
+  exports.get = (type, id) ->
+    history.find (item) -> item.type == type && item.id == id
+
+  #
   # Get all history items (up to specified limit)
   #
   exports.getAll = (limit) ->

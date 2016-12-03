@@ -48,6 +48,7 @@
     req = delay = null
     @results = []
     @clear_button_visible = false
+    @hint = 'hint: type competition or country name'
 
     active_result = (index) =>
       index = 0 if index >= @results.length
@@ -191,7 +192,7 @@
 
       &__hint {
         padding-top: 3px;
-        padding-left: 10px;
+        padding-left: $default-padding;
         margin-bottom: -4px;
         font-size: 11px;
       }
@@ -209,7 +210,7 @@
 
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-        min-width: $min-width - (2 * $horizontal-padding);
+        min-width: $min-width - (2 * $default-padding);
 
         a {
           display: block;

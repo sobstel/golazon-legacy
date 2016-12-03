@@ -50,7 +50,7 @@
       margin-top: 1em;
       margin-bottom: 2em;
       font-style: italic;
-      padding: 0 10px;
+      padding: 0 $default-padding;
       font-size: 12px;
       text-align: center;
 

@@ -21,12 +21,12 @@ h2 {
   border-left: none;
   border-right: none;
   font-weight: normal;
-  margin: 1em -10px;
-  padding: 5px 10px;
+  margin: 1em (-$default-padding);
+  padding: 5px $default-padding;
 }
 
 loading + div h2 {
-  margin-top: -10px;
+  margin-top: (-$default-padding);
 }
 
 a {
@@ -60,7 +60,7 @@ h1 {
   &.wrapped {
     margin-top: 1em;
     margin-bottom: 1em;
-    padding: $horizontal-padding $horizontal-padding;
+    padding: $default-padding $default-padding;
     background: #fff;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   }

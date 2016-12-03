@@ -51,7 +51,7 @@
 
     .standings {
       table {
-        margin: 10px 0;
+        margin: $default-padding 0;
         width: 100%;
         table-layout: fixed;
       }
@@ -63,7 +63,7 @@
       th,
       td {
         text-align: center;
-        padding: 10px 7px;
+        padding: $default-padding 7px;
 
         overflow: hidden;
         text-overflow: clip;

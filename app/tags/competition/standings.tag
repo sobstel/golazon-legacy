@@ -3,7 +3,7 @@
     <loading></loading>
 
     <div each={ rounds } class="standings">
-      <h2 class="">{ name }</h2>
+      <h2>{ name }</h2>
 
       <table class="standings-table">
         <thead>

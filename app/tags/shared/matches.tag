@@ -88,11 +88,11 @@
 
         .live {
           color: #c33;
-          animation: blinker 2s linear infinite;
+          animation: blinker 1s linear infinite;
         }
 
         @keyframes blinker {
-          50% { opacity: 0.3; }
+          50% { opacity: 0.5; }
         }
       }
     }

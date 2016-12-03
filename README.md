@@ -2,14 +2,15 @@ Golazon
 =======
 
 Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
-<a href="https://github.com/sobstel/golazon">Open source</a> prototype built as a proof of concept.
+Open source prototype built as a proof of concept.
 
 Contact: przemek@sobstel.org
 
-## Highlights
+## Main concepts
 
-* extremely lightweight
-* remember uses choices to personalize search results and live matches
+* extremely lightweight (~25KB in total!)
+* remembers user choices to personalize order of search results and live matches
+* leverage http caching as much as possible
 
 ## Getting started
 
@@ -26,15 +27,9 @@ Contact: przemek@sobstel.org
 * Stack: Riot.js, CoffeeScript, SCSS. See package.json for more.
 * Build tools: brunch, npm.
 * Architecture: static SPA site (hosted at GitHub) + external API.
-* No images, except inline svg logo or icons (if any).
-  * Too much weight, too much data to transfer and it's supposed to be extremely lightweight.
+* No images, except inline svg icon(s).
 
 ## Technical
-
-### General CSS styles (app.scss)
-
-* block - full width block
-* column - one of 2 columns
 
 ### Issues
 
@@ -45,6 +40,7 @@ Contact: przemek@sobstel.org
 
 ### Potential technical improvements
 
+* Rewrite global util to riot mixins
 * ES6 or TypeScript over CoffeeScript
 * Riak Search for search engine
   * Why? AP (Availability + Partition Tolerance)
@@ -55,3 +51,6 @@ Contact: przemek@sobstel.org
 * Mobile app with Cordova.
 * Accessibility.
 * Recently finished games (determined at server side).
+* Migrate to riot3 (http://riotjs.com/guide/migration-from-riot2/, http://riotjs.com/release-notes/) and es6
+* Convention: use camelCase eventually
+* Automated tests (!) (with nightmarejs?)

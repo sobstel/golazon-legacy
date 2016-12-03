@@ -9,7 +9,7 @@
 
   <p class="disclaimer block">
     Football data mnmlist way. Open source prototype.<br>
-    (<a href="https://github.com/sobstel/golazon">click here to learn more</a>)
+    (<a href="https://github.com/sobstel/golazon#readme">click here to learn more</a>)
   </p>
 
   <script type="coffee">

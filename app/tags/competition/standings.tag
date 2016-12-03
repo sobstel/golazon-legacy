@@ -66,7 +66,7 @@
         padding: 10px 7px;
 
         overflow: hidden;
-        text-overflow: ellipsis;
+        text-overflow: clip;
         white-space: nowrap;
       }
 

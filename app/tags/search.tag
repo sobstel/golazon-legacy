@@ -138,13 +138,10 @@
       @update()
       exit_search()
 
-    @go_back = () =>
-      reset_search_results()
-      window.history.go(-1)
-
     @go_home = (e) =>
       reset_search_results()
       riot.route '/'
+
   </script>
 
   <style type="scss">
@@ -180,9 +177,9 @@
       &__clear-button {
         width: 30px;
         margin-left: -30px;
-        border: 0;
-        padding: 0;
-        background: url($clear-svg) center center no-repeat;
+        border: 1px solid $search-border-color;
+        border-left: none;
+        background: #fff url($clear-svg) center center no-repeat;
         outline: none;
       }
 

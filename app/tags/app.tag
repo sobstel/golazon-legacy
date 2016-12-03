@@ -3,8 +3,8 @@
 
   <div id="main"></div>
 
-  <p class="block nav">
-    <a href="" click={ go_back }>back</a> &#183; <a href="/">live</a>
+  <p class="block nav" if={ links_visible }>
+    <a href="/">live</a>
   </p>
 
   <p class="disclaimer block">
@@ -13,24 +13,34 @@
   </p>
 
   <script type="coffee">
+    util = require 'util'
+
     riot.route.base '#!'
 
     riot.route '/', () =>
       riot.mount '#main', 'home'
+      util.beholder.trigger 'mount', 'home'
 
     riot.route '/c/*', (competition_id) =>
       riot.mount '#main', 'competition', competition_id: competition_id
+      util.beholder.trigger 'mount', 'competition'
 
     riot.route '/m/*', (match_id) =>
       riot.mount '#main', 'match', match_id: match_id
+      util.beholder.trigger 'mount', 'match'
 
     riot.route () =>
       riot.mount '#main', 'error404'
+      util.beholder.trigger 'mount', 'error404'
 
     riot.route.start true
 
-    @go_back = (e) ->
-      history.back()
+    @links_visible = false
+    @update()
+
+    util.beholder.on 'mount', (name) =>
+      @links_visible = (name != 'home')
+      @update()
   </script>
 
   <style type="scss">

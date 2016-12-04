@@ -3,6 +3,12 @@
     <p>Page not found. <a href="/">Go home</a> or use search above.</p>
   </div>
 
+  <script type="coffee">
+    util = require 'util'
+
+    util.title '404'
+  </script>
+
   <style type="scss">
     @import 'app/support.scss';
 

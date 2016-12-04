@@ -45,7 +45,7 @@
       util.request @, '/matches/' + opts.match_id, (match) =>
         @match = match
 
-        @title = match.home_name + ' - ' + match.away_name + ' ' + match.ft[0] + ' - ' + match.ft[1]
+        @title = match.home_name + ' - ' + match.away_name + ' (' + match.competition_name + ')'
 
         @update()
 

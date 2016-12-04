@@ -9,7 +9,6 @@ require.register 'util', (exports, require, module) ->
   #
   exports.title = (title) ->
     document.title = title + ' - Golazon'
-    document.title = 'Golazon' if title == 'Golazon'
 
   #
   # Returns request object

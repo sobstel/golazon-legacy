@@ -15,6 +15,8 @@
     util = require 'util'
     history = require 'history'
 
+    util.title 'Live'
+
     timeout = null
 
     refresh_data = () =>

@@ -8,7 +8,7 @@
     <div class="match__container block wrapped" if={ match }>
       <p class="first">
         { format_date(match.date, match.time) }, { format_time(match.date, match.time) } -
-        <a href="/#!/c/{ match.competition_id }">{ match.competition_name } ({ match.area_name })</a> -
+        <a href="/#!/c/{ match.competition_id }">{ match.competition_name } ({ match.area_name }) <virtual if={ match.teamtype != 'default' }>{ match.teamtype }</virtual></a> -
         { match.round_name }
       </p>
       <div class="match__goals" if={ match.goals.length > 0 }>

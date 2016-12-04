@@ -28,7 +28,7 @@
       <ul class="search__results" if={ results.length > 0 }>
         <li each={ results }>
           <a href="/#!/c/{ id }" class={ active: active } onclick={ search_result_click } onmouseover={ search_result_mouseover }>
-            { name } ({ area_name }) <span if={ teamtype != 'default' }>{ teamtype }</span>
+            { name } ({ area_name }) <virtual if={ teamtype != 'default' }>{ teamtype }</virtual>
           </a>
         </li>
         <li class="search__results-hint" if={ results_hint }>

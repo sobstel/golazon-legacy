@@ -20,6 +20,7 @@
       util.request @, '/competitions/' + opts.competition_id, (competition) =>
         @competition = competition
         @title = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
+        @title += ' ' + competition.teamtype if competition.teamtype != 'default'
         @update()
 
         util.title @title

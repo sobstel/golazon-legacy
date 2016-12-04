@@ -15,6 +15,7 @@
         class="search__clear-button"
         onclick={ search_clear_click }
         if={ clear_button_visible }>
+        X
       </button>
     </div>
 
@@ -147,6 +148,7 @@
   <style type="scss">
     @import 'app/support.scss';
 
+    $search-border-color: #ccc;
     $search-horizontal-padding: 8px;
 
     .search {
@@ -157,6 +159,7 @@
       &__input {
         font-size: 16px;
         border: 1px solid $search-border-color;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
         border-radius: 0;
         color: $input-text-color;
@@ -175,12 +178,20 @@
       }
 
       &__clear-button {
-        width: 30px;
-        margin-left: -30px;
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        line-height: 15px;
+        margin-top: 10px;
+        margin-left: -26px;
         border: 1px solid $search-border-color;
         border-left: none;
-        background: #fff url($clear-svg) center center no-repeat;
+        border-radius: 12px;
+        background: #ccc;
+        color: #fff;
         outline: none;
+        font-weight: 700;
+        font-size: 11px;
       }
 
       &__extras-container {

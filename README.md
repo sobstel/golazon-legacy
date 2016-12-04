@@ -10,15 +10,18 @@ Contact: przemek@sobstel.org
 
 ## Main concepts
 
-* follows a spirit of idea <a href="http://mnmlist.com/w/">minimal web</a>
+* minimalist website idea <a href="http://mnmlist.com/w/">minimal web</a>
 * extremely lightweight (~26KB gzipped in total!)
 * leverages http caching to full extent (so content usually loaded from cache)
 * remembers user choices to personalize order of search results and live matches
+* no image files
 
 Real reason: wanted to have scores & standings website for myself, so I can check
 scores on very slow connection (when on holidays, off to mountains or woods, etc).
 
-## Getting started
+## Technical
+
+### Getting started
 
 * Install
   * `yarn install`
@@ -26,16 +29,19 @@ scores on very slow connection (when on holidays, off to mountains or woods, etc
 * Run
   * `npm run start` - watches the project with continuous rebuild
   * `npm run build` - builds minified project for production
-  * `npm run` - list of all build tasks
+  * `npm run` - list of all tasks
 
-## Decisions
+### Stack
 
-* Stack: Riot.js, CoffeeScript, SCSS. See package.json for more.
-* Build tools: brunch, npm.
-* Architecture: static SPA site (hosted at GitHub) + external API.
-* No images, except inline svg icon(s).
+* core: riot, coffeescript, scss
+* build: brunch, npm
+* resting: chimp
+* see package.json for more
 
-## Technical
+### Architecture
+
+* static SPA site (hosted at GitHub)
+* external API (proprietary)
 
 ### Issues
 
@@ -56,7 +62,5 @@ scores on very slow connection (when on holidays, off to mountains or woods, etc
 * CloudFlare (free -> TTL 2h) -> for search?
 * Mobile app with Cordova.
 * Accessibility.
-* Recently finished games (determined at server side).
 * Migrate to riot3 (http://riotjs.com/guide/migration-from-riot2/, http://riotjs.com/release-notes/) and es6
 * Convention: use camelCase eventually
-* Automated tests (!) (with nightmarejs?)

@@ -7,8 +7,9 @@
 
     <div class="match__container block wrapped" if={ match }>
       <p class="first">
+        { format_date(match.date, match.time) }, { format_time(match.date, match.time) } -
         <a href="/#!/c/{ match.competition_id }">{ match.competition_name } ({ match.area_name })</a> -
-        { format_date(match.date, match.time) }, { format_time(match.date, match.time) }
+        { match.round_name }
       </p>
       <div class="match__goals" if={ match.goals.length > 0 }>
         <h2 class="first">Goals</h2>
@@ -45,7 +46,7 @@
       util.request @, '/matches/' + opts.match_id, (match) =>
         @match = match
 
-        @title = match.home_name + ' - ' + match.away_name + ' (' + match.competition_name + ')'
+        @title = match.home_name + ' v ' + match.away_name + ' - ' + match.competition_name + ' - ' + match.area_name
 
         @update()
 

@@ -1,47 +1,45 @@
 Golazon
 =======
 
-Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
-Open source prototype built as a proof of concept.
+Football data <a href="http://mnmlist.com/w/">mnmlist</a> way. (prototype / proof of concept)
+
+* extremely lightweight (~26KB gzipped in total!)
+* no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
+  no social sharing, no comments, no bullshit (<a href="http://mnmlist.com/w/">minimal web</a>)
+* remembers user choices to personalize order of search results and live matches
+* content loaded from cache whenever possible (and it's nearly always possible)
 
 It has some glitches here and there yet it works pretty well already.
 
+Why? Wanted to have scores & standings website for myself, so I can check scores on very
+slow connection (when on holidays, off to mountains or woods, etc).
+
 Contact: przemek@sobstel.org
 
-## Main concepts
-
-* minimalist website idea <a href="http://mnmlist.com/w/">minimal web</a>
-* extremely lightweight (~26KB gzipped in total!)
-* leverages http caching to full extent (so content usually loaded from cache)
-* remembers user choices to personalize order of search results and live matches
-* no image files
-
-Real reason: wanted to have scores & standings website for myself, so I can check
-scores on very slow connection (when on holidays, off to mountains or woods, etc).
+------------
 
 ## Technical
 
 ### Getting started
 
-* Install
-  * `yarn install`
+#### Install
 
-* Run
-  * `npm run start` - watches the project with continuous rebuild
-  * `npm run build` - builds minified project for production
-  * `npm run` - list of all tasks
+* `yarn install`
 
-### Stack
+#### Run
 
-* core: riot, coffeescript, scss
-* build: brunch, npm
-* resting: chimp
-* see package.json for more
+* `npm start` - watches the project with continuous rebuild
+* `npm run build` - builds minified project for production
+* `npm test` - run acceptance tests (need to `npm start` before)
+* `npm run` - list of all tasks
 
 ### Architecture
 
-* static SPA site (hosted at GitHub)
+* static SPA site (open source, hosted at GitHub)
+  * [riot](http://riotjs.com/), coffeescript, scss, [superagent](http://visionmedia.github.io/superagent/),
+    [brunch](http://brunch.io/), npm, [chimp](https://chimp.readme.io/)
 * external API (proprietary)
+  * ruby, nginx
 
 ### Issues
 

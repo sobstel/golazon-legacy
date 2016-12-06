@@ -9,10 +9,11 @@ Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 * remembers user choices to personalize order of search results and live matches
 * content loaded from cache whenever possible (and it's nearly always possible)
 
-It's a prototype (proof of concept and it has some glitches here and there yet it works pretty well already.
+Why? Wanted to have scores & standings site where I can check scores on very slow connection
+(when on holidays, off to mountains or woods, etc).
 
-Why? Wanted to have scores & standings website for myself, so I can check scores on very
-slow connection (when on holidays, off to mountains or woods, etc).
+It's a prototype (proof of concept), it has some glitches here and there yet it works pretty
+well already.
 
 Contact: przemek@sobstel.org
 

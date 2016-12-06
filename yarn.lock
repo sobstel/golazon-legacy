@@ -2122,8 +2122,8 @@ primer-base@^0.3.0:
     primer-support "*"
 
 primer-support@*:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/primer-support/-/primer-support-0.6.0.tgz#94541399e16574f8aa618d9fc99746670782b2b2"
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/primer-support/-/primer-support-1.1.0.tgz#c8942a7acfea3b029601c4c46d008065b650ad63"
 
 process-nextick-args@~1.0.6:
   version "1.0.7"

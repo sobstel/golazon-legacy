@@ -25,8 +25,10 @@
     "deploy": "npm run publish",
     "repo:push": "cd public/ && git add . && git commit -m \"update\" && git push origin gh-pages && cd ..",
     "repo:init": "[ -d public/.git ] || (npm run clean && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
-    "publish": "npm run repo:init && npm run build && ./bin/cachebuster && ./bin/create404 && touch public/.nojekyll && npm run repo:push",
+    "publish": "npm run repo:init && npm run build && ./bin/cachebuster && cp public/index.html public/404.html && touch public/.nojekyll && npm run repo:push",
     "start": "npm run clean && brunch watch --server",
+    "test": "chimp --browser=phantomjs",
+    "test-watch": "chimp --watch --browser=phantomjs",
     "watch": "npm run start"
   }
 }

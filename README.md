@@ -3,7 +3,7 @@ Golazon
 
 Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
-* extremely lightweight (~26KB gzipped in total!)
+* extremely lightweight (~26KB gzipped)
 * no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
   no social sharing, no comments, no bullshit
 * remembers user choices to personalize order of search results and live matches
@@ -62,3 +62,4 @@ Contact: przemek@sobstel.org
 * Accessibility.
 * Migrate to riot3 (http://riotjs.com/guide/migration-from-riot2/, http://riotjs.com/release-notes/) and es6
 * Convention: use camelCase eventually
+* Automated tests.

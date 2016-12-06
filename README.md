@@ -1,15 +1,15 @@
 Golazon
 =======
 
-Football data <a href="http://mnmlist.com/w/">mnmlist</a> way. (prototype / proof of concept)
+Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
 * extremely lightweight (~26KB gzipped in total!)
 * no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
-  no social sharing, no comments, no bullshit (<a href="http://mnmlist.com/w/">minimal web</a>)
+  no social sharing, no comments, no bullshit
 * remembers user choices to personalize order of search results and live matches
 * content loaded from cache whenever possible (and it's nearly always possible)
 
-It has some glitches here and there yet it works pretty well already.
+It's a prototype (proof of concept and it has some glitches here and there yet it works pretty well already.
 
 Why? Wanted to have scores & standings website for myself, so I can check scores on very
 slow connection (when on holidays, off to mountains or woods, etc).
@@ -18,7 +18,7 @@ Contact: przemek@sobstel.org
 
 ------------
 
-## Technical
+## Technical stuff
 
 ### Getting started
 

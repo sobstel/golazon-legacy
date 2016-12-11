@@ -9,9 +9,6 @@ Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 * remembers user choices to personalize order of search results and live matches
 * content loaded from cache whenever possible (and it's nearly always possible)
 
-Why? Wanted to have scores & standings site where I can check scores on very slow connection
-(when on holidays, off to mountains or woods, etc).
-
 It's a prototype (proof of concept), it has some glitches here and there yet it works pretty
 well already.
 
@@ -42,7 +39,7 @@ Contact: przemek@sobstel.org
 * external API (proprietary)
   * ruby, nginx
 
-### Issues
+### Technical issues
 
 * Data: search API backend is very inefficient (would be good to rewrite to custom solution based on Riak Search).
 * Routing: hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)

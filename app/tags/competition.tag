@@ -1,6 +1,6 @@
 <competition class="competition">
 
-  <h1 class="competition__title">
+  <h1 class="competition__title block wrapped">
     <loading></loading>
     { title }
   </h1>

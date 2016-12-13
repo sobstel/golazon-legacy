@@ -7,7 +7,7 @@
         class="search__input"
         accesskey="s"
         name="q"
-        placeholder="Search Golazon"
+        placeholder="Search: country or tournament name"
         onkeyup={ search }
         onfocus={ search }>
 
@@ -49,7 +49,7 @@
     req = delay = null
     @results = []
     @clear_button_visible = false
-    @hint = 'hint: type competition or country name'
+    @hint = null
 
     active_result = (index) =>
       index = 0 if index >= @results.length

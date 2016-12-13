@@ -1,6 +1,6 @@
 <match>
 
-    <h1 class="match__title">
+    <h1 class="match__title block wrapped">
       <loading></loading>
       <virtual if={ match }>{ match.home_name } - { match.away_name } <score match={ match }></score></virtual>
     </h1>

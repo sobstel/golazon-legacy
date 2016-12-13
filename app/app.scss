@@ -11,6 +11,7 @@ h1 {
   font-size: 1.2em;
   margin-top: 1em;
   padding: 0 5px;
+  background: #f9f9f9;
 }
 
 h2 {
@@ -64,6 +65,10 @@ h1 {
     background: #fff;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
   }
+}
+
+h1.block.wrapped {
+  margin-bottom: 0;
 }
 
 // loader

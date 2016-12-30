@@ -179,15 +179,19 @@
 
       &__clear-button {
         display: inline-block;
-        line-height: 30px;
-        margin-left: -26px;
-        border: none;
+        width: 30px;
+        padding: 0;
+        margin-left: -1px;
+        border: 1px solid $search-border-color;
+        border-left: none;
         color: #000;
-        background: transparent;
+        background: #fff;
         text-transform: lowercase;
         outline: none;
         font-weight: 700;
         font-size: 15px;
+        align-content: center;
+        text-align: center;
       }
 
       &__extras-container {

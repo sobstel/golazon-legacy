@@ -1,7 +1,7 @@
 <loading>
   <div class="loading__container">
     <p class="loading__loader loader" if={ parent.loading }>loading</p>
-    <p class="loading__error" if={ parent.error }>ERROR ({ parent.name }): { parent.error } (<a href="" onclick={ reload_page }>reload</a>)</p>
+    <p class="loading__error" if={ parent.error }>ERROR<span if={ parent.name }> ({ parent.name })</span>: { parent.error } (<a href="" onclick={ reload_page }>reload</a>)</p>
   </div>
 
   <script type="coffee">

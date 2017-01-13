@@ -15,7 +15,6 @@
     "riot-brunch": "^0.0.4",
     "sass-brunch": "^2.0.0",
     "string-hash": "^1.1.0",
-    "superagent": "^2.3.0",
     "uglify-js-brunch": "^2.0.0"
   },
   "scripts": {

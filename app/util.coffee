@@ -1,5 +1,4 @@
 require.register 'util', (exports, require, module) ->
-  request = require 'superagent'
   riot = require 'riot'
 
   api_url = 'http://toller.xyz'
@@ -17,18 +16,19 @@ require.register 'util', (exports, require, module) ->
     that.loading = true
     that.update()
 
-    request
-       .get api_url + path
-       .timeout 7000
-       .end (err, res) ->
-         that.loading = false
-         that.update()
+    # TODO: timeout
 
-         if err
-          that.error = err.message
-          that.update()
-         else
-          func res.body
+    fetch api_url + path
+      .then (response) ->
+        response.json()
+      .then (data) ->
+        that.loading = false
+        that.update()
+        func data
+      .catch (err) ->
+        that.loading = false
+        that.error = err.message
+        that.update()
 
   exports.delay = (seconds, func) ->
     setTimeout func, seconds * 1000

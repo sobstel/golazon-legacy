@@ -3,7 +3,7 @@ Golazon
 
 Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
-* extremely lightweight (~26KB gzipped)
+* extremely lightweight (~21KB gzipped)
 * no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
   no social sharing, no comments, no bullshit
 * remembers user choices to personalize order of search results and live matches
@@ -34,7 +34,7 @@ Contact: przemek@sobstel.org
 ### Architecture
 
 * static SPA site (open source, hosted at GitHub)
-  * [riot](http://riotjs.com/), coffeescript, scss, [superagent](http://visionmedia.github.io/superagent/),
+  * [riot](http://riotjs.com/), coffeescript, scss, fetch,
     [brunch](http://brunch.io/), npm, [chimp](https://chimp.readme.io/)
 * external API (proprietary)
   * ruby, nginx

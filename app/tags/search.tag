@@ -46,7 +46,7 @@
     history = require 'history'
 
     active_result_index = -1
-    req = delay = null
+    delay = null
     @results = []
     @clear_button_visible = false
     @hint = null
@@ -96,7 +96,6 @@
 
       else
         util.terminate_delay(delay) if delay
-        req.abort() if req
 
         @results_hint = false
 
@@ -118,8 +117,8 @@
         @loading = true
         @update()
 
-        delay = util.delay 0.2, =>
-          req = util.request @, '/search?q=' + text, (results) =>
+        delay = util.delay 0.25, =>
+          util.request @, '/search?q=' + text, (results) =>
             # filter out results found in search history
             @results = @results.concat results.filter (result) =>
               @results.filter((r) -> (r.type == result.type && r.id == result.id)).length == 0

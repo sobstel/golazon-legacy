@@ -16,15 +16,21 @@ require.register 'util', (exports, require, module) ->
     that.loading = true
     that.update()
 
-    # TODO: timeout
+    req = fetch api_url + path
 
-    fetch api_url + path
+    timeout = new Promise((resolve, reject) ->
+      setTimeout () ->
+        reject(new Error('request timeout'))
+      , 7000
+    )
+
+    p = Promise.race([req, timeout])
       .then (response) ->
         response.json()
-      .then (data) ->
+      .then (body) ->
         that.loading = false
         that.update()
-        func data
+        func body
       .catch (err) ->
         that.loading = false
         that.error = err.message

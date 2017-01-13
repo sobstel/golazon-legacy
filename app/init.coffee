@@ -8,5 +8,6 @@ loadScript = (src) ->
   js.src = src
   document.head.appendChild(js)
 
+loadScript('/promise.min.js') unless self.Promise
 loadScript('/fetch.js') unless self.fetch
 loadScript('/array.find.js') unless Array.prototype.find

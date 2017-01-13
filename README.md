@@ -3,7 +3,7 @@ Golazon
 
 Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
-* extremely lightweight (~21KB gzipped)
+* extremely lightweight (~19KB gzipped without polyfills)
 * no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
   no social sharing, no comments, no bullshit
 * remembers user choices to personalize order of search results and live matches

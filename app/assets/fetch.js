@@ -1,4 +1,4 @@
-`(function(self) {
+(function(self) {
   'use strict';
 
   if (self.fetch) {
@@ -46,7 +46,7 @@
     if (typeof name !== 'string') {
       name = String(name)
     }
-    if (/[^a-z0-9\-#$%&'*+.\^_|~]/i.test(name)) {
+    if (/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(name)) {
       throw new TypeError('Invalid character in header field name')
     }
     return name.toLowerCase()
@@ -455,4 +455,4 @@
     })
   }
   self.fetch.polyfill = true
-})(typeof self !== 'undefined' ? self : this);`
+})(typeof self !== 'undefined' ? self : this);

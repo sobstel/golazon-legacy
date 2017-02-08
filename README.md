@@ -28,14 +28,13 @@ Contact: przemek@sobstel.org
 
 * `npm start` - watches the project with continuous rebuild
 * `npm run build` - builds minified project for production
-* `npm test` - run acceptance tests (need to `npm start` before)
 * `npm run` - list of all tasks
 
 ### Architecture
 
 * static SPA site (open source, hosted at GitHub)
   * [riot](http://riotjs.com/), coffeescript, scss, fetch,
-    [brunch](http://brunch.io/), npm, [chimp](https://chimp.readme.io/)
+    [brunch](http://brunch.io/), npm
 * external API (proprietary)
   * ruby, nginx
 

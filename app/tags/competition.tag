@@ -18,6 +18,11 @@
       @update()
 
       util.request @, '/competitions/' + opts.competition_id, (competition) =>
+        unless competition
+          @title = 'Not Found'
+          @update()
+          return
+
         @competition = competition
         @title = competition.name + ' ' + competition.season.name + ' (' + competition.area_name + ')'
         @title += ' ' + competition.teamtype if competition.teamtype != 'default'

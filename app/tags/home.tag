@@ -11,9 +11,6 @@
       <matches matches={ item.matches }></matches>
     </div>
     <p if={ grouped_matches.length == 0 }><em>No live matches at the moment.</em></p>
-    <ul class="home__competitions" if={ suggested_competitions.length > 0 }>
-      <li each={ suggested_competitions }><a href="/#!/c/{ id }">{ name } ({ area_name })</a></ul>
-    </ul>
   </div>
 
   <script type="coffee">
@@ -72,17 +69,4 @@
       riot.route '/c/' + competition_id
 
   </script>
-
-  <style type="scss">
-    @import 'app/support.scss';
-
-    .home {
-      &__competitions {
-        li a {
-          line-height: 2em;
-        }
-      }
-    }
-
-  </style>
 </home>

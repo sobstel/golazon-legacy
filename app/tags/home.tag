@@ -1,5 +1,5 @@
 <home>
-  <div class="home__wrapper block wrapped">
+  <div class="home__wrapper block wrapped" if={ grouped_matches.length > 0 }>
     <loading></loading>
     <div each={ item in grouped_matches }>
       <h2>
@@ -10,7 +10,11 @@
       </h2>
       <matches matches={ item.matches }></matches>
     </div>
-    <p if={ grouped_matches.length == 0 }><em>No live matches at the moment.</em></p>
+  </div>
+
+  <div class="home__wrapper block wrapped" if={ recent_matches.length > 0 }>
+    <loading></loading>
+    <matches matches={ recent_matches }></matches>
   </div>
 
   <script type="coffee">
@@ -55,6 +59,10 @@
         @update()
 
         timeout = setTimeout(refresh_data, 30 * 1000)
+
+      util.request @, '/matches/recent', (matches) =>
+        @recent_matches = matches
+        @update()
 
     @on 'mount', () =>
       refresh_data()

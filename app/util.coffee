@@ -1,7 +1,7 @@
 require.register 'util', (exports, require, module) ->
   riot = require 'riot'
 
-  api_url = 'http://api.toller.xyz'
+  api_url = 'http://toller.xyz'
 
   #
   # Site title

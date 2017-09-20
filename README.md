@@ -44,7 +44,6 @@ Contact: przemek@sobstel.org
 * Routing: hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)
 * Sass: sass inside of tag processed independently from each other (sharing common stuff only via explicit `@import`)
 * JS: riot variable registered globally (as generated tags use it like this; CommonJS option didn't work ok for me)
-
 * Rewrite global util to riot mixins
 * Riak Search for search engine
   * Why? AP (Availability + Partition Tolerance)

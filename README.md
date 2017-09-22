@@ -40,7 +40,7 @@ Want to support? Contact: przemek@sobstel.org
 
 ### Technical issues & potential improvements
 
-* React(-lite) & ES6? Decaffeinate, debrunchify and derotify.
+* React(-lite) or Vue & ES6? Decaffeinate, debrunchify and derotify.
 * Use Riak Search for search engine
   * Why? AP (Availability + Partition Tolerance)
   * Additional features: shows competition by team name, eg. shows Premier League when searching for Everton

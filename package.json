@@ -1,5 +1,6 @@
 {
   "name": "golazon",
+  "version": "0.0.1",
   "description": "football data mnmlist way",
   "author": "Przemek Sobstel <przemek@sobstel.org>",
   "license": "ISC",

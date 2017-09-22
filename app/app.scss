@@ -71,6 +71,21 @@ h1.block.wrapped {
   background: #f9f9f9;
 }
 
+
+// nav
+.nav {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+  text-align: left;
+
+  a {
+    color: #c66;
+    font-weight: 500;
+  }
+}
+
+
 // loader
 .loader {
   &:after {

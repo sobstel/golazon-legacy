@@ -1,5 +1,9 @@
 <competition class="competition">
 
+  <p class="block nav">
+    <a href="/">Golazon</a>
+  </p>
+
   <h1 class="competition__title block wrapped">
     <loading></loading>
     { title }

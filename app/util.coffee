@@ -7,7 +7,7 @@ require.register 'util', (exports, require, module) ->
   # Site title
   #
   exports.title = (title) ->
-    document.title = title + ' - Golazon'
+    document.title = title
 
   #
   # Returns request object
@@ -44,6 +44,7 @@ require.register 'util', (exports, require, module) ->
 
   #
   # Event bus
+  # TODO: not used anymore
   #
   exports.beholder = riot.observable()
 

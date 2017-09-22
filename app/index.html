@@ -24,6 +24,8 @@
     <app></app>
 
     <script src="/libs.js"></script>
+    <script src="https://cdn.ravenjs.com/3.17.0/raven.min.js" crossorigin="anonymous"></script>
+    <script>Raven.config('https://c1088a5ac2f14260b022fcc658f13381@sentry.io/220905').install()</script>
     <script src="/app.js"></script>
     <script>require('riot').mount('app')</script>
   </body>

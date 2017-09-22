@@ -1,6 +1,6 @@
 <home>
   <div class="home__wrapper block wrapped">
-    <loading></loading>
+    <loading />
     <div each={ item in grouped_matches }>
       <h2>
         <a href="#!/c/{ item.competition.id }" onclick={ go_to_competition }>

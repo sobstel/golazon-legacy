@@ -5,14 +5,14 @@
   </p>
 
   <h1 class="competition__title block wrapped">
-    <loading></loading>
+    <loading />
     { title }
   </h1>
 
   <div class="competition__container" if={ competition }>
-    <competition-past-matches></competition-past-matches>
-    <competition-future-matches></competition-future-matches>
-    <competition-standings></competition-standings>
+    <competition-matches type='past' />
+    <competition-matches type='future' />
+    <competition-standings />
   </div>
 
   <script type="coffee">

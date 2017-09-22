@@ -27,7 +27,11 @@
     @on 'mount', () =>
       @matches = @opts.matches
       @update()
-  </script>
+
+    @on 'updated', () =>
+      @matches = @opts.matches
+      @update()
+   </script>
 
   <style type="scss">
     @import 'app/support.scss';

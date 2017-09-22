@@ -1,6 +1,6 @@
 <competition-standings>
   <div class="standings__container block wrapped" if={ rounds.length > 0 }>
-    <loading></loading>
+    <loading />
 
     <div each={ rounds } class="standings">
       <h2>{ name }</h2>

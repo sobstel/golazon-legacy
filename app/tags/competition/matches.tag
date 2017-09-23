@@ -1,10 +1,10 @@
 <competition-matches>
   <div class="{ type }-matches block wrapped" if={ matches.length > 0 }>
     <virtual if={ past_type }>
-      <loading />
       <p class="matches nav" if={ show_more_nav }>
         <a href="" onclick={ on_more }>more</a>
       </p>
+      <loading />
     </virtual>
 
     <matches matches={ matches } />
@@ -54,13 +54,13 @@
     @import 'app/support.scss';
 
     .past-matches .nav {
-      text-align: center;
-      margin-top: 0.5em;
+      text-align: left;
+      margin: 0.25em 0 0.5em;
     }
 
     .future-matches .nav {
-      text-align: center;
-      margin-bottom: 0.5em;
+      text-align: right;
+      margin: 0.5em 0 0.25em;
     }
   </style>
 </competition-matches>

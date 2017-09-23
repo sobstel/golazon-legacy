@@ -22,8 +22,8 @@ assets.forEach(function(file) {
       publicDir + '*.css',
       publicDir + '*.js',
     ],
-    replace: file,
-    with: newFile,
+    from: file,
+    to: newFile,
   });
 
   console.log(file + ' => ' + newFile + ' modified in ', changedFiles.join(', '));

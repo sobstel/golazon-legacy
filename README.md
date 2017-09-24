@@ -1,47 +1,49 @@
-Golazon
-=======
+# Golazon
+> Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
-Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
+Extremely lightweight ()
 
-* extremely lightweight (~19KB gzipped without polyfills)
-* no images, no cookies, no tracking, no popups, no ads, no subscriptions, no analytics,
-  no social sharing, no comments, no bullshit
-* remembers user choices to personalize order of search results and live matches
-* content loaded from cache whenever possible (and it's nearly always possible)
+Zero bullshit. No images, no cookies, no tracking scripts, no analytics,
+no popups, no ads, no subscriptions, no social sharing, no comments.
 
-It's a prototype (proof of concept), it has some glitches here and there yet it works pretty
-well already.
+*~19KB gzipped in total*
+
+It's a proof of concept, it has some glitches here and there yet
+it works pretty well already.
 
 Want to support? Contact: przemek@sobstel.org
 
 ------------
 
-## Technical stuff
+## Tech
 
-### Getting started
+### Installation
 
-#### Install
+`yarn install`
 
-* `yarn install`
+### Development
 
-#### Run
+`yarn start`
 
-* `npm start` - watches the project with continuous rebuild
-* `npm run build` - builds minified project for production
-* `npm run` - list of all tasks
+(watches the project with continuous rebuild)
 
-### Architecture
+### Deployment
 
-* static SPA site (open source, hosted at GitHub)
-  * [riot](http://riotjs.com/), coffeescript, scss, fetch,
-    [brunch](http://brunch.io/), npm
-* external API (proprietary)
-  * ruby (@ heroku)
+TO DO
 
-### Technical issues & potential improvements
+### Built With
 
-* React(-lite) or Vue & ES6? Decaffeinate, debrunchify and derotify.
+TO DO
+
+* [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+
+### Disclaimer
+
+It uses external proprietary API. Per se it's not part of Golazon project.
+
+### Issues & potential improvements
+
+* Hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)
 * Use Riak Search for search engine
   * Why? AP (Availability + Partition Tolerance)
   * Additional features: shows competition by team name, eg. shows Premier League when searching for Everton
-* Routing: hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)

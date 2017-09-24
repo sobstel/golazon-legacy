@@ -1,32 +1,39 @@
 {
   "name": "golazon",
-  "version": "0.0.1",
+  "version": "2.0.0",
   "description": "football data mnmlist way",
   "author": "Przemek Sobstel <przemek@sobstel.org>",
   "license": "ISC",
-  "dependencies": {
-    "auto-reload-brunch": "^2.0.0",
-    "brunch": "^2.0.0",
-    "clean-css-brunch": "^2.0.0",
-    "coffee-script-brunch": "^2.0.0",
-    "html-pages-brunch": "^2.4.0",
-    "primer-base": "^0.3.0",
-    "replace-in-file": "^2.0.1",
-    "riot": "^2.6.3",
-    "riot-brunch": "^0.0.4",
-    "sass-brunch": "^2.0.0",
-    "string-hash": "^1.1.0",
-    "uglify-js-brunch": "^2.0.0"
-  },
+  "main": "index.js",
   "scripts": {
-    "env": "env",
-    "build": "npm run clean && brunch build --production",
-    "clean": "rm -rf public/*",
-    "deploy": "npm run publish",
-    "repo:push": "cd public/ && git add . && git commit -m \"update\" && git push origin gh-pages && cd ..",
-    "repo:init": "[ -d public/.git ] || (npm run clean && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
-    "publish": "npm run repo:init && npm run build && ./bin/cachebuster && cp public/index.html public/404.html && touch public/.nojekyll && npm run repo:push",
-    "start": "npm run clean && brunch watch --server",
+    "dev": "npm run start",
+    "start": "webpack-dev-server --port=1987",
+    "build": "rm -rf public && webpack --env production",
+    "test": "echo 'FOR TRAVIS CI' && npm run build && rm bundle.css bundle.js && echo 'SUCCESS!'",
     "watch": "npm run start"
+  },
+  "dependencies": {
+    "@hyperapp/router": "^0.3.0",
+    "hyperapp": "^0.12.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-react-jsx": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babili-webpack-plugin": "^0.1.2",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
+    "imports": "^1.0.0",
+    "node-libs-browser": "^2.0.0",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "webpack": "^3.4.0",
+    "webpack-dev-server": "^2.4.2"
   }
 }

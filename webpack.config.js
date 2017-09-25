@@ -13,12 +13,13 @@ module.exports = function webpackStuff(env) {
 
     entry: [
       './src/index.js',
-      './styles/app.css',
+      './styles/app.scss',
     ],
 
     output: {
       filename: 'app.[chunkhash].js',
       path: path.resolve(__dirname, './public'),
+      publicPath: '/',
     },
 
     module: {
@@ -35,16 +36,23 @@ module.exports = function webpackStuff(env) {
           path.resolve(__dirname, './'),
         ],
       }, {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader?importLoaders=1',
+          use: [{
+            loader: 'css-loader',
+          }, {
+            loader: 'sass-loader',
+            options: {
+              includePaths: ['node_modules/'],
+            },
+          }],
         }),
       }],
     },
 
     plugins: [
       new ExtractTextPlugin({
-        filename: './app.[contenthash].css',
+        filename: './app.[chunkhash].css',
         allChunks: true,
       }),
       new webpack.optimize.ModuleConcatenationPlugin(),

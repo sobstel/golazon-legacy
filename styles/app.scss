@@ -1,6 +1,15 @@
-@import "./support.scss";
+@import 'primer-base/index.scss';
 
-@import 'node_modules/primer-base/index.scss';
+// colors
+$action-color: #000;
+$hover-color: #f6f6f6;
+$primary-bg-color: #f9f9f9;
+$input-text-color: #666;
+
+// sizes
+$min-width: 320px;
+$max-width: 480px;
+$default-padding: 10px;
 
 body {
   padding: 1em 0;
@@ -85,7 +94,6 @@ h1.block.wrapped {
   }
 }
 
-
 // loader
 .loader {
   &:after {
@@ -106,4 +114,18 @@ h1.block.wrapped {
 
 abbr[title] {
   text-decoration: none;
+}
+
+.disclaimer {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  font-style: italic;
+  padding: 0 $default-padding;
+  font-size: 12px;
+  text-align: center;
+
+  a {
+    border-bottom: 1px dotted #666;
+    text-decoration: none;
+  }
 }

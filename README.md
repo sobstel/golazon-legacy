@@ -43,7 +43,7 @@ It uses external proprietary API. Per se it's not part of Golazon project.
 
 ### Issues & potential improvements
 
-* Hashbang URLs (#!) used only because of GitHub Pages (cannot serve normal URLs without 404 http code)
+* GitHub Pages returns HTTP 404 for non-root pages
 * Use Riak Search for search engine
   * Why? AP (Availability + Partition Tolerance)
   * Additional features: shows competition by team name, eg. shows Premier League when searching for Everton

@@ -131,6 +131,16 @@ abbr[title] {
 }
 
 
+// COMPETITION
+
+.competition {
+  &__container {
+    overflow: auto;
+    font-size: 13px;
+  }
+}
+
+
 // ERROR PAGE
 
 .error404 {

@@ -12,16 +12,25 @@ export default [
   ],
 
   [
-    '/c/:competitionId',
-    () => (
+    '/c/:competition_id',
+    (state) => (
       <Main>
-        competition
+        <div class="competition">
+          <p class="block nav">
+            <a href="/">Golazon</a>
+          </p>
+
+          <h1 class="competition__title block wrapped">
+            <loading />
+            { state.title }
+          </h1>
+        </div>
       </Main>
     )
   ],
 
   [
-    '/m/:matchId',
+    '/m/:match_id',
     () =>
       <Main>
         match
@@ -32,7 +41,9 @@ export default [
     '*',
     () =>
       <Main>
-        404
+        <div class="block error404__wrapper">
+          <p>Page not found. <a href="/">Go home</a> or use search above.</p>
+        </div>
       </Main>
   ],
 ];

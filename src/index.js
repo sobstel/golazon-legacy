@@ -1,49 +1,15 @@
 import { app, h } from 'hyperapp';
-import { router, Link } from "@hyperapp/router"
+import { router } from "@hyperapp/router"
 
-// import actions from './actions';
-// import state from './state';
-import App from './components/app';
-import Home from './components/home';
-import Competition from './components/Competition';
-import Match from './components/Match';
+import actions from './actions';
+import events from './events';
+import state from './state';
+import views from './views';
 
 app({
-  view: [
-    [
-      '/',
-      () => (
-        <App>
-          <Home />
-        </App>
-      ),
-    ],
-    [
-      '/c/:competitionId',
-      state => (
-        <App>
-          <Competition id={ state.router.params.competitionId } />
-        </App>
-      ),
-    ],
-    [
-      '/m/:match',
-      state => (
-        <App>
-          <Match id={ state.router.params.matchId } />
-        </App>
-      ),
-    ],
-    [
-      '*',
-      () => (
-        <App>
-          <div>404</div>
-        </App>
-      ),
-    ],
-  ],
-  // state,
-  // actions,
+  state,
+  view: views,
+  actions,
+  events,
   mixins: [router()],
 });

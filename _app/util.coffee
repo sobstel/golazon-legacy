@@ -43,12 +43,6 @@ require.register 'util', (exports, require, module) ->
     clearTimeout id
 
   #
-  # Event bus
-  # TODO: not used anymore
-  #
-  exports.beholder = riot.observable()
-
-  #
   # Normalize date to UTC before converting
   #
   normalize_date = (date, time) ->

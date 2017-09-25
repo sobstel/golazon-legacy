@@ -8,6 +8,49 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = function webpackStuff(env) {
+  const plugins = [
+    new ExtractTextPlugin({
+      filename: 'app.[contenthash].css',
+      allChunks: true,
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
+    new webpack.DefinePlugin({
+      "process.env": {
+        NODE_ENV: JSON.stringify("production")
+      }
+    }),
+  ];
+
+  if (env === 'development') {
+    plugins.push(new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+    }));
+  }
+
+  if (env === 'production') {
+    plugins.push(new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+    }));
+    plugins.push(new BabiliPlugin());
+    plugins.push(new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        discardDuplicates: { removeAll: true },
+        discardComments: { removeAll: true },
+      },
+    }));
+    plugins.push(new CopyWebpackPlugin([{
+      from: 'src/static',
+    }]));
+  }
+
   return {
     devtool: 'source-map',
 
@@ -50,32 +93,6 @@ module.exports = function webpackStuff(env) {
       }],
     },
 
-    plugins: [
-      new ExtractTextPlugin({
-        filename: './app.[chunkhash].css',
-        allChunks: true,
-      }),
-      new webpack.optimize.ModuleConcatenationPlugin(),
-      new BabiliPlugin(),
-      new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'index.html',
-        minify: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeAttributeQuotes: true,
-          // https://github.com/kangax/html-minifier#options-quick-reference
-        },
-      }),
-      new OptimizeCSSPlugin({
-        cssProcessorOptions: {
-          discardDuplicates: { removeAll: true },
-          discardComments: { removeAll: true },
-        },
-      }),
-      new CopyWebpackPlugin([{
-        from: 'src/static',
-      }]),
-    ],
+    plugins,
   };
 };

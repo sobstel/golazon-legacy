@@ -7,7 +7,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run start",
-    "start": "webpack-dev-server --port=1987 --history-api-fallback",
+    "start": "webpack-dev-server --env=development --port=1987 --history-api-fallback",
     "build": "rm -rf public && webpack --env production",
     "test": "echo 'FOR TRAVIS CI' && npm run build && rm bundle.css bundle.js && echo 'SUCCESS!'",
     "watch": "npm run start"

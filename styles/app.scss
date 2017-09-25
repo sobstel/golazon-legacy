@@ -129,3 +129,16 @@ abbr[title] {
     text-decoration: none;
   }
 }
+
+
+// ERROR PAGE
+
+.error404 {
+  &__wrapper {
+    p {
+      margin: 3em 0 5em;
+      padding: 0 0.5em;
+      font-weight: 500;
+    }
+  }
+}

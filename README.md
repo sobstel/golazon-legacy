@@ -14,27 +14,13 @@ Want to support? Contact: przemek@sobstel.org
 ------------
 
 ## Tech
+> Built with [hyperapp](https://hyperapp.js.org/)
 
-### Installation
+### Getting Started
 
-`yarn install`
-
-### Development
-
-`yarn start`
-
-(watches the project with continuous rebuild)
-
-### Deployment
-
-TO DO
-
-### Built With
-
-TO DO
-
-* hyperapp
-* [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+* installation: `yarn install`
+* development: `yarn start` (watches the project with continuous rebuild)
+* deployment: TO DO
 
 ### Disclaimer
 

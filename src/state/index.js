@@ -1,4 +1,7 @@
 export default {
   title: 'Golazon',
-  competition: null
+  loaders: {},
+  home: {},
+  competition: {},
+  match: {},
 };

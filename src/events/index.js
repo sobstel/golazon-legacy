@@ -1,7 +1,11 @@
 export default {
   route(state, actions, routeInfo) {
+    // restart state
+    actions.reset();
+
+    // fetch data
     if (routeInfo.match == '/c/:competition_id') {
-      actions.competition.fetchData(routeInfo.params['competition_id']);
+      actions.competition.fetchData({ competitionId: routeInfo.params['competition_id'] });
     }
   },
 

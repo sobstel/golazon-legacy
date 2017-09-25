@@ -1,15 +1,13 @@
 # Golazon
 > Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
 
-Extremely lightweight ()
-
 Zero bullshit. No images, no cookies, no tracking scripts, no analytics,
 no popups, no ads, no subscriptions, no social sharing, no comments.
 
 *~19KB gzipped in total*
 
-It's a proof of concept, it has some glitches here and there yet
-it works pretty well already.
+It's a proof of concept, there are probably some minor glitches here and there
+yet it works pretty well already.
 
 Want to support? Contact: przemek@sobstel.org
 
@@ -35,15 +33,14 @@ TO DO
 
 TO DO
 
+* hyperapp
 * [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
 
 ### Disclaimer
 
-It uses external proprietary API. Per se it's not part of Golazon project.
+Golazon uses external proprietary API, which is not a part of this project.
 
-### Issues & potential improvements
+### Random Notes
 
-* GitHub Pages returns HTTP 404 for non-root pages
-* Use Riak Search for search engine
-  * Why? AP (Availability + Partition Tolerance)
-  * Additional features: shows competition by team name, eg. shows Premier League when searching for Everton
+* Rewrite search backend to use Riak Search (due to AP -> Availability + Partition Tolerance)
+* Issue: GitHub Pages returns HTTP 404 for non-root pages

@@ -1,6 +1,7 @@
 import home from './home';
 import competition from './competition';
 import match from './match';
+import search from './search';
 
 export default {
   reset() {
@@ -14,4 +15,5 @@ export default {
   home,
   competition,
   match,
+  search,
 };

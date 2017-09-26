@@ -1,8 +1,20 @@
 import { h } from 'hyperapp';
 
+import Search from './Search';
+
 // main layout
-export default (props, children) => (
+export default ({ state, actions }, children) => (
   <div>
+    <Search
+      actions={actions}
+      clearButtonVisible={state.search.clearButtonVisible}
+      hint={state.search.hint}
+      loading={state.search.loading}
+      results={state.search.results}
+      resultsHint={state.search.resultsHint}
+      value={state.search.value}
+    />
+
     {children}
 
     <p class="disclaimer block">

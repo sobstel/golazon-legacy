@@ -2,10 +2,11 @@
 // Returns request object
 //
 export function request(path, func) {
-  const api_url = 'http://toller.xyz';
-  const req = fetch(api_url + path);
+  const apiUrl = 'http://toller.xyz';
+  /* global fetch */
+  const req = fetch(apiUrl + path);
 
-  const timeout = new Promise(function(resolve, reject) {
+  const timeout = new Promise((resolve, reject) => {
     return setTimeout(() => {
       reject(new Error('request timeout'));
     }, 10 * 1000);
@@ -15,14 +16,18 @@ export function request(path, func) {
     .then(response => response.json())
     .then(body => func(body))
     .catch(err => err.message); // TODO
-};
-
-export function delay(seconds, func) {
-  setTimeout(func, seconds * 1000);
 }
 
-export function terminateDelay(id) {
-  clearTimeout(id);
+let delayId = null;
+
+export function delay(seconds, func) {
+  delayId = setTimeout(func, seconds * 1000);
+}
+
+export function terminateDelay() {
+  if (delayId) {
+    clearTimeout(delayId);
+  }
 }
 
 //

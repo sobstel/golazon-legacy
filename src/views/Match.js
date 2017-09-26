@@ -1,7 +1,6 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
-import Error404 from './Error404';
 import Main from '../components/Main';
 import MatchCards from '../components/MatchCards';
 import MatchGoals from '../components/MatchGoals';
@@ -11,13 +10,21 @@ import MatchPenaltyShootout from '../components/MatchPenaltyShootout';
 import MatchScore from '../components/MatchScore';
 
 // match view
-export default ({ match }, actions) => {
+export default (state, actions) => {
+  const { match } = state;
+
   if (!match['match_id']) {
-    return (<Error404 />);
+    return (
+      <Main state={state} actions={actions}>
+        <div class="block error404__wrapper">
+          <p>Match not found. <a href="/">Go home</a> or use search above.</p>
+        </div>
+      </Main>
+    );
   }
 
   return (
-    <Main>
+    <Main state={state} actions={actions}>
       <p class="block nav">
         <Link to="/" go={actions.router.go}>Golazon</Link>
         <span> » </span>

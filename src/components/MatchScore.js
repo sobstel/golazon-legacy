@@ -8,7 +8,7 @@ export default ({ match }) => {
 
   if (match.live || match.ended) {
     return (
-      <span class={match.live ? 'live' : ''}>
+      <span class={match.live && 'live'}>
         {match.ft && (!match.et || match.ps) &&
           <span>{match.ft[0]}&nbsp;-&nbsp;{match.ft[1]}</span>
         }

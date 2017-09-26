@@ -5,12 +5,12 @@ import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 
 // home view
-export default ({ home }, actions) => {
-  // TODO: loading
+export default (state, actions) => {
+  const { home } = state;
 
   if (!home.groupedMatches || home.groupedMatches.length === 0) {
     return (
-      <Main>
+      <Main state={state} actions={actions}>
         <div class="home__wrapper block wrapped">
           <p><em>No live matches at the moment.</em></p>
         </div>
@@ -19,7 +19,7 @@ export default ({ home }, actions) => {
   }
 
   return (
-    <Main>
+    <Main state={state} actions={actions}>
       <div class="home__wrapper block wrapped">
         <loading />
         {home.groupedMatches.map(item => (

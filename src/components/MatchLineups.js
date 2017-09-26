@@ -9,7 +9,7 @@ export default ({ match }) => (
             <h2>{match[`${type}_name`]} line-up ({match[`${type}_coach`].name})</h2>
             <p>
               {match[`${type}_players`].map(event => (
-                <span class={event.in ? 'in' : ''}>
+                <span class={event.in && 'in'}>
                   {event.in && `${event.in}' `}
                   {event.name}
                 </span>

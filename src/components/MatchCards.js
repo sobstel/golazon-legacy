@@ -1,7 +1,7 @@
 import { h } from 'hyperapp';
 
 export default ({ match }) => {
-  if (match.cards.length === 0) {
+  if (!match.cards || match.cards.length === 0) {
     return '';
   }
 

@@ -26,29 +26,25 @@ export default {
 
         const seasonId = competition.season['season_id'];
 
-        actions.competition.fetchPastMatches({ seasonId });
-        actions.competition.fetchFutureMatches({ seasonId });
+        actions.competition.fetchMatches({ type: 'past', seasonId });
+        actions.competition.fetchMatches({ type: 'future', seasonId });
         actions.competition.fetchStandings({ seasonId });
       });
     };
   },
 
-  fetchPastMatches(state, actions, { seasonId, limit = 10 }) {
-    return (update) => {
-      request(`/season/${seasonId}/matches/past/${limit}`, (matches) => {
-        update(prevState => ({
-          competition: { ...prevState.competition, pastMatches: matches },
-        }));
-        // TODO if (matches < limit) { this.show_more_nav = false; }
-      });
-    };
-  },
+  fetchMatches(state, actions, { type, seasonId }) {
+    const key = `${type}Matches`;
+    const matchesPerPage = 10;
+    const limit = (state.competition[key] ? state.competition[key].length : 0) + matchesPerPage;
 
-  fetchFutureMatches(state, actions, { seasonId, limit = 10 }) {
     return (update) => {
-      request(`/season/${seasonId}/matches/future/${limit}`, (matches) => {
+      request(`/season/${seasonId}/matches/${type}/${limit}`, (matches) => {
         update(prevState => ({
-          competition: { ...prevState.competition, futureMatches: matches },
+          competition: {
+            ...prevState.competition,
+            [key]: matches,
+          },
         }));
         // TODO if (matches < limit) { this.show_more_nav = false; }
       });

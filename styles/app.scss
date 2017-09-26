@@ -1,7 +1,7 @@
 @import 'primer-base/index.scss';
 
 // colors
-$action-color: #000;
+$action-color: #933;
 $hover-color: #f6f6f6;
 $primary-bg-color: #f9f9f9;
 $input-text-color: #666;
@@ -48,6 +48,14 @@ a {
   }
 }
 
+button {
+  color: $action-color;
+  border: none;
+  border-bottom: 1px dotted #999;
+  background: transparent;
+  padding: 0;
+}
+
 li {
   list-style-type: none;
 }
@@ -89,7 +97,7 @@ h1.block.wrapped {
   text-align: left;
 
   a {
-    color: #c66;
+    color: $action-color;
     font-weight: 500;
   }
 }
@@ -207,18 +215,15 @@ $table-border-color: #ddd;
 }
 
 
-// COMPETITION PAST MATCHES
+// COMPETITION MATCHES
 
 .past-matches .nav {
   text-align: left;
   margin: 0.25em 0 0.5em;
 }
 
-
-// COMPETITION FUTURE MATCHES
-
 .future-matches .nav {
-  text-align: right;
+  text-align: left;
   margin: 0.5em 0 0.25em;
 }
 

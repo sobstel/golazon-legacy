@@ -1,7 +1,7 @@
 import { h } from 'hyperapp';
 
 export default ({ match }) => {
-  if (match['penalty_shootout'].length === 0) {
+  if (!match['penalty_shootout'] || match['penalty_shootout'].length === 0) {
     return '';
   }
 

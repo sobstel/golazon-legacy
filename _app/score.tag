@@ -9,17 +9,6 @@
   <abbr if={ match.suspended } title="Suspended">SUSP</abbr>
   <abbr if={ match.cancelled } title="Cencelled">CANC</abbr>
 
-  <script type="coffee">
-    util = require 'util'
-
-    @format_time = util.format_time
-    @format_score = util.format_score
-
-    @on 'mount', () =>
-      @match = @opts.match
-      @update()
-  </script>
-
   <style type="scss">
     .live {
       color: #c33;

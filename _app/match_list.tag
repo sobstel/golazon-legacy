@@ -13,26 +13,6 @@
       </tbody>
     </table>
   </div>
-
-  <script type="coffee">
-    util = require 'util'
-
-    @format_date = util.format_date
-    @format_time = util.format_time
-    @format_score = util.format_score
-
-    @go_to_match = (e) ->
-      riot.route '/m/' + e.item.match_id
-
-    @on 'mount', () =>
-      @matches = @opts.matches
-      @update()
-
-    @on 'updated', () =>
-      @matches = @opts.matches
-      @update()
-   </script>
-
   <style type="scss">
     @import 'app/support.scss';
 

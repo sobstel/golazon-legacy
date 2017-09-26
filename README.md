@@ -4,7 +4,7 @@
 Zero bullshit. No images, no cookies, no tracking scripts, no analytics,
 no popups, no ads, no subscriptions, no social sharing, no comments.
 
-*~??KB gzipped in total (js/css/html)*
+*~12KB gzipped js&cssin total*
 
 It's a proof of concept, there are probably some minor glitches here and there
 yet it works pretty well already.

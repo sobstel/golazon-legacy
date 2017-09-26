@@ -1,6 +1,7 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
+import Loading from '../components/Loading';
 import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 
@@ -8,7 +9,7 @@ import MatchList from '../components/MatchList';
 export default (state, actions) => {
   const { home } = state;
 
-  if (!home.groupedMatches || home.groupedMatches.length === 0) {
+  if (!state.loadingHome && (!home.groupedMatches || home.groupedMatches.length === 0)) {
     return (
       <Main state={state} actions={actions}>
         <div class="home__wrapper block wrapped">
@@ -21,8 +22,9 @@ export default (state, actions) => {
   return (
     <Main state={state} actions={actions}>
       <div class="home__wrapper block wrapped">
-        <loading />
-        {home.groupedMatches.map(item => (
+        <Loading active={state.loadingHome} />
+
+        {home.groupedMatches && home.groupedMatches.map(item => (
           <div>
             <h2>
               <Link to={`c/${item.competition.id}`} go={actions.router.go}>

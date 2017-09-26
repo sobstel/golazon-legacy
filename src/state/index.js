@@ -14,5 +14,6 @@ export default {
   competition: {},
   match: {},
 
+  loading: {},
   timeouts: [],
 };

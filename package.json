@@ -9,7 +9,7 @@
     "dev": "npm run start",
     "start": "webpack-dev-server --env=development --port=1987 --history-api-fallback",
     "build": "rm -rf public && webpack --env production",
-    "test": "echo 'FOR TRAVIS CI' && npm run build && rm bundle.css bundle.js && echo 'SUCCESS!'",
+    "test": "echo 'FOR TRAVIS CI' && npm run build && echo 'SUCCESS!'",
     "watch": "npm run start"
   },
   "dependencies": {

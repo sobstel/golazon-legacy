@@ -1,6 +1,7 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
+import Loading from '../components/Loading';
 import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 import Standings from '../components/Standings';
@@ -9,7 +10,7 @@ import Standings from '../components/Standings';
 export default (state, actions) => {
   const { competition } = state;
 
-  if (!competition['competition_id']) {
+  if (!state.loadingCompetition && !competition['competition_id']) {
     return (
       <Main state={state} actions={actions}>
         <div class="block error404__wrapper">
@@ -31,19 +32,20 @@ export default (state, actions) => {
         </p>
 
         <h1 class="competition__title block wrapped">
-          <loading />
+          <Loading active={state.loadingCompetition} />
           {competition.title}
         </h1>
 
         <div class="competition__container">
-          {competition.pastMatches &&
+          {competition.pastMatches && competition.pastMatches.length > 0 &&
             <div class="past-matches block wrapped">
               {competition.pastMatches.length < 50 &&
                 <p class="matches nav">
                   <button onclick={() => onMatchesMore('past')}>more</button>
                 </p>
               }
-              <loading />
+
+              <Loading active={state.loadingFutureMatches} />
 
               <MatchList
                 matches={competition.pastMatches}
@@ -51,7 +53,7 @@ export default (state, actions) => {
               />
             </div>
           }
-          {competition.futureMatches &&
+          {competition.futureMatches && competition.futureMatches.length > 0 &&
             <div class="future-matches block wrapped">
               <MatchList
                 matches={competition.futureMatches}
@@ -63,11 +65,16 @@ export default (state, actions) => {
                   <button onclick={() => onMatchesMore('future')}>more</button>
                 </p>
               }
-              <loading />
+
+              <Loading active={state.loadingPastMatches} />
             </div>
           }
           {competition.standings &&
-            <Standings rounds={competition.standings} />
+            <div class="standings__container block wrapped">
+              <Loading active={false} />
+
+              <Standings rounds={competition.standings} />
+            </div>
           }
         </div>
       </div>

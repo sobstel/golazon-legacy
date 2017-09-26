@@ -4,6 +4,9 @@ export default {
     actions.reset();
 
     // fetch data
+    if (routeInfo.match === '/') {
+      actions.home.fetchData();
+    }
     if (routeInfo.match === '/c/:competition_id') {
       actions.competition.fetchData({ competitionId: routeInfo.params['competition_id'] });
     }

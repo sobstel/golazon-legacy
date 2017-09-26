@@ -9,7 +9,7 @@ export default ({ actions, matches }) => {
   };
 
   if (!matches || matches.length === 0) {
-    return null;
+    return '';
   }
 
   return (

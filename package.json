@@ -10,8 +10,8 @@
     "dev": "npm run start",
     "start": "webpack-dev-server --env=development --port=1987 --history-api-fallback",
     "build": "rm -rf public && webpack --env production",
-    "publish": "npm run repo:init && npm run build cp public/index.html public/404.html && npm run repo:push",
-    "repo:init": "[ -d public/.git ] || (npm run clean && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
+    "publish": "npm run repo:init && npm run build && cp public/index.html public/404.html && npm run repo:push",
+    "repo:init": "[ -d public/.git ] || (rm -rf public && git clone -b gh-pages git@github.com:sobstel/golazon.git public/)",
     "repo:push": "cd public/ && git add . && git commit -m \"update\" && git push origin gh-pages && cd ..",
     "test": "echo 'FOR TRAVIS CI' && npm run build && echo 'SUCCESS!'",
     "watch": "npm run start"

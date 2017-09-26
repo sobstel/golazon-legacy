@@ -1,6 +1,6 @@
 import { h } from 'hyperapp';
 
-// Main layout
+// main layout
 export default (props, children) => (
   <div>
     {children}

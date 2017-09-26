@@ -4,14 +4,14 @@ export default {
     actions.reset();
 
     // fetch data
-    if (routeInfo.match == '/c/:competition_id') {
+    if (routeInfo.match === '/c/:competition_id') {
       actions.competition.fetchData({ competitionId: routeInfo.params['competition_id'] });
     }
   },
 
   update(state, actions, nextState) {
-    if (state.title !== nextState.title) {
-      document.title = nextState.title;
+    if (state.siteTitle !== nextState.siteTitle) {
+      document.title = nextState.siteTitle;
     }
-  }
+  },
 };

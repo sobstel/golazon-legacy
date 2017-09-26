@@ -1,5 +1,5 @@
 export default {
-  title: 'Golazon',
+  siteTitle: 'Golazon',
   loaders: {},
   home: {},
   competition: {},

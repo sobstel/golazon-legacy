@@ -1,17 +1,17 @@
-import { request, setSiteTitle } from '../lib/util';
+import { request } from '../lib/util';
 
 export default {
   fetchData(state, actions, { competitionId }) {
-    return update => {
+    return (update) => {
       // fetch competition info
-      request(`/competitions/${competitionId}`, competition => {
+      request(`/competitions/${competitionId}`, (competition) => {
         if (!competition) {
           update({
             competition: {},
-            title: 'Competition not found'
+            title: 'Competition not found',
           });
 
-          return ;
+          return;
         }
 
         let title = `${competition.name} ${competition.season.name} (${competition.area_name})`;
@@ -19,7 +19,10 @@ export default {
           title += ` ${competition.teamtype}`;
         }
 
-        update({ competition, title });
+        update({
+          competition: { ...competition, title },
+          siteTitle: title,
+        });
 
         const seasonId = competition.season['season_id'];
 
@@ -43,8 +46,12 @@ export default {
   },
 
   fetchStandings(state, actions, { seasonId }) {
-    // TODO: load into competition state
-    console.log('fetchStandings', seasonId);
-    return {};
+    return (update) => {
+      request(`/season/${seasonId}/standings`, (standings) => {
+        update(prevState => ({
+          competition: { ...prevState.competition, standings },
+        }));
+      });
+    };
   },
 };

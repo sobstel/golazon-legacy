@@ -1,5 +1,5 @@
 {
-  "presets": ["es2015"],
+  "presets": ["airbnb"],
   "plugins": [
     ["transform-react-jsx", { "pragma": "h" }]
   ]

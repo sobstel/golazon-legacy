@@ -20,7 +20,7 @@ Want to support? Contact: przemek@sobstel.org
 
 * installation: `yarn install`
 * development: `yarn start` (watches the project with continuous rebuild)
-* deployment: TO DO
+* deployment: `yarn run publish`
 
 ### Disclaimer
 

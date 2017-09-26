@@ -8,9 +8,10 @@ export default {
       home: {},
       competition: {},
       match: {},
-    }
+    };
   },
+
   home,
   competition,
-  match
+  match,
 };

@@ -131,6 +131,72 @@ abbr[title] {
 }
 
 
+// MATCH LIST
+
+$table-border-color: #ddd;
+
+.matches {
+  &__container {
+    width: 100%;
+    table-layout: fixed;
+
+    tbody tr {
+      cursor: pointer;
+      border-top: 1px solid $table-border-color;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        background: $hover-color;
+      }
+    }
+
+    td {
+      padding: 8px 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    .min,
+    .period,
+    .date {
+      font-weight: 600;
+      width: 60px;
+    }
+
+    .date {
+      font-weight: 600;
+    }
+
+    .host {
+      text-align: right;
+    }
+
+    .status {
+      text-align: center;
+      font-weight: 600;
+      width: 60px;
+      white-space: normal;
+    }
+  }
+}
+
+
+// SCORE
+
+.live {
+  color: #c33;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0.5; }
+}
+
+
 // COMPETITION
 
 .competition {

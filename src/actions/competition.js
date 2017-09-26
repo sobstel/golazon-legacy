@@ -34,15 +34,25 @@ export default {
   },
 
   fetchPastMatches(state, actions, { seasonId, limit = 10 }) {
-    // TODO: load into competition state
-    console.log('fetchPastMatches', seasonId, limit);
-    return {};
+    return (update) => {
+      request(`/season/${seasonId}/matches/past/${limit}`, (matches) => {
+        update(prevState => ({
+          competition: { ...prevState.competition, pastMatches: matches },
+        }));
+        // TODO if (matches < limit) { this.show_more_nav = false; }
+      });
+    };
   },
 
   fetchFutureMatches(state, actions, { seasonId, limit = 10 }) {
-    // TODO: load into competition state
-    console.log('fetchFutureMatches', seasonId, limit);
-    return {};
+    return (update) => {
+      request(`/season/${seasonId}/matches/future/${limit}`, (matches) => {
+        update(prevState => ({
+          competition: { ...prevState.competition, futureMatches: matches },
+        }));
+        // TODO if (matches < limit) { this.show_more_nav = false; }
+      });
+    };
   },
 
   fetchStandings(state, actions, { seasonId }) {

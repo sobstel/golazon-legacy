@@ -1,7 +1,8 @@
 import { h } from 'hyperapp';
 
 import Main from '../components/Main';
-import Standings from '../components/standings';
+import MatchList from '../components/MatchList';
+import Standings from '../components/Standings';
 
 export default [
   [
@@ -28,7 +29,19 @@ export default [
           </h1>
 
           <div class="competition__container">
-            {state.competition.standings && <Standings rounds={state.competition.standings} />}
+            {state.competition.pastMatches &&
+              <div class="past-matches block wrapped">
+                <MatchList matches={state.competition.pastMatches} />
+              </div>
+            }
+            {state.competition.futureMatches &&
+              <div class="past-matches block wrapped">
+                <MatchList matches={state.competition.futureMatches} />
+              </div>
+            }
+            {state.competition.standings &&
+              <Standings rounds={state.competition.standings} />
+            }
           </div>
         </div>
       </Main>

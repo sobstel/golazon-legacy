@@ -5,7 +5,11 @@ export default {
     return (update) => {
       request(`/matches/${matchId}`, (match) => {
         if (!match) {
-          // TODO
+          update({
+            match: {},
+            title: 'Match not found',
+          });
+
           return;
         }
 

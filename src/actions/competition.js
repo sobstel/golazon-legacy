@@ -56,7 +56,6 @@ export default {
             [key]: matches,
           },
         }));
-        // TODO if (matches < limit) { this.show_more_nav = false; }
       });
     };
   },

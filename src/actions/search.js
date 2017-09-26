@@ -55,6 +55,8 @@ export default {
             return;
           }
 
+          update(prevState => ({ ...prevState, search: { ...prevState.search, loading: true } }));
+
           delay(0.25, () => {
             request(`/search?q=${text}`, (results) => {
               let hint = null;
@@ -71,8 +73,9 @@ export default {
                   ...prevState,
                   search: {
                     ...prevState.search,
-                    results: mergedResults,
                     hint,
+                    loading: false,
+                    results: mergedResults,
                   },
                 };
               });

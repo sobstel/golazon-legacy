@@ -3,11 +3,9 @@ import { formatDate } from '../lib/util';
 
 import MatchScore from './MatchScore';
 
-// match list
-export default ({ matches }) => {
-  const onClick = (e) => {
-    console.log(e);
-    // TODO: riot.route(`/m/${e.item.match_id}`);
+export default ({ actions, matches }) => {
+  const goToMatch = (matchId) => {
+    actions.router.go(`/m/${matchId}`);
   };
 
   if (!matches || matches.length === 0) {
@@ -19,7 +17,7 @@ export default ({ matches }) => {
       <table class="matches__container">
         <tbody>
           {matches.map(match => (
-            <tr onclick={onClick}>
+            <tr onclick={() => goToMatch(match['match_id'])}>
               {match.min && match.period !== 'HT' && <td class="min">{match.min}&apos;</td>}
               {match.period === 'HT' && <td class="period">{match.period}</td>}
               {!match.min && match.period !== 'HT' && <td class="date">{formatDate(match.date, match.time)}</td>}

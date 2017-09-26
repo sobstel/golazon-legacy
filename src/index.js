@@ -1,5 +1,5 @@
 import { app, h } from 'hyperapp';
-import { router } from "@hyperapp/router"
+import { router } from '@hyperapp/router';
 
 import actions from './actions';
 import events from './events';

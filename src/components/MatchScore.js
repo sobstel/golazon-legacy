@@ -1,7 +1,6 @@
 import { h } from 'hyperapp';
 import { formatTime } from '../lib/util';
 
-// match score
 export default ({ match }) => {
   if (match.fixture) {
     return (<span>{ formatTime(match.date, match.time) }</span>);
@@ -17,7 +16,7 @@ export default ({ match }) => {
           <span>{match.et[0]}&nbsp;-&nbsp;{match.et[1]} aet</span>
         }
         {match.ps &&
-          <span>p.{match.ps[0]}-{match.ps[1]}</span>
+          <span> p.{match.ps[0]}-{match.ps[1]}</span>
         }
       </span>
     );

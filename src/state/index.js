@@ -1,8 +1,6 @@
 export default {
   siteTitle: 'Golazon',
-  home: {},
-  competition: {},
-  match: {},
+
   search: {
     clearButtonVisible: false,
     hint: false,
@@ -11,4 +9,10 @@ export default {
     resultsHint: false,
     value: null,
   },
+
+  home: {},
+  competition: {},
+  match: {},
+
+  timeouts: [],
 };

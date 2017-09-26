@@ -1,4 +1,5 @@
 import { request } from '../lib/util';
+import * as History from '../lib/history';
 
 export default {
   fetchData(state, actions, { competitionId }) {
@@ -14,7 +15,7 @@ export default {
           return;
         }
 
-        let title = `${competition.name} ${competition.season.name} (${competition.area_name})`;
+        let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
         if (competition.teamtype !== 'default') {
           title += ` ${competition.teamtype}`;
         }
@@ -22,6 +23,15 @@ export default {
         update({
           competition: { ...competition, title },
           siteTitle: title,
+        });
+
+        // each competition read is recorded
+        History.add({
+          area_name: competition['area_name'],
+          id: competition.competition_id,
+          name: competition.name,
+          teamtype: competition.teamtype,
+          type: 'competition',
         });
 
         const seasonId = competition.season['season_id'];

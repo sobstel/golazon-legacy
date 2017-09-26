@@ -41,7 +41,7 @@ export function normalizeDate(date, time) {
   const mn = time.slice(3, 5);
 
   return new Date(Date.UTC(y, m, d, hr, mn, 0));
-};
+}
 
 //
 // Format date
@@ -57,7 +57,7 @@ export function formatDate(date, time) {
   if (d.toDateString() === today.toDateString()) { return 'Today'; }
 
   return `${month} ${day}`;
-};
+}
 
 //
 // Format time
@@ -69,4 +69,13 @@ export function formatTime(date, time) {
   const min = (`0${d.getMinutes()}`).slice(-2);
 
   return `${hour}:${min}`;
-};
+}
+
+// https://stackoverflow.com/a/9229821/219272
+export function uniqBy(a, key) {
+  const index = [];
+  return a.filter((item) => {
+    const k = item[key];
+    return index.indexOf(k) >= 0 ? false : index.push(k);
+  });
+}

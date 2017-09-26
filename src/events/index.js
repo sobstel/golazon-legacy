@@ -17,7 +17,6 @@ export default {
 
   update(state, actions, nextState) {
     if (state.siteTitle !== nextState.siteTitle) {
-      /* global document */
       document.title = nextState.siteTitle;
     }
   },

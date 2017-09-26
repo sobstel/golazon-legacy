@@ -18,4 +18,7 @@ module.exports = {
       'jsx': true,
     },
   },
+  'env': {
+    'browser': true
+  },
 };

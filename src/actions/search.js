@@ -1,4 +1,7 @@
-import { request, delay, terminateDelay } from '../lib/util';
+import { request, delay, terminateDelay, uniqBy } from '../lib/util';
+import * as History from '../lib/history';
+
+const MAX_RESULTS = 10;
 
 export default {
   search(state, actions, e) {
@@ -18,9 +21,19 @@ export default {
       } else {
         terminateDelay(delay);
 
+        // restart
         update(prevState => (
           { ...prevState, search: { ...prevState.search, resultsHint: null, value: text } }
         ));
+
+        if (text.length === 0) {
+          const historyResults = History.all().slice(0, MAX_RESULTS);
+
+          update(prevState => (
+            { ...prevState, search: { ...prevState.search, results: historyResults } }
+          ));
+          return;
+        }
 
         if (text.length > 0) {
           update(prevState => (
@@ -28,46 +41,44 @@ export default {
           ));
         }
 
-        // TODO: history
-        // if (text.length === 0) {
-        //   loading = false;
-        //   this.results = history.getAll(10);
-        //   active_result(0);
-        //   this.update();
-        //   return;
-        // }
-
-        // TODO: history search
-        // this.results = history.search(text);
-
-
-        if (text.length < 4) {
-          const resultsHint = 'type 4 letters or more to search full database...';
-          update(prevState => ({ ...prevState, search: { ...prevState.search, resultsHint } }));
-          return;
+        const historyResults = History.search(text).slice(0, MAX_RESULTS);
+        if (historyResults.length > 0) {
+          update(prevState => (
+            { ...prevState, search: { ...prevState.search, results: historyResults } }
+          ));
         }
 
-        //   // show before delay
-        //   this.loading = true;
-        //   this.update();
-        //
-        delay(0.25, () => {
-          request(`/search?q=${text}`, (results) => {
-            // TODO history
-            // filter out results found in search history
-            // this.results = this.results.concat(results.filter(result => {
-            //   return this.results.filter(r => (r.type === result.type) && (r.id === result.id)).length === 0;
-            // })
-            // );
-            let hint = null;
+        if (historyResults.length < MAX_RESULTS) {
+          if (text.length < 4) {
+            const resultsHint = 'type 4 letters or more to search full database...';
+            update(prevState => ({ ...prevState, search: { ...prevState.search, resultsHint } }));
+            return;
+          }
 
-            if (results.length === 0) {
-              hint = 'no results found';
-            }
+          delay(0.25, () => {
+            request(`/search?q=${text}`, (results) => {
+              let hint = null;
+              if (results.length === 0 && historyResults.length === 0) {
+                hint = 'no results found';
+              }
 
-            update(prevState => ({ ...prevState, search: { ...prevState.search, results, hint } }));
+              update((prevState) => {
+                // Set is here to ensure uniqueness and order
+                const mergedResults = uniqBy(historyResults.concat(results), 'id')
+                  .slice(0, MAX_RESULTS);
+
+                return {
+                  ...prevState,
+                  search: {
+                    ...prevState.search,
+                    results: mergedResults,
+                    hint,
+                  },
+                };
+              });
+            });
           });
-        });
+        }
       }
     };
   },

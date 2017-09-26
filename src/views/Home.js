@@ -8,7 +8,7 @@ import MatchList from '../components/MatchList';
 export default ({ home }, actions) => {
   // TODO: loading
 
-  if (home.groupedMatches || home.groupedMatches.length === 0) {
+  if (!home.groupedMatches || home.groupedMatches.length === 0) {
     return (
       <Main>
         <div class="home__wrapper block wrapped">

@@ -1,6 +1,7 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
+import Error404 from './Error404';
 import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 import Standings from '../components/Standings';
@@ -8,8 +9,7 @@ import Standings from '../components/Standings';
 // competition view
 export default ({ competition }, actions) => {
   if (!competition['competition_id']) {
-    // TODO: not found
-    return '';
+    return (<Error404 />);
   }
 
   const onMatchesMore = (type) => {

@@ -1,6 +1,7 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
+import Error404 from './Error404';
 import Main from '../components/Main';
 import MatchCards from '../components/MatchCards';
 import MatchGoals from '../components/MatchGoals';
@@ -12,8 +13,7 @@ import MatchScore from '../components/MatchScore';
 // match view
 export default ({ match }, actions) => {
   if (!match['match_id']) {
-    // TODO: not found
-    return '';
+    return (<Error404 />);
   }
 
   return (

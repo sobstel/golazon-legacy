@@ -21,7 +21,8 @@ export default {
             };
           }
 
-          return { ...result, [key]: match };
+          result[key].matches.push(match);
+          return result;
         }, {});
 
         const groupedMatches = Object.keys(competitionMatches).map(key => competitionMatches[key]);
@@ -35,7 +36,7 @@ export default {
         //   return hb['_score']['count'] - ha['_score']['count'];});
 
         update({
-          home: { groupedMatches }
+          home: { groupedMatches },
         });
 
         // TODO setTimeout(refresh_data, 30 * 1000);

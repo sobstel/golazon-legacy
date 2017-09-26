@@ -3,8 +3,6 @@ import { request } from '../lib/util';
 export default {
   fetchData(state, actions, { matchId }) {
     return (update) => {
-      update({ loadingMatch: true });
-
       request(`/matches/${matchId}`, (match) => {
         if (!match) {
           update({
@@ -21,11 +19,7 @@ export default {
         update({
           match: { ...match, title },
           siteTitle: title,
-          loadingMatch: false,
         });
-
-        // TODO
-        // if (match.live) { return timeout = setTimeout(refresh_data, 30 * 1000); }
       });
     };
   },

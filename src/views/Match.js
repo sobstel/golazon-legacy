@@ -1,7 +1,6 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
-import Loading from '../components/Loading';
 import Main from '../components/Main';
 import MatchCards from '../components/MatchCards';
 import MatchGoals from '../components/MatchGoals';
@@ -14,14 +13,8 @@ import MatchScore from '../components/MatchScore';
 export default (state, actions) => {
   const { match } = state;
 
-  if (!state.loadingMatch && !match['match_id']) {
-    return (
-      <Main state={state} actions={actions}>
-        <div class="block error404__wrapper">
-          <p>Match not found. <a href="/">Go home</a> or use search above.</p>
-        </div>
-      </Main>
-    );
+  if (!match['match_id']) {
+    return '';
   }
 
   return (
@@ -37,7 +30,6 @@ export default (state, actions) => {
       </p>
 
       <h1 class="match__title block wrapped">
-        <Loading active={state.loadingMatch} />
         {match['match_id'] &&
           <span>
             {match['home_name']} - {match['away_name']} <MatchScore match={match} />

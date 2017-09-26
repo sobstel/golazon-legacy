@@ -3,8 +3,6 @@ import { request } from '../lib/util';
 export default {
   fetchData() {
     return (update) => {
-      update({ loadingHome: true });
-
       request('/matches/live', (matches) => {
         const competitionMatches = matches.reduce((result, match) => {
           const key = match['competition_id'];
@@ -39,10 +37,7 @@ export default {
 
         update({
           home: { groupedMatches },
-          loadingHome: false,
         });
-
-        // TODO setTimeout(refresh_data, 30 * 1000);
       });
     };
   },

@@ -34,7 +34,7 @@ h2 {
   padding: 5px $default-padding;
 }
 
-.loading__container + div h2 {
+div h2 {
   margin-top: (-$default-padding);
 }
 
@@ -104,6 +104,8 @@ h1.block.wrapped {
 
 // loader
 .loader {
+  margin: 0;
+
   &:after {
     overflow: hidden;
     display: inline-block;
@@ -117,22 +119,6 @@ h1.block.wrapped {
 @keyframes ellipsis {
   to {
     width: 1.25em;
-  }
-}
-
-.loading {
-  &__container {
-    font-size: 13px;
-  }
-
-  &__loader {
-    font-weight: 400;
-  }
-
-  &__error {
-    display: inline-block;
-    color: #c33;
-    font-weight: 400;
   }
 }
 

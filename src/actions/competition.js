@@ -15,10 +15,10 @@ export default {
           title += ` ${competition.teamtype}`;
         }
 
-        update(prevState => ({
+        update({
           competition: { ...competition, title },
           siteTitle: title,
-        }));
+        });
 
         // each competition read is recorded
         History.add({

@@ -1,5 +1,4 @@
 import { h } from 'hyperapp';
-import { Link } from '@hyperapp/router';
 
 // main layout
 export default ({ actions, clearButtonVisible, hint, loading, results, resultsHint, value }) => (

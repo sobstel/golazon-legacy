@@ -13,20 +13,16 @@ import MatchScore from '../components/MatchScore';
 export default (state, actions) => {
   const { match } = state;
 
-  if (!match['match_id']) {
-    return '';
-  }
-
   return (
     <Main state={state} actions={actions}>
       <p class="block nav">
         <Link to="/" go={actions.router.go}>Golazon</Link>
-        <span> » </span>
-        {match['match_id'] &&
+        {match['match_id'] && [
+          <span> » </span>,
           <Link to={`/c/${match['competition_id']}`} go={actions.router.go}>
             {match['competition_name']} ({match['area_name']})
-          </Link>
-        }
+          </Link>,
+        ]}
       </p>
 
       <h1 class="match__title block wrapped">

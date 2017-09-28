@@ -13,7 +13,7 @@ export default ({ match }) => (
                   {event.in && `${event.in}' `}
                   {event.name}
                 </span>
-              ))};
+              ))}
             </p>
           </div>
         }

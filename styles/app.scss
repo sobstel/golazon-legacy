@@ -34,7 +34,8 @@ h2 {
   padding: 5px $default-padding;
 }
 
-div.block div:first-child > h2 {
+div.block > div:first-child > h2,
+div.block > div:first-child > div:first-child > h2 {
   margin-top: (-$default-padding);
 }
 

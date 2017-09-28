@@ -9,61 +9,59 @@ import Standings from '../components/Standings';
 export default (state, actions) => {
   const { competition } = state;
 
-  if (!competition['competition_id']) {
-    return '';
-  }
-
   const onMatchesMore = (type) => {
     actions.competition.fetchMatches({ type, seasonId: competition.season['season_id'] });
   };
 
   return (
     <Main state={state} actions={actions}>
-      <div class="competition">
-        <p class="block nav">
-          <Link to="/" go={actions.router.go}>Golazon</Link>
-        </p>
+      {competition['competition_id'] &&
+        <div class="competition">
+          <p class="block nav">
+            <Link to="/" go={actions.router.go}>Golazon</Link>
+          </p>
 
-        <h1 class="competition__title block wrapped">
-          {competition.title}
-        </h1>
+          <h1 class="competition__title block wrapped">
+            {competition.title}
+          </h1>
 
-        <div class="competition__container">
-          {competition.pastMatches && competition.pastMatches.length > 0 &&
-            <div class="past-matches block wrapped">
-              {competition.pastMatches.length < 50 &&
-                <p class="matches nav">
-                  <button onclick={() => onMatchesMore('past')}>more</button>
-                </p>
-              }
+          <div class="competition__container">
+            {competition.pastMatches && competition.pastMatches.length > 0 &&
+              <div class="past-matches block wrapped">
+                {competition.pastMatches.length < 50 &&
+                  <p class="matches nav">
+                    <button onclick={() => onMatchesMore('past')}>more</button>
+                  </p>
+                }
 
-              <MatchList
-                matches={competition.pastMatches}
-                actions={actions}
-              />
-            </div>
-          }
-          {competition.futureMatches && competition.futureMatches.length > 0 &&
-            <div class="future-matches block wrapped">
-              <MatchList
-                matches={competition.futureMatches}
-                actions={actions}
-              />
+                <MatchList
+                  matches={competition.pastMatches}
+                  actions={actions}
+                />
+              </div>
+            }
+            {competition.futureMatches && competition.futureMatches.length > 0 &&
+              <div class="future-matches block wrapped">
+                <MatchList
+                  matches={competition.futureMatches}
+                  actions={actions}
+                />
 
-              {competition.futureMatches.length < 50 &&
-                <p class="matches nav">
-                  <button onclick={() => onMatchesMore('future')}>more</button>
-                </p>
-              }
-            </div>
-          }
-          {competition.standings &&
-            <div class="standings__container block wrapped">
-              <Standings rounds={competition.standings} />
-            </div>
-          }
+                {competition.futureMatches.length < 50 &&
+                  <p class="matches nav">
+                    <button onclick={() => onMatchesMore('future')}>more</button>
+                  </p>
+                }
+              </div>
+            }
+            {competition.standings &&
+              <div class="standings__container block wrapped">
+                <Standings rounds={competition.standings} />
+              </div>
+            }
+          </div>
         </div>
-      </div>
+      }
     </Main>
   );
 };

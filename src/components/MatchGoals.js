@@ -7,7 +7,7 @@ export default ({ match }) => {
 
   return (
     <div class="match__goals">
-      <h2 class="first">Goals</h2>
+      <h2>Goals</h2>
       <p>
         {match.goals.map(goal => (
           <span>

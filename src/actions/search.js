@@ -1,7 +1,7 @@
 import { request, delay, terminateDelay, uniqBy } from '../lib/util';
 import * as History from '../lib/history';
 
-const MAX_RESULTS = 10;
+const MAX_RESULTS = 15;
 
 export default {
   search(state, actions, e) {

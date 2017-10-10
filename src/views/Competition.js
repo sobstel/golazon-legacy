@@ -13,6 +13,10 @@ export default (state, actions) => {
     actions.competition.fetchMatches({ type, seasonId: competition.season['season_id'] });
   };
 
+  const hasMore = (length) => {
+    return (length < 50 && length % 10 === 0);
+  }
+
   return (
     <Main state={state} actions={actions}>
       {competition['competition_id'] &&
@@ -28,7 +32,7 @@ export default (state, actions) => {
           <div class="competition__container">
             {competition.pastMatches && competition.pastMatches.length > 0 &&
               <div class="past-matches block wrapped">
-                {competition.pastMatches.length < 50 &&
+                {hasMore(competition.pastMatches.length) &&
                   <p class="matches nav">
                     <button onclick={() => onMatchesMore('past')}>more</button>
                   </p>
@@ -47,7 +51,7 @@ export default (state, actions) => {
                   actions={actions}
                 />
 
-                {competition.futureMatches.length < 50 &&
+                {hasMore(competition.futureMatches.length) &&
                   <p class="matches nav">
                     <button onclick={() => onMatchesMore('future')}>more</button>
                   </p>

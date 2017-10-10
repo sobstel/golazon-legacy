@@ -15,9 +15,9 @@ module.exports = function webpackStuff(env) {
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production")
-      }
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
     }),
   ];
 
@@ -76,7 +76,7 @@ module.exports = function webpackStuff(env) {
           plugins: [],
         },
         include: [
-          path.resolve(__dirname, './'),
+          path.resolve(__dirname, 'src'),
         ],
       }, {
         test: /\.scss$/,

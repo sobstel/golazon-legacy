@@ -58,7 +58,7 @@ export default (state, actions) => {
                 }
               </div>
             }
-            {competition.standings &&
+            {competition.standings && competition.standings.length > 0 &&
               <div class="standings__container block wrapped">
                 <Standings rounds={competition.standings} />
               </div>

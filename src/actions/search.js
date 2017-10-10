@@ -32,9 +32,15 @@ export default {
 
       // restart
       terminateDelay(delay);
-      update(prevState => (
-        { ...prevState, search: { ...prevState.search, resultsHint: null, value: text } }
-      ));
+      update(prevState => ({
+        ...prevState,
+        search: {
+          ...prevState.search,
+          resultsHint: null,
+          value: text,
+          clearButtonVisible: true,
+        },
+      }));
 
       if (text.length === 0) {
         const historyResults = History.all().slice(0, MAX_RESULTS);
@@ -43,12 +49,6 @@ export default {
           { ...prevState, search: { ...prevState.search, results: historyResults } }
         ));
         return;
-      }
-
-      if (text.length > 0) {
-        update(prevState => (
-          { ...prevState, search: { ...prevState.search, clearButtonVisible: true } }
-        ));
       }
 
       const historyResults = History.search(text).slice(0, MAX_RESULTS);

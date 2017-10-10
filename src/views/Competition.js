@@ -15,7 +15,7 @@ export default (state, actions) => {
 
   const hasMore = (length) => {
     return (length < 50 && length % 10 === 0);
-  }
+  };
 
   return (
     <Main state={state} actions={actions}>

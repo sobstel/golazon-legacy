@@ -2,7 +2,7 @@
 // Returns request object
 //
 export function request(path, func) {
-  const apiUrl = 'http://toller.xyz';
+  const apiUrl = 'http://futbol.date';
   /* global fetch */
   const req = fetch(apiUrl + path);
 

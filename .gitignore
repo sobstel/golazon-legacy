@@ -1,3 +1,10 @@
-node_modules/
-npm-debug.log
-public/
+/node_modules
+/npm-debug.log
+/build
+.DS_Store
+/coverage
+/.idea
+yarn.lock
+/.vscode
+
+_old

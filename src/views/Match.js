@@ -1,7 +1,6 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
-import Main from '../components/Main';
 import MatchCards from '../components/MatchCards';
 import MatchGoals from '../components/MatchGoals';
 import MatchInfo from '../components/MatchInfo';
@@ -14,7 +13,7 @@ export default (state, actions) => {
   const { match } = state;
 
   return (
-    <Main state={state} actions={actions}>
+    <div>
       <p class="block nav">
         <Link to="/" go={actions.router.go}>Golazon</Link>
         {match['match_id'] && [
@@ -42,6 +41,6 @@ export default (state, actions) => {
           <MatchCards match={match} />
         </div>
       }
-    </Main>
+    </div>
   );
 };

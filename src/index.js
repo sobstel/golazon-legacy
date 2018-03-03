@@ -1,15 +1,17 @@
 import { app, h } from 'hyperapp';
-import { router } from '@hyperapp/router';
+import { location } from '@hyperapp/router';
 
 import actions from './actions';
-import events from './events';
+// import events from './events';
 import state from './state';
-import views from './views';
 
-app({
+import Layout from './views/Layout';
+
+const main = app(
   state,
-  view: views,
   actions,
-  events,
-  mixins: [router()],
-});
+  Layout,
+  document.body,
+);
+
+location.subscribe(main.location);

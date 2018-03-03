@@ -18,7 +18,7 @@ export default (state, actions) => {
   };
 
   return (
-    <Main state={state} actions={actions}>
+    <div>
       {competition['competition_id'] &&
         <div class="competition">
           <p class="block nav">
@@ -66,6 +66,6 @@ export default (state, actions) => {
           </div>
         </div>
       }
-    </Main>
+    </div>
   );
 };

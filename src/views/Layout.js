@@ -1,9 +1,17 @@
 import { h } from 'hyperapp';
+import { Route, Switch } from '@hyperapp/router';
 
-import Search from './Search';
+import routePatterns from '../lib/routePatterns';
+import Search from '../components/Search';
+import Home from './Home';
+
+// [routePatterns.home, Home],
+// [routePatterns.competition, Competition],
+// [routePatterns.match, Match],
+// ['*', Error404],
 
 // main layout
-export default ({ state, actions }, children) => (
+export default (state, actions) => (
   <div>
     <Search
       actions={actions}
@@ -15,7 +23,9 @@ export default ({ state, actions }, children) => (
       value={state.search.value}
     />
 
-    {children}
+    <Switch>
+      <Route path="/" render={() => Home(state, actions)} />
+    </Switch>
 
     <p class="disclaimer block">
       Football data mnmlist way. Open source prototype.<br />

@@ -17,8 +17,8 @@
     "watch": "npm run start"
   },
   "dependencies": {
-    "@hyperapp/router": "^0.3.0",
-    "hyperapp": "^0.12.0"
+    "@hyperapp/router": "^0.4.1",
+    "hyperapp": "^1.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.22.2",
@@ -39,7 +39,7 @@
     "html-webpack-plugin": "^2.30.1",
     "imports": "^1.0.0",
     "node-libs-browser": "^2.0.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^4.7.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "primer-base": "^1.4.0",
     "sass-loader": "^6.0.6",

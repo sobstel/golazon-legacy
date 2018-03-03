@@ -1,16 +1,15 @@
 import { h } from 'hyperapp';
 import { Link } from '@hyperapp/router';
 
-import Main from '../components/Main';
 import MatchList from '../components/MatchList';
 
 // home view
 export default (state, actions) => {
-  const { home } = state;
+  console.log(state);
 
   return (
-    <Main state={state} actions={actions}>
-      {home.groupedMatches &&
+    <div oncreate={actions.home.fetchData}>
+      {state.groupedMatches &&
         <div class="home__wrapper block wrapped">
           {home.groupedMatches.map(item => (
             <div>
@@ -31,6 +30,6 @@ export default (state, actions) => {
           }
         </div>
       }
-    </Main>
+    </div>
   );
 };

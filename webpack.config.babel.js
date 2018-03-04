@@ -3,7 +3,6 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import OfflinePlugin from 'offline-plugin';
 import path from 'path';
 const ENV = process.env.NODE_ENV || 'development';
 
@@ -16,7 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     publicPath: '/',
-    filename: 'bundle.js'
+    filename: ENV==='production' ? 'app.[chunkhash].js' : 'app.js'
   },
 
   resolve: {
@@ -117,7 +116,7 @@ module.exports = {
   plugins: ([
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
-      filename: 'style.css',
+      filename: 'app.[contenthash].css',
       allChunks: true,
       disable: ENV !== 'production'
     }),
@@ -129,8 +128,9 @@ module.exports = {
       minify: { collapseWhitespace: true }
     }),
     new CopyWebpackPlugin([
-      { from: './manifest.json', to: './' },
-      { from: './favicon.ico', to: './' }
+      { from: './favicon.ico', to: './' },
+      { from: './favicon.png', to: './' },
+      { from: './CNAME', to: './' }
     ])
   ]).concat(ENV==='production' ? [
     new webpack.optimize.UglifyJsPlugin({
@@ -161,23 +161,6 @@ module.exports = {
         cascade: true,
         drop_console: true
       }
-    }),
-
-    new OfflinePlugin({
-      relativePaths: false,
-      AppCache: false,
-      excludes: ['_redirects'],
-      ServiceWorker: {
-        events: true
-      },
-      cacheMaps: [
-        {
-          match: /.*/,
-          to: '/',
-          requestTypes: ['navigate']
-        }
-      ],
-      publicPath: '/'
     })
   ] : []),
 

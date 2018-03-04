@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
     "start": "serve build -s -c 1",
-    "prestart": "npm run build",
-    "build": "cross-env NODE_ENV=production webpack --progress",
-    "prebuild": "mkdirp build && ncp src/assets build/assets",
-    "test": "npm run -s lint && jest --coverage",
-    "test:watch": "npm run -s test -- --watch",
-    "lint": "eslint src test"
+    "prestart": "yarn run build",
+    "build": "cross-env NODE_ENV=production webpack --progress && cp build/index.html build/200.html",
+    "prebuild": "rm -rf build && mkdirp build && ncp src/assets build/assets",
+    "test": "yarn run -s lint && jest --coverage",
+    "test:watch": "yarn run -s test -- --watch",
+    "lint": "eslint src test",
+    "deploy": "yarn build && surge ./build"
   },
   "keywords": [
     "preact",
@@ -83,18 +84,15 @@
     "sinon-chai": "^2.9.0",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.20.0",
+    "surge": "^0.20.1",
     "url-loader": "^0.6.1",
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.4"
   },
   "dependencies": {
-    "normalize.css": "^8.0.0",
     "preact": "^8.1.0",
-    "preact-compat": "^3.15.0",
     "preact-render-to-string": "^3.6.0",
     "preact-router": "^2.5.1",
-    "promise-polyfill": "^7.0.1",
-    "proptypes": "^1.0.0",
     "serve": "^6.0.0"
   },
   "main": "index.js",

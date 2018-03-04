@@ -23,7 +23,7 @@ See [branches](https://github.com/sobstel/golazon/branches).
 
 * installation: `yarn install`
 * development: `yarn dev`
-* deployment: `yarn run publish`
+* deployment: `yarn deploy` or `yarn publish`
 
 ### Disclaimer
 
@@ -33,4 +33,3 @@ nor a part of this repository.
 ### Notes
 
 * Use Riak Search as a search engine (for AP -> Availability + Partition Tolerance)
-* Issue: GitHub Pages returns HTTP 404 for non-root pages

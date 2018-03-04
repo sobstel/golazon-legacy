@@ -51,7 +51,6 @@ export default class extends Component {
 
   hasMore = () => {
     const length = this.state.matches.length;
-    console.log(this.state.matches.length, HARD_LIMIT, length % PER_PAGE);
     return (length < HARD_LIMIT && length % PER_PAGE === 0);
   }
 

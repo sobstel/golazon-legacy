@@ -145,7 +145,7 @@ export default class extends Component {
 
       delay(0.25, () => {
         searchService.search(text).then(results => {
-          let hint = null;
+          let hint = false;
           if (results.length === 0 && historyResults.length === 0) {
             hint = 'no results found';
           }
@@ -153,6 +153,8 @@ export default class extends Component {
           const mergedResults = uniqBy(historyResults.concat(results), 'id').slice(0, MAX_RESULTS);
 
           this.setState({ hint, loading: false, results: mergedResults });
+        }).catch((err) => {
+          this.setState({ hint: `ERROR: ${err.message}`, loading: false, results: [] });
         });
       });
     }

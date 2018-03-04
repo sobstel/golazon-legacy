@@ -1,4 +1,4 @@
-import { request } from '../lib/util';
+import request from '../lib/request';
 import * as History from '../lib/history';
 
 export default {

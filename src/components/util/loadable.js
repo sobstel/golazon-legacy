@@ -1,15 +1,22 @@
 import { h, Component } from 'preact';
 
-export default (dataSource) => {
+export default (fetchData) => {
   return (WrappedComponent) => {
     return class extends Component {
       state = {
         data: false,
-        loader: false
+        loader: false,
+        error: false
       }
 
       componentDidMount () {
-        this.fetchData();
+        this.setState({ loader: true});
+
+        fetchData(this.props).then((data) => {
+          this.setState({ data, loader: false });
+        }).catch((err) => {
+          this.setState({ error: err.message, loader: false });
+        });
       }
 
       render () {
@@ -23,6 +30,14 @@ export default (dataSource) => {
               </div>
             }
 
+            {this.state.error &&
+              <div class="block wrapped">
+                <p class="error">
+                  ERROR: {this.state.error || 'unknown'}
+                </p>
+              </div>
+            }
+
             {this.state.data &&
               <WrappedComponent
                 {...this.props}
@@ -30,16 +45,6 @@ export default (dataSource) => {
             }
           </div>
         );
-      }
-
-      fetchData = () => {
-        this.setState({ loader: true});
-        dataSource(this.props).then((data) => {
-          this.setState({ data, loader: false });
-        });
-
-        // TODO: catch
-        // TODO: handle data.error
       }
     };
   };

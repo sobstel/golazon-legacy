@@ -1,21 +1,3 @@
-const API_URL = 'http://futbol.date';
-
-export function request(path, process) {
-  /* global fetch */
-  const req = fetch(API_URL + path);
-
-  const timeout = new Promise((resolve, reject) => {
-    return setTimeout(() => {
-      reject(new Error('request timeout'));
-    }, 10 * 1000);
-  });
-
-  return Promise.race([req, timeout])
-    .then(response => response.json())
-    .then(json => process ? process(json) : json)
-    .catch(err => err.message); // TODO
-}
-
 let delayId = null;
 
 export function delay(seconds, func) {

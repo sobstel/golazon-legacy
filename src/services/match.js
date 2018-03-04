@@ -1,4 +1,4 @@
-import { request } from '../lib/util';
+import request from '../lib/request';
 
 export default {
   match (id) {
@@ -10,7 +10,7 @@ export default {
   },
 
   liveMatches () {
-    return request('/matches/live', (matches) => {
+    return request('/matches/live').then(matches => {
       const competitionMatches = matches.reduce((result, match) => {
         const key = match['competition_id'];
 

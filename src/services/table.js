@@ -1,4 +1,4 @@
-import { request } from '../lib/util';
+import request from '../lib/request';
 
 export default {
   seasonStandings (id) {

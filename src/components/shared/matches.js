@@ -17,7 +17,7 @@ export default class Matches extends Component {
         <table class="matches__container">
           <tbody>
             {matches.map(match => (
-              <tr onclick={() => route(`/m/${match['match_id']}`, true)}>
+              <tr onclick={() => route(`/m/${match['match_id']}`)}>
                 {match.min && match.period !== 'HT' &&
                   <td class="min">
                     {match.min}&apos;

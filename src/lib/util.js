@@ -15,7 +15,7 @@ export function request(path, resolve) {
 
   return Promise.race([req, timeout])
     .then(response => response.json())
-    .then(body => resolve(body))
+    .then(body => resolve ? resolve(body) : body)
     .catch(err => err.message); // TODO
 }
 

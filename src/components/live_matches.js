@@ -1,5 +1,4 @@
 import { h, Component } from 'preact';
-import { Link } from 'preact-router';
 import matchesService from '../services/matches';
 
 import Matches from './shared/matches';
@@ -21,7 +20,7 @@ export default class LiveMatches extends Component {
         {this.state.groupedMatches.map(item => (
           <div>
             <h2>
-              <a href={`c/${item.competition.id}`}>
+              <a href={`/c/${item.competition.id}`}>
                 {item.competition.name } ({item.competition['area_name']})
                 {item.teamtype !== 'default' && item.teamtype}
               </a>

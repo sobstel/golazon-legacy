@@ -1,10 +1,7 @@
 @import 'helpers';
 
 @import '../../node_modules/normalize.css/normalize.css';
-
-* {
-  box-sizing: border-box;
-}
+@import 'base';
 
 body {
   padding: 1em 0;
@@ -46,25 +43,6 @@ a {
   &:hover {
     text-decoration: none;
   }
-}
-
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-}
-
-td,
-th {
-  padding: 0;
-}
-
-input,
-select,
-textarea,
-button {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
 }
 
 button {
@@ -250,6 +228,7 @@ abbr[title] {
         background: @hover-color;
       }
       &:hover {
+        background: @hover-color;
         text-decoration: none;
       }
 

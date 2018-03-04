@@ -1,20 +1,24 @@
 import { h, Component } from 'preact';
-import matchesService from '../services/matches';
+import matchService from '../services/match';
 
 import Matches from './shared/matches';
 
 export default class LiveMatches extends Component {
   state = {
-    groupedMatches: []
+    groupedMatches: false
   }
 
   // TODO: loading
 
   componentDidMount () {
-    matchesService.liveMatches().then(groupedMatches => this.setState({ groupedMatches }));
+    matchService.liveMatches().then(groupedMatches => this.setState({ groupedMatches }));
   }
 
   render () {
+    if (this.state.groupedMatches === false) {
+      return null;
+    }
+
     return (
       <div class="home__wrapper block wrapped">
         {this.state.groupedMatches.map(item => (

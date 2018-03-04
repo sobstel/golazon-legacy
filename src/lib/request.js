@@ -1,6 +1,9 @@
 const API_URL = 'http://futbol.date';
 const TIMEOUT = 10; // seconds
 
+/**
+ * @return Promise
+ */
 export default (path) => {
   /* global fetch */
   const req = fetch(API_URL + path);

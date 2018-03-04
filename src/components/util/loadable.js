@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 
+// usage: loadable(fetchDataFunc)(Component);
 export default (fetchData) => {
   return (WrappedComponent) => {
     return class extends Component {
@@ -10,7 +11,7 @@ export default (fetchData) => {
       }
 
       componentDidMount () {
-        this.setState({ loader: true});
+        this.setState({ loader: true });
 
         fetchData(this.props).then((data) => {
           this.setState({ data, loader: false });

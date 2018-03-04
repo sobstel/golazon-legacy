@@ -20,9 +20,8 @@ export default class Competition extends Component {
         title += ` ${competition.teamtype}`;
       }
 
-      document.title = title;
-
       this.setState({ competition, title });
+      document.title = title;
 
       // each competition read is recorded
       History.add({

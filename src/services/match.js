@@ -1,6 +1,31 @@
 import { request } from '../lib/util';
 
 export default {
+  find (matchId) {
+    return request(`/matches/${matchId}`);
+  },
+
+  seasonMatches (seasonId) {
+    // TODO
+
+    // fetchMatches(state, actions, { type, seasonId }) {
+    //   const key = `${type}Matches`;
+    //   const matchesPerPage = 10;
+    //   const limit = (state.competition[key] ? state.competition[key].length : 0) + matchesPerPage;
+    //
+    //   return (update) => {
+    //     request(`/season/${seasonId}/matches/${type}/${limit}`, (matches) => {
+    //       update(prevState => ({
+    //         competition: {
+    //           ...prevState.competition,
+    //           [key]: matches,
+    //         },
+    //       }));
+    //     });
+    //   };
+    // },
+  },
+
   liveMatches () {
     return request('/matches/live', (matches) => {
       const competitionMatches = matches.reduce((result, match) => {

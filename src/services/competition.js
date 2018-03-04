@@ -1,7 +1,7 @@
 import { request } from '../lib/util';
 
 export default {
-  find (competitionId) {
-    return request(`/competitions/${competitionId}`);
+  find (id) {
+    return request(`/competitions/${id}`);
   }
 };

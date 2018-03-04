@@ -9,44 +9,54 @@ export default class Matches extends Component {
     const { matches } = this.props;
 
     if (!matches || matches.length === 0) {
-      return '';
+      return null;
     }
 
     return (
       <div class="matches__wrapper">
         <table class="matches__container">
           <tbody>
-            {matches.map(match => (
-              <tr onclick={() => route(`/m/${match['match_id']}`)}>
-                {match.min && match.period !== 'HT' &&
-                  <td class="min">
-                    {match.min}&apos;
-                  </td>
-                }
-                {match.period === 'HT' &&
-                  <td class="period">
-                    {match.period}
-                  </td>
-                }
-                {!match.min && match.period !== 'HT' &&
-                  <td class="date">
-                    {formatDate(match.date, match.time)}
-                  </td>
-                }
-                <td class="host">
-                  {match['home_name']}
-                </td>
-                <td class="status">
-                  <Score match={match} />
-                </td>
-                <td class="away">
-                  {match['away_name']}
-                </td>
-              </tr>
-            ))}
+            {matches.map(match => (<MatchRow match={match} />))}
           </tbody>
         </table>
       </div>
     );
   }
-};
+}
+
+class MatchRow extends Component {
+  render ({ match }) {
+    return (
+      <tr onclick={this.onClick}>
+        {match.min && match.period !== 'HT' &&
+          <td class="min">
+            {match.min}&apos;
+          </td>
+        }
+        {match.period === 'HT' &&
+          <td class="period">
+            {match.period}
+          </td>
+        }
+        {!match.min && match.period !== 'HT' &&
+          <td class="date">
+            {formatDate(match.date, match.time)}
+          </td>
+        }
+        <td class="host">
+          {match['home_name']}
+        </td>
+        <td class="status">
+          <Score match={match} />
+        </td>
+        <td class="away">
+          {match['away_name']}
+        </td>
+      </tr>
+    );
+  }
+
+  onClick = () => {
+    route(`/m/${this.props.match['match_id']}`);
+  }
+}

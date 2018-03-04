@@ -1,23 +1,10 @@
 import { h, Component } from 'preact';
 import tableService from '../../services/table';
+import loadable from '../util/loadable';
 
-export default class extends Component {
-  state = {
-    rounds: false
-  }
-
-  // TODO: loading
-
-  componentDidMount () {
-    tableService.seasonStandings(this.props.seasonId).then(rounds => this.setState({ rounds }));
-  }
-
+class Standings extends Component {
   render () {
-    const { rounds } = this.state;
-
-    if (!rounds) {
-      return null;
-    }
+    const rounds = this.props.data;
 
     return (
       <div class="standings__container block wrapped">
@@ -80,3 +67,9 @@ export default class extends Component {
     return `rank zone zone-${zone}`;
   }
 }
+
+const dataSource = ({ seasonId }) => {
+  return tableService.seasonStandings(seasonId);
+};
+
+export default loadable(dataSource)(Standings);

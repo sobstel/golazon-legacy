@@ -1,30 +1,15 @@
 import { h, Component } from 'preact';
 import matchService from '../../services/match';
+import loadable from '../util/loadable';
 
 import Matches from '../shared/matches';
 
 const PER_PAGE = 10;
 const HARD_LIMIT = 50; // forced by API
 
-export default class extends Component {
-  state = {
-    matches: false
-  }
-
-  limit = PER_PAGE;
-
-  componentDidMount () {
-    this.fetchData();
-  }
-
+class CompetitionMatches extends Component {
   render () {
-    const { matches } = this.state;
-
-    if (!matches) {
-      return false;
-    }
-
-    const { type } = this.props;
+    const { data: matches, type } = this.props;
 
     return (
       <div class={`${type}-matches block wrapped`}>
@@ -38,24 +23,51 @@ export default class extends Component {
   renderMoreButton = () => {
     return (
       <p class="matches nav">
-        <button onclick={this.moreMatches}>more</button>
+        <button onclick={this.props.increaseLimit}>more</button>
       </p>
     );
   }
 
-  fetchData = () => {
-    const { seasonId, type } = this.props;
-    // TODO: loading indicator
-    matchService.seasonMatches(seasonId, type, this.limit).then(matches => this.setState({ matches }));
-  }
-
   hasMore = () => {
-    const length = this.state.matches.length;
-    return (length < HARD_LIMIT && length % PER_PAGE === 0);
-  }
-
-  moreMatches = () => {
-    this.limit = Math.min(this.limit + PER_PAGE, HARD_LIMIT);
-    this.fetchData();
+    const { data: matches } = this.props;
+    return (matches.length < HARD_LIMIT && matches.length % PER_PAGE === 0);
   }
 }
+
+const dataSource = ({ seasonId, type, limit }) => {
+  return matchService.seasonMatches(seasonId, type, limit);
+};
+
+const limitable = (WrappedComponent) => {
+  return class extends Component {
+    state = {
+      limit: PER_PAGE,
+      visible: true // to force mount/unmount
+    }
+
+    render () {
+      if (!this.state.visible) {
+        return null;
+      }
+
+      return (
+        <WrappedComponent
+          limit={this.state.limit}
+          increaseLimit={this.increaseLimit}
+          {...this.props} />
+      );
+    }
+
+    increaseLimit = () => {
+      this.setState({ visible: false });
+      setTimeout(() => {
+        this.setState({
+          limit: Math.min(this.state.limit + PER_PAGE, HARD_LIMIT),
+          visible: true
+        });
+      });
+    }
+  };
+};
+
+export default limitable(loadable(dataSource)(CompetitionMatches));

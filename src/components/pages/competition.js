@@ -1,49 +1,23 @@
 import { h, Component } from 'preact';
-import * as History from '../../lib/history';
 import competitionService from '../../services/competition';
+import loadable from '../util/loadable';
 
-import Loadable from '../util/loadable';
 import Standings from '../competition/standings';
 import Matches from '../competition/matches';
 
 class Competition extends Component {
-  state = {
-    title: false,
-    competition: false
-  }
-
-  componentDidMount () {
-    competitionService.competition(this.props.id).then(competition => {
-      if (!competition) {
-        // TODO: handle "not found"
-        return;
-      }
-
-      let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
-      if (competition.teamtype !== 'default') {
-        title += ` ${competition.teamtype}`;
-      }
-
-      this.setState({ competition, title });
-      document.title = title;
-
-      // each competition read is recorded
-      History.add({
-        area_name: competition['area_name'],
-        id: competition.competition_id,
-        name: competition.name,
-        teamtype: competition.teamtype,
-        type: 'competition'
-      });
-    });
-  }
-
   render () {
-    const { competition, title } = this.state;
+    const competition = this.props.data;
 
     if (!competition) {
       return null;
     }
+
+    let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
+    if (competition.teamtype !== 'default') {
+      title += ` ${competition.teamtype}`;
+    }
+    document.title = title;
 
     const seasonId = competition['season']['season_id'];
 
@@ -67,4 +41,8 @@ class Competition extends Component {
   }
 }
 
-export default Loadable(Competition);
+const dataSource = ({ id }) => {
+  return competitionService.competition(id);
+};
+
+export default loadable(dataSource)(Competition);

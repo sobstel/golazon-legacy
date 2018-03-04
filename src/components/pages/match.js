@@ -1,43 +1,25 @@
 import { h, Component } from 'preact';
 import matchService from '../../services/match';
+import loadable from '../util/loadable';
 
 import Score from '../shared/score';
-
 import Info from '../match/info';
 import Goals from '../match/goals';
 import PenaltyShootout from '../match/penalty_shootout';
 import Lineups from '../match/lineups';
 import Cards from '../match/cards';
 
-export default class extends Component {
-  state = {
-    match: false,
-    title: false
-  }
-
+class Match extends Component {
   componentDidMount () {
-    matchService.match(this.props.id).then(match => {
-      if (!match) {
-        // TODO: handle it as error, not as a title
-        this.setState({ title: 'Match not found' });
-        document.title = 'Not Found';
-        return ;
-      }
+    const match = this.props.data;
 
-      let title = `${match['home_name']} v ${match['away_name']}`;
-      title += ` - ${match['competition_name']} - ${match['area_name']}`;
-
-      this.setState({ match, title });
-      document.title = title;
-    });
+    let title = `${match['home_name']} v ${match['away_name']}`;
+    title += ` - ${match['competition_name']} - ${match['area_name']}`;
+    document.title = title;
   }
 
   render () {
-    const { match } = this.state;
-
-    if (!match) {
-      return null;
-    }
+    const match = this.props.data;
 
     return (
       <div>
@@ -70,3 +52,9 @@ export default class extends Component {
     );
   }
 }
+
+const dataSource = ({ id }) => {
+  return matchService.match(id);
+};
+
+export default loadable(dataSource)(Match);

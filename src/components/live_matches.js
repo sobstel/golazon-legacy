@@ -1,27 +1,16 @@
 import { h, Component } from 'preact';
 import matchService from '../services/match';
+import loadable from './util/loadable';
 
 import Matches from './shared/matches';
 
-export default class extends Component {
-  state = {
-    groupedMatches: false
-  }
-
-  // TODO: loading
-
-  componentDidMount () {
-    matchService.liveMatches().then(groupedMatches => this.setState({ groupedMatches }));
-  }
-
+class LiveMatches extends Component {
   render () {
-    if (this.state.groupedMatches === false) {
-      return null;
-    }
+    const groupedMatches = this.props.data;
 
     return (
       <div class="home__wrapper block wrapped">
-        {this.state.groupedMatches.map(item => (
+        {groupedMatches.map(item => (
           <div>
             <h2>
               <a href={`/c/${item.competition.id}`}>
@@ -33,10 +22,16 @@ export default class extends Component {
           </div>
         ))}
 
-        {this.state.groupedMatches.length === 0 &&
+        {groupedMatches.length === 0 &&
           <span>No live matches at the moment.</span>
         }
       </div>
     );
   }
 }
+
+const dataSource = () => {
+  return matchService.liveMatches();
+};
+
+export default loadable(dataSource)(LiveMatches);

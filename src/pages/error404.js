@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { Link } from 'preact-router';
 
-export default class Error404 extends Component {
+export default class extends Component {
   componentDidMount () {
     document.title = '404';
   }

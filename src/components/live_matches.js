@@ -3,7 +3,7 @@ import matchService from '../services/match';
 
 import Matches from './shared/matches';
 
-export default class LiveMatches extends Component {
+export default class extends Component {
   state = {
     groupedMatches: false
   }

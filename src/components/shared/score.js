@@ -1,7 +1,7 @@
 import { h, Component } from 'preact';
 import { formatTime } from '../../lib/util';
 
-export default class Score extends Component {
+export default class extends Component {
   render () {
     const { match } = this.props;
 
@@ -39,4 +39,4 @@ export default class Score extends Component {
 
     return null;
   }
-};
+}

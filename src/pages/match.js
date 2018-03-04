@@ -9,14 +9,14 @@ import PenaltyShootout from '../components/match/penalty_shootout';
 import Lineups from '../components/match/lineups';
 import Cards from '../components/match/cards';
 
-export default class Match extends Component {
+export default class extends Component {
   state = {
     match: false,
     title: false
   }
 
   componentDidMount () {
-    matchService.find(this.props.id).then(match => {
+    matchService.match(this.props.id).then(match => {
       if (!match) {
         // TODO: handle it as error, not as a title
         this.setState({ title: 'Match not found' });

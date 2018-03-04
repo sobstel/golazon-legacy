@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
-import { request, delay, terminateDelay, uniqBy } from '../lib/util';
+import { delay, terminateDelay, uniqBy } from '../lib/util';
 import * as History from '../lib/history';
 import searchService from '../services/search';
 
@@ -8,19 +8,19 @@ const KEY_CODES = {
   DOWN: 40,
   UP: 38,
   ESC: 27,
-  ENTER: 13,
-}
+  ENTER: 13
+};
 
 const MAX_RESULTS = 15;
 
-export default class Search extends Component {
+export default class extends Component {
   state = {
     clearButtonVisible: false,
     hint: false,
     loading: false,
     results: [],
     resultsHint: false,
-    value: null,
+    value: null
   }
 
   render () {
@@ -193,7 +193,7 @@ export default class Search extends Component {
       hint: false,
       loading: false,
       results: [],
-      resultsHint: false,
+      resultsHint: false
     });
   }
 }

@@ -4,7 +4,7 @@ import { formatDate } from '../../lib/util';
 
 import Score from './score';
 
-export default class Matches extends Component {
+export default class extends Component {
   render () {
     const { matches } = this.props;
 

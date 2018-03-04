@@ -7,7 +7,7 @@ import Competition from './pages/competition';
 import Match from './pages/match';
 import Error404 from './pages/error404';
 
-export default class App extends Component {
+export default class extends Component {
   /** Gets fired when the route changes.
    *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
    *	@param {string} event.url	The newly routed URL

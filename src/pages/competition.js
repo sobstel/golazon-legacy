@@ -2,14 +2,17 @@ import { h, Component } from 'preact';
 import * as History from '../lib/history';
 import competitionService from '../services/competition';
 
-export default class Competition extends Component {
+import Standings from '../components/competition/standings';
+import Matches from '../components/competition/matches';
+
+export default class extends Component {
   state = {
     title: false,
     competition: false
   }
 
   componentDidMount () {
-    competitionService.find(this.props.id).then(competition => {
+    competitionService.competition(this.props.id).then(competition => {
       if (!competition) {
         // TODO: handle "not found"
         return;
@@ -29,14 +32,8 @@ export default class Competition extends Component {
         id: competition.competition_id,
         name: competition.name,
         teamtype: competition.teamtype,
-        type: 'competition',
+        type: 'competition'
       });
-
-      // const seasonId = competition.season['season_id'];
-      //
-      // actions.competition.fetchMatches({ type: 'past', seasonId });
-      // actions.competition.fetchMatches({ type: 'future', seasonId });
-      // actions.competition.fetchStandings({ seasonId });
     });
   }
 
@@ -46,6 +43,8 @@ export default class Competition extends Component {
     if (!competition) {
       return null;
     }
+
+    const seasonId = competition['season']['season_id'];
 
     return (
       <div>
@@ -58,7 +57,9 @@ export default class Competition extends Component {
         </h1>
 
         <div class="competition__container">
-
+          <Matches seasonId={seasonId} type='past' />
+          <Matches seasonId={seasonId} type='future' />
+          <Standings seasonId={seasonId} />
         </div>
       </div>
     );

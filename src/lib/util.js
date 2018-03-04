@@ -1,10 +1,11 @@
+const API_URL = 'http://futbol.date';
+
 //
 // Returns request object
 //
-export function request(path, func) {
-  const apiUrl = 'http://futbol.date';
+export function request(path, resolve) {
   /* global fetch */
-  const req = fetch(apiUrl + path);
+  const req = fetch(API_URL + path);
 
   const timeout = new Promise((resolve, reject) => {
     return setTimeout(() => {
@@ -14,7 +15,7 @@ export function request(path, func) {
 
   return Promise.race([req, timeout])
     .then(response => response.json())
-    .then(body => func(body))
+    .then(body => resolve ? resolve(body) : body)
     .catch(err => err.message); // TODO
 }
 

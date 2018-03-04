@@ -1,32 +1,35 @@
 # Golazon
-> Football data <a href="http://mnmlist.com/w/">mnmlist</a> way.
+> Football data [mnmlist](http://mnmlist.com/w/) way.
 
-Zero bullshit. No images, no cookies, no tracking scripts, no analytics,
-no popups, no ads, no subscriptions, no social sharing, no comments.
+No cookies, no tracking scripts, no analytics, no popups, no ads,
+no subscriptions, no social sharing, no comments, no images.
+Zero bullshit. Just data.
 
-*~12KB gzipped js&css in total*
+*<15KB gzipped js&css in total*
 
-It's a proof of concept, there are probably some minor glitches here and there
-yet it works pretty well already.
+It's a proof of concept, but it works pretty well already.
 
 Want to support? Contact: przemek@sobstel.org
 
 ------------
 
 ## Tech
-> Built with [hyperapp](https://hyperapp.js.org/)
+> Built with [preact](https://github.com/developit/preact)
 
 ### Getting Started
 
-* installation: `yarn install`
-* development: `yarn start` (watches the project with continuous rebuild)
-* deployment: `yarn run publish`
+* `yarn install`
 
-### Disclaimer
+### Development
 
-Golazon uses external proprietary API, which is not a part of this project.
+* `yarn dev`
+* `yarn deploy`
 
-### Random Notes
+### Notes
 
-* Rewrite search backend to use Riak Search (due to AP -> Availability + Partition Tolerance)
-* Issue: GitHub Pages returns HTTP 404 for non-root pages
+* Golazon uses experimental proprietary API, which is neither open-sourced
+  nor a part of this repository.
+* Would be good to use Riak Search as a search engine
+  (for AP -> Availability + Partition Tolerance)
+* Earlier versions were built with Riot and Hyperapp.
+  See [branches](https://github.com/sobstel/golazon/branches) for details.

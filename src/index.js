@@ -1,15 +1,16 @@
-import { app, h } from 'hyperapp';
-import { router } from '@hyperapp/router';
+import { h, render } from 'preact';
+import './style';
 
-import actions from './actions';
-import events from './events';
-import state from './state';
-import views from './views';
+let root;
+function init() {
+  let App = require('./app').default;
+  root = render(<App />, document.body, root);
+}
 
-app({
-  state,
-  view: views,
-  actions,
-  events,
-  mixins: [router()],
-});
+// in development, set up HMR:
+if (module.hot) {
+  require('preact/devtools');   // turn this on if you want to enable React DevTools!
+  module.hot.accept('./app', () => requestAnimationFrame(init) );
+}
+
+init();

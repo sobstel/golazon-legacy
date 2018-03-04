@@ -1,11 +1,12 @@
 import { h, Component } from 'preact';
-import * as History from '../lib/history';
-import competitionService from '../services/competition';
+import * as History from '../../lib/history';
+import competitionService from '../../services/competition';
 
-import Standings from '../components/competition/standings';
-import Matches from '../components/competition/matches';
+import Loadable from '../util/loadable';
+import Standings from '../competition/standings';
+import Matches from '../competition/matches';
 
-export default class extends Component {
+class Competition extends Component {
   state = {
     title: false,
     competition: false
@@ -65,3 +66,5 @@ export default class extends Component {
     );
   }
 }
+
+export default Loadable(Competition);

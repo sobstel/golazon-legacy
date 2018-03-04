@@ -1,13 +1,13 @@
 import { h, Component } from 'preact';
-import matchService from '../services/match';
+import matchService from '../../services/match';
 
-import Score from '../components/shared/score';
+import Score from '../shared/score';
 
-import Info from '../components/match/info';
-import Goals from '../components/match/goals';
-import PenaltyShootout from '../components/match/penalty_shootout';
-import Lineups from '../components/match/lineups';
-import Cards from '../components/match/cards';
+import Info from '../match/info';
+import Goals from '../match/goals';
+import PenaltyShootout from '../match/penalty_shootout';
+import Lineups from '../match/lineups';
+import Cards from '../match/cards';
 
 export default class extends Component {
   state = {

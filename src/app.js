@@ -2,10 +2,10 @@ import { h, Component } from 'preact';
 import { Router } from 'preact-router';
 
 import Search from './components/search';
-import Home from './pages/home';
-import Competition from './pages/competition';
-import Match from './pages/match';
-import Error404 from './pages/error404';
+import Home from './components/pages/home';
+import Competition from './components/pages/competition';
+import Match from './components/pages/match';
+import Error404 from './components/pages/error404';
 
 export default class extends Component {
   /** Gets fired when the route changes.

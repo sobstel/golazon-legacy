@@ -1,6 +1,6 @@
 import { h, Component } from 'preact';
 
-import LiveMatches from '../components/live_matches';
+import LiveMatches from '../live_matches';
 
 export default class extends Component {
   componentDidMount () {

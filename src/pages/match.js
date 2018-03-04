@@ -1,10 +1,19 @@
 import { h, Component } from 'preact';
 
 export default class Match extends Component {
-  render({ id }) {
+  componentDidMount () {
+    document.title = `Match ${this.props.id}`;
+  }
+
+  render () {
     return (
       <div>
-        <p>id: {id}</p>
+        <p class="block nav">
+          <a href="/">Golazon</a>
+        </p>
+        <p class="block">
+          id: {this.props.id}
+        </p>
       </div>
     );
   }

@@ -49,7 +49,7 @@ export default class Competition extends Component {
     }
 
     return (
-      <div class="competition">
+      <div>
         <p class="block nav">
           <a href="/">Golazon</a>
         </p>
@@ -57,6 +57,10 @@ export default class Competition extends Component {
         <h1 class="competition__title block wrapped">
           {title}
         </h1>
+
+        <div class="competition__container">
+
+        </div>
       </div>
     );
   }

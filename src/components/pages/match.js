@@ -11,7 +11,7 @@ import Cards from '../match/cards';
 
 class Match extends Component {
   componentDidMount () {
-    const match = this.props.data;
+    const { match } = this.props;
 
     let title = `${match['home_name']} v ${match['away_name']}`;
     title += ` - ${match['competition_name']} - ${match['area_name']}`;
@@ -19,7 +19,7 @@ class Match extends Component {
   }
 
   render () {
-    const match = this.props.data;
+    const { match } = this.props;
 
     return (
       <div>
@@ -54,7 +54,7 @@ class Match extends Component {
 }
 
 const dataSource = ({ id }) => {
-  return matchService.match(id);
+  return matchService.match(id).then(match => ({ match }));
 };
 
 export default loadable(dataSource)(Match);

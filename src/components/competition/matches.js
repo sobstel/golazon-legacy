@@ -9,7 +9,7 @@ const HARD_LIMIT = 50; // forced by API
 
 class CompetitionMatches extends Component {
   render () {
-    const { data: matches, type } = this.props;
+    const { matches, type } = this.props;
 
     return (
       <div class={`${type}-matches block wrapped`}>
@@ -29,13 +29,13 @@ class CompetitionMatches extends Component {
   }
 
   hasMore = () => {
-    const { data: matches } = this.props;
+    const { matches } = this.props;
     return (matches.length < HARD_LIMIT && matches.length % PER_PAGE === 0);
   }
 }
 
 const dataSource = ({ seasonId, type, limit }) => {
-  return matchService.seasonMatches(seasonId, type, limit);
+  return matchService.seasonMatches(seasonId, type, limit).then(matches => ({ matches }));
 };
 
 const limitable = (WrappedComponent) => {

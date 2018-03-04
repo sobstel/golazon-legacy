@@ -25,8 +25,8 @@ export default (dataSource) => {
 
             {this.state.data &&
               <WrappedComponent
-                data={this.state.data}
-                {...this.props} />
+                {...this.props}
+                {...this.state.data} />
             }
           </div>
         );

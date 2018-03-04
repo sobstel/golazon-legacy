@@ -6,7 +6,7 @@ import Matches from './shared/matches';
 
 class LiveMatches extends Component {
   render () {
-    const groupedMatches = this.props.data;
+    const { groupedMatches } = this.props;
 
     return (
       <div class="home__wrapper block wrapped">
@@ -31,7 +31,7 @@ class LiveMatches extends Component {
 }
 
 const dataSource = () => {
-  return matchService.liveMatches();
+  return matchService.liveMatches().then(groupedMatches => ({ groupedMatches }));
 };
 
 export default loadable(dataSource)(LiveMatches);

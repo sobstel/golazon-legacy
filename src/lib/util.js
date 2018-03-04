@@ -1,9 +1,6 @@
 const API_URL = 'http://futbol.date';
 
-//
-// Returns request object
-//
-export function request(path, resolve) {
+export function request(path, process) {
   /* global fetch */
   const req = fetch(API_URL + path);
 
@@ -15,7 +12,7 @@ export function request(path, resolve) {
 
   return Promise.race([req, timeout])
     .then(response => response.json())
-    .then(body => resolve ? resolve(body) : body)
+    .then(json => process ? process(json) : json)
     .catch(err => err.message); // TODO
 }
 
@@ -31,9 +28,7 @@ export function terminateDelay() {
   }
 }
 
-//
-// Normalize date to UTC before converting
-//
+// normalize date to UTC before converting
 export function normalizeDate(date, time) {
   const y = date.slice(0, 4);
   const m = date.slice(5, 7) - 1;
@@ -44,9 +39,6 @@ export function normalizeDate(date, time) {
   return new Date(Date.UTC(y, m, d, hr, mn, 0));
 }
 
-//
-// Format date
-//
 export function formatDate(date, time) {
   const d = normalizeDate(date, time);
   const today = new Date();
@@ -60,9 +52,6 @@ export function formatDate(date, time) {
   return `${month} ${day}`;
 }
 
-//
-// Format time
-//
 export function formatTime(date, time) {
   const d = normalizeDate(date, time);
 

@@ -4,7 +4,7 @@ import loadable from '../util/loadable';
 
 class Standings extends Component {
   render () {
-    const rounds = this.props.data;
+    const { rounds } = this.props;
 
     return (
       <div class="standings__container block wrapped">
@@ -69,7 +69,7 @@ class Standings extends Component {
 }
 
 const dataSource = ({ seasonId }) => {
-  return tableService.seasonStandings(seasonId);
+  return tableService.seasonStandings(seasonId).then(rounds => ({ rounds }));
 };
 
 export default loadable(dataSource)(Standings);

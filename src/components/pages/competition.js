@@ -7,7 +7,7 @@ import Matches from '../competition/matches';
 
 class Competition extends Component {
   render () {
-    const competition = this.props.data;
+    const { competition } = this.props;
 
     if (!competition) {
       return null;
@@ -42,7 +42,7 @@ class Competition extends Component {
 }
 
 const dataSource = ({ id }) => {
-  return competitionService.competition(id);
+  return competitionService.competition(id).then(competition => ({ competition }));
 };
 
 export default loadable(dataSource)(Competition);

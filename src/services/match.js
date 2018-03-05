@@ -6,7 +6,7 @@ export default {
   },
 
   seasonMatches (seasonId, type, limit) {
-    return request(`/seasons/${seasonId}/matches/${type}/${limit}`);
+    return request(`/season/${seasonId}/matches/${type}/${limit}`);
   },
 
   teamMatches (teamId, type, limit) {

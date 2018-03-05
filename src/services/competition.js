@@ -9,7 +9,7 @@ export default {
           area_name: competition['area_name'],
           id: competition.competition_id,
           name: competition.name,
-          type: competition.type,
+          teamtype: competition.teamtype,
           type: 'competition'
         });
       }

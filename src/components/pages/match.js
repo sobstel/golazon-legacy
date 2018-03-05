@@ -37,7 +37,7 @@ class Match extends Component {
           {match['match_id'] &&
             <span>
               <a href={`/t/${match['home_id']}`}> {match['home_name']} </a> -
-              <a href={`/t/${match['away_id']}`}> {match['away_name']} </a> 
+              <a href={`/t/${match['away_id']}`}> {match['away_name']} </a>
               <Score match={match} />
             </span>
           }

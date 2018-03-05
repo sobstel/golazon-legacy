@@ -6,19 +6,12 @@ import CompetitionMatches from '../competition/matches';
 import CompetitionStandings from '../competition/standings';
 
 class Competition extends Component {
+  componentDidMount () {
+    document.title = this.title();
+  }
+
   render () {
     const { competition } = this.props;
-
-    if (!competition) {
-      return null;
-    }
-
-    let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
-    if (competition.teamtype !== 'default') {
-      title += ` ${competition.teamtype}`;
-    }
-    document.title = title;
-
     const seasonId = competition['season']['season_id'];
 
     return (
@@ -28,7 +21,7 @@ class Competition extends Component {
         </p>
 
         <h1 class="competition__title block wrapped">
-          {title}
+          {this.title()}
         </h1>
 
         <div class="competition__container">
@@ -41,6 +34,17 @@ class Competition extends Component {
         </div>
       </div>
     );
+  }
+
+  title = () => {
+    const { competition } = this.props;
+
+    let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
+    if (competition.teamtype !== 'default') {
+      title += ` ${competition.teamtype}`;
+    }
+
+    return title;
   }
 }
 

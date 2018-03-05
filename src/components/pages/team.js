@@ -6,15 +6,14 @@ import TeamCompetitions from '../team/competitions';
 import TeamMatches from '../team/matches';
 
 class Team extends Component {
-  render () {
+  componentDidMount () {
     const { team } = this.props;
 
-    if (!team) {
-      return null;
-    }
-
     document.title = team.name;
+  }
 
+  render () {
+    const { team } = this.props;
     const teamId = team['team_id'];
 
     return (

@@ -9,6 +9,10 @@ export default {
     return request(`/seasons/${seasonId}/matches/${type}/${limit}`);
   },
 
+  teamMatches (teamId, type, limit) {
+    return request(`/teams/${teamId}/matches/${type}/${limit}`);
+  },
+
   liveMatches () {
     return request('/matches/live').then(matches => {
       const competitionMatches = matches.reduce((result, match) => {

@@ -3,7 +3,7 @@ import competitionService from '../../services/competition';
 import loadable from '../util/loadable';
 
 import Standings from '../competition/standings';
-import Matches from '../competition/matches';
+import CompetitionMatches from '../competition/matches';
 
 class Competition extends Component {
   render () {
@@ -32,8 +32,8 @@ class Competition extends Component {
         </h1>
 
         <div class="competition__container">
-          <Matches seasonId={seasonId} type='past' />
-          <Matches seasonId={seasonId} type='future' />
+          <CompetitionMatches seasonId={seasonId} type='past' />
+          <CompetitionMatches seasonId={seasonId} type='future' />
           <Standings seasonId={seasonId} />
         </div>
       </div>

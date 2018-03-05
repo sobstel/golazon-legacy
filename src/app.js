@@ -5,6 +5,7 @@ import Search from './components/search';
 import Home from './components/pages/home';
 import Competition from './components/pages/competition';
 import Match from './components/pages/match';
+import Team from './components/pages/team';
 import Error404 from './components/pages/error404';
 
 export default class extends Component {
@@ -23,6 +24,7 @@ export default class extends Component {
           <Home path="/" />
           <Competition path="/c/:id" />
           <Match path="/m/:id" />
+          <Team path="/t/:id" />
           <Error404 default />
         </Router>
 

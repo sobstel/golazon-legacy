@@ -39,7 +39,7 @@ class Standings extends Component {
                       <span>{table.rank}</span>
                     </td>
                     <td class="team" title={table['team_name']}>
-                      {table['team_name']}
+                      <a href={`/t/${table['team_id']}`}>{table['team_name']}</a>
                     </td>
                     <td class="mp">
                       {table.matches}

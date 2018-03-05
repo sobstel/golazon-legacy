@@ -16,7 +16,9 @@ class Competitions extends Component {
       <div class="compeitions__container block wrapped">
         {competitions.map(competition => (
           <p>
-            {competition['name']} {competition['season']['name']} ({competition['area_name']})
+            <a href={`/c/${competition['competition_id']}`}>
+              {competition['name']} {competition['season']['name']} ({competition['area_name']})
+            </a>
           </p>
         ))}
       </div>

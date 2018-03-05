@@ -36,7 +36,9 @@ class Match extends Component {
         <h1 class="match__title block wrapped">
           {match['match_id'] &&
             <span>
-              {match['home_name']} - {match['away_name']} <Score match={match} />
+              <a href={`/t/${match['home_id']}`}> {match['home_name']} </a> -
+              <a href={`/t/${match['away_id']}`}> {match['away_name']} </a> 
+              <Score match={match} />
             </span>
           }
         </h1>

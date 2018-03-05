@@ -14,8 +14,8 @@ class Competition extends Component {
     }
 
     let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
-    if (competition.teamtype !== 'default') {
-      title += ` ${competition.teamtype}`;
+    if (competition.type !== 'default') {
+      title += ` ${competition.type}`;
     }
     document.title = title;
 

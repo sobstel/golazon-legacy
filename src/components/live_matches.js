@@ -15,7 +15,7 @@ class LiveMatches extends Component {
             <h2>
               <a href={`/c/${item.competition.id}`}>
                 {item.competition.name } ({item.competition['area_name']})
-                {item.teamtype !== 'default' && item.teamtype}
+                {item.type !== 'default' && item.type}
               </a>
             </h2>
             <Matches matches={item.matches} />

@@ -66,7 +66,7 @@ export default class extends Component {
                   onclick={this.chooseResult}
                   class={result.active && 'active'}
                 >
-                  {result.name} ({result['area_name']}) {result.teamtype !== 'default' && result.teamtype}
+                  {result.name} ({result['area_name']}) {result.type !== 'default' && result.type}
                 </a>
               </li>
             ))}

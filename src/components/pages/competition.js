@@ -2,8 +2,8 @@ import { h, Component } from 'preact';
 import competitionService from '../../services/competition';
 import loadable from '../util/loadable';
 
-import Standings from '../competition/standings';
 import CompetitionMatches from '../competition/matches';
+import CompetitionStandings from '../competition/standings';
 
 class Competition extends Component {
   render () {
@@ -34,7 +34,7 @@ class Competition extends Component {
         <div class="competition__container">
           <CompetitionMatches seasonId={seasonId} type='past' />
           <CompetitionMatches seasonId={seasonId} type='future' />
-          <Standings seasonId={seasonId} />
+          <CompetitionStandings seasonId={seasonId} />
         </div>
       </div>
     );

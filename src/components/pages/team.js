@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import teamService from '../../services/team';
 import loadable from '../util/loadable';
 
+import TeamCompetitions from '../team/competitions';
 import TeamMatches from '../team/matches';
 
 class Team extends Component {
@@ -27,6 +28,7 @@ class Team extends Component {
         </h1>
 
         <div class="team__container">
+          <TeamCompetitions teamId={teamId} />
           <TeamMatches teamId={teamId} type='past' />
           <TeamMatches teamId={teamId} type='future' />
         </div>

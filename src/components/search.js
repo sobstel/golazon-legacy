@@ -63,7 +63,7 @@ export default class extends Component {
               <li>
                 <a
                   href={`/c/${result.id}`}
-                  onclick={this.chooseResult}
+                  onclick={this.exitSearch}
                   class={result.active && 'active'}
                 >
                   {result.name} ({result['area_name']}) {result.teamtype !== 'default' && result.teamtype}
@@ -109,8 +109,8 @@ export default class extends Component {
 
     if (keyCode === KEY_CODES.ENTER) {
       const activeItem = this.state.results.find(result => result.active === true);
-      route(`/c/${activeItem.id}`);
       this.exitSearch();
+      route(`/c/${activeItem.id}`);
       return;
     }
 
@@ -158,12 +158,6 @@ export default class extends Component {
         });
       });
     }
-  }
-
-  chooseResult = (e) => {
-    e.preventDefault();
-    this.exitSearch();
-    route(e.target.pathname);
   }
 
   hoverResult = (step) => {

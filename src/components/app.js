@@ -9,18 +9,12 @@ import Team from './pages/team';
 import Error404 from './pages/error404';
 
 export default class extends Component {
-  /** Gets fired when the route changes.
-   *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
-   *	@param {string} event.url	The newly routed URL
-   */
-  handleRoute = e => this.currentUrl = e.url;
-
   render() {
     return (
       <div id="app">
         <Search />
 
-        <Router onChange={this.handleRoute}>
+        <Router>
           <Home path="/" />
           <Competition path="/c/:id" />
           <Match path="/m/:id" />

@@ -6,8 +6,7 @@ const HARD_LIMIT = 50; // forced by API
 export default (WrappedComponent) => {
   return class extends Component {
     state = {
-      limit: PER_PAGE,
-      visible: true // to force mount/unmount
+      limit: PER_PAGE
     }
 
     render () {
@@ -29,13 +28,8 @@ export default (WrappedComponent) => {
     }
 
     increaseLimit = () => {
-      this.setState({ visible: false });
-      setTimeout(() => {
-        this.setState({
-          limit: Math.min(this.state.limit + PER_PAGE, HARD_LIMIT),
-          visible: true
-        });
-      });
+      const limit = Math.min(this.state.limit + PER_PAGE, HARD_LIMIT);
+      this.setState({ limit });
     }
   };
 };

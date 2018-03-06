@@ -11,6 +11,16 @@ export default (fetchData) => {
       }
 
       componentDidMount () {
+        this.load();
+      }
+
+      componentWillReceiveProps (nextProps) {
+        if (nextProps !== this.props) {
+          this.load();
+        }
+      }
+
+      load = () => {
         this.setState({ loader: true });
 
         fetchData(this.props).then((data) => {

@@ -10,10 +10,6 @@ export default (WrappedComponent) => {
     }
 
     render () {
-      if (!this.state.visible) {
-        return null;
-      }
-
       return (
         <WrappedComponent
           limit={this.state.limit}

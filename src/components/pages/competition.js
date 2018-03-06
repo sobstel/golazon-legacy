@@ -27,10 +27,7 @@ class Competition extends Component {
         <div class="competition__container">
           <CompetitionMatches seasonId={seasonId} type='past' />
           <CompetitionMatches seasonId={seasonId} type='future' />
-
-          {competition['has_standings'] &&
-            <CompetitionStandings seasonId={seasonId} />
-          }
+          <CompetitionStandings seasonId={seasonId} />
         </div>
       </div>
     );

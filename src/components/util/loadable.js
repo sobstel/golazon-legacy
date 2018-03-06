@@ -11,19 +11,19 @@ export default (fetchData) => {
       }
 
       componentDidMount () {
-        this.load();
+        this.load(this.props);
       }
 
       componentWillReceiveProps (nextProps) {
         if (nextProps !== this.props) {
-          this.load();
+          this.load(nextProps);
         }
       }
 
-      load = () => {
+      load = (props) => {
         this.setState({ loader: true });
 
-        fetchData(this.props).then((data) => {
+        fetchData(props).then((data) => {
           this.setState({ data, loader: false });
         }).catch((err) => {
           this.setState({ error: err.message, loader: false });
@@ -49,7 +49,7 @@ export default (fetchData) => {
               </div>
             }
 
-            {this.state.data &&
+            {!this.state.loader && !this.state.error && this.state.data &&
               <WrappedComponent
                 {...this.props}
                 {...this.state.data} />

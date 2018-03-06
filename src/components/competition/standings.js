@@ -6,6 +6,10 @@ class Standings extends Component {
   render () {
     const { rounds } = this.props;
 
+    if (rounds.length === 0) {
+      return null;
+    }
+
     return (
       <div class="standings__container block wrapped">
         {rounds.map(round => (

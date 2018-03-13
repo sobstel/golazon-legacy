@@ -1,5 +1,5 @@
 const API_URL = 'http://futbol.date';
-const TIMEOUT = 10; // seconds
+const TIMEOUT = 30; // seconds
 
 /**
  * @return Promise

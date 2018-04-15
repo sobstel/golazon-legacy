@@ -59,7 +59,8 @@
   "dependencies": {
     "preact": "^8.1.0",
     "preact-router": "^2.5.1",
-    "serve": "^6.0.0"
+    "serve": "^6.0.0",
+    "superagent": "^3.8.2"
   },
   "main": "index.js",
   "private": true

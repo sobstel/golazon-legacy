@@ -5,8 +5,6 @@ No cookies, no tracking scripts, no analytics, no popups, no ads,
 no subscriptions, no social sharing, no comments, no images.
 Zero bullshit. Just data.
 
-*<15KB gzipped js&css in total*
-
 It's a proof of concept, but it works pretty well already.
 
 Want to support? Contact: przemek@sobstel.org

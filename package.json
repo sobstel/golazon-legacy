@@ -6,11 +6,11 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
     "start": "serve build -s -c 1",
     "prestart": "yarn run build",
-    "build": "cross-env NODE_ENV=production webpack --progress && cp build/index.html build/200.html",
-    "prebuild": "rm -rf build && mkdirp build && ncp src/assets build/assets",
+    "build": "cross-env NODE_ENV=production webpack --progress && cp build/index.html build/200.html && cp now.json build/",
+    "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
     "test": "yarn run -s lint",
     "lint": "eslint src test",
-    "deploy": "yarn build && surge ./build"
+    "deploy": "yarn build && now build/"
   },
   "license": "ISC",
   "author": "Przemek Sobstel <przemek@sobstel.org>",
@@ -57,7 +57,7 @@
     "webpack-dev-server": "^2.4.4"
   },
   "dependencies": {
-    "preact": "^8.1.0",
+    "preact": "^8.4.2",
     "preact-router": "^2.5.1",
     "serve": "^6.0.0",
     "superagent": "^3.8.2"

@@ -130,7 +130,6 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './favicon.ico', to: './' },
       { from: './favicon.png', to: './' },
-      { from: './CNAME', to: './' }
     ])
   ]).concat(ENV==='production' ? [
     new webpack.optimize.UglifyJsPlugin({

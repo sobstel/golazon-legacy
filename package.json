@@ -6,11 +6,11 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
     "start": "serve build -s -c 1",
     "prestart": "yarn run build",
-    "build": "cross-env NODE_ENV=production webpack --progress && cp build/index.html build/200.html && cp now.json build/",
+    "build": "cross-env NODE_ENV=production webpack --progress && cp now.json build/",
     "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
     "test": "yarn run -s lint",
     "lint": "eslint src test",
-    "deploy": "yarn build && now build/"
+    "deploy": "yarn build && now --target production build/"
   },
   "license": "ISC",
   "author": "Przemek Sobstel <przemek@sobstel.org>",

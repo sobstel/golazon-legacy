@@ -26,4 +26,4 @@ Want to support? Contact: przemek@sobstel.org
 * Golazon uses experimental proprietary API, which is neither open-sourced
   nor a part of this repository.
 * Earlier versions were built with Riot and Hyperapp.
-  See [branches](https://github.com/sobstel/golazon/branches) for details.
+  See [branches](https://github.com/sobstel/golazon/branches).

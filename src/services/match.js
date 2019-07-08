@@ -3,15 +3,15 @@ import * as History from '../lib/history';
 
 export default {
   match (id) {
-    return request(`/matches/${id}`);
+    return request(`matches/${id}`);
   },
 
   seasonMatches (seasonId, type, limit) {
-    return request(`/seasons/${seasonId}/matches/${type}/${limit}`);
+    return request(`seasons/${seasonId}/matches/${type}/${limit}`);
   },
 
   teamMatches (teamId, type, limit) {
-    return request(`/teams/${teamId}/matches/${type}/${limit}`);
+    return request(`teams/${teamId}/matches/${type}/${limit}`);
   },
 
   liveMatches () {

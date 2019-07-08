@@ -23,8 +23,8 @@ export default class extends Component {
         </Router>
 
         <p class="disclaimer block">
-          Football data mnmlist way. Open source prototype.<br />
-          (<a href="https://github.com/sobstel/golazon#readme">learn more</a>)
+          football data mnmlist way
+          (<a href="https://github.com/sobstel/golazon">source</a>)
         </p>
       </div>
     );

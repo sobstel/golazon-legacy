@@ -15,7 +15,7 @@ export default {
   },
 
   liveMatches () {
-    return request('/matches/live').then(matches => {
+    return request('matches/live').then(matches => {
       const reversedHistoryResults = History.all().reverse();
 
       const competitionMatches = matches.reduce((result, match) => {

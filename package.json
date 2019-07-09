@@ -1,16 +1,15 @@
 {
   "name": "golazon",
-  "version": "4.0.0",
+  "version": "6.0.0",
   "description": "football data mnmlist way",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
-    "start": "serve build -s -c 1",
     "prestart": "yarn run build",
-    "build": "cross-env NODE_ENV=production webpack --progress && cp now.json build/",
+    "start": "serve build -s -c 1",
     "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
-    "test": "yarn run -s lint",
-    "lint": "eslint src test",
-    "deploy": "yarn build && now --target production build/"
+    "build": "cross-env NODE_ENV=production webpack --progress",
+    "postbuild": "cp now.json build/",
+    "deploy": "yarn run build && now --target production build/"
   },
   "license": "ISC",
   "author": "Przemek Sobstel <przemek@sobstel.org>",
@@ -49,6 +48,7 @@
     "regenerator-runtime": "^0.10.3",
     "replace-bundle-webpack-plugin": "^1.0.0",
     "script-ext-html-webpack-plugin": "^1.3.4",
+    "serve": ">=7.1.3",
     "source-map-loader": "^0.2.1",
     "style-loader": "^0.20.0",
     "surge": "^0.20.1",
@@ -59,8 +59,7 @@
   "dependencies": {
     "preact": "^8.4.2",
     "preact-router": "^2.5.1",
-    "serve": ">=7.1.3",
-    "superagent": "^3.8.2"
+    "superagent": "^5.0.0"
   },
   "main": "index.js",
   "private": true

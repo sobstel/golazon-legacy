@@ -8,6 +8,10 @@ class LimitableMatches extends Component {
   render () {
     const { matches, type } = this.props;
 
+    if (!matches || matches.length === 0) {
+      return null;
+    }
+
     return (
       <div class={`${type}-matches block wrapped`}>
         {type === 'past' && this.props.hasMore(matches) && this.renderMoreButton()}

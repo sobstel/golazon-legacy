@@ -26,7 +26,7 @@ module.exports = {
       'node_modules'
     ],
     alias: {
-      components: path.resolve(__dirname, "src/components"),    // used for tests
+      components: path.resolve(__dirname, "src/components"),
       style: path.resolve(__dirname, "src/style"),
       'react': 'preact-compat',
       'react-dom': 'preact-compat'
@@ -184,12 +184,5 @@ module.exports = {
     historyApiFallback: true,
     open: true,
     openPage: '',
-    proxy: {
-      // OPTIONAL: proxy configuration:
-      // '/optional-prefix/**': { // path pattern to rewrite
-      //   target: 'http://target-host.com',
-      //   pathRewrite: path => path.replace(/^\/[^\/]+\//, '')   // strip first path segment
-      // }
-    }
   }
 };

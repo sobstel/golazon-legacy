@@ -61,7 +61,7 @@ export function search(query) {
     if (result.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
       return true;
     }
-    if (result['area_name'].toLowerCase().indexOf(query.toLowerCase()) === 0) {
+    if (result.area_name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
       return true;
     }
     return false;

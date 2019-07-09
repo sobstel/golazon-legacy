@@ -128,8 +128,8 @@ module.exports = {
       minify: { collapseWhitespace: true }
     }),
     new CopyWebpackPlugin([
-      { from: './favicon.ico', to: './' },
-      { from: './favicon.png', to: './' },
+      { from: './assets/favicon.ico', to: './' },
+      { from: './assets/favicon.png', to: './' },
     ])
   ]).concat(ENV==='production' ? [
     new webpack.optimize.UglifyJsPlugin({

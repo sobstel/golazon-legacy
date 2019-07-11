@@ -36,8 +36,9 @@ class Team extends Component {
   }
 }
 
-const dataSource = ({ id }) => {
-  return teamService.team(id).then(team => ({ team }));
+const dataSource = async ({ id }) => {
+  const team = await teamService.team(id);
+  return ({ team });
 };
 
 export default loadable(dataSource)(Team);

@@ -72,8 +72,9 @@ class Standings extends Component {
   }
 }
 
-const dataSource = ({ seasonId }) => {
-  return tableService.seasonStandings(seasonId).then(rounds => ({ rounds }));
+const dataSource = async ({ seasonId }) => {
+  const rounds = await tableService.seasonStandings(seasonId);
+  return ({ rounds });
 };
 
 export default loadable(dataSource)(Standings);

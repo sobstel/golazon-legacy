@@ -1,5 +1,6 @@
 import { h, Component } from 'preact';
 import { route } from 'preact-router';
+import Highlighter from "react-highlight-words";
 import { delay, terminateDelay, uniqBy } from '../lib/util';
 import * as History from '../lib/history';
 import searchService from '../services/search';
@@ -11,7 +12,7 @@ const KEY_CODES = {
   ENTER: 13
 };
 
-const MAX_RESULTS = 15;
+const MAX_RESULTS = 20;
 
 export default class extends Component {
   state = {
@@ -19,17 +20,20 @@ export default class extends Component {
     hint: false,
     loading: false,
     results: [],
-    resultsHint: false,
     value: null
   }
 
   render () {
+    const noResults = this.state.results.length === 0;
+
+    const activeClassName = (className) => (this.state.clearButtonVisible ? `${className} ${className}--active` : className);
+
     return (
       <header class="search__container block" role="banner">
         <div class="search__input-container" role="search">
           <input
             type="text"
-            class="search__input"
+            class={activeClassName('search__input')}
             name="q"
             placeholder="Search: country or tournament name"
             onkeyup={this.search}
@@ -38,7 +42,7 @@ export default class extends Component {
 
           {this.state.clearButtonVisible &&
             <button
-              class="search__clear-button"
+              class={activeClassName('search__clear-button')}
               onclick={this.clearSearch}
             >
               X
@@ -46,13 +50,13 @@ export default class extends Component {
           }
         </div>
         <div class="search__extras-container">
-          {this.state.results.length === 0 && this.state.loading &&
+          {noResults && this.state.loading &&
             <p class="search__hint">
               {this.state.loading && <span class="loader">loading</span>}
             </p>
           }
 
-          {this.state.results.length === 0 && this.state.hint &&
+          {noResults && this.state.hint &&
             <p class="search__hint">
               {this.state.hint}
             </p>
@@ -66,16 +70,28 @@ export default class extends Component {
                   onclick={this.exitSearch}
                   class={result.active && 'active'}
                 >
-                  {result.name} ({result['area_name']}) {result.teamtype !== 'default' && result.teamtype}
+                  <Highlighter
+                    highlightClassName="search__highlight"
+                    searchWords={[this.state.value]}
+                    autoEscape={false}
+                    textToHighlight={result.name}
+                  />{' '}
+                  {result['area_name'] &&
+                    <span>
+                      (
+                      <Highlighter
+                        highlightClassName="search__highlight"
+                        searchWords={[this.state.value]}
+                        autoEscape={true}
+                        textToHighlight={result['area_name']}
+                      />
+                      ){' '}
+                    </span>
+                  }
+                  {result.teamtype}
                 </a>
               </li>
             ))}
-
-            {this.state.resultsHint &&
-              <li class="search__results-hint">
-                {this.state.resultsHint}
-              </li>
-            }
 
             {this.state.loading &&
               <li class="search__loader loader">
@@ -116,7 +132,7 @@ export default class extends Component {
 
     // restart
     terminateDelay();
-    this.setState({ resultsHint: null, value: text, clearButtonVisible: true });
+    this.setState({ value: text, clearButtonVisible: true });
 
     // all history results
     if (text.length === 0) {
@@ -130,28 +146,20 @@ export default class extends Component {
     const historyResults = History.search(text).slice(0, MAX_RESULTS);
     if (historyResults.length > 0) {
       this.setState({ results: historyResults });
-      return;
     }
 
     // search full database
     if (historyResults.length < MAX_RESULTS) {
-      if (text.length < 4) {
-        const resultsHint = 'type 4 letters or more to search full database...';
-        this.setState({ resultsHint });
-        return;
-      }
-
       this.setState({ loading: true });
 
       delay(0.25, () => {
         searchService.search(text).then(results => {
           let hint = false;
-          if (results.length === 0 && historyResults.length === 0) {
+          if (results.length === 0) {
             hint = 'no results found';
           }
 
           const mergedResults = uniqBy(historyResults.concat(results), 'id').slice(0, MAX_RESULTS);
-
           this.setState({ hint, loading: false, results: mergedResults });
         }).catch((err) => {
           this.setState({ hint: `ERROR: ${err.message}`, loading: false, results: [] });
@@ -188,8 +196,7 @@ export default class extends Component {
       clearButtonVisible: false,
       hint: false,
       loading: false,
-      results: [],
-      resultsHint: false
+      results: []
     });
   }
 }

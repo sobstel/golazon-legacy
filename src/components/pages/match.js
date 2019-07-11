@@ -55,8 +55,9 @@ class Match extends Component {
   }
 }
 
-const dataSource = ({ id }) => {
-  return matchService.match(id).then(match => ({ match }));
+const dataSource = async ({ id }) => {
+  const match = await matchService.match(id);
+  return ({ match });
 };
 
 export default loadable(dataSource)(Match);

@@ -10,7 +10,7 @@ const CSS_MAPS = ENV!=='production';
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: './index.js',
+  entry: ['babel-polyfill', './index.js'],
 
   output: {
     path: path.resolve(__dirname, "build"),

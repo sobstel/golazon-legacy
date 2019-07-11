@@ -36,8 +36,11 @@ class Competition extends Component {
   title = () => {
     const { competition } = this.props;
 
-    let title = `${competition.name} ${competition.season.name} (${competition['area_name']})`;
-    if (competition.teamtype !== 'default') {
+    let title = `${competition.name} ${competition.season.name}`;
+    if (competition['area_name']) {
+      title += ` (${competition['area_name']})`;
+    }
+    if (competition.teamtype) {
       title += ` ${competition.teamtype}`;
     }
 
@@ -45,8 +48,9 @@ class Competition extends Component {
   }
 }
 
-const dataSource = ({ id }) => {
-  return competitionService.competition(id).then(competition => ({ competition }));
+const dataSource = async ({ id }) => {
+  const competition = await competitionService.competition(id);
+  return ({ competition });
 };
 
 export default loadable(dataSource)(Competition);

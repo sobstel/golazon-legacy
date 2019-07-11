@@ -57,11 +57,12 @@ export function find(type, id) {
  * Search history
  */
 export function search(query) {
+  const normalizedQuery = query.toLowerCase();
   return fetchHistory().filter((result) => {
-    if (result.name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+    if (result.name.toLowerCase().includes(normalizedQuery)) {
       return true;
     }
-    if (result.area_name.toLowerCase().indexOf(query.toLowerCase()) === 0) {
+    if (result['area_name'] && result['area_name'].toLowerCase().includes(normalizedQuery)) {
       return true;
     }
     return false;

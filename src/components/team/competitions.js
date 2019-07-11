@@ -6,8 +6,6 @@ class Competitions extends Component {
   render () {
     const { competitions } = this.props;
 
-    console.log(competitions);
-
     if (!competitions.length) {
       return null;
     }
@@ -17,7 +15,8 @@ class Competitions extends Component {
         {competitions.map(competition => (
           <p>
             <a href={`/c/${competition['competition_id']}`}>
-              {competition['name']} {competition['season']['name']} ({competition['area_name']})
+              {competition['name']} {competition['season']['name']}
+              {competition['area_name'] && ` (${competition['area_name']})`}
             </a>
           </p>
         ))}

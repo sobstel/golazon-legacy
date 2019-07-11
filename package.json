@@ -22,6 +22,7 @@
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.24.0",
@@ -58,7 +59,9 @@
   },
   "dependencies": {
     "preact": "^8.4.2",
+    "preact-compat": "^3.19.0",
     "preact-router": "^2.5.1",
+    "react-highlight-words": "^0.16.0",
     "superagent": "^5.0.0"
   },
   "main": "index.js",

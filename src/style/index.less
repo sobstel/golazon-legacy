@@ -27,7 +27,7 @@ h2 {
   border-right: none;
   font-weight: normal;
   margin: 1em (-@default-padding);
-  padding: 5px @default-padding;
+  padding: 8px @default-padding;
 }
 
 div.block > div:first-child > h2,
@@ -66,6 +66,7 @@ h1 {
   min-width: @min-width - 12px;
   margin-left: 6px;
   margin-right: 6px;
+  border-radius: 5px;
 
   @media screen and (min-width: @max-width) {
     margin-left: auto;
@@ -80,6 +81,11 @@ h1 {
     padding: @default-padding @default-padding;
     background: #fff;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  & > h2:first-child,
+  & > div:first-child h2 {
+    border-radius: 5px 5px 0 0;
   }
 }
 
@@ -160,11 +166,14 @@ abbr[title] {
     font-size: 16px;
     border: 1px solid @search-border-color;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-
-    border-radius: 0;
+    border-radius: 5px;
     color: @input-text-color;
     padding: 10px @search-horizontal-padding;
     width: 100%;
+
+    &--active {
+      border-radius: 5px 0 0 0;
+    }
 
     &:focus {
       outline: none;
@@ -188,14 +197,18 @@ abbr[title] {
     margin-left: -1px;
     border: 1px solid @search-border-color;
     border-left: none;
-    color: #000;
+    color: #333;
     background: #fff;
     text-transform: lowercase;
     outline: none;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 16px;
     align-content: center;
     text-align: center;
+
+    &--active {
+      border-radius: 0 5px 0 0;
+    }
   }
 
   &__extras-container {
@@ -215,7 +228,7 @@ abbr[title] {
     left: 0;
     right: 0;
     z-index: 1;
-
+    border-radius: 0 0 5px 5px;
     border: 1px solid @search-border-color;
     border-width: 0 1px;
     background: #fcfcfc;
@@ -235,6 +248,10 @@ abbr[title] {
       &:hover {
         background: @hover-color;
         text-decoration: none;
+
+        &:last-child {
+          border-radius: 0 0 5px 5px;
+        }
       }
 
       font-size: 15px;
@@ -245,11 +262,16 @@ abbr[title] {
     }
   }
 
-  &__results-hint,
   &__loader {
     padding: 5px @search-horizontal-padding;
     font-style: italic;
     font-size: 13px;
+  }
+
+  &__highlight {
+    background-color: transparent;
+    font-weight: 600;
+    color: @action-color;
   }
 }
 

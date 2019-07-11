@@ -3,8 +3,23 @@
   "name": "golazon",
   "alias": ["golazon.com", "www.golazon.com"],
   "routes": [
-    { "src": "^(.+)(js|css|css.map|png|ico)$", "dest": "$1$2" },
-    { "src": "^/assets/(.+)$", "dest": "/assets/$1" },
-    { "src": ".+", "dest": "/index.html" }
+    {
+      "src": "^(.+)(js|css|css.map|png|ico)$",
+      "headers": {
+        "Cache-Control": "s-maxage=2592000, max-age=2592000"
+      },
+      "dest": "$1$2"
+    },
+    {
+      "src": "^/assets/(.+)$",
+      "headers": {
+        "Cache-Control": "s-maxage=2592000, max-age=2592000"
+      },
+      "dest": "/assets/$1"
+    },
+    {
+      "src": ".+",
+      "dest": "/index.html"
+    }
   ]
 }

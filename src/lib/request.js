@@ -9,8 +9,8 @@ export default (path, api_url = API_URL) => {
   return request
     .get(api_url + path)
     .timeout({
-      response: 5000, // wait for the server to start sending
-      deadline: 10000 // wait for the file to finish loading
+      response: 8000, // wait for the server to start sending
+      deadline: 32000 // wait for the file to finish loading
     })
     .retry(3)
     .then(response => response.body);

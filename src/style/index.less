@@ -66,7 +66,7 @@ h1 {
   min-width: @min-width - 12px;
   margin-left: 6px;
   margin-right: 6px;
-  border-radius: 5px;
+  border-radius: 8px;
 
   @media screen and (min-width: @max-width) {
     margin-left: auto;
@@ -85,7 +85,7 @@ h1 {
 
   & > h2:first-child,
   & > div:first-child h2 {
-    border-radius: 5px 5px 0 0;
+    border-radius: 8px 8px 0 0;
   }
 }
 
@@ -166,13 +166,13 @@ abbr[title] {
     font-size: 16px;
     border: 1px solid @search-border-color;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 8px;
     color: @input-text-color;
     padding: 10px @search-horizontal-padding;
     width: 100%;
 
     &--active {
-      border-radius: 5px 0 0 0;
+      border-radius: 8px 0 0 0;
     }
 
     &:focus {
@@ -207,7 +207,7 @@ abbr[title] {
     text-align: center;
 
     &--active {
-      border-radius: 0 5px 0 0;
+      border-radius: 0 8px 0 0;
     }
   }
 
@@ -228,7 +228,7 @@ abbr[title] {
     left: 0;
     right: 0;
     z-index: 1;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 8px 8px;
     border: 1px solid @search-border-color;
     border-width: 0 1px;
     background: #fcfcfc;
@@ -250,7 +250,7 @@ abbr[title] {
         text-decoration: none;
 
         &:last-child {
-          border-radius: 0 0 5px 5px;
+          border-radius: 0 0 8px 8px;
         }
       }
 

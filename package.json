@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
     "start": "serve build -s -c 1",
-    "prebuild": "ncp src/assets build/assets",
+    "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "now-build": "yarn run build"
   },

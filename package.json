@@ -9,6 +9,7 @@
     "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "postbuild": "cp now.json build/",
+    "now-build": "yarn run build",
     "deploy": "yarn run build && now --target production build/"
   },
   "license": "ISC",

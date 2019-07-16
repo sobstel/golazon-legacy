@@ -2,6 +2,15 @@
   "version": 2,
   "name": "golazon",
   "alias": ["golazon.com", "www.golazon.com"],
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@now/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "^(.+)(js|css|css.map|png|ico)$",
@@ -23,3 +32,4 @@
     }
   ]
 }
+

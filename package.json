@@ -4,13 +4,10 @@
   "description": "football data mnmlist way",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress --port=1987",
-    "prestart": "yarn run build",
     "start": "serve build -s -c 1",
-    "prebuild": "rm -rf build && mkdir build && ncp src/assets build/assets",
+    "prebuild": "ncp src/assets build/assets",
     "build": "cross-env NODE_ENV=production webpack --progress",
-    "postbuild": "cp now.json build/",
-    "now-build": "yarn run build",
-    "deploy": "yarn run build && now --target production build/"
+    "now-build": "yarn run build"
   },
   "license": "ISC",
   "author": "Przemek Sobstel <przemek@sobstel.org>",

@@ -1,4 +1,5 @@
 # Golazon
+
 > Football data [mnmlist](http://mnmlist.com/w/) way.
 
 No cookies, no tracking scripts, no analytics, no popups, no ads,
@@ -7,23 +8,23 @@ Zero bullshit. Just data.
 
 Want to support? Contact: przemek@sobstel.org
 
-------------
+---
 
 ## Tech
+
 > Built with [preact](https://github.com/developit/preact)
 
 ### Getting Started
 
-* `yarn install`
+- `yarn install`
 
 ### Development
 
-* `yarn dev`
-* `yarn deploy`
+- `yarn dev`
 
 ### Notes
 
-* Golazon uses experimental proprietary API, which is neither open-sourced
+- Golazon uses experimental proprietary API, which is neither open-sourced
   nor a part of this repository.
-* Earlier versions were built with Riot and Hyperapp.
+- Earlier versions were built with Riot and Hyperapp.
   See [branches](https://github.com/sobstel/golazon/branches).

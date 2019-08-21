@@ -2,6 +2,6 @@
   "extends": [
     "config:base"
   ],
-  "timezone": "Europw/Warsaw",
+  "timezone": "Europe/Warsaw",
   "schedule": "before 8am every tuesday"
 }

@@ -1,18 +1,18 @@
-import { h, Component } from 'preact';
-import competitionService from '../../services/competition';
-import loadable from '../util/loadable';
+import { h, Component } from "preact";
+import competitionService from "../../services/competition";
+import loadable from "../util/loadable";
 
-import CompetitionMatches from '../competition/matches';
-import CompetitionStandings from '../competition/standings';
+import CompetitionMatches from "../competition/matches";
+import CompetitionStandings from "../competition/standings";
 
 class Competition extends Component {
-  componentDidMount () {
+  componentDidMount() {
     document.title = this.title();
   }
 
-  render () {
+  render() {
     const { competition } = this.props;
-    const seasonId = competition['season']['season_id'];
+    const seasonId = competition["season"]["season_id"];
 
     return (
       <div>
@@ -20,13 +20,11 @@ class Competition extends Component {
           <a href="/">Golazon</a>
         </p>
 
-        <h1 class="competition__title block wrapped">
-          {this.title()}
-        </h1>
+        <h1 class="competition__title block wrapped">{this.title()}</h1>
 
         <div class="competition__container">
-          <CompetitionMatches seasonId={seasonId} type='past' />
-          <CompetitionMatches seasonId={seasonId} type='future' />
+          <CompetitionMatches seasonId={seasonId} type="past" />
+          <CompetitionMatches seasonId={seasonId} type="future" />
           <CompetitionStandings seasonId={seasonId} />
         </div>
       </div>
@@ -37,20 +35,20 @@ class Competition extends Component {
     const { competition } = this.props;
 
     let title = `${competition.name} ${competition.season.name}`;
-    if (competition['area_name']) {
-      title += ` (${competition['area_name']})`;
+    if (competition["area_name"]) {
+      title += ` (${competition["area_name"]})`;
     }
     if (competition.teamtype) {
       title += ` ${competition.teamtype}`;
     }
 
     return title;
-  }
+  };
 }
 
 const dataSource = async ({ id }) => {
   const competition = await competitionService.competition(id);
-  return ({ competition });
+  return { competition };
 };
 
 export default loadable(dataSource)(Competition);

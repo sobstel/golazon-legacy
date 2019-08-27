@@ -29,7 +29,7 @@
     "cross-env": "5.2.0",
     "css-loader": "0.28.11",
     "eslint": "6.2.2",
-    "eslint-plugin-jest": "21.27.2",
+    "eslint-plugin-jest": "22.15.2",
     "eslint-plugin-react": "7.14.3",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.11",

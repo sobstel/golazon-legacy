@@ -55,7 +55,7 @@
     "webpack-dev-server": "2.11.5"
   },
   "dependencies": {
-    "preact": "8.4.2",
+    "preact": "8.5.2",
     "preact-compat": "3.19.0",
     "preact-router": "2.6.1",
     "react-highlight-words": "0.16.0",

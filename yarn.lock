@@ -3641,10 +3641,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-next@^9.0.8-canary.4:
-  version "9.0.8-canary.5"
-  resolved "https://registry.yarnpkg.com/next/-/next-9.0.8-canary.5.tgz#da9692ac94e6c00061c3c07f0bc3bfa39ccd60e2"
-  integrity sha512-4yXQ7qvg4Nj2EYafSF86paaZJbzuj50VXUeKA45Na7rzyr8KbH1K0DoW2wHSgGs5OXCfUn9rtETOnXbLgT8Xgg==
+next@^9.0.8:
+  version "9.0.8"
+  resolved "https://registry.yarnpkg.com/next/-/next-9.0.8.tgz#ea37d7f64d754ea4608d15d6be3809b4be3f698f"
+  integrity sha512-vG8AasXnZ7sYYAaqKwFYnsgAGDkX8NdKDSHHz0Pzi//HN/9qJf6JnycEB4Jif8dIarDE8JWDjnBKw3Aw/lsFHg==
   dependencies:
     "@ampproject/toolbox-optimizer" "1.0.1"
     "@babel/core" "7.4.5"

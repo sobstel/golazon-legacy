@@ -14,11 +14,10 @@ export default fetchData => {
         this.load(this.props);
       }
 
-      // TODO: review using componentWillReceiveProps
       UNSAFE_componentWillReceiveProps(nextProps) {
-        // if (nextProps !== this.props) {
-        //   this.load(nextProps);
-        // }
+        if (nextProps !== this.props) {
+          this.load(nextProps);
+        }
       }
 
       load = props => {

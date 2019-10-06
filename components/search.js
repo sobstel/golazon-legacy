@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import Router from "next/router";
 import Highlighter from "react-highlight-words";
 import { delay, terminateDelay, uniqBy } from "../lib/util";
 import * as History from "../lib/history";
@@ -132,7 +133,7 @@ export default class extends Component {
         result => result.active === true
       );
       this.exitSearch();
-      // TODO: route(`/c/${activeItem.id}`);
+      Router.push(`/c/${activeItem.id}`);
       return;
     }
 

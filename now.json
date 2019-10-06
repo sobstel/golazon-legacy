@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/c/(\\w+)",
+      "dest": "/competition?id=$1"
+    },
+    {
+      "src": "/m/(\\w+)",
+      "dest": "/match?id=$1"
+    },
+    {
+      "src": "/t/(\\w+)",
+      "dest": "/team?id=$1"
+    }
+  ]
+}

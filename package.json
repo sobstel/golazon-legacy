@@ -1,0 +1,26 @@
+{
+  "name": "golazon",
+  "version": "7.0.0",
+  "description": "football data mnmlist way",
+  "repository": "https://github.com/sobstel/golazon",
+  "author": "Przemek Sobstel <przemek@sobstel.org>",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-less": "^1.0.1",
+    "less": "^3.10.3",
+    "next": "^9.0.8-canary.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-highlight-words": "^0.16.0",
+    "superagent": "^5.1.0"
+  },
+  "devDependencies": {
+    "now": "^16.3.1"
+  }
+}

@@ -1,0 +1,524 @@
+@import "variables";
+@import "mixins";
+@import "normalize";
+@import "base";
+
+body {
+  padding: 1em 0;
+  background: @primary-bg-color;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: @body-color;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-top: 1em;
+  padding: 0 5px;
+}
+
+h2 {
+  font-size: 1em;
+  color: #878787;
+  background: #f6f6f6;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-right: none;
+  font-weight: normal;
+  margin: 1em (-@default-padding);
+  padding: 8px @default-padding;
+}
+
+div.block > div:first-child > h2,
+div.block > div:first-child > div:first-child > h2 {
+  margin-top: (-@default-padding);
+}
+
+a {
+  color: @action-color;
+  border-bottom: 1px dotted #999;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+button {
+  color: @action-color;
+  border: none;
+  border-bottom: 1px dotted #999;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  // Remove border radius added by Chroma macOS
+  border-radius: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+// general centered block
+.block,
+h1 {
+  min-width: @min-width - 12px;
+  margin-left: 6px;
+  margin-right: 6px;
+  border-radius: 8px;
+
+  @media screen and (min-width: @max-width) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: @max-width;
+  }
+
+  &.wrapped {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: @default-padding @default-padding;
+    background: #fff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  & > h2:first-child,
+  & > div:first-child h2 {
+    border-radius: 8px 8px 0 0;
+  }
+}
+
+h1.block.wrapped {
+  margin-bottom: 0;
+  background: #f9f9f9;
+}
+
+// nav
+.nav {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 0.5em;
+  text-align: left;
+
+  a {
+    color: @action-color;
+    font-weight: 500;
+  }
+}
+
+.loader {
+  margin: 0;
+
+  &:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis steps(4, end) 500ms infinite;
+    content: "\2026"; /* ascii code for the ellipsis character */
+    width: 0px;
+  }
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.5em;
+  }
+}
+
+.error {
+  margin: 0;
+  color: #c33;
+  font-weight: 500;
+}
+
+abbr[title] {
+  text-decoration: none;
+}
+
+.disclaimer {
+  margin-top: 1em;
+  margin-bottom: 2em;
+  font-style: italic;
+  padding: 0 @default-padding;
+  font-size: 12px;
+  text-align: center;
+
+  a {
+    border-bottom: 1px dotted #666;
+    text-decoration: none;
+  }
+}
+
+// SEARCH
+
+@search-border-color: #ccc;
+@search-horizontal-padding: 8px;
+
+.search {
+  &__input-container {
+    display: flex;
+  }
+
+  &__input {
+    font-size: 16px;
+    border: 1px solid @search-border-color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: @input-text-color;
+    padding: 10px @search-horizontal-padding;
+    width: 100%;
+
+    &--active {
+      border-radius: 8px 0 0 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: lighten(@input-text-color, 30%);
+    }
+
+    // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
+    @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
+      font-size: 16px;
+      -webkit-appearance: none;
+    }
+  }
+
+  &__clear-button {
+    display: inline-block;
+    width: 30px;
+    padding: 0;
+    margin-left: -1px;
+    border: 1px solid @search-border-color;
+    border-left: none;
+    color: #333;
+    background: #fff;
+    text-transform: lowercase;
+    outline: none;
+    font-weight: 700;
+    font-size: 16px;
+    align-content: center;
+    text-align: center;
+
+    &--active {
+      border-radius: 0 8px 0 0;
+    }
+  }
+
+  &__extras-container {
+    position: relative;
+  }
+
+  &__hint {
+    padding-top: 3px;
+    padding-left: @default-padding;
+    margin-bottom: -4px;
+    font-size: 11px;
+  }
+
+  &__results {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    border-radius: 0 0 8px 8px;
+    border: 1px solid @search-border-color;
+    border-width: 0 1px;
+    background: #fcfcfc;
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+    min-width: @min-width - (2 * @default-padding);
+
+    a {
+      display: block;
+      padding: 5px @search-horizontal-padding;
+      border: none;
+
+      &.active {
+        background: @hover-color;
+      }
+      &:hover {
+        background: @hover-color;
+        text-decoration: none;
+
+        &:last-child {
+          border-radius: 0 0 8px 8px;
+        }
+      }
+
+      font-size: 15px;
+
+      @media screen and (min-width: @max-width) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__loader {
+    padding: 5px @search-horizontal-padding;
+    font-style: italic;
+    font-size: 13px;
+  }
+
+  &__highlight {
+    background-color: transparent;
+    font-weight: 600;
+    color: @action-color;
+  }
+}
+
+// MATCHES
+
+@table-border-color: #ddd;
+
+.matches {
+  &__container {
+    width: 100%;
+    table-layout: fixed;
+
+    tbody tr {
+      cursor: pointer;
+      border-top: 1px solid @table-border-color;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        background: @hover-color;
+      }
+    }
+
+    td {
+      padding: 8px 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    .min,
+    .period,
+    .date {
+      font-weight: 600;
+      width: 60px;
+    }
+
+    .date {
+      font-weight: 600;
+    }
+
+    .host {
+      text-align: right;
+    }
+
+    .status {
+      text-align: center;
+      font-weight: 600;
+      width: 60px;
+      white-space: normal;
+    }
+  }
+}
+
+// SCORE
+
+.live {
+  color: #c33;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// COMPETITION
+
+.competition {
+  &__container {
+    overflow: auto;
+    font-size: 13px;
+  }
+}
+
+// COMPETITION MATCHES
+
+.past-matches .nav {
+  text-align: left;
+  margin: 0.25em 0 0.5em;
+}
+
+.future-matches .nav {
+  text-align: left;
+  margin: 0.5em 0 0.25em;
+}
+
+// COMPETITION STANDINGS
+
+@standings-border-color: #ddd;
+@blurred-text-color: #888;
+
+.standings {
+  table {
+    margin: @default-padding 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  tbody tr {
+    border-top: 1px solid @standings-border-color;
+  }
+
+  th,
+  td {
+    text-align: center;
+    padding: @default-padding 7px;
+
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
+  th {
+    text-align: center;
+    color: @blurred-text-color;
+    font-weight: normal;
+  }
+
+  .rank {
+    color: @blurred-text-color;
+    width: 40px;
+  }
+  .team {
+    text-align: left;
+    font-weight: 500;
+  }
+  .mp {
+    width: 40px;
+  }
+  .gd {
+    width: 60px;
+  }
+  .pts {
+    font-weight: 700;
+    width: 40px;
+  }
+
+  .zone {
+    span {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    &-1 span {
+      background-color: #388e3c;
+    }
+    &-2 span {
+      background-color: #00796b;
+    }
+    &-3 span {
+      background-color: #0097a7;
+    }
+    &-4 span {
+      background-color: #1976d2;
+    }
+    &-5 span {
+      background-color: #303f9f;
+    }
+    &-11 span {
+      background-color: #ffa000;
+    }
+    &-12 span {
+      background-color: #f57c00;
+    }
+    &-13 span {
+      background-color: #e64a19;
+    }
+    &-14 span {
+      background-color: #5d4037;
+    }
+    &-15 span {
+      background-color: #455a64;
+    }
+  }
+
+  @media screen and (min-width: @max-width) {
+    table {
+      table-layout: auto;
+    }
+    .mp,
+    .gd {
+      width: auto;
+    }
+  }
+}
+
+// MATCH
+
+.match {
+  &__container {
+    p {
+      margin: 1em 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__goals span,
+  &__cards span,
+  &__penalty-shootout span {
+    &:after {
+      content: ", ";
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+  }
+
+  &__players {
+    span {
+      &:first-child:before {
+        content: none;
+      }
+      &:before {
+        content: ", ";
+      }
+
+      &.in {
+        &:before {
+          content: " (";
+        }
+        &:after {
+          content: ")";
+        }
+      }
+    }
+  }
+}
+
+// ERROR PAGE
+
+.error404 {
+  &__wrapper {
+    p {
+      margin: 3em 0 5em;
+      padding: 0 0.5em;
+      font-weight: 500;
+    }
+  }
+}

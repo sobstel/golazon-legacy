@@ -7,7 +7,7 @@ export default class Lineups extends Component {
     return (
       <div>
         {["home", "away"].map(type => (
-          <div>
+          <div key={type}>
             {match[`${type}_players`].length > 0 && (
               <div className="match__players">
                 <h2>
@@ -15,8 +15,8 @@ export default class Lineups extends Component {
                   )
                 </h2>
                 <p>
-                  {match[`${type}_players`].map(event => (
-                    <span className={event.in && "in"}>
+                  {match[`${type}_players`].map((event, index) => (
+                    <span key={`${type}-${index}`} className={event.in && "in"}>
                       {event.in && `${event.in}' `}
                       {event.name}
                     </span>

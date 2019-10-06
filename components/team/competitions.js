@@ -11,7 +11,7 @@ function Competitions({ competitions }) {
   return (
     <div className="compeitions__container block wrapped">
       {competitions.map(competition => (
-        <p>
+        <p key={competition.competition_id}>
           <Link
             href={`/competition?id=${competition.competition_id}`}
             as={`/c/${competition.competition_id}`}

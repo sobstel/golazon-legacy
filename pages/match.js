@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Link from "next/link";
 import matchService from "../services/match";
 import loadable from "../components/util/loadable";
+import Layout from "../components/Layout";
 
 import Score from "../components/shared/score";
 import Info from "../components/match/info";
@@ -10,27 +11,35 @@ import PenaltyShootout from "../components/match/penalty_shootout";
 import Lineups from "../components/match/lineups";
 import Cards from "../components/match/cards";
 
+function title(match) {
+  let title = `${match.home_name} v ${match.away_name}`;
+  title += ` - ${match.competition_name} - ${match.area_name}`;
+  return title;
+}
+
 function Match({ match }) {
   if (!match) return null;
 
   return (
-    <div>
+    <Layout title={title(match)}>
       <p className="block nav">
         <Link href="/">
           <a>Golazon</a>
         </Link>
-        {match.match_id && [
-          <span> » </span>,
-          <Link
-            href={`/competition?id=${match.competition_id}`}
-            as={`/c/${match.competition_id}`}
-          >
-            <a>
-              {match.competition_name}
-              {match.area_name && `(${match.area_name})`}
-            </a>
-          </Link>
-        ]}
+        {match.match_id && (
+          <>
+            <span> » </span>
+            <Link
+              href={`/competition?id=${match.competition_id}`}
+              as={`/c/${match.competition_id}`}
+            >
+              <a>
+                {match.competition_name}
+                {match.area_name && ` (${match.area_name})`}
+              </a>
+            </Link>
+          </>
+        )}
       </p>
 
       <h1 className="match__title block wrapped">
@@ -55,17 +64,13 @@ function Match({ match }) {
         <Lineups match={match} />
         <Cards match={match} />
       </div>
-    </div>
+    </Layout>
   );
 }
 
 // TODO
 // componentDidMount() {
-//   const { match } = this.props;
 
-//   let title = `${match.home_name} v ${match.away_name}`;
-//   title += ` - ${match.competition_name} - ${match.area_name}`;
-//   document.title = title;
 // }
 
 const dataSource = async ({ id }) => {

@@ -12,8 +12,8 @@ export default class Cards extends Component {
       <div className="match__cards">
         <h2>Cards</h2>
         <p>
-          {match.cards.map(event => (
-            <span>
+          {match.cards.map((event, index) => (
+            <span key={`${event.name}-${event.min}-${event.code}`}>
               {event.name} {event.min}&apos; ({event.code})
             </span>
           ))}

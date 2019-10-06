@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import Layout from "../components/Layout";
 import LiveMatches from "../components/live_matches";
 
 export default function Index() {
-  return <LiveMatches />;
+  return (
+    <Layout>
+      <LiveMatches />
+    </Layout>
+  );
 }
-
-// TODO
-// componentDidMount() {
-//   document.title = "Golazon";
-// }

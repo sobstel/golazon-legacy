@@ -13,7 +13,7 @@ export default class Goals extends Component {
         <h2>Goals</h2>
         <p>
           {match.goals.map(goal => (
-            <span>
+            <span key={`${goal.name}-${goal.code}-${goal.min}`}>
               {goal.name} {goal.min}&apos;&nbsp;
               {goal.code !== "G" && `[${goal.code}] `}(
               <strong>

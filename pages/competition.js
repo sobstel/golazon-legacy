@@ -1,8 +1,7 @@
-import React, { Component } from "react";
 import Link from "next/link";
-import { withRouter, useRouter } from "next/router";
 import competitionService from "../services/competition";
 import loadable from "../components/util/loadable";
+import Layout from "../components/Layout";
 
 import CompetitionMatches from "../components/competition/matches";
 import CompetitionStandings from "../components/competition/standings";
@@ -25,7 +24,7 @@ function Competition({ competition }) {
   const seasonId = competition.season.season_id;
 
   return (
-    <div>
+    <Layout title={title(competition)}>
       <p className="block nav">
         <Link href="/">
           <a>Golazon</a>
@@ -39,14 +38,9 @@ function Competition({ competition }) {
         <CompetitionMatches seasonId={seasonId} type="future" />
         <CompetitionStandings seasonId={seasonId} />
       </div>
-    </div>
+    </Layout>
   );
 }
-
-// TODO
-// componentDidMount() {
-//   document.title = this.title();
-// }
 
 const dataSource = async ({ id }) => {
   const competition = await competitionService.competition(id);

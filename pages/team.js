@@ -1,7 +1,7 @@
-import React, { Component } from "react";
 import Link from "next/link";
 import teamService from "../services/team";
 import loadable from "../components/util/loadable";
+import Layout from "../components/Layout";
 
 import TeamCompetitions from "../components/team/competitions";
 import TeamMatches from "../components/team/matches";
@@ -10,7 +10,7 @@ function Team({ team }) {
   const teamId = team.team_id;
 
   return (
-    <div>
+    <Layout title={team.name}>
       <p className="block nav">
         <Link href="/">
           <a>Golazon</a>
@@ -24,16 +24,9 @@ function Team({ team }) {
         <TeamMatches teamId={teamId} type="past" />
         <TeamMatches teamId={teamId} type="future" />
       </div>
-    </div>
+    </Layout>
   );
 }
-
-// TODO
-// componentDidMount() {
-//   const { team } = this.props;
-
-//   document.title = team.name;
-// }
 
 const dataSource = async ({ id }) => {
   const team = await teamService.team(id);

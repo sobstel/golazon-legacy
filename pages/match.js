@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Link from "next/link";
 import matchService from "../services/match";
 import loadable from "../components/util/loadable";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 
 import Score from "../components/shared/score";
 import Info from "../components/match/info";
@@ -67,11 +67,6 @@ function Match({ match }) {
     </Layout>
   );
 }
-
-// TODO
-// componentDidMount() {
-
-// }
 
 const dataSource = async ({ id }) => {
   const match = await matchService.match(id);

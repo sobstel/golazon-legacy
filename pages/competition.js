@@ -1,7 +1,7 @@
 import Link from "next/link";
 import competitionService from "../services/competition";
 import loadable from "../components/util/loadable";
-import Layout from "../components/Layout";
+import Layout from "../components/layout";
 
 import CompetitionMatches from "../components/competition/matches";
 import CompetitionStandings from "../components/competition/standings";

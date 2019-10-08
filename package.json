@@ -14,7 +14,7 @@
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
     "less": "^3.10.3",
-    "next": "^9.0.8-canary.4",
+    "next": "^9.1.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-highlight-words": "^0.16.0",

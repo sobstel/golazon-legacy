@@ -8,11 +8,10 @@ export default function Error({ statusCode }) {
       <div className="block error__wrapper">
         <p>
           <strong>
-            {statusCode ? `Server error: ${statusCode}` : "Client error"}
+            <em>
+              {statusCode ? `Server error: ${statusCode}` : "Client error"}
+            </em>
           </strong>
-        </p>
-        <p>
-          <Link href="/">Go home</Link>.
         </p>
       </div>
     </Layout>

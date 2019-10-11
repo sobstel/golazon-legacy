@@ -6,7 +6,7 @@ import loadable from "./util/loadable";
 import Matches from "./shared/matches";
 
 // update interval in seconds
-const UPDATE_INTERVAL = 5 * 1000;
+const UPDATE_INTERVAL = 15 * 1000;
 
 class LiveMatches extends Component {
   state = { groupedMatches: null };

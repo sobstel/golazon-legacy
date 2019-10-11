@@ -6,33 +6,38 @@ import loadable from "./util/loadable";
 import Matches from "./shared/matches";
 
 // update interval in seconds
-const UPDATE_INTERVAL = 20;
+const UPDATE_INTERVAL = 5 * 1000;
 
 class LiveMatches extends Component {
-  state = {
-    groupedMatches: null
-  };
+  state = { groupedMatches: null };
   updateTimeout = null;
 
   scheduleNextUpdate = () => {
-    this.updateTimeout = setTimeout(() => {
-      dataSource().then(({ groupedMatches }) =>
-        this.setState({ groupedMatches })
-      );
-    }, UPDATE_INTERVAL * 1000);
+    this.updateTimeout = setTimeout(() => this.updateData(), UPDATE_INTERVAL);
   };
 
   componentDidMount() {
     this.scheduleNextUpdate();
-  }
-
-  componentDidUpdate() {
-    this.scheduleNextUpdate();
+    document.addEventListener("visibilitychange", this.onVisibilityChange);
   }
 
   componentWillUnmount() {
+    document.removeEventListener("visibilitychange", this.onVisibilityChange);
     this.updateTimeout && clearTimeout(this.updateTimeout);
   }
+
+  onVisibilityChange = () => {
+    if (document.visibilityState === "visible") {
+      this.updateData();
+    }
+  };
+
+  updateData = () => {
+    dataSource().then(({ groupedMatches }) => {
+      this.setState({ groupedMatches });
+      this.scheduleNextUpdate();
+    });
+  };
 
   render() {
     const groupedMatches =

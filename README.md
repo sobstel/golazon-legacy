@@ -12,7 +12,7 @@ Want to support? Contact: przemek@sobstel.org
 
 ## Tech
 
-> Built with [preact](https://github.com/developit/preact)
+> Built with [nextjs/react](https://nextjs.org). Served by [zeit/now](https://zeit.co).
 
 ### Getting Started
 

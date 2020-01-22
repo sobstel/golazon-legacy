@@ -50,7 +50,7 @@ export default class extends Component {
               className={activeClassName("search__clear-button")}
               onClick={this.clearSearch}
             >
-              X
+              &#215;
             </button>
           )}
         </div>

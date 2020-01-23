@@ -50,6 +50,10 @@ a {
   &:hover {
     text-decoration: none;
   }
+
+  @media (prefers-color-scheme: dark) {
+    color: @action-color-dark;
+  }
 }
 
 button {
@@ -60,6 +64,9 @@ button {
   cursor: pointer;
   // Remove border radius added by Chroma macOS
   border-radius: 0;
+  @media (prefers-color-scheme: dark) {
+    color: @action-color-dark;
+  }
 }
 
 li {
@@ -116,6 +123,9 @@ h1.block.wrapped {
   a {
     color: @action-color;
     font-weight: 500;
+    @media (prefers-color-scheme: dark) {
+      color: @action-color-dark;
+    }
   }
 }
 
@@ -293,6 +303,9 @@ abbr[title] {
     background-color: transparent;
     font-weight: 600;
     color: @action-color;
+    @media (prefers-color-scheme: dark) {
+      color: @action-color-dark;
+    }
   }
 }
 

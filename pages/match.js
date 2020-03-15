@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Link from "next/link";
+import { formatDate, formatTime } from "../lib/util";
 import matchService from "../services/match";
 import loadable from "../components/util/loadable";
 import Layout from "../components/layout";
 
 import Score from "../components/shared/score";
-import Info from "../components/match/info";
 import Goals from "../components/match/goals";
 import PenaltyShootout from "../components/match/penalty_shootout";
 import Lineups from "../components/match/lineups";
 import Cards from "../components/match/cards";
+import Venue from "../components/match/venue";
 
 function title(match) {
   let title = `${match.home_name} v ${match.away_name}`;
@@ -57,12 +58,19 @@ function Match({ match }) {
         )}
       </h1>
 
+      <div className="block wrapped">
+        {formatDate(match.date, match.time)}{", "}
+        {formatTime(match.date, match.time)}
+        <span> · </span>
+        {match.round_name}
+      </div>
+
       <div className="match__container block wrapped">
-        <Info match={match} />
         <Goals match={match} />
         <PenaltyShootout match={match} />
         <Lineups match={match} />
         <Cards match={match} />
+        <Venue match={match} />
       </div>
     </Layout>
   );

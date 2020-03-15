@@ -5,7 +5,7 @@ export default class Lineups extends Component {
     const { match } = this.props;
 
     return (
-      <div>
+      <>
         {["home", "away"].map(type => (
           <div key={type}>
             {match[`${type}_players`].length > 0 && (
@@ -26,7 +26,7 @@ export default class Lineups extends Component {
             )}
           </div>
         ))}
-      </div>
+      </>
     );
   }
 }

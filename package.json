@@ -21,6 +21,6 @@
     "superagent": "^5.2.2"
   },
   "devDependencies": {
-    "now": "^16.7.3"
+    "now": "^17.1.1"
   }
 }

@@ -6,13 +6,11 @@ No cookies, no tracking scripts, no analytics, no popups, no ads,
 no subscriptions, no social sharing, no comments, no images.
 Zero bullshit. Just data.
 
-Want to support? Contact: przemek@sobstel.org
-
 ---
 
 ## Tech
 
-> Built with [nextjs/react](https://nextjs.org). Served by [zeit/now](https://zeit.co).
+> Built with [nextjs/react](https://nextjs.org). Served by [Vercel](https://vercel.com).
 
 ### Getting Started
 

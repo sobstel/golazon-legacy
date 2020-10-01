@@ -9,9 +9,7 @@ export default {
           area_name: competition.area_name,
           id: competition.competition_id,
           name: competition.name,
-          rank: competition.rank,
           teamtype: competition.teamtype,
-          type: 'competition'
         });
       }
 

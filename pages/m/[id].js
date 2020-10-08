@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import { formatDate, formatTime } from "../lib/util";
-import matchService from "../services/match";
-import loadable from "../components/util/loadable";
-import Layout from "../components/layout";
+import { formatDate, formatTime } from "../../lib/util";
+import matchService from "../../services/match";
+import loadable from "../../components/util/loadable";
+import Layout from "../../components/layout";
 
-import Score from "../components/shared/score";
-import Goals from "../components/match/goals";
-import PenaltyShootout from "../components/match/penalty_shootout";
-import Lineups from "../components/match/lineups";
-import Cards from "../components/match/cards";
-import Venue from "../components/match/venue";
+import Score from "../../components/shared/score";
+import Goals from "../../components/match/goals";
+import PenaltyShootout from "../../components/match/penalty_shootout";
+import Lineups from "../../components/match/lineups";
+import Cards from "../../components/match/cards";
+import Venue from "../../components/match/venue";
 
 function title(match) {
   let title = `${match.home_name} v ${match.away_name}`;

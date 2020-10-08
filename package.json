@@ -14,13 +14,20 @@
   "dependencies": {
     "@zeit/next-less": "^1.0.1",
     "less": "^3.11.1",
-    "next": "^9.3.5",
+    "next": "^9.5.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-highlight-words": "^0.16.0",
-    "superagent": "^5.2.2"
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
-    "now": "^16.7.3"
+    "@types/react": "^16.9.51",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.3",
+    "prettier": "^2.1.2",
+    "typescript": "^4.0.3",
+    "vercel": "^20.1.1"
   }
 }

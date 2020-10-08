@@ -10,7 +10,7 @@ Zero bullshit. Just data.
 
 ## Tech
 
-> Built with [nextjs/react](https://nextjs.org). Served by [Vercel](https://vercel.com).
+> Built with [nextjs](https://nextjs.org). Served by [Vercel](https://vercel.com).
 
 ### Getting Started
 
@@ -22,7 +22,7 @@ Zero bullshit. Just data.
 
 ### Notes
 
-- Golazon uses experimental proprietary API, which is neither open-sourced
-  nor a part of this repository.
+- Golazon uses experimental proprietary data service,
+  which is neither open-sourced nor a part of this repository.
 - Earlier versions were built with Preact, Riot and Hyperapp.
   See [branches](https://github.com/sobstel/golazon/branches).

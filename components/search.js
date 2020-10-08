@@ -4,7 +4,7 @@ import Router from "next/router";
 import Highlighter from "react-highlight-words";
 import { delay, terminateDelay, uniqBy } from "../lib/util";
 import * as History from "../lib/history";
-import searchService from "../services/search";
+import api from "../lib/api";
 
 const KEY_CODES = {
   DOWN: 40,
@@ -160,8 +160,7 @@ export default class extends Component {
       this.setState({ loading: true });
 
       delay(0.25, () => {
-        searchService
-          .search(text)
+        api(`competitions?q=${text}`)
           .then(results => {
             let hint = false;
             if (results.length === 0) {

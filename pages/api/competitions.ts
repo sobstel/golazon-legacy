@@ -1,10 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
+import { MAX_CACHE_TIME } from 'lib/config';
 import getCompetitions from 'services/getCompetitions';
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  const result = getCompetitions(req.query.q as string);
 
-  // maxage very high as cache is invalidated on redeploy by vercel
-  res.setHeader('Cache-Control', 'max-age=900, s-maxage=2678400, stale-while-revalidate');
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  const { q } = req.query;
+  const result = getCompetitions(q as string);
+
+  res.setHeader('Cache-Control', `max-age=900, s-maxage=${MAX_CACHE_TIME}, stale-while-revalidate`);
   res.status(200).json(result);
 }

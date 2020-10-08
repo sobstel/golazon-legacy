@@ -1,10 +1,10 @@
 import Link from "next/link";
-import teamService from "../services/team";
-import loadable from "../components/util/loadable";
-import Layout from "../components/layout";
+import teamService from "../../services/team";
+import loadable from "../../components/util/loadable";
+import Layout from "../../components/layout";
 
-import TeamCompetitions from "../components/team/competitions";
-import TeamMatches from "../components/team/matches";
+import TeamCompetitions from "../../components/team/competitions";
+import TeamMatches from "../../components/team/matches";
 
 function Team({ team }) {
   const teamId = team.team_id;

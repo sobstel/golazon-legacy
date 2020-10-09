@@ -27,6 +27,7 @@ export async function herd(hyenas: Promise<Hyena>[]) {
  * @return Promise
  */
 export function hyena(path: string) {
+
   return request
     .get(HYENA_URL + path)
     .timeout({

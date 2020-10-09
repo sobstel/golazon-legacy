@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "pages/api/index.ts": {
+      "includeFiles": "data/**"
+    }
+  }
+}

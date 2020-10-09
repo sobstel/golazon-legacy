@@ -2,7 +2,6 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { MAX_CACHE_TIME } from 'lib/config';
 import getCompetitions from 'services/getCompetitions';
 
-
 export default (req: NextApiRequest, res: NextApiResponse) => {
   const { q } = req.query;
   const result = getCompetitions(q as string);

@@ -27,6 +27,8 @@ export default class extends Component {
   render() {
     const noResults = this.state.results.length === 0;
 
+    console.log(this.state.results);
+
     const activeClassName = className =>
       this.state.clearButtonVisible
         ? `${className} ${className}--active`
@@ -67,10 +69,10 @@ export default class extends Component {
 
           <ul className="search__results">
             {this.state.results.map(result => (
-              <li key={result.id}>
+              <li key={result['competition_id'] || result['name']}>
                 <Link
-                  href={`/competition?id=${result.id}`}
-                  as={`/c/${result.id}`}
+                  href={`/competition?id=${result['competition_id']}`}
+                  as={`/c/${result['competition_id']}`}
                 >
                   <a
                     onClick={this.exitSearch}
@@ -133,7 +135,7 @@ export default class extends Component {
         result => result.active === true
       );
       this.exitSearch();
-      Router.push(`/c/${activeItem.id}`);
+      Router.push(`/c/${activeItem['competition_id']}`);
       return;
     }
 
@@ -151,6 +153,7 @@ export default class extends Component {
 
     // search in history
     const historyResults = History.search(text).slice(0, MAX_RESULTS);
+
     if (historyResults.length > 0) {
       this.setState({ results: historyResults });
     }
@@ -169,8 +172,9 @@ export default class extends Component {
 
             const mergedResults = uniqBy(
               historyResults.concat(results),
-              "id"
+              "competition_id"
             ).slice(0, MAX_RESULTS);
+            console.log(mergedResults);
             this.setState({ hint, loading: false, results: mergedResults });
           })
           .catch(err => {

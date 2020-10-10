@@ -10,12 +10,12 @@ function content() {
   const API_FUNCTIONS = [
     {
       name: 'competitions?q=QUERY',
-      returnType: 'Array&lt;Competition&gt;',
+      returnType: 'array',
       example: 'competitions?q=argentina'
     },
     {
       name: 'teams/ID',
-      returnType: '{ team_id, type, name }',
+      returnType: '{ team_id, type, name, competitions, fixtures }',
       example: 'teams/8vjk'
     }
   ];
@@ -49,6 +49,7 @@ function content() {
       <nav class="menu">
         <div class="inner">
           <a href="#usage">Usage</a>
+          <a href="#glossary">Glossary</a>
           <a href="#license">License</a>
           <a href="/" target="_blank">Golazon &gt;</a>
         </div>
@@ -64,6 +65,15 @@ function content() {
             </ul>
           </div>
         </section>
+
+      <section class="section" id="glossary">
+        <div class="inner">
+          <h2>GLOSSARY</h2>
+          <ul>
+            <li>fixtures - basic match info, max 100 items</li>
+          </ul>
+        </div>
+      </section>
 
         <section class="section" id="license">
           <div class="inner">

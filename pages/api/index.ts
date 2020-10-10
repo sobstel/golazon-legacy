@@ -1,31 +1,36 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { MAX_CACHE_TIME } from 'lib/config';
+import { NextApiRequest, NextApiResponse } from "next";
+import { MAX_CACHE_TIME } from "lib/config";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-  res.setHeader('Cache-Control', `s-maxage=${MAX_CACHE_TIME}, stale-while-revalidate`);
+  res.setHeader(
+    "Cache-Control",
+    `s-maxage=${MAX_CACHE_TIME}, stale-while-revalidate`
+  );
   res.status(200).send(content());
-}
+};
 
 function content() {
   const API_FUNCTIONS = [
     {
-      name: 'competitions?q=QUERY',
-      returnType: 'array',
-      example: 'competitions?q=argentina'
+      name: "competitions?q=QUERY",
+      returnType: "array",
+      example: "competitions?q=argentina",
     },
     {
-      name: 'teams/ID',
-      returnType: '{ team_id, type, name, competitions, fixtures }',
-      example: 'teams/8vjk'
-    }
+      name: "teams/ID",
+      returnType: "{ team_id, type, name, competitions, fixtures }",
+      example: "teams/8vjk",
+    },
   ];
 
-  const functionList = API_FUNCTIONS.map(({ name, returnType, example}) => (`
+  const functionList = API_FUNCTIONS.map(({ name, returnType, example }) =>
+    `
     <li>
       <code class="marker">${name}</code> ${returnType},
       eg. <a href="/api/${example}" target="_blank">/api/${example}</a>
     </li>
-  `.trim())).join('');
+  `.trim()
+  ).join("");
 
   const page = `
     <!DOCTYPE html>

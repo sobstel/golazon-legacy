@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import Link from "next/link";
-import tableService from "../../services/table";
-import loadable from "../util/loadable";
 
-class Standings extends Component {
+export default class Standings extends Component {
   render() {
     const { rounds } = this.props;
 
@@ -36,7 +34,7 @@ class Standings extends Component {
                 </tr>
               </thead>
               <tbody>
-                {round.standings.map(table => (
+                {round.standings.map((table) => (
                   <tr key={table.team_id}>
                     <td className={this.rankClass(table.zone)}>
                       <span>{table.rank}</span>
@@ -64,17 +62,10 @@ class Standings extends Component {
     );
   }
 
-  rankClass = zone => {
+  rankClass = (zone) => {
     if (!zone) {
       return "rank";
     }
     return `rank zone zone-${zone}`;
   };
 }
-
-const dataSource = async ({ seasonId }) => {
-  const rounds = await tableService.seasonStandings(seasonId);
-  return { rounds };
-};
-
-export default loadable(dataSource)(Standings);

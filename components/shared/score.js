@@ -6,7 +6,7 @@ export default class extends Component {
     const { match } = this.props;
 
     if (match.fixture) {
-      return <span>{formatTime(match.date, match.time)}</span>;
+      return match.time && <span>{formatTime(match.date, match.time)}</span>;
     }
 
     if (match.live || match.ended) {

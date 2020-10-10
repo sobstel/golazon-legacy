@@ -1,4 +1,3 @@
-
 export const DEFAULT_CACHE_TIME = 10;
 
 // Cache is revalidated on redeploy by vercel

@@ -19,7 +19,10 @@ module.exports = {
     },
   },
   rules: {
+    "react/react-in-jsx-scope": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    // TODO: should be disabled eventually
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };

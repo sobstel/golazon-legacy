@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { DEFAULT_CACHE_TIME } from "lib/config";
-import getTeam from "services/getTeam";
+import getCompetition from "services/getCompetition";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { id },
   } = req;
 
-  const result = await getTeam(id as string);
+  const result = await getCompetition(id as string);
 
   res.setHeader(
     "Cache-Control",

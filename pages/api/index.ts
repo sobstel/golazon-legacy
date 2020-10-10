@@ -13,20 +13,22 @@ function content() {
   const API_FUNCTIONS = [
     {
       name: "competitions?q=QUERY",
-      returnType: "array",
       example: "competitions?q=argentina",
     },
     {
       name: "teams/ID",
-      returnType: "{ team_id, type, name, competitions, fixtures }",
       example: "teams/8vjk",
+    },
+    {
+      name: "matches/ID",
+      example: "matches/kx811k",
     },
   ];
 
-  const functionList = API_FUNCTIONS.map(({ name, returnType, example }) =>
+  const functionList = API_FUNCTIONS.map(({ name, example }) =>
     `
     <li>
-      <code class="marker">${name}</code> ${returnType},
+      <code class="marker">${name}</code>
       eg. <a href="/api/${example}" target="_blank">/api/${example}</a>
     </li>
   `.trim()
@@ -47,7 +49,7 @@ function content() {
       <header class="header">
         <div class="inner">
           <div class="header-logo">Golazon API</div>
-          <p>mnmlist football data api</p>
+          <p>football data mnmlist way</p>
         </div>
       </header>
 

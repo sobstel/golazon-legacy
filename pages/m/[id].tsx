@@ -8,7 +8,7 @@ import PenaltyShootout from "../../components/match/penalty_shootout";
 import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
-import getMatch from "services/getMatch";
+import { fetchResources, resourcePatterns } from "lib/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -16,9 +16,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const result = await getMatch(id);
-
-  return { props: result, revalidate: 1 };
+  const [match] = await fetchResources([resourcePatterns.match], id);
+  return { props: { match }, revalidate: 1 };
 }
 
 function title(match) {

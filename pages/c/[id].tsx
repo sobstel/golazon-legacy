@@ -4,8 +4,13 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Fixtures from "components/Fixtures";
 import LegacyStandings from "components/competition/standings";
-import getCompetition from "services/getCompetition";
+import { MAX_CACHE_TIME } from "lib/config";
 import * as History from "lib/history";
+import {
+  fetchResources,
+  useRevalidatingResource,
+  resourcePatterns,
+} from "lib/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -13,9 +18,16 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const result = await getCompetition(id);
 
-  return { props: result, revalidate: 1 };
+  const [competition] = await fetchResources(
+    [resourcePatterns.competition],
+    id
+  );
+
+  return {
+    props: { competition },
+    revalidate: MAX_CACHE_TIME,
+  };
 }
 
 const title = (competition) => {
@@ -31,7 +43,21 @@ const title = (competition) => {
 };
 
 export default function CompetitionPage(props: any) {
-  const { competition, standings, recentFixtures, upcomingFixtures } = props;
+  const { competition } = props;
+
+  const seasonId = competition?.season?.["season_id"];
+  const standings = useRevalidatingResource(
+    resourcePatterns.seasonStandings,
+    seasonId
+  );
+  const recentFixtures = useRevalidatingResource(
+    resourcePatterns.seasonRecentFixtures,
+    seasonId
+  );
+  const upcomingFixtures = useRevalidatingResource(
+    resourcePatterns.seasonUpcomingFixtures,
+    seasonId
+  );
 
   useEffect(() => {
     if (competition) {
@@ -54,9 +80,10 @@ export default function CompetitionPage(props: any) {
     );
   }
 
-  const fixtures = recentFixtures
-    ?.slice(recentFixtures.length - 10)
-    .concat(upcomingFixtures?.slice(0, 10));
+  // TODO: move to some util/helper
+  const fixtures = (recentFixtures || [])
+    .slice(recentFixtures?.length - 10)
+    .concat(upcomingFixtures?.slice(0, 10) || []);
 
   return (
     <Layout title={title(competition)}>

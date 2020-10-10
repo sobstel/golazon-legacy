@@ -3,7 +3,12 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Competitions from "components/Competitions";
 import Fixtures from "components/Fixtures";
-import getTeam from "services/getTeam";
+import { MAX_CACHE_TIME } from "lib/config";
+import {
+  fetchResources,
+  resourcePatterns,
+  useRevalidatingResource,
+} from "lib/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -11,14 +16,28 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const result = await getTeam(id);
 
-  return { props: result, revalidate: 1 };
+  const [team, competitions] = await fetchResources(
+    [resourcePatterns.team, resourcePatterns.teamCompetitions],
+    id
+  );
+
+  return { props: { team, competitions }, revalidate: MAX_CACHE_TIME };
 }
 
 // TODO: type: props
 export default function TeamPage(props: any) {
-  const { team, competitions, recentFixtures, upcomingFixtures } = props;
+  const { team, competitions } = props;
+
+  const teamId = team?.["team_id"];
+  const recentFixtures = useRevalidatingResource(
+    resourcePatterns.teamRecentFixtures,
+    teamId
+  );
+  const upcomingFixtures = useRevalidatingResource(
+    resourcePatterns.teamUpcomingFixtures,
+    teamId
+  );
 
   const router = useRouter();
   if (router.isFallback) {
@@ -30,9 +49,10 @@ export default function TeamPage(props: any) {
     );
   }
 
-  const fixtures = recentFixtures
-    ?.slice(recentFixtures.length - 5)
-    .concat(upcomingFixtures?.slice(0, 5));
+  // TODO: move to some util/helper
+  const fixtures = (recentFixtures || [])
+    .slice(recentFixtures?.length - 5)
+    .concat(upcomingFixtures?.slice(0, 5) || []);
 
   return (
     <Layout title={team.name}>

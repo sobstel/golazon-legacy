@@ -10,7 +10,7 @@ request
   .then(res => {
     let searchIndex = res.body;
     searchIndex = searchIndex.map(item => ({
-      id: item["competition_id"],
+      competition_id: item["competition_id"],
       name: item["name"],
       teamtype: item["teamtype"],
       area_name: item["area_name"]

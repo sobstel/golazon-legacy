@@ -1,25 +1,11 @@
-import competitions from 'data/competitions.json';
+import competitions from "data/competitions.json";
 
 const MAX_RESULTS = 20;
 const TOTAL_COUNT = competitions.length;
 
-function matchesQuery(query: string, item: { name: string, 'area_name'?: string }): boolean {
-  const searchValue = query.toLowerCase();
-
-  if (item['name'].toLowerCase().includes(searchValue)) {
-    return true;
-  }
-
-  if (item['area_name'] && item['area_name'].toLowerCase().includes(searchValue)) {
-    return true;
-  }
-
-  return false;
-}
-
-export default function getCompetitions(q?: string) {
+export default async function getCompetitions(q?: string) {
   if (!q) {
-    return competitions;
+    return [];
   }
 
   const results = [];
@@ -35,4 +21,24 @@ export default function getCompetitions(q?: string) {
   }
 
   return results;
+}
+
+function matchesQuery(
+  query: string,
+  item: { name: string; area_name?: string }
+): boolean {
+  const searchValue = query.toLowerCase();
+
+  if (item["name"].toLowerCase().includes(searchValue)) {
+    return true;
+  }
+
+  if (
+    item["area_name"] &&
+    item["area_name"].toLowerCase().includes(searchValue)
+  ) {
+    return true;
+  }
+
+  return false;
 }

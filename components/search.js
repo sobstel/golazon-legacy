@@ -10,7 +10,7 @@ const KEY_CODES = {
   DOWN: 40,
   UP: 38,
   ESC: 27,
-  ENTER: 13
+  ENTER: 13,
 };
 
 const MAX_RESULTS = 20;
@@ -21,13 +21,13 @@ export default class extends Component {
     hint: false,
     loading: false,
     results: [],
-    value: null
+    value: null,
   };
 
   render() {
     const noResults = this.state.results.length === 0;
 
-    const activeClassName = className =>
+    const activeClassName = (className) =>
       this.state.clearButtonVisible
         ? `${className} ${className}--active`
         : className;
@@ -66,11 +66,11 @@ export default class extends Component {
           )}
 
           <ul className="search__results">
-            {this.state.results.map(result => (
-              <li key={result.id}>
+            {this.state.results.map((result) => (
+              <li key={result["competition_id"] || result["name"]}>
                 <Link
-                  href={`/competition?id=${result.id}`}
-                  as={`/c/${result.id}`}
+                  href={`/competition?id=${result["competition_id"]}`}
+                  as={`/c/${result["competition_id"]}`}
                 >
                   <a
                     onClick={this.exitSearch}
@@ -109,7 +109,7 @@ export default class extends Component {
     );
   }
 
-  search = e => {
+  search = (e) => {
     const text = e.target.value;
     const { keyCode } = e;
 
@@ -130,10 +130,10 @@ export default class extends Component {
 
     if (keyCode === KEY_CODES.ENTER) {
       const activeItem = this.state.results.find(
-        result => result.active === true
+        (result) => result.active === true
       );
       this.exitSearch();
-      Router.push(`/c/${activeItem.id}`);
+      Router.push(`/c/${activeItem["competition_id"]}`);
       return;
     }
 
@@ -151,6 +151,7 @@ export default class extends Component {
 
     // search in history
     const historyResults = History.search(text).slice(0, MAX_RESULTS);
+
     if (historyResults.length > 0) {
       this.setState({ results: historyResults });
     }
@@ -161,7 +162,7 @@ export default class extends Component {
 
       delay(0.25, () => {
         api(`competitions?q=${text}`)
-          .then(results => {
+          .then((results) => {
             let hint = false;
             if (results.length === 0) {
               hint = "no results found";
@@ -169,24 +170,24 @@ export default class extends Component {
 
             const mergedResults = uniqBy(
               historyResults.concat(results),
-              "id"
+              "competition_id"
             ).slice(0, MAX_RESULTS);
             this.setState({ hint, loading: false, results: mergedResults });
           })
-          .catch(err => {
+          .catch((err) => {
             this.setState({
               hint: `ERROR: ${err.message}`,
               loading: false,
-              results: []
+              results: [],
             });
           });
       });
     }
   };
 
-  hoverResult = step => {
+  hoverResult = (step) => {
     const { results } = this.state;
-    let index = results.findIndex(result => result.active === true);
+    let index = results.findIndex((result) => result.active === true);
 
     index += step;
     if (index >= results.length) {
@@ -196,7 +197,7 @@ export default class extends Component {
       index = Math.max(results.length - 1, 0);
     }
 
-    const nextResults = results.map(result => ({ ...result, active: false }));
+    const nextResults = results.map((result) => ({ ...result, active: false }));
     nextResults[index].active = true;
 
     this.setState({ results: nextResults });
@@ -212,7 +213,7 @@ export default class extends Component {
       clearButtonVisible: false,
       hint: false,
       loading: false,
-      results: []
+      results: [],
     });
   };
 }

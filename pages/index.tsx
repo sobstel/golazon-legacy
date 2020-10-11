@@ -1,10 +1,6 @@
-import dynamic from "next/dynamic";
 import Layout from "components/layout";
+import LiveMatches from "components/live_matches";
 import { MAX_CACHE_TIME } from "lib/config";
-
-const LiveMatches = dynamic(() => import("components/live_matches"), {
-  ssr: true,
-});
 
 export async function getStaticProps() {
   return { props: {}, revalidate: MAX_CACHE_TIME };

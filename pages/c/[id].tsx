@@ -6,11 +6,7 @@ import Fixtures from "components/Fixtures";
 import LegacyStandings from "components/competition/standings";
 import { MAX_CACHE_TIME } from "lib/config";
 import * as History from "lib/history";
-import {
-  fetchResources,
-  useRevalidatingResource,
-  resourcePatterns,
-} from "lib/hyena";
+import { fetchResources, useResource, resourcePatterns } from "lib/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -46,15 +42,12 @@ export default function CompetitionPage(props: any) {
   const { competition } = props;
 
   const seasonId = competition?.season?.["season_id"];
-  const standings = useRevalidatingResource(
-    resourcePatterns.seasonStandings,
-    seasonId
-  );
-  const recentFixtures = useRevalidatingResource(
+  const standings = useResource(resourcePatterns.seasonStandings, seasonId);
+  const recentFixtures = useResource(
     resourcePatterns.seasonRecentFixtures,
     seasonId
   );
-  const upcomingFixtures = useRevalidatingResource(
+  const upcomingFixtures = useResource(
     resourcePatterns.seasonUpcomingFixtures,
     seasonId
   );

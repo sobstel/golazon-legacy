@@ -7,6 +7,7 @@ const HYENA_URL =
 
 export const resourcePatterns = {
   competition: (id: string) => `competitions/${id}`,
+  liveMatches: () => "matches/live",
   match: (id: string) => `matches/${id}`,
   seasonStandings: (id: string) => `seasons/${id}/standings`,
   seasonRecentFixtures: (id: string) => `seasons/${id}/matches/past`,
@@ -19,11 +20,16 @@ export const resourcePatterns = {
 
 type ResourcePattern = typeof resourcePatterns[keyof typeof resourcePatterns];
 
-export function useRevalidatingResource(
+export function useResource(
   resourcePattern: ResourcePattern,
-  id: string | null
+  id: string,
+  opts?: any
 ) {
-  const result = useSWR(id ? HYENA_URL + resourcePattern(id) : null, fetch);
+  const result = useSWR(
+    id ? HYENA_URL + resourcePattern(id) : null,
+    fetch,
+    opts ?? {}
+  );
   const { data, error } = result;
   return error ? { error } : data;
 }

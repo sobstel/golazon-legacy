@@ -30,8 +30,10 @@ export function useResource(
     fetch,
     opts ?? {}
   );
-  const { data, error } = result;
-  return error ? { error } : data;
+  const { data, error, isValidating } = result;
+  if (error) return { error };
+  if (isValidating) return { loading: true };
+  return data;
 }
 
 export async function fetchResources(resourcePatterns: ResourcePattern[], id) {

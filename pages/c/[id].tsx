@@ -89,7 +89,7 @@ export default function CompetitionPage(props: any) {
       <h1 className="competition__title block wrapped">{title(competition)}</h1>
 
       <div className="competition__container">
-        {fixtures?.length && (
+        {fixtures && (
           <div className="block wrapped">
             <Fixtures fixtures={fixtures} />
           </div>

@@ -6,9 +6,9 @@ import Fixtures from "components/Fixtures";
 import { MAX_CACHE_TIME } from "lib/config";
 import { fetchResources, resourcePatterns, useResource } from "lib/hyena";
 
-// export async function getStaticPaths() {
-//   return { paths: [], fallback: true };
-// }
+export async function getStaticPaths() {
+  return { paths: [], fallback: true };
+}
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;

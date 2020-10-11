@@ -6,7 +6,7 @@ export async function getStaticProps() {
   return { props: {}, revalidate: MAX_CACHE_TIME };
 }
 
-export default function Index() {
+export default function IndexPage() {
   return (
     <Layout title={null}>
       <LiveMatches />

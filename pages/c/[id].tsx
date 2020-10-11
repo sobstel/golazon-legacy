@@ -76,8 +76,8 @@ export default function CompetitionPage(props: any) {
       <h1 className="competition__title block wrapped">{title(competition)}</h1>
 
       <div className="competition__container">
-        <SeasonStandings seasonId={seasonId} />
         <SeasonFixtures seasonId={seasonId} />
+        <SeasonStandings seasonId={seasonId} />
       </div>
     </Layout>
   );

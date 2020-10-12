@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Fixtures from "./Fixtures";
-import { useResource, resourcePatterns } from "lib/hyena";
+import { useResource, resourcePatterns } from "util/hyena";
 import groupFixturesByCompetitionId from "util/groupFixturesByCompetitionId";
 
 // update interval in seconds
@@ -10,13 +10,13 @@ export default function LiveMatches() {
   const liveMatches = useResource(resourcePatterns.liveMatches, 1, {
     refreshInterval: UPDATE_INTERVAL,
   });
-  const groupedMatches = liveMatches
+  const groupedMatches = liveMatches?.length
     ? groupFixturesByCompetitionId(liveMatches)
-    : null;
+    : [];
 
   return (
     <div className="home__wrapper block wrapped">
-      {groupedMatches?.map((item) => (
+      {groupedMatches.map((item) => (
         <div key={item.competition.id}>
           <h2>
             <Link
@@ -35,7 +35,7 @@ export default function LiveMatches() {
         </div>
       ))}
 
-      {groupedMatches?.length === 0 && (
+      {groupedMatches.length === 0 && (
         <span>No live matches at the moment.</span>
       )}
     </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatDate } from "lib/util";
+import { formatDate } from "util/date";
 import Score from "components/shared/score";
 
 // TODO: type: hyena

@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import Highlighter from "react-highlight-words";
-import { delay, terminateDelay, uniqBy } from "../lib/util";
-import * as History from "../lib/history";
-import api from "../lib/api";
+import { delay, terminateDelay } from "../util/delay";
+import { uniqBy } from "../util/uniqBy";
+import * as History from "../util/history";
+import api from "../util/api";
 
 const KEY_CODES = {
   DOWN: 40,

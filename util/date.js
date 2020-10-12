@@ -1,15 +1,3 @@
-let delayId = null;
-
-export function delay(seconds, func) {
-  delayId = setTimeout(func, seconds * 1000);
-}
-
-export function terminateDelay() {
-  if (delayId) {
-    clearTimeout(delayId);
-  }
-}
-
 // normalize date to UTC before converting
 export function normalizeDate(date, time) {
   const y = date.slice(0, 4);
@@ -37,7 +25,7 @@ export function formatDate(date, time, $withYear = false) {
     "Sep",
     "Oct",
     "Nov",
-    "Dec"
+    "Dec",
   ];
   const month = months[d.getMonth()];
   const day = `0${d.getDate()}`.slice(-2);
@@ -61,13 +49,4 @@ export function formatTime(date, time) {
   const min = `0${d.getMinutes()}`.slice(-2);
 
   return `${hour}:${min}`;
-}
-
-// https://stackoverflow.com/a/9229821/219272
-export function uniqBy(a, key) {
-  const index = [];
-  return a.filter(item => {
-    const k = item[key];
-    return index.indexOf(k) >= 0 ? false : index.push(k);
-  });
 }

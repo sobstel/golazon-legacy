@@ -4,9 +4,9 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Fixtures from "components/Fixtures";
 import LegacyStandings from "components/competition/standings";
-import { MAX_CACHE_TIME } from "lib/config";
-import * as History from "lib/history";
-import { fetchResources, useResource, resourcePatterns } from "lib/hyena";
+import { MAX_CACHE_TIME } from "util/config";
+import * as History from "util/history";
+import { fetchResources, useResource, resourcePatterns } from "util/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };

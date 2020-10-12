@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { MAX_CACHE_TIME } from "lib/config";
+import { MAX_CACHE_TIME } from "util/config";
 import getCompetitions from "util/getCompetitions";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

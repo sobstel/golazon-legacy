@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { formatDate, formatTime } from "../../lib/util";
+import { formatDate, formatTime } from "../../util/date";
 import Layout from "../../components/layout";
 import Score from "../../components/shared/score";
 import Goals from "../../components/match/goals";
@@ -8,7 +8,7 @@ import PenaltyShootout from "../../components/match/penalty_shootout";
 import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
-import { fetchResources, resourcePatterns } from "lib/hyena";
+import { fetchResources, resourcePatterns } from "util/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };

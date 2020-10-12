@@ -1,4 +1,4 @@
-import * as History from "lib/history";
+import * as History from "util/history";
 
 // TODO: type
 export default function groupFixturesByCompetitionId(fixtures: any[]) {
@@ -33,7 +33,6 @@ export default function groupFixturesByCompetitionId(fixtures: any[]) {
   );
 
   // sort by history search result position
-
   groupedMatches.sort((a, b) => b["_score"] - a["_score"]);
 
   return groupedMatches;

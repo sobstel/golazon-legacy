@@ -3,8 +3,8 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Competitions from "components/Competitions";
 import Fixtures from "components/Fixtures";
-import { MAX_CACHE_TIME } from "lib/config";
-import { fetchResources, resourcePatterns, useResource } from "lib/hyena";
+import { MAX_CACHE_TIME } from "util/config";
+import { fetchResources, resourcePatterns, useResource } from "util/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };

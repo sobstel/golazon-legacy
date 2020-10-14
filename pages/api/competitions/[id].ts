@@ -11,6 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     [resourcePatterns.competition],
     id
   );
+  // @ts-ignore
   const seasonId = competition.season["season_id"];
 
   const [

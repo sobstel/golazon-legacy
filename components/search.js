@@ -69,10 +69,7 @@ export default class extends Component {
           <ul className="search__results">
             {this.state.results.map((result) => (
               <li key={result["competition_id"] || result["name"]}>
-                <Link
-                  href={`/competition?id=${result["competition_id"]}`}
-                  as={`/c/${result["competition_id"]}`}
-                >
+                <Link href={`/c/${result["competition_id"]}`}>
                   <a
                     onClick={this.exitSearch}
                     className={result.active && "active"}
@@ -173,7 +170,6 @@ export default class extends Component {
               historyResults.concat(results),
               "competition_id"
             ).slice(0, MAX_RESULTS);
-            console.log(mergedResults);
             this.setState({ hint, loading: false, results: mergedResults });
           })
           .catch((err) => {

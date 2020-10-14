@@ -12,10 +12,7 @@ export default function Competitions({ competitions }: Props) {
     <div className="compeitions__container block wrapped">
       {competitions.map((competition) => (
         <p key={competition["competition_id"]}>
-          <Link
-            href={`/competition?id=${competition["competition_id"]}`}
-            as={`/c/${competition["competition_id"]}`}
-          >
+          <Link href={`/c/${competition["competition_id"]}`}>
             <a>
               {competition.name} {competition.season.name}
               {competition.area_name && ` (${competition["area_name"]})`}

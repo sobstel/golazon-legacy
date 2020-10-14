@@ -40,10 +40,7 @@ export default class Standings extends Component {
                       <span>{table.rank}</span>
                     </td>
                     <td className="team" title={table.team_name}>
-                      <Link
-                        href={`/team?id=${table.team_id}`}
-                        as={`/t/${table.team_id}`}
-                      >
+                      <Link href={`/t/${table.team_id}`}>
                         <a>{table.team_name}</a>
                       </Link>
                     </td>

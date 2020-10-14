@@ -13,20 +13,26 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
 
-  const [{ data: team }, { data: competitions }] = await fetchResources(
+  const [
+    { data: team, loading: teamLoading },
+    { data: competitions, loading: competitionsLoading },
+  ] = await fetchResources(
     [resourcePatterns.team, resourcePatterns.teamCompetitions],
     id
   );
 
-  return { props: { team, competitions }, revalidate: MAX_CACHE_TIME };
+  return {
+    props: { team, competitions, loading: teamLoading || competitionsLoading },
+    revalidate: MAX_CACHE_TIME,
+  };
 }
 
 // TODO: type: props
 export default function TeamPage(props: any) {
-  const { team, competitions } = props;
+  const { team, competitions, loading } = props;
 
   const router = useRouter();
-  if (router.isFallback) {
+  if (router.isFallback || loading) {
     // TODO: replace with skeleton
     return (
       <Layout title={false}>

@@ -15,13 +15,13 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
 
-  const [{ data: competition }] = await fetchResources(
+  const [{ data: competition, loading }] = await fetchResources(
     [resourcePatterns.competition],
     id
   );
 
   return {
-    props: { competition },
+    props: { competition, loading },
     revalidate: MAX_CACHE_TIME,
   };
 }
@@ -39,7 +39,7 @@ const title = (competition) => {
 };
 
 export default function CompetitionPage(props: any) {
-  const { competition } = props;
+  const { competition, loading } = props;
 
   useEffect(() => {
     if (competition) {
@@ -53,7 +53,7 @@ export default function CompetitionPage(props: any) {
   }, [competition]);
 
   const router = useRouter();
-  if (router.isFallback) {
+  if (router.isFallback || loading) {
     return (
       <Layout title={false}>
         <p className="block wrapped">

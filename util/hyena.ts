@@ -49,10 +49,10 @@ export async function fetchResources(
   const results = await Promise.all(requests.map(settle));
   return results.map((result) => {
     if (result.status === "fulfilled") {
-      return { data: result.value };
+      return { data: result.value, loading: false };
     }
     if (result.status === "rejected") {
-      return { data: null, error: result.reason };
+      return { data: null, error: result.reason, loading: false };
     }
   });
 }

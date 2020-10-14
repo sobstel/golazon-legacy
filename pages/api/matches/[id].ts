@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { DEFAULT_CACHE_TIME } from "lib/config";
-import { fetchResources, resourcePatterns } from "lib/hyena";
+import { DEFAULT_CACHE_TIME } from "util/config";
+import { fetchResources, resourcePatterns } from "util/hyena";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { id },
   } = req;
 
-  const [match] = await fetchResources([resourcePatterns.match], id);
+  const [{ data: match }] = await fetchResources([resourcePatterns.match], id);
 
   res.setHeader(
     "Cache-Control",

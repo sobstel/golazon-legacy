@@ -19,32 +19,40 @@ export const resourcePatterns = {
 };
 
 type ResourcePattern = typeof resourcePatterns[keyof typeof resourcePatterns];
+type ResourceResult = {
+  data: Record<string, unknown> | Record<string, unknown>[];
+  error?: string;
+  loading?: boolean;
+};
 
 export function useResource(
   resourcePattern: ResourcePattern,
   id: string,
   opts?: any
-) {
+): ResourceResult {
   const result = useSWR(
     id ? HYENA_URL + resourcePattern(id) : null,
     fetch,
     opts ?? {}
   );
-  const { data, error } = result;
-  return error ? { error } : data;
+  const { data, error, isValidating } = result;
+  return { data, error, loading: isValidating };
 }
 
-export async function fetchResources(resourcePatterns: ResourcePattern[], id) {
+export async function fetchResources(
+  resourcePatterns: ResourcePattern[],
+  id
+): Promise<ResourceResult[]> {
   const requests = resourcePatterns
     .map((resourcePattern) => resourcePattern(id))
     .map(fetchResource);
   const results = await Promise.all(requests.map(settle));
   return results.map((result) => {
     if (result.status === "fulfilled") {
-      return result.value;
+      return { data: result.value, loading: false };
     }
     if (result.status === "rejected") {
-      return { error: result.reason };
+      return { data: null, error: result.reason, loading: false };
     }
   });
 }

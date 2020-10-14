@@ -1,19 +1,24 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { DEFAULT_CACHE_TIME } from "lib/config";
-import { fetchResources, resourcePatterns } from "lib/hyena";
+import { DEFAULT_CACHE_TIME } from "util/config";
+import { fetchResources, resourcePatterns } from "util/hyena";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {
     query: { id },
   } = req;
 
-  const [competition] = await fetchResources(
+  const [{ data: competition }] = await fetchResources(
     [resourcePatterns.competition],
     id
   );
+  // @ts-ignore
   const seasonId = competition.season["season_id"];
 
-  const [standings, recentFixtures, upcomingFixtures] = await fetchResources(
+  const [
+    { data: standings },
+    { data: recentFixtures },
+    { data: upcomingFixtures },
+  ] = await fetchResources(
     [
       resourcePatterns.seasonStandings,
       resourcePatterns.seasonRecentFixtures,

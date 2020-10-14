@@ -3,8 +3,8 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Competitions from "components/Competitions";
 import Fixtures from "components/Fixtures";
-import { MAX_CACHE_TIME } from "lib/config";
-import { fetchResources, resourcePatterns, useResource } from "lib/hyena";
+import { MAX_CACHE_TIME } from "util/config";
+import { fetchResources, resourcePatterns, useResource } from "util/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -13,42 +13,37 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
 
-  const [team, competitions] = await fetchResources(
+  const [
+    { data: team, loading: teamLoading },
+    { data: competitions, loading: competitionsLoading },
+  ] = await fetchResources(
     [resourcePatterns.team, resourcePatterns.teamCompetitions],
     id
   );
 
-  return { props: { team, competitions }, revalidate: MAX_CACHE_TIME };
+  return {
+    props: { team, competitions, loading: teamLoading || competitionsLoading },
+    revalidate: MAX_CACHE_TIME,
+  };
 }
 
 // TODO: type: props
 export default function TeamPage(props: any) {
-  const { team, competitions } = props;
-
-  const teamId = team?.["team_id"];
-  const recentFixtures = useResource(
-    resourcePatterns.teamRecentFixtures,
-    teamId
-  );
-  const upcomingFixtures = useResource(
-    resourcePatterns.teamUpcomingFixtures,
-    teamId
-  );
+  const { team, competitions, loading } = props;
 
   const router = useRouter();
-  if (router.isFallback) {
+  if (router.isFallback || loading) {
     // TODO: replace with skeleton
     return (
       <Layout title={false}>
-        <p className="block wrapped">Loading...</p>
+        <p className="block wrapped">
+          <span className="loader">Loading</span>
+        </p>
       </Layout>
     );
   }
 
-  // TODO: move to some util/helper
-  const fixtures = (recentFixtures || [])
-    .slice(recentFixtures?.length - 5)
-    .concat(upcomingFixtures?.slice(0, 5) || []);
+  const teamId = team?.["team_id"];
 
   return (
     <Layout title={team.name}>
@@ -60,12 +55,35 @@ export default function TeamPage(props: any) {
       <h1 className="team__title block wrapped">{team.name}</h1>
       <div className="team__container">
         <Competitions competitions={competitions} />
-        {fixtures?.length && (
-          <div className="block wrapped">
-            <Fixtures fixtures={fixtures} />
-          </div>
-        )}
+        <TeamFixtures teamId={teamId} />
       </div>
     </Layout>
+  );
+}
+
+function TeamFixtures({ teamId }: { teamId: string }) {
+  const { data: recentFixtures, error: recentFixturesError } = useResource(
+    resourcePatterns.teamRecentFixtures,
+    teamId
+  ) as { data: Record<string, unknown>[]; error: string };
+  const { data: upcomingFixtures, error: upcomingFixturesError } = useResource(
+    resourcePatterns.teamUpcomingFixtures,
+    teamId
+  ) as { data: Record<string, unknown>[]; error: string };
+
+  const error = recentFixturesError || upcomingFixturesError;
+  if (error) console.log(error);
+
+  // TODO: move to some util/helper
+  const fixtures = (recentFixtures || [])
+    .slice(recentFixtures?.length ?? -5)
+    .concat(upcomingFixtures?.slice(0, 5) || []);
+
+  if (!fixtures?.length) return null;
+
+  return (
+    <div className="block wrapped">
+      <Fixtures fixtures={fixtures} />
+    </div>
   );
 }

@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
 
-  const [competition] = await fetchResources(
+  const [{ data: competition }] = await fetchResources(
     [resourcePatterns.competition],
     id
   );
@@ -41,17 +41,6 @@ const title = (competition) => {
 export default function CompetitionPage(props: any) {
   const { competition } = props;
 
-  const seasonId = competition?.season?.["season_id"];
-  const standings = useResource(resourcePatterns.seasonStandings, seasonId);
-  const recentFixtures = useResource(
-    resourcePatterns.seasonRecentFixtures,
-    seasonId
-  );
-  const upcomingFixtures = useResource(
-    resourcePatterns.seasonUpcomingFixtures,
-    seasonId
-  );
-
   useEffect(() => {
     if (competition) {
       History.add({
@@ -65,18 +54,16 @@ export default function CompetitionPage(props: any) {
 
   const router = useRouter();
   if (router.isFallback) {
-    // TODO: replace with skeleton
     return (
       <Layout title={false}>
-        <p className="block wrapped">Loading...</p>
+        <p className="block wrapped">
+          <span className="loader">Loading</span>
+        </p>
       </Layout>
     );
   }
 
-  // TODO: move to some util/helper
-  const fixtures = (recentFixtures || [])
-    .slice(recentFixtures?.length - 10)
-    .concat(upcomingFixtures?.slice(0, 10) || []);
+  const seasonId = competition?.season?.["season_id"];
 
   return (
     <Layout title={title(competition)}>
@@ -89,13 +76,45 @@ export default function CompetitionPage(props: any) {
       <h1 className="competition__title block wrapped">{title(competition)}</h1>
 
       <div className="competition__container">
-        {fixtures && (
-          <div className="block wrapped">
-            <Fixtures fixtures={fixtures} />
-          </div>
-        )}
-        {standings && <LegacyStandings rounds={standings} />}
+        <SeasonStandings seasonId={seasonId} />
+        <SeasonFixtures seasonId={seasonId} />
       </div>
     </Layout>
+  );
+}
+
+function SeasonStandings({ seasonId }: { seasonId: string }) {
+  const { data: standings } = useResource(
+    resourcePatterns.seasonStandings,
+    seasonId
+  );
+  if (!standings) return null;
+  return <LegacyStandings rounds={standings} />;
+}
+
+function SeasonFixtures({ seasonId }: { seasonId: string }) {
+  const { data: recentFixtures, error: recentFixturesError } = useResource(
+    resourcePatterns.seasonRecentFixtures,
+    seasonId
+  ) as { data: Record<string, unknown>[]; error: string };
+  const { data: upcomingFixtures, error: upcomingFixturesError } = useResource(
+    resourcePatterns.seasonUpcomingFixtures,
+    seasonId
+  ) as { data: Record<string, unknown>[]; error: string };
+
+  const error = recentFixturesError || upcomingFixturesError;
+  if (error) console.log(error);
+
+  // TODO: move to some util/helper
+  const fixtures = (recentFixtures || [])
+    .slice(recentFixtures?.length ?? -10)
+    .concat(upcomingFixtures?.slice(0, 10) || []);
+
+  if (!fixtures?.length) return null;
+
+  return (
+    <div className="block wrapped">
+      <Fixtures fixtures={fixtures} />
+    </div>
   );
 }

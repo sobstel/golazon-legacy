@@ -173,6 +173,7 @@ export default class extends Component {
               historyResults.concat(results),
               "competition_id"
             ).slice(0, MAX_RESULTS);
+            console.log(mergedResults);
             this.setState({ hint, loading: false, results: mergedResults });
           })
           .catch((err) => {

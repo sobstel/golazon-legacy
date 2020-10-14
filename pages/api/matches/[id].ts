@@ -7,7 +7,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
-  const [match] = await fetchResources([resourcePatterns.match], id);
+  const [{ data: match }] = await fetchResources([resourcePatterns.match], id);
 
   res.setHeader(
     "Cache-Control",

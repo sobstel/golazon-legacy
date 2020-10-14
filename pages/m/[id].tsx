@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const [match] = await fetchResources([resourcePatterns.match], id);
+  const [{ data: match }] = await fetchResources([resourcePatterns.match], id);
   return { props: { match }, revalidate: 1 };
 }
 
@@ -31,10 +31,11 @@ export default function MatchPage(props: any) {
 
   const router = useRouter();
   if (router.isFallback) {
-    // TODO: replace with skeleton
     return (
       <Layout title={false}>
-        <p className="block wrapped">Loading...</p>
+        <p className="block wrapped">
+          <span className="loader">Loading</span>
+        </p>
       </Layout>
     );
   }

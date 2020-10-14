@@ -8,10 +8,10 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   } = req;
 
   const [
-    team,
-    competitions,
-    recentFixtures,
-    upcomingFixtures,
+    { data: team },
+    { data: competitions },
+    { data: recentFixtures },
+    { data: upcomingFixtures },
   ] = await fetchResources(
     [
       resourcePatterns.team,

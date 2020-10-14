@@ -7,13 +7,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
-  const [competition] = await fetchResources(
+  const [{ data: competition }] = await fetchResources(
     [resourcePatterns.competition],
     id
   );
   const seasonId = competition.season["season_id"];
 
-  const [standings, recentFixtures, upcomingFixtures] = await fetchResources(
+  const [
+    { data: standings },
+    { data: recentFixtures },
+    { data: upcomingFixtures },
+  ] = await fetchResources(
     [
       resourcePatterns.seasonStandings,
       resourcePatterns.seasonRecentFixtures,

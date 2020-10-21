@@ -9,14 +9,12 @@ const UPDATE_INTERVAL = 15 * 1000;
 export default function LiveMatches() {
   const { data: liveMatches, loading } = useResource(
     resourcePatterns.liveMatches,
-    1,
+    -1,
     {
+      revalidateOnMount: true,
       refreshInterval: UPDATE_INTERVAL,
     }
   );
-  const groupedMatches = liveMatches?.length
-    ? groupFixturesByCompetitionId(liveMatches)
-    : [];
 
   if (loading) {
     // TODO: replace with skeleton
@@ -26,6 +24,10 @@ export default function LiveMatches() {
       </p>
     );
   }
+
+  const groupedMatches = liveMatches?.length
+    ? groupFixturesByCompetitionId(liveMatches)
+    : [];
 
   return (
     <div className="home__wrapper block wrapped">

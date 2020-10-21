@@ -7,6 +7,7 @@ import LegacyStandings from "components/competition/standings";
 import { MAX_CACHE_TIME } from "util/config";
 import * as History from "util/history";
 import { fetchResources, useResource, resourcePatterns } from "util/hyena";
+import mergeFixtures from "util/mergeFixtures";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -105,10 +106,7 @@ function SeasonFixtures({ seasonId }: { seasonId: string }) {
   const error = recentFixturesError || upcomingFixturesError;
   if (error) console.log(error);
 
-  // TODO: move to some util/helper
-  const fixtures = (recentFixtures || [])
-    .slice(recentFixtures?.length ?? -10)
-    .concat(upcomingFixtures?.slice(0, 10) || []);
+  const fixtures = mergeFixtures(recentFixtures, upcomingFixtures, 10);
 
   if (!fixtures?.length) return null;
 

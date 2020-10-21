@@ -5,6 +5,7 @@ import Competitions from "components/Competitions";
 import Fixtures from "components/Fixtures";
 import { MAX_CACHE_TIME } from "util/config";
 import { fetchResources, resourcePatterns, useResource } from "util/hyena";
+import mergeFixtures from "util/mergeFixtures";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -74,10 +75,7 @@ function TeamFixtures({ teamId }: { teamId: string }) {
   const error = recentFixturesError || upcomingFixturesError;
   if (error) console.log(error);
 
-  // TODO: move to some util/helper
-  const fixtures = (recentFixtures || [])
-    .slice(recentFixtures?.length ?? -5)
-    .concat(upcomingFixtures?.slice(0, 5) || []);
+  const fixtures = mergeFixtures(recentFixtures, upcomingFixtures, 8);
 
   if (!fixtures?.length) return null;
 

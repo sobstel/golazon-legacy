@@ -20,6 +20,11 @@
     "area_name": "Spain"
   },
   {
+    "competition_id": "97m",
+    "name": "Liga Profesional Argentina",
+    "area_name": "Argentina"
+  },
+  {
     "competition_id": "04",
     "name": "Premier League",
     "area_name": "England"
@@ -28,11 +33,6 @@
     "competition_id": "rw",
     "name": "Serie A",
     "area_name": "Italy"
-  },
-  {
-    "competition_id": "97m",
-    "name": "Superliga",
-    "area_name": "Argentina"
   },
   {
     "competition_id": "4e",
@@ -3298,14 +3298,14 @@
     "area_name": "Lebanon"
   },
   {
-    "competition_id": "y7vl",
-    "name": "Elite Cup",
-    "area_name": "Bahrain"
-  },
-  {
     "competition_id": "d8yy",
     "name": "Emir Cup",
     "area_name": "Qatar"
+  },
+  {
+    "competition_id": "v1jz",
+    "name": "Federation Cup",
+    "area_name": "Bahrain"
   },
   {
     "competition_id": "lmrz",
@@ -3958,6 +3958,11 @@
     "competition_id": "9ylm",
     "name": "County Antrim Shield",
     "area_name": "Northern Ireland"
+  },
+  {
+    "competition_id": "y7vl",
+    "name": "Elite Cup",
+    "area_name": "Bahrain"
   },
   {
     "competition_id": "epwe",
@@ -5351,6 +5356,11 @@
     "area_name": "Nicaragua"
   },
   {
+    "competition_id": "11nk",
+    "name": "Play-offs 1/2",
+    "area_name": "China PR"
+  },
+  {
     "competition_id": "137n",
     "name": "UEFA Europa League Play-offs",
     "area_name": "Belgium"
@@ -5808,6 +5818,11 @@
   {
     "competition_id": "ny04",
     "name": "Paulista A3",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "0rd5",
+    "name": "Carioca B2",
     "area_name": "Brazil"
   },
   {
@@ -6395,6 +6410,12 @@
     "area_name": "Portugal"
   },
   {
+    "competition_id": 5087,
+    "name": "MLS Next U17",
+    "teamtype": "youth",
+    "area_name": "USA"
+  },
+  {
     "competition_id": "v12k",
     "name": "Taca FPF U23",
     "teamtype": "youth",
@@ -6660,8 +6681,8 @@
     "area_name": "Italy"
   },
   {
-    "competition_id": "epn8",
-    "name": "Coppa Italia Primavera",
+    "competition_id": "ke9n",
+    "name": "Campionato Primavera 3",
     "teamtype": "youth",
     "area_name": "Italy"
   },
@@ -6711,18 +6732,6 @@
     "name": "U19 Elit A",
     "teamtype": "youth",
     "area_name": "Turkey"
-  },
-  {
-    "competition_id": "794v",
-    "name": "Super Cup Primavera",
-    "teamtype": "youth",
-    "area_name": "Italy"
-  },
-  {
-    "competition_id": "ke9n",
-    "name": "Dante Berretti",
-    "teamtype": "youth",
-    "area_name": "Italy"
   },
   {
     "competition_id": "5j0d",
@@ -6909,6 +6918,12 @@
     "area_name": "Turkey"
   },
   {
+    "competition_id": "epn8",
+    "name": "Coppa Italia Primavera",
+    "teamtype": "youth",
+    "area_name": "Italy"
+  },
+  {
     "competition_id": "wx37",
     "name": "FA Youth Cup",
     "teamtype": "youth",
@@ -6919,6 +6934,12 @@
     "name": "U18 Premier League",
     "teamtype": "youth",
     "area_name": "England"
+  },
+  {
+    "competition_id": "794v",
+    "name": "Super Cup Primavera",
+    "teamtype": "youth",
+    "area_name": "Italy"
   },
   {
     "competition_id": "9y0r",
@@ -7355,12 +7376,6 @@
     "area_name": "Europe"
   },
   {
-    "competition_id": "0g5",
-    "name": "1. Deild Women",
-    "teamtype": "women",
-    "area_name": "Faroe Islands"
-  },
-  {
     "competition_id": "z90",
     "name": "1. Liga Women",
     "teamtype": "women",
@@ -7502,6 +7517,12 @@
     "name": "Ligue 1 Women",
     "teamtype": "women",
     "area_name": "Luxembourg"
+  },
+  {
+    "competition_id": "0g5",
+    "name": "Meistaradeildin Women",
+    "teamtype": "women",
+    "area_name": "Faroe Islands"
   },
   {
     "competition_id": "yrg",
@@ -8015,16 +8036,16 @@
     "area_name": "Germany"
   },
   {
-    "competition_id": "ddx",
-    "name": "FA Women's Cup",
-    "teamtype": "women",
-    "area_name": "England"
-  },
-  {
     "competition_id": "gjdv",
     "name": "Women's Cup",
     "teamtype": "women",
     "area_name": "Poland"
+  },
+  {
+    "competition_id": "ddx",
+    "name": "Women's FA Cup",
+    "teamtype": "women",
+    "area_name": "England"
   },
   {
     "competition_id": "vrk",
@@ -8034,7 +8055,7 @@
   },
   {
     "competition_id": "mxw",
-    "name": "Women's Cup",
+    "name": "KNVB Beker Women",
     "teamtype": "women",
     "area_name": "Netherlands"
   },
@@ -8712,6 +8733,11 @@
     "competition_id": "33mz",
     "name": "New Year Cup",
     "area_name": "Japan"
+  },
+  {
+    "competition_id": "8l5p",
+    "name": "PostNord Cup",
+    "area_name": "Norway"
   },
   {
     "competition_id": "504v",

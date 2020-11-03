@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Search from "./search";
-import "../styles/index.less";
 
 export default function Layout({ children, title }) {
   return (

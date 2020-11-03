@@ -1,20 +1,20 @@
 @import "variables";
 @import "mixins";
-@import "normalize";
+@import "normalize-scss/sass/normalize";
 @import "base";
 
 body {
   padding: 1em 0;
-  background: @primary-bg-color;
+  background: $primary-bg-color;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  color: @body-color;
+  color: $body-color;
 
   @media (prefers-color-scheme: dark) {
-    color: @body-color-dark;
-    background: @primary-bg-color-dark;
+    color: $body-color-dark;
+    background: $primary-bg-color-dark;
   }
 }
 
@@ -30,21 +30,21 @@ h2 {
   border-left: none;
   border-right: none;
   font-weight: normal;
-  margin: 1em (-@default-padding);
-  padding: 8px @default-padding;
-  background: darken(@wrapped-bg-color, 4);
+  margin: 1em (-$default-padding);
+  padding: 8px $default-padding;
+  background: darken($wrapped-bg-color, 4);
   @media (prefers-color-scheme: dark) {
-    background: darken(@wrapped-bg-color-dark, 8);
+    background: darken($wrapped-bg-color-dark, 8);
   }
 }
 
 div.block > div:first-child > h2,
 div.block > div:first-child > div:first-child > h2 {
-  margin-top: (-@default-padding);
+  margin-top: (-$default-padding);
 }
 
 a {
-  color: @action-color;
+  color: $action-color;
   text-decoration: none;
 
   &:hover {
@@ -52,12 +52,12 @@ a {
   }
 
   @media (prefers-color-scheme: dark) {
-    color: @action-color-dark;
+    color: $action-color-dark;
   }
 }
 
 button {
-  color: @action-color;
+  color: $action-color;
   border: none;
   background: transparent;
   padding: 0;
@@ -65,7 +65,7 @@ button {
   // Remove border radius added by Chroma macOS
   border-radius: 0;
   @media (prefers-color-scheme: dark) {
-    color: @action-color-dark;
+    color: $action-color-dark;
   }
 }
 
@@ -76,26 +76,26 @@ li {
 // general centered block
 .block,
 h1 {
-  min-width: @min-width - 12px;
+  min-width: $min-width - 12px;
   margin-left: 6px;
   margin-right: 6px;
   border-radius: 4px;
 
-  @media screen and (min-width: @max-width) {
+  @media screen and (min-width: $max-width) {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: @max-width;
+    max-width: $max-width;
   }
 
   &.wrapped {
     margin-top: 1em;
     margin-bottom: 1em;
-    padding: @default-padding @default-padding;
-    background: @wrapped-bg-color;
+    padding: $default-padding $default-padding;
+    background: $wrapped-bg-color;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     @media (prefers-color-scheme: dark) {
-      background: @wrapped-bg-color-dark;
+      background: $wrapped-bg-color-dark;
     }
   }
 
@@ -107,9 +107,9 @@ h1 {
 
 h1.block.wrapped {
   margin-bottom: 0;
-  background: @wrapped-bg-color;
+  background: $wrapped-bg-color;
   @media (prefers-color-scheme: dark) {
-    background: @wrapped-bg-color-dark;
+    background: $wrapped-bg-color-dark;
   }
 }
 
@@ -121,10 +121,10 @@ h1.block.wrapped {
   text-align: left;
 
   a {
-    color: @action-color;
+    color: $action-color;
     font-weight: 500;
     @media (prefers-color-scheme: dark) {
-      color: @action-color-dark;
+      color: $action-color-dark;
     }
   }
 }
@@ -162,7 +162,7 @@ abbr[title] {
   margin-top: 1em;
   margin-bottom: 2em;
   font-style: italic;
-  padding: 0 @default-padding;
+  padding: 0 $default-padding;
   font-size: 12px;
   text-align: center;
 
@@ -173,7 +173,7 @@ abbr[title] {
 
 // SEARCH
 
-@search-horizontal-padding: 8px;
+$search-horizontal-padding: 8px;
 
 .search {
   &__input-container {
@@ -185,12 +185,12 @@ abbr[title] {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 4px;
-    color: @input-text-color;
-    padding: 10px @search-horizontal-padding;
+    color: $input-text-color;
+    padding: 10px $search-horizontal-padding;
     width: 100%;
-    background: @search-bg-color;
+    background: $search-bg-color;
     @media (prefers-color-scheme: dark) {
-      background: @search-bg-color-dark;
+      background: $search-bg-color-dark;
     }
 
     &--active {
@@ -202,14 +202,14 @@ abbr[title] {
     }
 
     &::placeholder {
-      color: lighten(@input-text-color, 30%);
+      color: lighten($input-text-color, 30%);
       @media (prefers-color-scheme: dark) {
-        color: darken(@input-text-color-dark, 30%);
+        color: darken($input-text-color-dark, 30%);
       }
     }
 
     @media (prefers-color-scheme: dark) {
-      color: @input-text-color-dark;
+      color: $input-text-color-dark;
     }
 
     // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
@@ -223,14 +223,14 @@ abbr[title] {
     position: absolute;
     right: 0;
     width: 30px;
-    color: @body-color;
+    color: $body-color;
     outline: none;
     font-size: 25px;
     font-weight: 300;
     align-content: center;
     text-align: center;
     @media (prefers-color-scheme: dark) {
-      color: @body-color-dark;
+      color: $body-color-dark;
     }
   }
 
@@ -240,7 +240,7 @@ abbr[title] {
 
   &__hint {
     padding-top: 3px;
-    padding-left: @default-padding;
+    padding-left: $default-padding;
     margin-bottom: -4px;
     font-size: 11px;
   }
@@ -253,31 +253,31 @@ abbr[title] {
     z-index: 1;
     border-radius: 0 0 4px 4px;
     border-width: 0 1px;
-    background: @search-bg-color;
+    background: $search-bg-color;
     @media (prefers-color-scheme: dark) {
-      background: @search-bg-color-dark;
+      background: $search-bg-color-dark;
     }
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
-    min-width: @min-width - (2 * @default-padding);
+    min-width: $min-width - (2 * $default-padding);
 
     a {
       display: block;
-      padding: 5px @search-horizontal-padding;
+      padding: 5px $search-horizontal-padding;
       border: none;
 
       &.active {
-        background: @hover-color;
+        background: $hover-color;
         @media (prefers-color-scheme: dark) {
-          background: @hover-color-dark;
+          background: $hover-color-dark;
         }
       }
       &:hover {
-        background: @hover-color;
+        background: $hover-color;
         text-decoration: none;
         @media (prefers-color-scheme: dark) {
-          background: @hover-color-dark;
+          background: $hover-color-dark;
         }
 
         &:last-child {
@@ -287,14 +287,14 @@ abbr[title] {
 
       font-size: 15px;
 
-      @media screen and (min-width: @max-width) {
+      @media screen and (min-width: $max-width) {
         font-size: 14px;
       }
     }
   }
 
   &__loader {
-    padding: 5px @search-horizontal-padding;
+    padding: 5px $search-horizontal-padding;
     font-style: italic;
     font-size: 13px;
   }
@@ -302,9 +302,9 @@ abbr[title] {
   &__highlight {
     background-color: transparent;
     font-weight: 600;
-    color: @action-color;
+    color: $action-color;
     @media (prefers-color-scheme: dark) {
-      color: @action-color-dark;
+      color: $action-color-dark;
     }
   }
 }
@@ -318,21 +318,21 @@ abbr[title] {
 
     tbody tr {
       cursor: pointer;
-      border-top: 1px solid @separator-color;
+      border-top: 1px solid $separator-color;
 
       &:first-child {
         border-top: none;
       }
 
       &:hover {
-        background: @hover-color;
+        background: $hover-color;
         @media (prefers-color-scheme: dark) {
-          background: @hover-color-dark;
+          background: $hover-color-dark;
         }
       }
 
       @media (prefers-color-scheme: dark) {
-        border-top: 1px solid @separator-color-dark;
+        border-top: 1px solid $separator-color-dark;
       }
     }
 
@@ -403,26 +403,26 @@ abbr[title] {
 
 // COMPETITION STANDINGS
 
-@blurred-text-color: #888;
+$blurred-text-color: #888;
 
 .standings {
   table {
-    margin: @default-padding 0;
+    margin: $default-padding 0;
     width: 100%;
     table-layout: fixed;
   }
 
   tbody tr {
-    border-top: 1px solid @separator-color;
+    border-top: 1px solid $separator-color;
     @media (prefers-color-scheme: dark) {
-      border-top: 1px solid @separator-color-dark;
+      border-top: 1px solid $separator-color-dark;
     }
   }
 
   th,
   td {
     text-align: center;
-    padding: @default-padding 7px;
+    padding: $default-padding 7px;
 
     overflow: hidden;
     text-overflow: clip;
@@ -431,12 +431,12 @@ abbr[title] {
 
   th {
     text-align: center;
-    color: @blurred-text-color;
+    color: $blurred-text-color;
     font-weight: normal;
   }
 
   .rank {
-    color: @blurred-text-color;
+    color: $blurred-text-color;
     width: 40px;
   }
   .team {
@@ -496,7 +496,7 @@ abbr[title] {
     }
   }
 
-  @media screen and (min-width: @max-width) {
+  @media screen and (min-width: $max-width) {
     table {
       table-layout: auto;
     }

@@ -1,5 +1,6 @@
-import * as History from "util/history";
+import * as History from "common/util/history";
 
+// TODO: move under LiveMatches feature
 // TODO: type
 export default function groupFixturesByCompetitionId(fixtures: any[]) {
   const reversedHistoryResults = History.all().reverse();

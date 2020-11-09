@@ -1,4 +1,4 @@
-const MAX_LENGTH = 25;
+const MAX_LENGTH = 100;
 const STORAGE_KEY = "golazon_search_history";
 
 /**
@@ -31,9 +31,7 @@ export function add(item) {
 
   // find duplicate
   const duplicateIndex = history.findIndex(
-    (historyItem) =>
-      item["competition_id"] === historyItem["competition_id"] ||
-      item["competition_id"] === historyItem["id"]
+    (historyItem) => item["competition_id"] === historyItem["competition_id"]
   );
   if (duplicateIndex !== -1) {
     history.splice(duplicateIndex, 1);

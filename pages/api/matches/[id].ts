@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { DEFAULT_CACHE_TIME } from "util/config";
-import { fetchResources, resourcePatterns } from "util/hyena";
+import { DEFAULT_CACHE_TIME } from "common/config";
+import { fetchResources, resourcePatterns } from "common/hyena";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const {

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { formatDate, formatTime } from "../../util/date";
+import { formatDate, formatTime } from "../../common/util/date";
 import Layout from "../../components/layout";
 import Score from "../../components/shared/score";
 import Goals from "../../components/match/goals";
@@ -8,7 +8,7 @@ import PenaltyShootout from "../../components/match/penalty_shootout";
 import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
-import { fetchResources, resourcePatterns } from "util/hyena";
+import { fetchResources, resourcePatterns } from "common/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -45,23 +45,6 @@ export default function MatchPage(props: any) {
 
   return (
     <Layout title={title(match)}>
-      <p className="block nav">
-        <Link href="/">
-          <a>Golazon</a>
-        </Link>
-        {match.match_id && (
-          <>
-            <span> » </span>
-            <Link href={`/c/${match.competition_id}`}>
-              <a>
-                {match.competition_name}
-                {match.area_name && ` (${match.area_name})`}
-              </a>
-            </Link>
-          </>
-        )}
-      </p>
-
       <h1 className="match__title block wrapped">
         {match.match_id && (
           <span>
@@ -83,6 +66,13 @@ export default function MatchPage(props: any) {
         {formatTime(match.date, match.time)}
         <span> · </span>
         {match.round_name}
+        <span> · </span>
+        <Link href={`/c/${match.competition_id}`}>
+          <a>
+            {match.competition_name}
+            {match.area_name && ` (${match.area_name})`}
+          </a>
+        </Link>
       </div>
 
       <div className="match__container block wrapped">

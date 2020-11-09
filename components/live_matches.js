@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Fixtures from "components/Fixtures";
-import { useResource, resourcePatterns } from "util/hyena";
-import groupFixturesByCompetitionId from "util/groupFixturesByCompetitionId";
+import { useResource, resourcePatterns } from "common/hyena";
+import groupFixturesByCompetitionId from "common/util/groupFixturesByCompetitionId";
 
 // update interval in seconds
 const UPDATE_INTERVAL = 15 * 1000;

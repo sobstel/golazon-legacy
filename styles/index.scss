@@ -1,5 +1,4 @@
 @import "variables";
-@import "mixins";
 @import "normalize-scss/sass/normalize";
 @import "base";
 
@@ -93,7 +92,6 @@ h1 {
     margin-bottom: 1em;
     padding: $default-padding $default-padding;
     background: $wrapped-bg-color;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
     @media (prefers-color-scheme: dark) {
       background: $wrapped-bg-color-dark;
     }
@@ -110,22 +108,6 @@ h1.block.wrapped {
   background: $wrapped-bg-color;
   @media (prefers-color-scheme: dark) {
     background: $wrapped-bg-color-dark;
-  }
-}
-
-// nav
-.nav {
-  margin-top: 1em;
-  margin-bottom: 1em;
-  padding-left: 0.5em;
-  text-align: left;
-
-  a {
-    color: $action-color;
-    font-weight: 500;
-    @media (prefers-color-scheme: dark) {
-      color: $action-color-dark;
-    }
   }
 }
 
@@ -182,7 +164,6 @@ $search-horizontal-padding: 8px;
 
   &__input {
     font-size: 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border: none;
     border-radius: 4px;
     color: $input-text-color;
@@ -193,7 +174,7 @@ $search-horizontal-padding: 8px;
       background: $search-bg-color-dark;
     }
 
-    &--active {
+    &--clearable {
       border-radius: 4px 4px 0 0;
     }
 
@@ -238,7 +219,7 @@ $search-horizontal-padding: 8px;
     position: relative;
   }
 
-  &__hint {
+  &__error {
     padding-top: 3px;
     padding-left: $default-padding;
     margin-bottom: -4px;
@@ -251,20 +232,18 @@ $search-horizontal-padding: 8px;
     left: 0;
     right: 0;
     z-index: 1;
-    border-radius: 0 0 4px 4px;
-    border-width: 0 1px;
+    border-radius: 5px;
+    border-width: 1px;
     background: $search-bg-color;
     @media (prefers-color-scheme: dark) {
       background: $search-bg-color-dark;
     }
 
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
     min-width: $min-width - (2 * $default-padding);
 
     a {
       display: block;
-      padding: 5px $search-horizontal-padding;
+      padding: 6px $search-horizontal-padding;
       border: none;
 
       &.active {
@@ -279,10 +258,6 @@ $search-horizontal-padding: 8px;
         @media (prefers-color-scheme: dark) {
           background: $hover-color-dark;
         }
-
-        &:last-child {
-          border-radius: 0 0 4px 4px;
-        }
       }
 
       font-size: 15px;
@@ -290,6 +265,13 @@ $search-horizontal-padding: 8px;
       @media screen and (min-width: $max-width) {
         font-size: 14px;
       }
+    }
+
+    li:first-child a:hover {
+      border-radius: 5px 5px 0 0;
+    }
+    li:last-child a:hover {
+      border-radius: 0 0 5px 5px;
     }
   }
 
@@ -387,18 +369,6 @@ $search-horizontal-padding: 8px;
     overflow: auto;
     font-size: 13px;
   }
-}
-
-// COMPETITION MATCHES
-
-.past-matches .nav {
-  text-align: left;
-  margin: 0.25em 0 0.5em;
-}
-
-.future-matches .nav {
-  text-align: left;
-  margin: 0.5em 0 0.25em;
 }
 
 // COMPETITION STANDINGS

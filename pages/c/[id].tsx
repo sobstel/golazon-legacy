@@ -4,10 +4,10 @@ import Link from "next/link";
 import Layout from "components/layout";
 import Fixtures from "components/Fixtures";
 import LegacyStandings from "components/competition/standings";
-import { MAX_CACHE_TIME } from "util/config";
-import * as History from "util/history";
-import { fetchResources, useResource, resourcePatterns } from "util/hyena";
-import mergeFixtures from "util/mergeFixtures";
+import { MAX_CACHE_TIME } from "common/config";
+import * as History from "common/util/history";
+import { fetchResources, useResource, resourcePatterns } from "common/hyena";
+import mergeFixtures from "common/util/mergeFixtures";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };

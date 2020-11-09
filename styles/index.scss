@@ -193,7 +193,7 @@ $search-horizontal-padding: 8px;
       background: $search-bg-color-dark;
     }
 
-    &--active {
+    &--clearable {
       border-radius: 4px 4px 0 0;
     }
 
@@ -238,7 +238,7 @@ $search-horizontal-padding: 8px;
     position: relative;
   }
 
-  &__hint {
+  &__error {
     padding-top: 3px;
     padding-left: $default-padding;
     margin-bottom: -4px;

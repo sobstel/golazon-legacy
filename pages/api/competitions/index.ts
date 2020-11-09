@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { MAX_CACHE_TIME } from "util/config";
-import getCompetitions from "util/getCompetitions";
+import { MAX_CACHE_TIME } from "common/config";
+import getCompetitions from "common/util/getCompetitions";
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { q } = req.query;

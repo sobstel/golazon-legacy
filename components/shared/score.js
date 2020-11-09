@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { formatTime } from "../../util/date";
+import { formatTime } from "../../common/util/date";
 
 export default class extends Component {
   render() {

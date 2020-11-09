@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { MAX_CACHE_TIME } from "util/config";
+import { MAX_CACHE_TIME } from "common/config";
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader(

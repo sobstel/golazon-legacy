@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Search from "./search";
+import Search from "../features/search";
 
 export default function Layout({ children, title }) {
   return (
@@ -49,7 +49,11 @@ export default function Layout({ children, title }) {
 
         <p className="disclaimer block">
           football data mnmlist way (
-          <a href="https://github.com/sobstel/golazon" target="_blank">
+          <a
+            href="https://github.com/sobstel/golazon"
+            target="_blank"
+            rel="noreferrer"
+          >
             source
           </a>
           )

@@ -48,11 +48,6 @@ export default function TeamPage(props: any) {
 
   return (
     <Layout title={team.name}>
-      <p className="block nav">
-        <Link href="/">
-          <a>Golazon</a>
-        </Link>
-      </p>
       <h1 className="team__title block wrapped">{team.name}</h1>
       <div className="team__container">
         <Competitions competitions={competitions} />

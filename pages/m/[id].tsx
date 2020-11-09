@@ -45,23 +45,6 @@ export default function MatchPage(props: any) {
 
   return (
     <Layout title={title(match)}>
-      <p className="block nav">
-        <Link href="/">
-          <a>Golazon</a>
-        </Link>
-        {match.match_id && (
-          <>
-            <span> » </span>
-            <Link href={`/c/${match.competition_id}`}>
-              <a>
-                {match.competition_name}
-                {match.area_name && ` (${match.area_name})`}
-              </a>
-            </Link>
-          </>
-        )}
-      </p>
-
       <h1 className="match__title block wrapped">
         {match.match_id && (
           <span>
@@ -83,6 +66,13 @@ export default function MatchPage(props: any) {
         {formatTime(match.date, match.time)}
         <span> · </span>
         {match.round_name}
+        <span> · </span>
+        <Link href={`/c/${match.competition_id}`}>
+          <a>
+            {match.competition_name}
+            {match.area_name && ` (${match.area_name})`}
+          </a>
+        </Link>
       </div>
 
       <div className="match__container block wrapped">

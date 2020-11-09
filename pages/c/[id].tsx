@@ -68,12 +68,6 @@ export default function CompetitionPage(props: any) {
 
   return (
     <Layout title={title(competition)}>
-      <p className="block nav">
-        <Link href="/">
-          <a>Golazon</a>
-        </Link>
-      </p>
-
       <h1 className="competition__title block wrapped">{title(competition)}</h1>
 
       <div className="competition__container">

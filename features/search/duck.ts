@@ -2,7 +2,6 @@ import { Dispatch } from "react";
 import { delay, terminateDelay } from "common/util/delay";
 import * as History from "common/util/history";
 import api from "common/api";
-
 import { uniqResults } from "./util";
 import { SearchResult } from "./types";
 
@@ -11,7 +10,7 @@ type State = {
   results: SearchResult[];
   loading: boolean;
   error: string;
-  activeResultIndex: number;
+  selectedIndex: number;
 };
 
 const SEARCH_START = "SEARCH_START";
@@ -19,11 +18,13 @@ const SEARCH_SUCCESS = "SEARCH_SUCCESS";
 const SEARCH_ERROR = "SEARCH_ERROR";
 const RESULTS_CHANGE = "RESULTS_CHANGED";
 const QUERY_CHANGE = "QUERY_CHANGED";
-const ACTIVE_RESULT_INDEX_CHANGE = "ACTIVE_RESULT_INDEX_CHANGE";
+const SELECTED_INDEX_INC = "SELECTED_INDEX_INC";
+const SELECTED_INDEX_DEC = "SELECTED_INDEX_DEC";
+const SELECTED_INDEX_RESET = "SELECTED_INDEX_RESET";
 
 type Action = {
   type: string;
-  payload: Partial<State> & { indexChange?: number };
+  payload?: Partial<State>;
 };
 
 export const initialState: State = {
@@ -31,7 +32,7 @@ export const initialState: State = {
   results: [],
   loading: false,
   error: "",
-  activeResultIndex: -1,
+  selectedIndex: -1,
 };
 
 // Reducer
@@ -46,8 +47,8 @@ export function reducer(state: State, { type, payload }: Action) {
       ...state,
       results: uniqResults(results),
       loading: false,
-      error: null,
-      activeResultIndex: -1,
+      error: initialState.error,
+      selectedIndex: initialState.selectedIndex,
     };
   }
 
@@ -57,8 +58,8 @@ export function reducer(state: State, { type, payload }: Action) {
       ...state,
       error,
       loading: false,
-      results: [],
-      activeResultIndex: -1,
+      results: initialState.results,
+      selectedIndex: initialState.selectedIndex,
     };
   }
 
@@ -73,22 +74,25 @@ export function reducer(state: State, { type, payload }: Action) {
       ...state,
       results: uniqResults(results),
       loading: false,
-      error: null,
-      activeResultIndex: -1,
+      error: initialState.error,
+      selectedIndex: initialState.selectedIndex,
     };
   }
 
-  if (type === ACTIVE_RESULT_INDEX_CHANGE) {
-    const { indexChange } = payload;
+  if (type === SELECTED_INDEX_INC) {
+    let nextIndex = state.selectedIndex;
+    nextIndex = nextIndex < state.results.length - 1 ? nextIndex + 1 : -1;
+    return { ...state, selectedIndex: nextIndex };
+  }
 
-    let nextIndex = state.activeResultIndex + indexChange;
-    if (nextIndex >= state.results.length) {
-      nextIndex = 0;
-    }
-    if (nextIndex < 0) {
-      nextIndex = Math.max(state.results.length - 1, 0);
-    }
-    return { ...state, activeResultIndex: nextIndex };
+  if (type === SELECTED_INDEX_DEC) {
+    let nextIndex = state.selectedIndex;
+    nextIndex = nextIndex >= 0 ? nextIndex - 1 : state.results.length - 1;
+    return { ...state, selectedIndex: nextIndex };
+  }
+
+  if (type === SELECTED_INDEX_RESET) {
+    return { ...state, selectedIndex: initialState.selectedIndex };
   }
 
   return state;
@@ -114,12 +118,16 @@ export function resultsChange(results: State["results"]) {
   return { type: SEARCH_SUCCESS, payload: { results } };
 }
 
-export function incrementActiveResultIndex() {
-  return { type: ACTIVE_RESULT_INDEX_CHANGE, payload: { indexChange: 1 } };
+export function incSelectedIndex() {
+  return { type: SELECTED_INDEX_INC };
 }
 
-export function decrementActiveResultIndex() {
-  return { type: ACTIVE_RESULT_INDEX_CHANGE, payload: { indexChange: -1 } };
+export function decSelectedIndex() {
+  return { type: SELECTED_INDEX_DEC };
+}
+
+export function resetSelectedIndex() {
+  return { type: SELECTED_INDEX_RESET };
 }
 
 const MAX_RESULTS = 20;

@@ -9,21 +9,22 @@ import {
   asyncSearch,
   queryChange,
   resultsChange,
-  incrementActiveResultIndex,
-  decrementActiveResultIndex,
+  incSelectedIndex,
+  decSelectedIndex,
+  resetSelectedIndex,
 } from "./duck";
 import useAsyncDispatch from "./hooks/useAsyncDispatch";
 
 const KEY_CODES = {
-  DOWN: 40,
-  UP: 38,
+  ARROW_DOWN: 40,
+  ARROW_UP: 38,
   ESC: 27,
   ENTER: 13,
 };
 
 export function Search() {
   const [
-    { query, results, loading, error, activeResultIndex },
+    { query, results, loading, error, selectedIndex },
     dispatch,
   ] = useReducer(reducer, initialState);
   const asyncDispatch = useAsyncDispatch(dispatch);
@@ -33,15 +34,15 @@ export function Search() {
   const clearable = query?.length > 0;
 
   const handleKeyDown = ({ keyCode }) => {
-    if (keyCode === KEY_CODES.DOWN) {
+    if (keyCode === KEY_CODES.ARROW_DOWN) {
       if (results.length > 0) {
-        dispatch(incrementActiveResultIndex());
+        dispatch(incSelectedIndex());
       } else {
         asyncDispatch(asyncSearch(query));
       }
     }
-    if (keyCode === KEY_CODES.UP) {
-      dispatch(decrementActiveResultIndex());
+    if (keyCode === KEY_CODES.ARROW_UP) {
+      dispatch(decSelectedIndex());
     }
   };
   const handleKeyUp = ({ keyCode }) => {
@@ -49,7 +50,7 @@ export function Search() {
       dispatch(resultsChange([]));
     }
     if (keyCode === KEY_CODES.ENTER && results.length > 0) {
-      const index = activeResultIndex !== -1 ? activeResultIndex : 0;
+      const index = selectedIndex !== -1 ? selectedIndex : 0;
       dispatch(resultsChange([]));
       dispatch(queryChange(""));
       Router.push(`/c/${results[index]["competition_id"]}`);
@@ -72,6 +73,9 @@ export function Search() {
   const handleMouseDown = (e) => {
     // prevent input blur on click (thus clearing results before actual lick)
     e.preventDefault();
+  };
+  const handleMouseOver = () => {
+    dispatch(resetSelectedIndex());
   };
   const handleClick = () => {
     dispatch(queryChange(""));
@@ -112,8 +116,9 @@ export function Search() {
               <Link href={`/c/${result["competition_id"]}`}>
                 <a
                   onMouseDown={handleMouseDown}
+                  onMouseOver={handleMouseOver}
                   onClick={handleClick}
-                  className={classNames({ active: activeResultIndex === i })}
+                  className={classNames({ active: selectedIndex === i })}
                 >
                   <Highlighter
                     highlightClassName="search__highlight"

@@ -87,7 +87,7 @@ export function Search() {
             "search__input--clearable": clearable,
           })}
           name="q"
-          placeholder="Entry country or tournament name"
+          placeholder="Enter country or tournament name"
           onKeyDown={handleKeyDown}
           onKeyUp={handleKeyUp}
           onChange={handleChange}

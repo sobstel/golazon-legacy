@@ -1,5 +1,20 @@
+import queryCompetition from "common/util/queryCompetition";
+import uniqBy from "common/util/uniqBy";
+
 const MAX_LENGTH = 100;
 const STORAGE_KEY = "golazon_search_history";
+
+function normalizeHistory(history) {
+  let normalizedHistory = history.map((result) => ({
+    // HACK: backward compatibility when competition had "id" instead of "competition_id"
+    competition_id: result["competition_id"] || result["id"],
+    name: result["name"],
+    teamtype: result["teamtype"],
+    area_name: result["area_name"],
+  }));
+  normalizedHistory = uniqBy(normalizedHistory, "competition_id");
+  return normalizedHistory;
+}
 
 /**
  * @return array
@@ -7,20 +22,14 @@ const STORAGE_KEY = "golazon_search_history";
 function fetchHistory() {
   const storageItem = localStorage.getItem(STORAGE_KEY);
   const history = storageItem ? JSON.parse(storageItem) : [];
-  // HACK: backward compatibility when competition had "id" instead of "competition_id"
-  return history.map((result) => ({
-    competition_id: result["competition_id"] || result["id"],
-    name: result["name"],
-    teamtype: result["teamtype"],
-    area_name: result["area_name"],
-  }));
+  return normalizeHistory(history);
 }
 
 /**
  * @param history array
  */
 function saveHistory(history) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(normalizeHistory(history)));
 }
 
 /**
@@ -56,17 +65,5 @@ export function all() {
  * Search history
  */
 export function search(query) {
-  const normalizedQuery = query.toLowerCase();
-  return fetchHistory().filter((result) => {
-    if (result.name.toLowerCase().includes(normalizedQuery)) {
-      return true;
-    }
-    if (
-      result["area_name"] &&
-      result["area_name"].toLowerCase().includes(normalizedQuery)
-    ) {
-      return true;
-    }
-    return false;
-  });
+  return fetchHistory().filter((result) => queryCompetition(query, result));
 }

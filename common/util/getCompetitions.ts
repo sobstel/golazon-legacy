@@ -1,3 +1,4 @@
+import queryCompetition from "common/util/queryCompetition";
 import competitions from "data/competitions.json";
 
 const MAX_RESULTS = 20;
@@ -13,7 +14,7 @@ export default async function getCompetitions(q?: string) {
   let i = 0;
 
   while (i < TOTAL_COUNT && resultsSize < MAX_RESULTS) {
-    if (matchesQuery(String(q), competitions[i])) {
+    if (queryCompetition(String(q), competitions[i])) {
       results.push(competitions[i]);
       resultsSize += 1;
     }
@@ -21,24 +22,4 @@ export default async function getCompetitions(q?: string) {
   }
 
   return results;
-}
-
-function matchesQuery(
-  query: string,
-  item: { name: string; area_name?: string }
-): boolean {
-  const searchValue = query.toLowerCase();
-
-  if (item["name"].toLowerCase().includes(searchValue)) {
-    return true;
-  }
-
-  if (
-    item["area_name"] &&
-    item["area_name"].toLowerCase().includes(searchValue)
-  ) {
-    return true;
-  }
-
-  return false;
 }

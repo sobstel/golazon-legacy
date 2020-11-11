@@ -1,4 +1,4 @@
-import * as History from "common/util/history";
+import * as History from "common/history";
 
 // TODO: move under LiveMatches feature
 // TODO: type

@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Layout from "components/layout";
 import Fixtures from "components/Fixtures";
 import LegacyStandings from "components/competition/standings";
 import { MAX_CACHE_TIME } from "common/config";
-import * as History from "common/util/history";
+import * as History from "common/history";
 import { fetchResources, useResource, resourcePatterns } from "common/hyena";
 import mergeFixtures from "common/util/mergeFixtures";
 

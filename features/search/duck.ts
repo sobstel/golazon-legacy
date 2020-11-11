@@ -1,9 +1,9 @@
 import { Dispatch } from "react";
-import { delay, terminateDelay } from "common/util/delay";
-import * as History from "common/util/history";
-import api from "common/api";
-import { uniqResults } from "./util";
+import * as History from "common/history";
+import queryCompetition from "common/util/queryCompetition";
+import { MAX_RESULTS } from "./config";
 import { SearchResult } from "./types";
+import { debouncedRequest, cancelRequest, uniqResults } from "./util";
 
 type State = {
   query: string;
@@ -130,11 +130,12 @@ export function resetSelectedIndex() {
   return { type: SELECTED_INDEX_RESET };
 }
 
-const MAX_RESULTS = 20;
-
-export function asyncSearch(query: string) {
+export function asyncSearch(
+  query: string,
+  currentResults: SearchResult[] = []
+) {
   return (dispatch: Dispatch<unknown>) => {
-    terminateDelay();
+    cancelRequest();
 
     // all history results
     if (query.length === 0) {
@@ -144,25 +145,33 @@ export function asyncSearch(query: string) {
     }
 
     // search in history
-    const filteredHistoryResults = History.search(query).slice(0, MAX_RESULTS);
-    dispatch(resultsChange(filteredHistoryResults));
+    const filteredHistoryResults = History.search(query);
+    // search currently displayed results
+    const filteredCurrentResults =
+      filteredHistoryResults.length < MAX_RESULTS
+        ? currentResults.filter((result) => queryCompetition(query, result))
+        : [];
+    const mergedFilteredResults = filteredHistoryResults
+      .concat(filteredCurrentResults)
+      .slice(0, MAX_RESULTS);
+    dispatch(resultsChange(mergedFilteredResults));
 
     // search full database
-    if (filteredHistoryResults.length < MAX_RESULTS) {
+    if (mergedFilteredResults.length < MAX_RESULTS) {
       dispatch(searchStart());
 
-      delay(0.3, () => {
-        api(`competitions?q=${query}`)
-          .then((results) => {
-            const mergedResults = filteredHistoryResults
-              .concat(results)
-              .slice(0, MAX_RESULTS);
-            dispatch(searchSuccess(mergedResults));
-          })
-          .catch((e) => {
-            dispatch(searchError(e.message));
-          });
-      });
+      debouncedRequest(
+        query,
+        (results) => {
+          const mergedResults = filteredHistoryResults
+            .concat(results)
+            .slice(0, MAX_RESULTS);
+          dispatch(searchSuccess(mergedResults));
+        },
+        (e) => {
+          dispatch(searchError(e.message));
+        }
+      );
     }
   };
 }

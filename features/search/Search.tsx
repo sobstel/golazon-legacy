@@ -59,10 +59,10 @@ export function Search() {
   const handleChange = (e) => {
     const query = e.target.value;
     dispatch(queryChange(query));
-    asyncDispatch(asyncSearch(query));
+    asyncDispatch(asyncSearch(query, results));
   };
   const handleFocus = () => {
-    asyncDispatch(asyncSearch(query));
+    asyncDispatch(asyncSearch(query, results));
   };
   const handleBlur = () => {
     dispatch(resultsChange([]));
@@ -108,7 +108,7 @@ export function Search() {
         )}
       </div>
       <div className="search__extras-container">
-        {noResults && error && <p className="search__error">{error}</p>}
+        {noResults && error && <p className="search__error">ERROR: {error}</p>}
 
         <ul className="search__results">
           {results.map((result, i) => (

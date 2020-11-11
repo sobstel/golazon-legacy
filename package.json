@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.51",
+    "@types/superagent": "^4.1.10",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
     "eslint": "^7.10.0",

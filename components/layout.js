@@ -12,34 +12,27 @@ export default function Layout({ children, title }) {
 
         <meta name="theme-color" content="#ffffff" />
 
-        <link rel="shortcut icon" href="/static/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
         <link
           rel="icon"
           type="image/png"
-          href="/static/favicon-32x32.png"
+          href="/favicon-32x32.png"
           sizes="32x32"
         />
         <link
           rel="icon"
           type="image/png"
-          href="/static/favicon-16x16.png"
+          href="/favicon-16x16.png"
           sizes="16x16"
         />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/static/apple-touch-icon.png"
+          href="/apple-touch-icon.png"
         />
-        <link
-          rel="apple-touch-startup-image"
-          href="/static/apple-touch-icon.png"
-        />
-        <link
-          rel="mask-icon"
-          href="/static/safari-pinned-tab.svg"
-          color="#5bbad5"
-        />
+        <link rel="apple-touch-startup-image" href="/apple-touch-icon.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       </Head>
 
       <div id="app">

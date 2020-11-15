@@ -299,6 +299,11 @@
     "area_name": "Montenegro"
   },
   {
+    "competition_id": "9npr",
+    "name": "FKF Premier League",
+    "area_name": "Kenya"
+  },
+  {
     "competition_id": "1xyn",
     "name": "GFA League",
     "area_name": "Gambia"
@@ -332,11 +337,6 @@
     "competition_id": "pe2",
     "name": "K League 1",
     "area_name": "Korea Republic"
-  },
-  {
-    "competition_id": "9npr",
-    "name": "KPL",
-    "area_name": "Kenya"
   },
   {
     "competition_id": "89kl",
@@ -6372,6 +6372,12 @@
     "teamtype": "youth"
   },
   {
+    "competition_id": "p73d",
+    "name": "U23 League",
+    "teamtype": "youth",
+    "area_name": "Qatar"
+  },
+  {
     "competition_id": "255z",
     "name": "U21 Club Friendlies",
     "teamtype": "youth"
@@ -6623,6 +6629,12 @@
   {
     "competition_id": "5j47",
     "name": "Mineiro U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "wlgx",
+    "name": "Pernambucano U20",
     "teamtype": "youth",
     "area_name": "Brazil"
   },
@@ -7998,6 +8010,12 @@
     "teamtype": "women"
   },
   {
+    "competition_id": "3v1z",
+    "name": "Mineiro Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "11xr",
     "name": "Kubanskaya Vesna U19",
     "teamtype": "women"
@@ -8271,6 +8289,12 @@
     "competition_id": "13vx",
     "name": "Yongchuan Tournament",
     "teamtype": "women"
+  },
+  {
+    "competition_id": "rvym",
+    "name": "Eredivisie Cup",
+    "teamtype": "women",
+    "area_name": "Netherlands"
   },
   {
     "competition_id": "8l83",
@@ -8609,6 +8633,12 @@
     "teamtype": "women"
   },
   {
+    "competition_id": "nymm",
+    "name": "Super Cup Women",
+    "teamtype": "women",
+    "area_name": "Italy"
+  },
+  {
     "competition_id": "0p7n",
     "name": "U19 National Team Friendlies Women",
     "teamtype": "women"
@@ -8662,6 +8692,12 @@
     "name": "Copa Catalunya Femenina",
     "teamtype": "women",
     "area_name": "Spain"
+  },
+  {
+    "competition_id": 9797,
+    "name": "Primavera Women",
+    "teamtype": "women",
+    "area_name": "Italy"
   },
   {
     "competition_id": "5j2v",
@@ -9266,12 +9302,6 @@
     "competition_id": "4em1",
     "name": "Premier Reserve League",
     "area_name": "England"
-  },
-  {
-    "competition_id": "nymm",
-    "name": "Super Cup Women",
-    "teamtype": "women",
-    "area_name": "Italy"
   },
   {
     "competition_id": "77p0",

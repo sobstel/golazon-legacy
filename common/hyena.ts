@@ -1,9 +1,7 @@
 import request from "superagent";
 import useSWR from "swr";
 
-// TODO: move to ENV
-const HYENA_URL =
-  "https://75sgwy2tr3.execute-api.eu-west-2.amazonaws.com/prod/hyena?func=";
+const HYENA_URL = process.env.NEXT_PUBLIC_HYENA_URL;
 
 export const resourcePatterns = {
   competition: (id: string) => `competitions/${id}`,

@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import Head from "next/head";
 import Search from "../features/search";
 
@@ -36,9 +37,11 @@ export default function Layout({ children, title }) {
       </Head>
 
       <div id="app">
-        <Search />
+        <StrictMode>
+          <Search />
 
-        {children}
+          {children}
+        </StrictMode>
 
         <p className="disclaimer block">
           football data mnmlist way (

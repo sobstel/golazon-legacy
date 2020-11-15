@@ -26,7 +26,7 @@ export function Search() {
   const [
     { query, results, loading, error, selectedIndex },
     dispatch,
-  ] = useReducer(reducer, { ...initialState, error: "test" });
+  ] = useReducer(reducer, initialState);
 
   const asyncDispatch = useAsyncDispatch(dispatch);
   const input = useRef(null);

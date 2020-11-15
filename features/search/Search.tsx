@@ -107,7 +107,7 @@ export function Search() {
           </button>
         )}
       </div>
-      <div className="search__extras-container">
+      <div>
         {noResults && error && <p className="search__error">ERROR: {error}</p>}
 
         <ul className="search__results">

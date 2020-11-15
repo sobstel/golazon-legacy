@@ -215,10 +215,6 @@ $search-horizontal-padding: 8px;
     }
   }
 
-  &__extras-container {
-    position: relative;
-  }
-
   &__error {
     color: #900;
     padding-top: 3px;
@@ -229,11 +225,6 @@ $search-horizontal-padding: 8px;
   }
 
   &__results {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
     border-radius: 5px;
     border-width: 1px;
     background: $search-bg-color;

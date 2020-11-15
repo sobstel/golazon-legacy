@@ -26,11 +26,11 @@ export function Search() {
   const [
     { query, results, loading, error, selectedIndex },
     dispatch,
-  ] = useReducer(reducer, initialState);
+  ] = useReducer(reducer, { ...initialState, error: "test" });
+
   const asyncDispatch = useAsyncDispatch(dispatch);
   const input = useRef(null);
 
-  const noResults = results.length === 0;
   const clearable = query?.length > 0;
 
   const handleKeyDown = ({ keyCode }) => {
@@ -103,12 +103,12 @@ export function Search() {
 
         {clearable && (
           <button className="search__clear-button" onClick={handleClear}>
-            &#215;
+            &#xD7;
           </button>
         )}
       </div>
       <div>
-        {noResults && error && <p className="search__error">ERROR: {error}</p>}
+        {error && <p className="search__error">ERROR: {error}</p>}
 
         <ul className="search__results">
           {results.map((result, i) => (

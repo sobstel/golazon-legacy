@@ -7490,7 +7490,7 @@
   },
   {
     "competition_id": "gjzz",
-    "name": "Kampionati Femrave",
+    "name": "Kampionati i Femrave",
     "teamtype": "women",
     "area_name": "Albania"
   },
@@ -7643,6 +7643,12 @@
     "name": "Taiwan Mulan Football League",
     "teamtype": "women",
     "area_name": "Chinese Taipei"
+  },
+  {
+    "competition_id": "myr5",
+    "name": "Thai Women's League 1",
+    "teamtype": "women",
+    "area_name": "Thailand"
   },
   {
     "competition_id": "mge",

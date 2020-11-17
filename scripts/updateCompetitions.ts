@@ -1,13 +1,19 @@
-const fs = require("fs");
-const request = require("superagent");
+import fs from "fs";
+import cli from "cli-ux";
+import request from "superagent";
+import dotenv from "dotenv";
 
-const URL =
-  "https://75sgwy2tr3.execute-api.eu-west-2.amazonaws.com/prod/hyena?func=competitions";
+dotenv.config();
 
+const URL = `${process.env.NEXT_PUBLIC_HYENA_URL}competitions`;
+
+cli.action.start("Fetch competitions");
 request
   .get(URL)
   .set("Accept", "application/json")
   .then((res) => {
+    cli.action.stop();
+
     let searchIndex = res.body;
     searchIndex = searchIndex.map((item) => ({
       competition_id: item["competition_id"],
@@ -19,9 +25,15 @@ request
     const fileName = `${__dirname}/../data/competitions.json`;
     const fileContent = JSON.stringify(searchIndex, null, 2);
 
+    cli.action.start("Save competitions");
     fs.writeFile(fileName, fileContent, function (err) {
       if (err) return console.log(err);
+      cli.action.stop();
       console.log(`Saved to ${fileName}`);
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    cli.action.stop(`ERR: ${err.message}`);
+  });
+
+export {};

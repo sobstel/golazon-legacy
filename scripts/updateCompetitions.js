@@ -6,22 +6,22 @@ const URL =
 
 request
   .get(URL)
-  .set('Accept', 'application/json')
-  .then(res => {
+  .set("Accept", "application/json")
+  .then((res) => {
     let searchIndex = res.body;
-    searchIndex = searchIndex.map(item => ({
+    searchIndex = searchIndex.map((item) => ({
       competition_id: item["competition_id"],
       name: item["name"],
       teamtype: item["teamtype"],
-      area_name: item["area_name"]
+      area_name: item["area_name"],
     }));
 
     const fileName = `${__dirname}/../data/competitions.json`;
     const fileContent = JSON.stringify(searchIndex, null, 2);
 
-    fs.writeFile(fileName, fileContent, function(err) {
+    fs.writeFile(fileName, fileContent, function (err) {
       if (err) return console.log(err);
       console.log(`Saved to ${fileName}`);
     });
   })
-  .catch(err => console.log(err));
+  .catch((err) => console.log(err));

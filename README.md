@@ -14,13 +14,11 @@
 - Served by [Vercel](https://vercel.com).
 - Styling: Sass, BEM.
 
-### Getting Started
-
-- `yarn install`
-
 ### Development
 
-- `yarn now dev`
+- Getting Started: `yarn install`
+- Local server: `yarn now dev`
+- Competitions index update: `yarn competitions:update`
 
 ### Notes
 

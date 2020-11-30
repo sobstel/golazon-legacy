@@ -83,7 +83,7 @@ function SeasonStandings({ seasonId }: { seasonId: string }) {
     () => seasonId && resourcePatterns.seasonStandings(seasonId)
   );
   if (loading && !standings) {
-    return <Loader text="Loading standings" />;
+    return <Loader />;
   }
   if (!loading && !standings) return null;
   return <LegacyStandings rounds={standings} />;
@@ -115,12 +115,10 @@ function SeasonFixtures({ seasonId }: { seasonId: string }) {
 
   return (
     <div className="block wrapped">
-      {!recentFixtures?.length && recentFixturesLoading && (
-        <Loader text="Loading recent fixtures" noWrapper />
-      )}
+      {!recentFixtures?.length && recentFixturesLoading && <Loader noWrapper />}
       <Fixtures fixtures={fixtures} />
       {!upcomingFixtures?.length && upcomingFixturesLoading && (
-        <Loader text="Loading upcoming fixtures" noWrapper />
+        <Loader noWrapper />
       )}
     </div>
   );

@@ -1,11 +1,5 @@
-export default function Loader({
-  text,
-  noWrapper,
-}: {
-  text?: string;
-  noWrapper?: boolean;
-}) {
-  const loaderContent = <p className="loader">{text || "Loading"}</p>;
+export default function Loader({ noWrapper }: { noWrapper?: boolean }) {
+  const loaderContent = <p className="loader">Loading</p>;
 
   if (noWrapper) {
     return loaderContent;

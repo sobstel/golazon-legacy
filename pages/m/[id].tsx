@@ -8,8 +8,8 @@ import PenaltyShootout from "../../components/match/penalty_shootout";
 import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
-import { UPDATE_INTERVAL } from "common/config";
 import { useResource, fetchResources, resourcePatterns } from "common/hyena";
+import Loader from "components/Loader";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -41,9 +41,7 @@ export default function MatchPage(props: any) {
   if (router.isFallback) {
     return (
       <Layout title={false}>
-        <div className="block wrapped">
-          <p className="loader">Loading</p>
-        </div>
+        <Loader />
       </Layout>
     );
   }

@@ -17,6 +17,7 @@
     "classnames": "^2.2.6",
     "next": "^10.0.0",
     "normalize-scss": "^7.0.1",
+    "nprogress": "^0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-highlight-words": "^0.16.0",
@@ -25,6 +26,7 @@
     "swr": "^0.3.5"
   },
   "devDependencies": {
+    "@types/nprogress": "^0.2.0",
     "@types/react": "^16.9.51",
     "@types/superagent": "^4.1.10",
     "@typescript-eslint/eslint-plugin": "^4.4.0",

@@ -7,6 +7,7 @@ import { MAX_CACHE_TIME } from "common/config";
 import * as History from "common/history";
 import { fetchResources, useResource, resourcePatterns } from "common/hyena";
 import mergeFixtures from "common/util/mergeFixtures";
+import Loader from "components/Loader";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -78,31 +79,49 @@ export default function CompetitionPage(props: any) {
 }
 
 function SeasonStandings({ seasonId }: { seasonId: string }) {
-  const { data: standings } = useResource(
+  const { data: standings, loading } = useResource(
     () => seasonId && resourcePatterns.seasonStandings(seasonId)
   );
-  if (!standings) return null;
+  if (loading) {
+    return <Loader text="Loading standings" />;
+  }
+  if (!loading && !standings) return null;
   return <LegacyStandings rounds={standings} />;
 }
 
 function SeasonFixtures({ seasonId }: { seasonId: string }) {
-  const { data: recentFixtures, error: recentFixturesError } = useResource(
+  const {
+    data: recentFixtures,
+    error: recentFixturesError,
+    loading: recentFixturesLoading,
+  } = useResource(
     () => seasonId && resourcePatterns.seasonRecentFixtures(seasonId)
-  ) as { data: Record<string, unknown>[]; error: string };
-  const { data: upcomingFixtures, error: upcomingFixturesError } = useResource(
+  );
+  const {
+    data: upcomingFixtures,
+    error: upcomingFixturesError,
+    loading: upcomingFixturesLoading,
+  } = useResource(
     () => seasonId && resourcePatterns.seasonUpcomingFixtures(seasonId)
-  ) as { data: Record<string, unknown>[]; error: string };
+  );
 
   const error = recentFixturesError || upcomingFixturesError;
   if (error) console.log(error);
 
   const fixtures = mergeFixtures(recentFixtures, upcomingFixtures, 10);
 
-  if (!fixtures?.length) return null;
+  const loading = recentFixturesLoading || upcomingFixturesLoading;
+  if (!loading && !fixtures?.length) return null;
 
   return (
     <div className="block wrapped">
+      {recentFixturesLoading && (
+        <Loader text="Loading recent fixtures" noWrapper />
+      )}
       <Fixtures fixtures={fixtures} />
+      {upcomingFixturesLoading && (
+        <Loader text="Loading upcoming fixtures" noWrapper />
+      )}
     </div>
   );
 }

@@ -20,8 +20,8 @@ export const resourcePatterns = {
 type ResourcePattern = typeof resourcePatterns[keyof typeof resourcePatterns];
 type ResourceResult = {
   data: Record<string, unknown> | Record<string, unknown>[];
-  error?: string;
-  loading?: boolean;
+  error: string;
+  loading: boolean;
 };
 
 export function useResource(

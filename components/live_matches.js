@@ -1,19 +1,16 @@
 import Link from "next/link";
 import Fixtures from "components/Fixtures";
+import Loader from "components/Loader";
 import { useResource, resourcePatterns } from "common/hyena";
 import groupFixturesByCompetitionId from "common/util/groupFixturesByCompetitionId";
 
 export default function LiveMatches() {
-  const { data: liveMatches, loading } = useResource(
-    () => resourcePatterns.liveMatches
+  const { data: liveMatches, loading } = useResource(() =>
+    resourcePatterns.liveMatches()
   );
 
   if (loading) {
-    return (
-      <div className="block wrapped">
-        <p className="loader">Loading</p>
-      </div>
-    );
+    return <Loader />;
   }
 
   const groupedMatches = liveMatches?.length

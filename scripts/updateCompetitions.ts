@@ -1,6 +1,8 @@
 import fs from "fs";
+// @ts-ignore
 import cli from "cli-ux";
 import request from "superagent";
+// @ts-ignore
 import dotenv from "dotenv";
 
 dotenv.config();

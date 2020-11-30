@@ -82,7 +82,7 @@ function SeasonStandings({ seasonId }: { seasonId: string }) {
   const { data: standings, loading } = useResource(
     () => seasonId && resourcePatterns.seasonStandings(seasonId)
   );
-  if (loading) {
+  if (loading && !standings) {
     return <Loader text="Loading standings" />;
   }
   if (!loading && !standings) return null;
@@ -115,11 +115,11 @@ function SeasonFixtures({ seasonId }: { seasonId: string }) {
 
   return (
     <div className="block wrapped">
-      {recentFixturesLoading && (
+      {!recentFixtures?.length && recentFixturesLoading && (
         <Loader text="Loading recent fixtures" noWrapper />
       )}
       <Fixtures fixtures={fixtures} />
-      {upcomingFixturesLoading && (
+      {!upcomingFixtures?.length && upcomingFixturesLoading && (
         <Loader text="Loading upcoming fixtures" noWrapper />
       )}
     </div>

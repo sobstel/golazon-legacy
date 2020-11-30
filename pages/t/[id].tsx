@@ -80,11 +80,11 @@ function TeamFixtures({ teamId }: { teamId: string }) {
 
   return (
     <div className="block wrapped">
-      {recentFixturesLoading && (
+      {!recentFixtures && recentFixturesLoading && (
         <Loader text="Loading recent fixtures" noWrapper />
       )}
       <Fixtures fixtures={fixtures} />
-      {upcomingFixturesLoading && (
+      {!upcomingFixtures && upcomingFixturesLoading && (
         <Loader text="Loading upcoming fixtures" noWrapper />
       )}
     </div>

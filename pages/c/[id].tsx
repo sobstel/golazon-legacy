@@ -79,8 +79,7 @@ export default function CompetitionPage(props: any) {
 
 function SeasonStandings({ seasonId }: { seasonId: string }) {
   const { data: standings } = useResource(
-    resourcePatterns.seasonStandings,
-    seasonId
+    () => seasonId && resourcePatterns.seasonStandings(seasonId)
   );
   if (!standings) return null;
   return <LegacyStandings rounds={standings} />;
@@ -88,12 +87,10 @@ function SeasonStandings({ seasonId }: { seasonId: string }) {
 
 function SeasonFixtures({ seasonId }: { seasonId: string }) {
   const { data: recentFixtures, error: recentFixturesError } = useResource(
-    resourcePatterns.seasonRecentFixtures,
-    seasonId
+    () => seasonId && resourcePatterns.seasonRecentFixtures(seasonId)
   ) as { data: Record<string, unknown>[]; error: string };
   const { data: upcomingFixtures, error: upcomingFixturesError } = useResource(
-    resourcePatterns.seasonUpcomingFixtures,
-    seasonId
+    () => seasonId && resourcePatterns.seasonUpcomingFixtures(seasonId)
   ) as { data: Record<string, unknown>[]; error: string };
 
   const error = recentFixturesError || upcomingFixturesError;

@@ -8,7 +8,8 @@ import PenaltyShootout from "../../components/match/penalty_shootout";
 import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
-import { fetchResources, resourcePatterns } from "common/hyena";
+import { UPDATE_INTERVAL } from "common/config";
+import { useResource, fetchResources, resourcePatterns } from "common/hyena";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -16,11 +17,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const [{ data: match, loading }] = await fetchResources(
-    [resourcePatterns.match],
-    id
-  );
-  return { props: { match, loading }, revalidate: 1 };
+  const [{ data: match }] = await fetchResources([resourcePatterns.match], id);
+  return { props: { match }, revalidate: 1 };
 }
 
 function title(match) {
@@ -30,18 +28,27 @@ function title(match) {
 }
 
 export default function MatchPage(props: any) {
-  const { match, loading } = props;
+  const { match: serverData } = props;
+
+  const { data: clientData } = useResource(
+    () => serverData?.match_id && resourcePatterns.match(serverData.match_id),
+    {
+      initialData: serverData,
+    }
+  );
 
   const router = useRouter();
-  if (router.isFallback || loading) {
+  if (router.isFallback) {
     return (
       <Layout title={false}>
-        <p className="block wrapped">
-          <span className="loader">Loading</span>
-        </p>
+        <div className="block wrapped">
+          <p className="loader">Loading</p>
+        </div>
       </Layout>
     );
   }
+
+  const match = clientData || serverData;
 
   return (
     <Layout title={title(match)}>

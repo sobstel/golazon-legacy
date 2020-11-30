@@ -3,25 +3,16 @@ import Fixtures from "components/Fixtures";
 import { useResource, resourcePatterns } from "common/hyena";
 import groupFixturesByCompetitionId from "common/util/groupFixturesByCompetitionId";
 
-// update interval in seconds
-const UPDATE_INTERVAL = 15 * 1000;
-
 export default function LiveMatches() {
   const { data: liveMatches, loading } = useResource(
-    resourcePatterns.liveMatches,
-    -1,
-    {
-      revalidateOnMount: true,
-      refreshInterval: UPDATE_INTERVAL,
-    }
+    () => resourcePatterns.liveMatches
   );
 
   if (loading) {
-    // TODO: replace with skeleton
     return (
-      <p className="block wrapped">
-        <span className="loader">Loading</span>
-      </p>
+      <div className="block wrapped">
+        <p className="loader">Loading</p>
+      </div>
     );
   }
 

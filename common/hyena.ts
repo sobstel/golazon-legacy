@@ -1,5 +1,6 @@
 import request from "superagent";
 import useSWR from "swr";
+import { UPDATE_INTERVAL } from "common/config";
 
 const HYENA_URL = process.env.NEXT_PUBLIC_HYENA_URL;
 
@@ -24,15 +25,16 @@ type ResourceResult = {
 };
 
 export function useResource(
-  resourcePattern: ResourcePattern,
-  id: string,
+  resourceResolver: () => ReturnType<ResourcePattern>,
   opts?: any
 ): ResourceResult {
-  const result = useSWR(
-    id ? HYENA_URL + resourcePattern(id) : null,
-    fetch,
-    opts ?? {}
-  );
+  const resource = resourceResolver();
+
+  const result = useSWR(resource ? HYENA_URL + resource : null, fetch, {
+    ...(opts ?? {}),
+    refreshInterval: UPDATE_INTERVAL,
+  });
+
   const { data, error, isValidating } = result;
   return { data, error, loading: isValidating };
 }

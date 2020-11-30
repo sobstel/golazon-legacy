@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Link from "next/link";
 import Layout from "components/layout";
 import Competitions from "components/Competitions";
 import Fixtures from "components/Fixtures";
@@ -34,12 +33,11 @@ export default function TeamPage(props: any) {
 
   const router = useRouter();
   if (router.isFallback || loading) {
-    // TODO: replace with skeleton
     return (
       <Layout title={false}>
-        <p className="block wrapped">
-          <span className="loader">Loading</span>
-        </p>
+        <div className="block wrapped">
+          <p className="loader">Loading</p>
+        </div>
       </Layout>
     );
   }
@@ -59,12 +57,10 @@ export default function TeamPage(props: any) {
 
 function TeamFixtures({ teamId }: { teamId: string }) {
   const { data: recentFixtures, error: recentFixturesError } = useResource(
-    resourcePatterns.teamRecentFixtures,
-    teamId
+    () => teamId && resourcePatterns.teamRecentFixtures(teamId)
   ) as { data: Record<string, unknown>[]; error: string };
   const { data: upcomingFixtures, error: upcomingFixturesError } = useResource(
-    resourcePatterns.teamUpcomingFixtures,
-    teamId
+    () => teamId && resourcePatterns.teamUpcomingFixtures(teamId)
   ) as { data: Record<string, unknown>[]; error: string };
 
   const error = recentFixturesError || upcomingFixturesError;

@@ -34,6 +34,7 @@ export function useResource(
   const result = useSWR(resource ? HYENA_URL + resource : null, fetch, {
     ...(opts ?? {}),
     refreshInterval: UPDATE_INTERVAL,
+    revalidateOnMount: true,
   });
 
   const { data, error, isValidating } = result;

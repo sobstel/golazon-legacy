@@ -5,10 +5,6 @@ export default class extends Component {
   render() {
     const { match } = this.props;
 
-    if (match.fixture) {
-      return match.time && <span>{formatTime(match.date, match.time)}</span>;
-    }
-
     if (match.live || match.ended) {
       return (
         <span className={match.live && "live"}>
@@ -42,6 +38,10 @@ export default class extends Component {
 
     if (match.cancelled) {
       return <abbr title="Cencelled">CANC</abbr>;
+    }
+
+    if (match.date && match.time) {
+      return <span>{formatTime(match.date, match.time)}</span>;
     }
 
     return null;

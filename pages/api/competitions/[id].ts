@@ -7,10 +7,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
-  const [{ data: competition }] = await fetchResources(
-    [resourcePatterns.competition],
-    id
-  );
+  const [{ data: competition }] = await fetchResources([
+    () => resourcePatterns.competition(id as string),
+  ]);
   // @ts-ignore
   const seasonId = competition.season["season_id"];
 
@@ -18,14 +17,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     { data: standings },
     { data: recentFixtures },
     { data: upcomingFixtures },
-  ] = await fetchResources(
-    [
-      resourcePatterns.seasonStandings,
-      resourcePatterns.seasonRecentFixtures,
-      resourcePatterns.seasonUpcomingFixtures,
-    ],
-    seasonId
-  );
+  ] = await fetchResources([
+    () => resourcePatterns.seasonStandings(seasonId),
+    () => resourcePatterns.seasonRecentFixtures(seasonId),
+    () => resourcePatterns.seasonUpcomingFixtures(seasonId),
+  ]);
 
   res.setHeader(
     "Cache-Control",

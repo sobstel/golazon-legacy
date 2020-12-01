@@ -17,7 +17,9 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
-  const [{ data: match }] = await fetchResources([resourcePatterns.match], id);
+  const [{ data: match }] = await fetchResources([
+    () => resourcePatterns.match(id),
+  ]);
   return { props: { match }, revalidate: 1 };
 }
 

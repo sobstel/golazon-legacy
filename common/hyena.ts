@@ -23,9 +23,10 @@ type ResourceResult = {
   error?: string;
   loading?: boolean;
 };
+type ResourceResolver = () => ReturnType<ResourcePattern>;
 
 export function useResource(
-  resourceResolver: () => ReturnType<ResourcePattern>,
+  resourceResolver: ResourceResolver,
   opts?: any
 ): ResourceResult {
   const resource = resourceResolver();
@@ -40,11 +41,10 @@ export function useResource(
 }
 
 export async function fetchResources(
-  resourcePatterns: ResourcePattern[],
-  id
+  resourceResolvers: ResourceResolver[]
 ): Promise<ResourceResult[]> {
-  const requests = resourcePatterns
-    .map((resourcePattern) => resourcePattern(id))
+  const requests = resourceResolvers
+    .map((resourceResolver) => resourceResolver())
     .map(fetchResource);
   const results = await Promise.all(requests.map(settle));
   return results.map((result) => {

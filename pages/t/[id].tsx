@@ -17,10 +17,10 @@ export async function getStaticProps(context: { params: { id: string } }) {
   const [
     { data: team, loading: teamLoading },
     { data: competitions, loading: competitionsLoading },
-  ] = await fetchResources(
-    [resourcePatterns.team, resourcePatterns.teamCompetitions],
-    id
-  );
+  ] = await fetchResources([
+    () => resourcePatterns.team(id),
+    () => resourcePatterns.teamCompetitions(id),
+  ]);
 
   return {
     props: { team, competitions, loading: teamLoading || competitionsLoading },

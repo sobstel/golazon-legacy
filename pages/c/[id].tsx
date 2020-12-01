@@ -16,10 +16,9 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: { params: { id: string } }) {
   const { id } = context.params;
 
-  const [{ data: competition, loading }] = await fetchResources(
-    [resourcePatterns.competition],
-    id
-  );
+  const [{ data: competition, loading }] = await fetchResources([
+    () => resourcePatterns.competition(id),
+  ]);
 
   return {
     props: { competition, loading },

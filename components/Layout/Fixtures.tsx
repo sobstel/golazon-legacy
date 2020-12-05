@@ -39,6 +39,9 @@ const MatchRow = ({ match }: { match: any }) => (
         <Score match={match} />
       </td>
       <td className="away">{match.away_name}</td>
+      <td className="link">
+        <a href={`/m/${match.match_id}`}>&#10095;</a>
+      </td>
     </tr>
   </Link>
 );

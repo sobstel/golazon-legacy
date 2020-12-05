@@ -19,28 +19,16 @@ body {
 }
 
 h1 {
-  font-size: 1.2em;
-  margin-top: 1em;
-  padding: 0 5px;
+  font-size: 1.1em;
+  padding: 0 $default-padding;
+  font-weight: 500;
 }
 
 h2 {
-  font-size: 1em;
-  color: #878787;
-  border-left: none;
-  border-right: none;
-  font-weight: normal;
-  margin: 1em (-$default-padding);
-  padding: 8px $default-padding;
-  background: darken($wrapped-bg-color, 4);
-  @media (prefers-color-scheme: dark) {
-    background: darken($wrapped-bg-color-dark, 8);
-  }
-}
-
-div.block > div:first-child > h2,
-div.block > div:first-child > div:first-child > h2 {
-  margin-top: (-$default-padding);
+  font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0 $default-padding;
 }
 
 a {
@@ -56,30 +44,14 @@ a {
   }
 }
 
-button {
-  color: $action-color;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  // Remove border radius added by Chroma macOS
-  border-radius: 0;
-  @media (prefers-color-scheme: dark) {
-    color: $action-color-dark;
-  }
+abbr[title] {
+  text-decoration: none;
 }
 
-li {
-  list-style-type: none;
-}
-
-// general centered block
-.block,
-h1 {
+.container {
   min-width: $min-width - 12px;
   margin-left: 6px;
   margin-right: 6px;
-  border-radius: 8px;
 
   @media screen and (min-width: $max-width) {
     margin-left: auto;
@@ -87,53 +59,25 @@ h1 {
     width: 100%;
     max-width: $max-width;
   }
-
-  &.wrapped {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    padding: $default-padding $default-padding;
-    background: $wrapped-bg-color;
-    @media (prefers-color-scheme: dark) {
-      background: $wrapped-bg-color-dark;
-    }
-  }
-
-  & > h2:first-child,
-  & > div:first-child h2 {
-    border-radius: 8px 8px 0 0;
-  }
 }
 
-h1.block.wrapped {
-  margin-bottom: 0;
-  background: $wrapped-bg-color;
+.block {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  padding: $default-padding;
+  background: $block-bg-color;
   @media (prefers-color-scheme: dark) {
-    background: $wrapped-bg-color-dark;
+    background: $block-bg-color-dark;
+  }
+
+  h1 {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
-.loader {
-  margin: 0;
-
-  &:after {
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: bottom;
-    animation: ellipsis steps(4, end) 500ms infinite;
-    content: "\2026"; /* ascii code for the ellipsis character */
-    width: 0px;
-  }
-}
-
-@keyframes ellipsis {
-  to {
-    width: 1.5em;
-  }
-}
-
-abbr[title] {
-  text-decoration: none;
-}
+@import "loader";
 
 .disclaimer {
   margin-top: 1em;
@@ -148,378 +92,11 @@ abbr[title] {
   }
 }
 
-// SEARCH
-
-$search-horizontal-padding: 8px;
-
-.search {
-  &__input-container {
-    position: relative;
-  }
-
-  &__input {
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    color: $input-text-color;
-    padding: 10px $search-horizontal-padding;
-    width: 100%;
-    background: $search-bg-color;
-    @media (prefers-color-scheme: dark) {
-      background: $search-bg-color-dark;
-    }
-
-    &--clearable {
-      border-radius: 8px 8px 0 0;
-    }
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
-      color: lighten($input-text-color, 30%);
-      @media (prefers-color-scheme: dark) {
-        color: darken($input-text-color-dark, 30%);
-      }
-    }
-
-    @media (prefers-color-scheme: dark) {
-      color: $input-text-color-dark;
-    }
-
-    // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
-    @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
-      font-size: 16px;
-      -webkit-appearance: none;
-    }
-  }
-
-  &__clear-button {
-    position: absolute;
-    right: 0;
-    width: 30px;
-    color: $body-color;
-    outline: none;
-    font-size: 25px;
-    font-weight: 300;
-    align-content: center;
-    text-align: center;
-    @media (prefers-color-scheme: dark) {
-      color: $body-color-dark;
-    }
-  }
-
-  &__error {
-    color: $action-color;
-    padding-left: $default-padding;
-    font-weight: 500;
-
-    @media (prefers-color-scheme: dark) {
-      color: $action-color-dark;
-    }
-  }
-
-  &__results {
-    border-radius: 8px;
-    border-width: 1px;
-    background: $search-bg-color;
-    @media (prefers-color-scheme: dark) {
-      background: $search-bg-color-dark;
-    }
-
-    min-width: $min-width - (2 * $default-padding);
-
-    a {
-      display: block;
-      padding: 6px $search-horizontal-padding;
-      border: none;
-
-      &.active {
-        background: $hover-color;
-        @media (prefers-color-scheme: dark) {
-          background: $hover-color-dark;
-        }
-      }
-      &:hover {
-        background: $hover-color;
-        text-decoration: none;
-        @media (prefers-color-scheme: dark) {
-          background: $hover-color-dark;
-        }
-      }
-
-      font-size: 15px;
-
-      @media screen and (min-width: $max-width) {
-        font-size: 14px;
-      }
-    }
-
-    li:first-child a:hover {
-      border-radius: 8px 8px 0 0;
-    }
-    li:last-child a:hover {
-      border-radius: 0 0 8px 8px;
-    }
-  }
-
-  &__loader {
-    padding: 5px $search-horizontal-padding;
-    font-style: italic;
-    font-size: 13px;
-  }
-
-  &__highlight {
-    background-color: transparent;
-    font-weight: 600;
-    color: $action-color;
-    @media (prefers-color-scheme: dark) {
-      color: $action-color-dark;
-    }
-  }
-}
-
-// MATCHES
-
-.matches {
-  &__container {
-    width: 100%;
-    table-layout: fixed;
-
-    tbody tr {
-      cursor: pointer;
-      border-top: 1px solid $separator-color;
-
-      &:first-child {
-        border-top: none;
-      }
-
-      &:hover {
-        background: $hover-color;
-        @media (prefers-color-scheme: dark) {
-          background: $hover-color-dark;
-        }
-      }
-
-      @media (prefers-color-scheme: dark) {
-        border-top: 1px solid $separator-color-dark;
-      }
-    }
-
-    td {
-      padding: 8px 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: clip;
-    }
-
-    .min,
-    .period,
-    .date {
-      font-weight: 600;
-      width: 60px;
-    }
-
-    .date {
-      font-weight: 600;
-    }
-
-    .host {
-      text-align: right;
-    }
-
-    .status {
-      text-align: center;
-      font-weight: 600;
-      width: 60px;
-      white-space: normal;
-    }
-  }
-}
-
-// SCORE
-
-.live {
-  color: #c33;
-  animation: blinker 1s linear infinite;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0.5;
-  }
-}
-
-// COMPETITION
-
-.competition {
-  &__container {
-    overflow: auto;
-    font-size: 13px;
-  }
-}
-
-// COMPETITION STANDINGS
-
-$blurred-text-color: #888;
-
-.standings {
-  table {
-    margin: $default-padding 0;
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  tbody tr {
-    border-top: 1px solid $separator-color;
-    @media (prefers-color-scheme: dark) {
-      border-top: 1px solid $separator-color-dark;
-    }
-  }
-
-  th,
-  td {
-    text-align: center;
-    padding: $default-padding 7px;
-
-    overflow: hidden;
-    text-overflow: clip;
-    white-space: nowrap;
-  }
-
-  th {
-    text-align: center;
-    color: $blurred-text-color;
-    font-weight: normal;
-  }
-
-  .rank {
-    color: $blurred-text-color;
-    width: 40px;
-  }
-  .team {
-    text-align: left;
-    font-weight: 500;
-  }
-  .mp {
-    width: 40px;
-  }
-  .gd {
-    width: 60px;
-  }
-  .pts {
-    font-weight: 700;
-    width: 40px;
-  }
-
-  .zone {
-    span {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      line-height: 24px;
-      border-radius: 12px;
-      color: #fff;
-    }
-
-    &-1 span {
-      background-color: #388e3c;
-    }
-    &-2 span {
-      background-color: #00796b;
-    }
-    &-3 span {
-      background-color: #0097a7;
-    }
-    &-4 span {
-      background-color: #1976d2;
-    }
-    &-5 span {
-      background-color: #303f9f;
-    }
-    &-11 span {
-      background-color: #ffa000;
-    }
-    &-12 span {
-      background-color: #f57c00;
-    }
-    &-13 span {
-      background-color: #e64a19;
-    }
-    &-14 span {
-      background-color: #5d4037;
-    }
-    &-15 span {
-      background-color: #455a64;
-    }
-  }
-
-  @media screen and (min-width: $max-width) {
-    table {
-      table-layout: auto;
-    }
-    .mp,
-    .gd {
-      width: auto;
-    }
-  }
-}
-
-// MATCH
-
-.match {
-  &__container {
-    p {
-      margin: 1em 0;
-
-      &:first-child {
-        margin-top: 0;
-      }
-    }
-  }
-
-  &__goals span,
-  &__cards span,
-  &__penalty-shootout span {
-    &:after {
-      content: ", ";
-    }
-
-    &:last-child:after {
-      content: none;
-    }
-  }
-
-  &__players {
-    span {
-      &:first-child:before {
-        content: none;
-      }
-      &:before {
-        content: ", ";
-      }
-
-      &.in {
-        &:before {
-          content: " (";
-        }
-        &:after {
-          content: ")";
-        }
-      }
-    }
-  }
-}
-
-// ERROR PAGE
-
-.error {
-  &__wrapper {
-    p {
-      margin: 3em 0 5em;
-      padding: 0 0.5em;
-      font-weight: 500;
-    }
-  }
-}
+@import "search";
+@import "matches";
+@import "score";
+@import "competition";
+@import "standings";
+@import "match";
+@import "error";
+@import "competitions";

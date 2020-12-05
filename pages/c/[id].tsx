@@ -1,13 +1,12 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Layout from "components/layout";
-import Fixtures from "components/Fixtures";
+import Layout from "components/Layout";
+import { Loader } from "components/Layout";
 import LegacyStandings from "components/competition/standings";
 import { MAX_CACHE_TIME } from "common/config";
 import * as History from "common/history";
 import { fetchResources, useResource, resourcePatterns } from "common/hyena";
-import mergeFixtures from "common/util/mergeFixtures";
-import Loader from "components/Loader";
+import PaginatedFixtures from "components/PaginatedFixtures";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -56,7 +55,7 @@ export default function CompetitionPage(props: any) {
   if (router.isFallback || loading) {
     return (
       <Layout title={false}>
-        <p className="block wrapped">
+        <p className="container block">
           <span className="loader">Loading</span>
         </p>
       </Layout>
@@ -66,14 +65,40 @@ export default function CompetitionPage(props: any) {
   const seasonId = competition?.season?.["season_id"];
 
   return (
-    <Layout title={title(competition)}>
-      <h1 className="competition__title block wrapped">{title(competition)}</h1>
-
+    <Layout title={title(competition)} header={title(competition)}>
       <div className="competition__container">
-        <SeasonFixtures seasonId={seasonId} />
+        <SeasonRecentMatches seasonId={seasonId} />
+        <SeasonUpcomingFixtures seasonId={seasonId} />
         <SeasonStandings seasonId={seasonId} />
       </div>
     </Layout>
+  );
+}
+
+function SeasonRecentMatches({ seasonId }: { seasonId: string }) {
+  const resourceResult = useResource(
+    () => seasonId && resourcePatterns.seasonRecentFixtures(seasonId)
+  );
+
+  return (
+    <PaginatedFixtures
+      resourceResult={resourceResult}
+      header="Recent matches"
+      initialPage="last"
+    />
+  );
+}
+
+function SeasonUpcomingFixtures({ seasonId }: { seasonId: string }) {
+  const resourceResult = useResource(
+    () => seasonId && resourcePatterns.seasonUpcomingFixtures(seasonId)
+  );
+
+  return (
+    <PaginatedFixtures
+      resourceResult={resourceResult}
+      header="Upcoming fixtures"
+    />
   );
 }
 
@@ -86,39 +111,4 @@ function SeasonStandings({ seasonId }: { seasonId: string }) {
   }
   if (!loading && !standings) return null;
   return <LegacyStandings rounds={standings} />;
-}
-
-function SeasonFixtures({ seasonId }: { seasonId: string }) {
-  const {
-    data: recentFixtures,
-    error: recentFixturesError,
-    loading: recentFixturesLoading,
-  } = useResource(
-    () => seasonId && resourcePatterns.seasonRecentFixtures(seasonId)
-  );
-  const {
-    data: upcomingFixtures,
-    error: upcomingFixturesError,
-    loading: upcomingFixturesLoading,
-  } = useResource(
-    () => seasonId && resourcePatterns.seasonUpcomingFixtures(seasonId)
-  );
-
-  const error = recentFixturesError || upcomingFixturesError;
-  if (error) console.log(error);
-
-  const fixtures = mergeFixtures(recentFixtures, upcomingFixtures, 10);
-
-  const loading = recentFixturesLoading || upcomingFixturesLoading;
-  if (!loading && !fixtures?.length) return null;
-
-  return (
-    <div className="block wrapped">
-      {!recentFixtures?.length && recentFixturesLoading && <Loader noWrapper />}
-      <Fixtures fixtures={fixtures} />
-      {!upcomingFixtures?.length && upcomingFixturesLoading && (
-        <Loader noWrapper />
-      )}
-    </div>
-  );
 }

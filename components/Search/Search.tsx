@@ -83,7 +83,7 @@ export function Search() {
   };
 
   return (
-    <header className="search__container block" role="banner">
+    <header className="search__container" role="banner">
       <div className="search__input-container" role="search">
         <input
           type="text"

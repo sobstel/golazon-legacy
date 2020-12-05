@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { formatDate, formatTime } from "../../common/util/date";
-import Layout from "../../components/layout";
+import Layout from "components/Layout";
 import Score from "../../components/shared/score";
 import Goals from "../../components/match/goals";
 import PenaltyShootout from "../../components/match/penalty_shootout";
@@ -9,7 +9,7 @@ import Lineups from "../../components/match/lineups";
 import Cards from "../../components/match/cards";
 import Venue from "../../components/match/venue";
 import { useResource, fetchResources, resourcePatterns } from "common/hyena";
-import Loader from "components/Loader";
+import { Loader } from "components/Layout";
 
 export async function getStaticPaths() {
   return { paths: [], fallback: true };
@@ -52,7 +52,7 @@ export default function MatchPage(props: any) {
 
   return (
     <Layout title={title(match)}>
-      <h1 className="match__title block wrapped">
+      <h1 className="match__title container block">
         {match.match_id && (
           <span>
             <Link href={`/t/${match["home_id"]}`}>
@@ -67,7 +67,7 @@ export default function MatchPage(props: any) {
         )}
       </h1>
 
-      <div className="block wrapped">
+      <div className="container block">
         {formatDate(match.date, match.time)}
         {", "}
         {formatTime(match.date, match.time)}
@@ -82,7 +82,7 @@ export default function MatchPage(props: any) {
         </Link>
       </div>
 
-      <div className="match__container block wrapped">
+      <div className="match__container container">
         <Goals match={match} />
         <PenaltyShootout match={match} />
         <Lineups match={match} />

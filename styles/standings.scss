@@ -1,0 +1,102 @@
+$blurred-text-color: #888;
+
+.standings {
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  tbody tr {
+    border-top: 1px solid $separator-color;
+    @media (prefers-color-scheme: dark) {
+      border-top: 1px solid $separator-color-dark;
+    }
+  }
+
+  th,
+  td {
+    text-align: center;
+    padding: $default-padding 7px;
+
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+
+  th {
+    text-align: center;
+    color: $blurred-text-color;
+    font-weight: 300;
+  }
+
+  .rank {
+    color: $blurred-text-color;
+    width: 40px;
+  }
+  .team {
+    text-align: left;
+    font-weight: 500;
+  }
+  .mp {
+    width: 40px;
+  }
+  .gd {
+    width: 60px;
+  }
+  .pts {
+    font-weight: 500;
+    width: 40px;
+  }
+
+  .zone {
+    span {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    &-1 span {
+      background-color: #388e3c;
+    }
+    &-2 span {
+      background-color: #00796b;
+    }
+    &-3 span {
+      background-color: #0097a7;
+    }
+    &-4 span {
+      background-color: #1976d2;
+    }
+    &-5 span {
+      background-color: #303f9f;
+    }
+    &-11 span {
+      background-color: #ffa000;
+    }
+    &-12 span {
+      background-color: #f57c00;
+    }
+    &-13 span {
+      background-color: #e64a19;
+    }
+    &-14 span {
+      background-color: #5d4037;
+    }
+    &-15 span {
+      background-color: #455a64;
+    }
+  }
+
+  @media screen and (min-width: $max-width) {
+    table {
+      table-layout: auto;
+    }
+    .mp,
+    .gd {
+      width: auto;
+    }
+  }
+}

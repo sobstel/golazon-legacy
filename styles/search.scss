@@ -1,0 +1,129 @@
+$search-horizontal-padding: 8px;
+
+.search {
+  &__input-container {
+    position: relative;
+  }
+
+  &__input {
+    font-size: 1.11em;
+    border: none;
+    border-radius: 8px;
+    color: $body-color;
+    padding: 0.66em $search-horizontal-padding;
+    width: 100%;
+    background: $search-bg-color;
+    @media (prefers-color-scheme: dark) {
+      background: $search-bg-color-dark;
+    }
+
+    &--clearable {
+      border-radius: 8px 8px 0 0;
+    }
+
+    &:focus {
+      outline: 0;
+      background: $block-bg-color;
+      @media (prefers-color-scheme: dark) {
+        background: $block-bg-color-dark;
+      }
+    }
+
+    &::placeholder {
+      color: lighten($body-color, 50%);
+      @media (prefers-color-scheme: dark) {
+        color: darken($body-color-dark, 30%);
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      color: $body-color-dark;
+    }
+
+    // experimental: prevent special behaviour for iphone (auto-zoom on focus and inner box shadow)
+    @media screen and (-webkit-min-device-pixel-ratio: 0) and (max-device-width: 480px) {
+      font-size: 16px;
+      -webkit-appearance: none;
+    }
+  }
+
+  &__clear-button {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    color: $body-color;
+    outline: none;
+    font-size: 25px;
+    font-weight: 300;
+    align-content: center;
+    text-align: center;
+    @media (prefers-color-scheme: dark) {
+      color: $body-color-dark;
+    }
+
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    // Remove border radius added by Chrome macOS
+    border-radius: 0;
+  }
+
+  &__error {
+    color: $action-color;
+    padding-left: $default-padding;
+    font-weight: 500;
+
+    @media (prefers-color-scheme: dark) {
+      color: $action-color-dark;
+    }
+  }
+
+  &__results {
+    border-radius: 8px;
+    border-width: 1px;
+    background: $block-bg-color;
+    @media (prefers-color-scheme: dark) {
+      background: $block-bg-color-dark;
+    }
+
+    min-width: $min-width - (2 * $default-padding);
+
+    a {
+      display: block;
+      padding: 6px $search-horizontal-padding;
+      border: none;
+
+      font-size: 15px;
+
+      @media screen and (min-width: $max-width) {
+        font-size: 14px;
+      }
+    }
+
+    li {
+      list-style-type: none;
+    }
+    li:first-child a:hover {
+      border-radius: 8px 8px 0 0;
+    }
+    li:last-child a:hover {
+      border-radius: 0 0 8px 8px;
+    }
+  }
+
+  &__loader {
+    padding: 5px $search-horizontal-padding;
+    font-style: italic;
+    font-size: 13px;
+  }
+
+  &__highlight {
+    background-color: transparent;
+    font-weight: 500;
+    color: $action-color;
+    @media (prefers-color-scheme: dark) {
+      color: $action-color-dark;
+    }
+  }
+}

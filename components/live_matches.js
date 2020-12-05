@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Fixtures from "components/Fixtures";
-import Loader from "components/Loader";
+import { Fixtures, Loader } from "components/Layout";
 import { useResource, resourcePatterns } from "common/hyena";
 import groupFixturesByCompetitionId from "common/util/groupFixturesByCompetitionId";
 
@@ -18,7 +17,7 @@ export default function LiveMatches() {
     : [];
 
   return (
-    <div className="home__wrapper block wrapped">
+    <div className="home__wrapper container block">
       {groupedMatches.map((item) => (
         <div key={item.competition.id}>
           <h2>

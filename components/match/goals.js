@@ -11,8 +11,8 @@ export default class Goals extends Component {
     return (
       <div className="match__goals">
         <h2>Goals</h2>
-        <p>
-          {match.goals.map(goal => (
+        <p className="block">
+          {match.goals.map((goal) => (
             <span key={`${goal.name}-${goal.code}-${goal.min}`}>
               {goal.name} {goal.min}&apos;&nbsp;
               {goal.code !== "G" && `[${goal.code}] `}(

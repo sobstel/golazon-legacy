@@ -1,0 +1,48 @@
+.matches {
+  &__container {
+    width: 100%;
+    table-layout: fixed;
+
+    tbody tr {
+      cursor: pointer;
+      border-top: 1px solid $separator-color;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        border-top: 1px solid $separator-color-dark;
+      }
+    }
+
+    td {
+      padding: 8px 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+    }
+
+    .min,
+    .period,
+    .date {
+      font-weight: 500;
+      width: 60px;
+    }
+
+    .date {
+      font-weight: 500;
+    }
+
+    .host {
+      text-align: right;
+    }
+
+    .status {
+      text-align: center;
+      font-weight: 500;
+      width: 60px;
+      white-space: normal;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import Layout from "components/layout";
+import Layout from "components/Layout";
 import LiveMatches from "components/live_matches";
 import { MAX_CACHE_TIME } from "common/config";
 

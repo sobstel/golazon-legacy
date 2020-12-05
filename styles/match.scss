@@ -1,0 +1,43 @@
+.match {
+  &__container {
+    p {
+      margin: 1em 0;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__goals span,
+  &__cards span,
+  &__penalty-shootout span {
+    &:after {
+      content: ", ";
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+  }
+
+  &__players {
+    span {
+      &:first-child:before {
+        content: none;
+      }
+      &:before {
+        content: ", ";
+      }
+
+      &.in {
+        &:before {
+          content: " (";
+        }
+        &:after {
+          content: ")";
+        }
+      }
+    }
+  }
+}

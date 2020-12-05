@@ -11,7 +11,7 @@ export default class Cards extends Component {
     return (
       <div className="match__cards">
         <h2>Cards</h2>
-        <p>
+        <p className="block">
           {match.cards.map((event, index) => (
             <span key={`${event.name}-${event.min}-${event.code}`}>
               {event.name} {event.min}&apos; ({event.code})

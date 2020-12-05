@@ -18,7 +18,7 @@ export const resourcePatterns = {
 };
 
 type ResourcePattern = typeof resourcePatterns[keyof typeof resourcePatterns];
-type ResourceResult = {
+export type ResourceResult = {
   data: Record<string, unknown> | Record<string, unknown>[];
   error?: string;
   loading?: boolean;

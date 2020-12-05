@@ -1,8 +1,14 @@
-import { StrictMode } from "react";
+import { ReactNode, StrictMode } from "react";
 import Head from "next/head";
-import Search from "../features/search";
+import Search from "../Search";
 
-export default function Layout({ children, title }) {
+type Props = {
+  title: string | false;
+  header?: string;
+  children?: ReactNode;
+};
+
+export function Layout({ title, header, children }: Props) {
   return (
     <div>
       <Head>
@@ -38,12 +44,20 @@ export default function Layout({ children, title }) {
 
       <div id="app">
         <StrictMode>
-          <Search />
+          <div className="container">
+            <Search />
+          </div>
+
+          {header && (
+            <div className="container block">
+              <h1>{header}</h1>
+            </div>
+          )}
 
           {children}
         </StrictMode>
 
-        <p className="disclaimer block">
+        <p className="disclaimer container">
           football data mnmlist way (
           <a
             href="https://github.com/sobstel/golazon"

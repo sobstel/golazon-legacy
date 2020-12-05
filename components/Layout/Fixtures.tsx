@@ -5,7 +5,7 @@ import Score from "components/shared/score";
 // TODO: type: hyena
 type Props = { fixtures: any };
 
-export default function Fixtures({ fixtures }: Props) {
+export function Fixtures({ fixtures }: Props) {
   if (!fixtures?.length) {
     return null;
   }

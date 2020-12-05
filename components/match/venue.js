@@ -11,12 +11,10 @@ export default class Venue extends Component {
     return (
       <div>
         <h2>Venue</h2>
-        <p>
+        <p className="block">
           {match.venue.name} ({match.venue.city})
         </p>
       </div>
     );
   }
 }
-
-

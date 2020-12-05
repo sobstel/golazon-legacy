@@ -1604,14 +1604,13 @@
     "area_name": "Australia"
   },
   {
-    "competition_id": "wl1v",
-    "name": "Queensland NPL Youth League",
-    "teamtype": "youth",
+    "competition_id": "l0pg",
+    "name": "Queensland Premier League 2",
     "area_name": "Australia"
   },
   {
-    "competition_id": "gxpz",
-    "name": "Queensland NPL 2 Youth",
+    "competition_id": "wl1v",
+    "name": "Queensland NPL Youth League",
     "teamtype": "youth",
     "area_name": "Australia"
   },
@@ -1619,6 +1618,12 @@
     "competition_id": "r748",
     "name": "UEFA Nations League",
     "area_name": "Europe"
+  },
+  {
+    "competition_id": "gxpz",
+    "name": "Queensland NPL 2 Youth",
+    "teamtype": "youth",
+    "area_name": "Australia"
   },
   {
     "competition_id": "l093",
@@ -1974,9 +1979,9 @@
     "area_name": "Australia"
   },
   {
-    "competition_id": "k0w7",
-    "name": "Victoria NPL Women",
-    "teamtype": "women",
+    "competition_id": "7lre",
+    "name": "Victoria NPL 2 Youth",
+    "teamtype": "youth",
     "area_name": "Australia"
   },
   {
@@ -1985,8 +1990,9 @@
     "area_name": "N/C America"
   },
   {
-    "competition_id": "k0py",
-    "name": "Victoria Play-offs 1/2",
+    "competition_id": "k0w7",
+    "name": "Victoria NPL Women",
+    "teamtype": "women",
     "area_name": "Australia"
   },
   {
@@ -2018,6 +2024,11 @@
     "competition_id": "l1v",
     "name": "Tercera Division",
     "area_name": "Spain"
+  },
+  {
+    "competition_id": "k0py",
+    "name": "Victoria Play-offs 1/2",
+    "area_name": "Australia"
   },
   {
     "competition_id": "xmkv",
@@ -5545,6 +5556,11 @@
     "area_name": "Peru"
   },
   {
+    "competition_id": "kgvk",
+    "name": "Play-offs 2/3",
+    "area_name": "Belarus"
+  },
+  {
     "competition_id": "gx10",
     "name": "Play-offs 3/4",
     "area_name": "Korea Republic"
@@ -5602,9 +5618,8 @@
     "area_name": "Netherlands"
   },
   {
-    "competition_id": "jepe",
-    "name": "CECAFA Women's Senior Challenge Cup",
-    "teamtype": "women",
+    "competition_id": "g7l0",
+    "name": "CECAFA Senior Challenge Cup",
     "area_name": "Africa"
   },
   {
@@ -5668,8 +5683,9 @@
     "area_name": "Europe"
   },
   {
-    "competition_id": "g7l0",
-    "name": "CECAFA Senior Challenge Cup",
+    "competition_id": "jj59",
+    "name": "CECAFA U20 Championship",
+    "teamtype": "youth",
     "area_name": "Africa"
   },
   {
@@ -5685,6 +5701,12 @@
     "competition_id": "8nk",
     "name": "Tocantinense",
     "area_name": "Brazil"
+  },
+  {
+    "competition_id": "jepe",
+    "name": "CECAFA Women's Senior Challenge Cup",
+    "teamtype": "women",
+    "area_name": "Africa"
   },
   {
     "competition_id": "lmev",
@@ -6138,6 +6160,11 @@
     "area_name": "Belarus"
   },
   {
+    "competition_id": "e0g3",
+    "name": "Reserve League",
+    "area_name": "El Salvador"
+  },
+  {
     "competition_id": "m89m",
     "name": "Reserve Prime League",
     "area_name": "Singapore"
@@ -6431,6 +6458,12 @@
     "competition_id": "977m",
     "name": "U17 Club Friendlies",
     "teamtype": "youth"
+  },
+  {
+    "competition_id": "y78g",
+    "name": "MLS Next U17 Friendlies",
+    "teamtype": "youth",
+    "area_name": "USA"
   },
   {
     "competition_id": "l003",
@@ -7988,6 +8021,12 @@
     "teamtype": "women"
   },
   {
+    "competition_id": "257d",
+    "name": "Gaúcho Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "9y21",
     "name": "Four Nations Tournament",
     "teamtype": "women"
@@ -8025,6 +8064,12 @@
     "competition_id": "11xr",
     "name": "Kubanskaya Vesna U19",
     "teamtype": "women"
+  },
+  {
+    "competition_id": 4351,
+    "name": "Paraibano Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "8lye",
@@ -8421,6 +8466,12 @@
     "name": "Women's Play-offs 2/3",
     "teamtype": "women",
     "area_name": "Scotland"
+  },
+  {
+    "competition_id": "d5xz",
+    "name": "Copa Paulista Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "rm1d",

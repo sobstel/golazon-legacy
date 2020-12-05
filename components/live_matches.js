@@ -8,7 +8,7 @@ export default function LiveMatches() {
     resourcePatterns.liveMatches()
   );
 
-  if (loading) {
+  if (!liveMatches && loading) {
     return (
       <div className="home__container container">
         <Loader noWrapper />

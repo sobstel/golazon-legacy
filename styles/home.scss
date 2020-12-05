@@ -1,0 +1,9 @@
+.home {
+  &__container {
+    margin-top: 1rem;
+
+    p {
+      margin-left: $default-padding;
+    }
+  }
+}

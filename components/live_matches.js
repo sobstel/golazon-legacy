@@ -9,7 +9,11 @@ export default function LiveMatches() {
   );
 
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="home__container container">
+        <Loader noWrapper />
+      </div>
+    );
   }
 
   const groupedMatches = liveMatches?.length
@@ -17,7 +21,7 @@ export default function LiveMatches() {
     : [];
 
   return (
-    <div className="home__wrapper container block">
+    <div className="home__container container">
       {groupedMatches.map((item) => (
         <div key={item.competition.id}>
           <h2>
@@ -30,7 +34,9 @@ export default function LiveMatches() {
               </a>
             </Link>
           </h2>
-          <Fixtures fixtures={item.matches} />
+          <div className="block">
+            <Fixtures fixtures={item.matches} />
+          </div>
         </div>
       ))}
 

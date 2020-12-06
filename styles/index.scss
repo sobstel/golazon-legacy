@@ -5,7 +5,7 @@
 
 body {
   padding: 1em 0;
-  background: $primary-bg-color;
+  background: $body-bg-color;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
     sans-serif;
   font-size: 14px;
@@ -14,7 +14,7 @@ body {
 
   @media (prefers-color-scheme: dark) {
     color: $body-color-dark;
-    background: $primary-bg-color-dark;
+    background: $body-bg-color-dark;
   }
 }
 

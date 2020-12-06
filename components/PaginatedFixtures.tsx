@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, MouseEvent } from "react";
+import classNames from "classnames";
 import { ResourceResult } from "common/hyena";
 import { Loader, Fixtures } from "components/Layout";
 
@@ -9,6 +10,33 @@ function getLastPage(fixtures) {
     return false;
   }
   return Math.ceil(fixtures.length / PAGE_SIZE);
+}
+
+function PaginationLink({
+  active,
+  text,
+  onClick,
+}: {
+  active: boolean;
+  text: string;
+  onClick: () => void;
+}) {
+  const handleClick = (e: MouseEvent) => {
+    e.preventDefault();
+    if (active) {
+      onClick();
+    }
+  };
+
+  return (
+    <a
+      href=""
+      onClick={handleClick}
+      className={classNames({ disabled: !active })}
+    >
+      {text}
+    </a>
+  );
 }
 
 export default function PaginatedFixtures({
@@ -38,14 +66,8 @@ export default function PaginatedFixtures({
     }
   }, [initialPage, fixtures]);
 
-  const handlePrev = (e) => {
-    setPage(page - 1);
-    e.preventDefault();
-  };
-  const handleNext = (e) => {
-    setPage(page + 1);
-    e.preventDefault();
-  };
+  const handlePrev = () => hasPrevPage && setPage(page - 1);
+  const handleNext = () => hasNextPage && setPage(page + 1);
 
   const sliceStart = (page - 1) * PAGE_SIZE;
   const pageFixtures = fixtures?.slice(sliceStart, sliceStart + PAGE_SIZE);
@@ -56,16 +78,16 @@ export default function PaginatedFixtures({
       <h2 className="paginated-fixtures__header">
         {header}
         <div className="paginated-fixtures__nav">
-          {hasPrevPage && (
-            <a href="" onClick={handlePrev}>
-              ❮ prev
-            </a>
-          )}
-          {hasNextPage && (
-            <a href="" onClick={handleNext}>
-              next ❯
-            </a>
-          )}
+          <PaginationLink
+            active={hasPrevPage}
+            text="❮ prev"
+            onClick={handlePrev}
+          />
+          <PaginationLink
+            active={hasNextPage}
+            text="next ❯"
+            onClick={handleNext}
+          />
         </div>
       </h2>
       <div className="block">

@@ -15,6 +15,13 @@ $logo-size: 44px;
     height: $logo-size;
     margin-right: 0.5rem;
   }
+
+  &__background {
+    color: $block-bg-color;
+    @media (prefers-color-scheme: dark) {
+      color: $block-bg-color-dark;
+    }
+  }
 }
 
 $search-horizontal-padding: 8px;

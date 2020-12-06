@@ -19,13 +19,13 @@ body {
 }
 
 h1 {
-  font-size: 1.05em;
+  font-size: 1.05rem;
   padding: 0 $default-padding;
   font-weight: 500;
 }
 
 h2 {
-  font-size: 0.95em;
+  font-size: 0.95rem;
   text-transform: uppercase;
   font-weight: 500;
   padding: 0 $default-padding;
@@ -68,8 +68,8 @@ abbr[title] {
 }
 
 .block {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
   padding: $default-padding;
   background: $block-bg-color;
@@ -96,8 +96,8 @@ abbr[title] {
 @import "paginated-fixtures";
 
 .disclaimer {
-  margin-top: 1em;
-  margin-bottom: 2em;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   font-style: italic;
   padding: 0 $default-padding;
   font-size: 12px;

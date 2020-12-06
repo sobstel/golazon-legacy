@@ -1,6 +1,5 @@
-export { Layout as default } from "./Layout";
+export { default } from "./Layout";
 
-export { Competitions } from "./Competitions";
-export { Fixtures } from "./Fixtures";
-
-export { Loader } from "./Loader";
+export { default as Competitions } from "./Competitions";
+export { default as Fixtures } from "./Fixtures";
+export { default as Loader } from "./Loader";

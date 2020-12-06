@@ -22,7 +22,12 @@ const KEY_CODES = {
   ENTER: 13,
 };
 
-export function Search() {
+type Props = {
+  onFocus?: () => void;
+  onBlur?: () => void;
+};
+
+export function Search({ onFocus, onBlur }: Props) {
   const [
     { query, results, loading, error, selectedIndex },
     dispatch,
@@ -54,6 +59,7 @@ export function Search() {
       dispatch(resultsChange([]));
       dispatch(queryChange(""));
       Router.push(`/c/${results[index]["competition_id"]}`);
+      input.current.blur();
     }
   };
   const handleChange = (e) => {
@@ -63,9 +69,11 @@ export function Search() {
   };
   const handleFocus = () => {
     asyncDispatch(asyncSearch(query, results));
+    onFocus && onFocus();
   };
   const handleBlur = () => {
     dispatch(resultsChange([]));
+    onBlur && onBlur();
   };
   const handleClear = () => {
     dispatch(queryChange(""));

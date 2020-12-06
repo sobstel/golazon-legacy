@@ -1,6 +1,6 @@
 import { ReactNode, StrictMode } from "react";
 import Head from "next/head";
-import Search from "../Search";
+import SiteHead from "./SiteHead";
 
 type Props = {
   title: string | false;
@@ -8,7 +8,7 @@ type Props = {
   children?: ReactNode;
 };
 
-export function Layout({ title, header, children }: Props) {
+export default function Layout({ title, header, children }: Props) {
   return (
     <div>
       <Head>
@@ -44,9 +44,7 @@ export function Layout({ title, header, children }: Props) {
 
       <div id="app">
         <StrictMode>
-          <div className="container">
-            <Search />
-          </div>
+          <SiteHead />
 
           {header && (
             <div className="container block">

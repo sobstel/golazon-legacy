@@ -78,6 +78,15 @@ abbr[title] {
 }
 
 @import "loader";
+@import "head";
+@import "matches";
+@import "score";
+@import "competition";
+@import "standings";
+@import "match";
+@import "error";
+@import "competitions";
+@import "home";
 
 .disclaimer {
   margin-top: 1em;
@@ -91,13 +100,3 @@ abbr[title] {
     text-decoration: none;
   }
 }
-
-@import "search";
-@import "matches";
-@import "score";
-@import "competition";
-@import "standings";
-@import "match";
-@import "error";
-@import "competitions";
-@import "home";

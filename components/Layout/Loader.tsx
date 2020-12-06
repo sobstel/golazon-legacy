@@ -1,4 +1,4 @@
-export function Loader({ noWrapper }: { noWrapper?: boolean }) {
+export default function Loader({ noWrapper }: { noWrapper?: boolean }) {
   const loaderContent = <p className="loader">Loading</p>;
 
   if (noWrapper) {

@@ -1,6 +1,29 @@
+.head {
+  display: flex;
+  align-items: center;
+}
+
+$logo-size: 44px;
+
+.logo {
+  width: $logo-size;
+  height: $logo-size;
+
+  &__container {
+    display: inline-block;
+    width: $logo-size;
+    height: $logo-size;
+    margin-right: 0.5rem;
+  }
+}
+
 $search-horizontal-padding: 8px;
 
 .search {
+  &__container {
+    flex-grow: 1;
+  }
+
   &__input-container {
     position: relative;
   }
@@ -98,6 +121,13 @@ $search-horizontal-padding: 8px;
 
       @media screen and (min-width: $max-width) {
         font-size: 14px;
+      }
+
+      &.active {
+        font-weight: 700;
+        &:before {
+          content: "❯ ";
+        }
       }
     }
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 // TODO: type: hyena types required
 type Props = { competitions: any };
 
-export function Competitions({ competitions }: Props) {
+export default function Competitions({ competitions }: Props) {
   if (!competitions?.length) {
     return null;
   }

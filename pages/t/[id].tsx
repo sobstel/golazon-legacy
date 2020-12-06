@@ -44,8 +44,7 @@ export default function TeamPage(props: any) {
   const teamId = team?.["team_id"];
 
   return (
-    <Layout title={team.name}>
-      <h1 className="team__title container block">{team.name}</h1>
+    <Layout title={team.name} header={team.name}>
       <div className="team__container">
         <Competitions competitions={competitions} />
         <TeamRecentMatches teamId={teamId} />

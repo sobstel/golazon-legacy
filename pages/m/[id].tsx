@@ -50,23 +50,21 @@ export default function MatchPage(props: any) {
 
   const match = clientData || serverData;
 
-  return (
-    <Layout title={title(match)}>
-      <h1 className="match__title container block">
-        {match.match_id && (
-          <span>
-            <Link href={`/t/${match["home_id"]}`}>
-              <a> {match.home_name} </a>
-            </Link>
-            -
-            <Link href={`/t/${match["away_id"]}`}>
-              <a> {match.away_name} </a>
-            </Link>
-            <Score match={match} />
-          </span>
-        )}
-      </h1>
+  const header = match.match_id && (
+    <span>
+      <Link href={`/t/${match["home_id"]}`}>
+        <a> {match.home_name} </a>
+      </Link>
+      -
+      <Link href={`/t/${match["away_id"]}`}>
+        <a> {match.away_name} </a>
+      </Link>
+      <Score match={match} />
+    </span>
+  );
 
+  return (
+    <Layout title={title(match)} header={header}>
       <div className="container block">
         {formatDate(match.date, match.time)}
         {", "}

@@ -4,7 +4,7 @@ import SiteHead from "./SiteHead";
 
 type Props = {
   title: string | false;
-  header?: string;
+  header?: string | ReactNode;
   children?: ReactNode;
 };
 

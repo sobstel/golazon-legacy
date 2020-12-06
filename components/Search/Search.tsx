@@ -99,7 +99,7 @@ export function Search({ onFocus, onBlur }: Props) {
             "search__input--clearable": clearable,
           })}
           name="q"
-          placeholder="Enter country or tournament name"
+          placeholder="Search"
           onKeyDown={handleKeyDown}
           onKeyUp={handleKeyUp}
           onChange={handleChange}

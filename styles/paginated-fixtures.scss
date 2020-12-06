@@ -1,0 +1,11 @@
+.paginated-fixtures {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__nav {
+    a {
+      margin-left: 0.5rem;
+    }
+  }
+}

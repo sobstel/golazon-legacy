@@ -32,15 +32,21 @@ h2 {
 }
 
 a {
-  color: $action-color;
   text-decoration: none;
 
+  &:link,
+  &:visited,
   &:hover {
-    text-decoration: none;
+    color: $action-color;
+    @media (prefers-color-scheme: dark) {
+      color: $action-color-dark;
+    }
   }
-
-  @media (prefers-color-scheme: dark) {
-    color: $action-color-dark;
+  &:active {
+    color: lighten($action-color, 50);
+    @media (prefers-color-scheme: dark) {
+      color: lighten($action-color-dark, 50);
+    }
   }
 }
 
@@ -87,6 +93,7 @@ abbr[title] {
 @import "error";
 @import "competitions";
 @import "home";
+@import "paginated-fixtures";
 
 .disclaimer {
   margin-top: 1em;

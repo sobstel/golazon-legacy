@@ -12,9 +12,9 @@ export default class Standings extends Component {
     return (
       <div className="standings__container container">
         {rounds.map((round, index) => (
-          <>
+          <div key={index}>
             <h2>{round.name}</h2>
-            <div key={index} className="standings block">
+            <div className="standings block">
               <table className="standings-table">
                 <thead>
                   <tr>
@@ -54,7 +54,7 @@ export default class Standings extends Component {
                 </tbody>
               </table>
             </div>
-          </>
+          </div>
         ))}
       </div>
     );

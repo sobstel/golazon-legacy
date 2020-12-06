@@ -98,6 +98,7 @@ function SeasonUpcomingFixtures({ seasonId }: { seasonId: string }) {
     <PaginatedFixtures
       resourceResult={resourceResult}
       header="Upcoming fixtures"
+      initialPage="first"
     />
   );
 }

@@ -58,12 +58,12 @@ export default function PaginatedFixtures({
         <div className="paginated-fixtures__nav">
           {hasPrevPage && (
             <a href="" onClick={handlePrev}>
-              &lt; prev
+              ❮ prev
             </a>
           )}
           {hasNextPage && (
             <a href="" onClick={handleNext}>
-              next &gt;
+              next ❯
             </a>
           )}
         </div>

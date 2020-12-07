@@ -1,91 +1,9 @@
 @import "variables";
 @import "normalize-scss/sass/normalize";
-@import "base";
 @import "nprogress";
 
-html,
-body {
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif;
-  font-size: $font-size;
-  line-height: 1.5;
-}
-
-body {
-  padding: 1em 0;
-  background: $body-bg-color;
-  color: $body-color;
-
-  @media (prefers-color-scheme: dark) {
-    color: $body-color-dark;
-    background: $body-bg-color-dark;
-  }
-}
-
-h1 {
-  font-size: 1.11 * $font-size;
-  padding: 0 $default-padding;
-  font-weight: 500;
-}
-
-h2 {
-  font-size: $font-size;
-  text-transform: uppercase;
-  font-weight: 500;
-  padding: 0 $default-padding;
-}
-
-a {
-  text-decoration: none;
-
-  &:link,
-  &:visited,
-  &:hover {
-    color: $action-color;
-    @media (prefers-color-scheme: dark) {
-      color: $action-color-dark;
-    }
-  }
-  &:active {
-    color: lighten($action-color, 50);
-    @media (prefers-color-scheme: dark) {
-      color: lighten($action-color-dark, 50);
-    }
-  }
-}
-
-abbr[title] {
-  text-decoration: none;
-}
-
-.container {
-  min-width: $min-width - 12px;
-  margin-left: 6px;
-  margin-right: 6px;
-
-  @media screen and (min-width: $max-width) {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    max-width: $max-width;
-  }
-}
-
-.block {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 10px;
-  padding: $default-padding;
-  background: $block-bg-color;
-  @media (prefers-color-scheme: dark) {
-    background: $block-bg-color-dark;
-  }
-
-  h1 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+@import "base-primer";
+@import "base-golazon";
 
 @import "loader";
 @import "head";
@@ -98,16 +16,4 @@ abbr[title] {
 @import "competitions";
 @import "home";
 @import "paginated-fixtures";
-
-.disclaimer {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  font-style: italic;
-  padding: 0 $default-padding;
-  font-size: 0.8 * $font-size;
-  text-align: center;
-
-  a {
-    text-decoration: none;
-  }
-}
+@import "disclaimer";

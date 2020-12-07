@@ -1,3 +1,11 @@
+// sizes
+$font-size: 14px;
+$logo-size: 44px;
+$min-width: 320px;
+$max-width: 520px;
+$default-padding: 10px;
+$search-horizontal-padding: 8px;
+
 // colors
 $body-color: rgba(0, 0, 0, 0.95);
 $action-color: rgb(250, 35, 59);
@@ -13,8 +21,3 @@ $body-bg-color-dark: rgb(31, 31, 31);
 $block-bg-color-dark: rgba(235, 235, 245, 0.03);
 $search-bg-color-dark: #111;
 $separator-color-dark: #111;
-
-// sizes
-$min-width: 320px;
-$max-width: 520px;
-$default-padding: 10px;

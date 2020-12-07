@@ -5,15 +5,16 @@
 @import "base-primer";
 @import "base-golazon";
 
-@import "loader";
 @import "head";
-@import "matches";
-@import "score";
+@import "footer";
+@import "loader";
+
 @import "competition";
-@import "standings";
-@import "match";
-@import "error";
 @import "competitions";
+@import "error";
 @import "home";
+@import "match";
+@import "matches";
 @import "paginated-fixtures";
-@import "disclaimer";
+@import "score";
+@import "standings";

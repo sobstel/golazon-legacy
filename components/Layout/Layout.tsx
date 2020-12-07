@@ -55,16 +55,26 @@ export default function Layout({ title, header, children }: Props) {
           {children}
         </StrictMode>
 
-        <p className="disclaimer container">
-          football data mnmlist way (
+        <p className="footer container">
+          <a href="https://golazon.com/api/" target="_blank" rel="noreferrer">
+            data api
+          </a>
+          {" • "}
           <a
-            href="https://github.com/sobstel/golazon"
+            href="https://github.com/golazon/golazon"
             target="_blank"
             rel="noreferrer"
           >
-            source
+            github (source)
           </a>
-          )
+          {" • "}
+          <a
+            href="https://github.com/golazon/golazon#readme"
+            target="_blank"
+            rel="noreferrer"
+          >
+            about
+          </a>
         </p>
       </div>
     </div>

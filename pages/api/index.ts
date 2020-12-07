@@ -16,12 +16,20 @@ function content() {
       example: "competitions?q=argentina",
     },
     {
+      name: "competitions/ID",
+      example: "competitions/m3e",
+    },
+    {
       name: "teams/ID",
       example: "teams/8vjk",
     },
     {
       name: "matches/ID",
       example: "matches/kx811k",
+    },
+    {
+      name: "live",
+      example: "live",
     },
   ];
 
@@ -56,7 +64,7 @@ function content() {
       <nav class="menu">
         <div class="inner">
           <a href="#usage">Usage</a>
-          <a href="#glossary">Glossary</a>
+          <a href="#notes">Notes</a>
           <a href="#license">License</a>
           <a href="/" target="_blank">Golazon &gt;</a>
         </div>
@@ -73,11 +81,11 @@ function content() {
           </div>
         </section>
 
-      <section class="section" id="glossary">
+      <section class="section" id="notes">
         <div class="inner">
-          <h2>GLOSSARY</h2>
+          <h2>NOTES</h2>
           <ul>
-            <li>fixtures - basic match info, max 100 items</li>
+            <li>fixtures - basic match info, max 50 items</li>
           </ul>
         </div>
       </section>

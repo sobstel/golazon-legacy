@@ -15,11 +15,9 @@
   }
 
   &__background {
-    color: $block-bg-color;
-    fill: $block-bg-color;
+    fill: #fff;
     @media (prefers-color-scheme: dark) {
-      color: $block-bg-color-dark;
-      fill: $block-bg-color-dark;
+      fill: #333;
     }
   }
 }

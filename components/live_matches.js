@@ -10,7 +10,7 @@ export default function LiveMatches() {
 
   if (!liveMatches && loading) {
     return (
-      <div className="home__container container">
+      <div className="home__container container block">
         <Loader noWrapper />
       </div>
     );
@@ -19,6 +19,14 @@ export default function LiveMatches() {
   const groupedMatches = liveMatches?.length
     ? groupFixturesByCompetitionId(liveMatches)
     : [];
+
+  if (groupedMatches.length === 0) {
+    return (
+      <div className="home__container container block">
+        No live matches at the moment.
+      </div>
+    );
+  }
 
   return (
     <div className="home__container container">
@@ -39,10 +47,6 @@ export default function LiveMatches() {
           </div>
         </div>
       ))}
-
-      {groupedMatches.length === 0 && (
-        <span>No live matches at the moment.</span>
-      )}
     </div>
   );
 }

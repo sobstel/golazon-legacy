@@ -107,6 +107,7 @@ export function Search({ onFocus, onBlur }: Props) {
           onBlur={handleBlur}
           value={query || ""}
           ref={input}
+          autoComplete="off"
         />
 
         {clearable && (

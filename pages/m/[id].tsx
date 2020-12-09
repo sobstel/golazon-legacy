@@ -67,8 +67,7 @@ export default function MatchPage(props: any) {
     <Layout title={title(match)} header={header}>
       <div className="container block">
         {formatDate(match.date, match.time)}
-        {", "}
-        {formatTime(match.date, match.time)}
+        {match.time && `, ${formatTime(match.date, match.time)}`}
         <span> · </span>
         {match.round_name}
         <span> · </span>

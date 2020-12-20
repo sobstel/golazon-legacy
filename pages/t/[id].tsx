@@ -77,7 +77,7 @@ function TeamUpcomingFixtures({ teamId }: { teamId: string }) {
     <PaginatedFixtures
       resourceResult={resourceResult}
       header="Upcoming fixtures"
-      initialPage="last"
+      initialPage="first"
     />
   );
 }

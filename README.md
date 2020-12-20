@@ -17,7 +17,7 @@
 ### Development
 
 - Getting Started: `yarn install`
-- Local server: `yarn now dev`
+- Local server: `yarn vercel dev`
 - Competitions index update: `yarn competitions:update`
 
 ### Notes

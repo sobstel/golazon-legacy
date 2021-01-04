@@ -56,9 +56,7 @@ export default function Layout({ title, header, children }: Props) {
         </StrictMode>
 
         <p className="footer container">
-          <a href="https://golazon.com/api/" target="_blank" rel="noreferrer">
-            data api
-          </a>
+          <a href="/developer/">data api</a>
           {" • "}
           <a
             href="https://github.com/golazon/golazon"

@@ -66,7 +66,7 @@
   },
   {
     "competition_id": "m3e",
-    "name": "CONMEBOL Libertadores",
+    "name": "Copa Libertadores",
     "area_name": "South America"
   },
   {
@@ -459,11 +459,6 @@
     "area_name": "Burundi"
   },
   {
-    "competition_id": "v2wz",
-    "name": "Ligue des Champions",
-    "area_name": "Madagascar"
-  },
-  {
     "competition_id": "7gv",
     "name": "Ligue Haïtienne",
     "area_name": "Haiti"
@@ -842,6 +837,11 @@
     "competition_id": "3dl",
     "name": "Pro League",
     "area_name": "Saudi Arabia"
+  },
+  {
+    "competition_id": "v2wz",
+    "name": "Pro League",
+    "area_name": "Madagascar"
   },
   {
     "competition_id": "gpz",
@@ -1643,7 +1643,7 @@
   },
   {
     "competition_id": "v1dm",
-    "name": "CONMEBOL Pre-Olympic Tournament",
+    "name": "Copa Pre-Olympic Tournament",
     "teamtype": "youth",
     "area_name": "South America"
   },
@@ -3184,7 +3184,7 @@
   },
   {
     "competition_id": "42n",
-    "name": "CONMEBOL Sudamericana",
+    "name": "Copa Sudamericana",
     "area_name": "South America"
   },
   {
@@ -3462,7 +3462,7 @@
   },
   {
     "competition_id": "lyg",
-    "name": "CONMEBOL Recopa",
+    "name": "Copa Recopa",
     "area_name": "South America"
   },
   {
@@ -5561,6 +5561,11 @@
     "area_name": "Belarus"
   },
   {
+    "competition_id": "z300",
+    "name": "Play-offs 2/3",
+    "area_name": "Uruguay"
+  },
+  {
     "competition_id": "gx10",
     "name": "Play-offs 3/4",
     "area_name": "Korea Republic"
@@ -5588,7 +5593,7 @@
   },
   {
     "competition_id": "w3j1",
-    "name": "CONMEBOL Libertadores U20",
+    "name": "Copa Libertadores U20",
     "teamtype": "youth",
     "area_name": "South America"
   },
@@ -5833,6 +5838,11 @@
     "area_name": "Africa"
   },
   {
+    "competition_id": "xmzn",
+    "name": "Potiguar 2",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "43z1",
     "name": "Sergipano 2",
     "area_name": "Brazil"
@@ -5848,8 +5858,8 @@
     "area_name": "Brazil"
   },
   {
-    "competition_id": "lmyg",
-    "name": "Paulista Série B",
+    "competition_id": "n4wx",
+    "name": "Catarinense 3",
     "area_name": "Brazil"
   },
   {
@@ -5861,6 +5871,11 @@
     "name": "UNAF Women's Tournament",
     "teamtype": "women",
     "area_name": "Africa"
+  },
+  {
+    "competition_id": "lmyg",
+    "name": "Paulista Série B",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "ldg",
@@ -6096,7 +6111,7 @@
   },
   {
     "competition_id": "epre",
-    "name": "CONMEBOL Libertadores Femenina",
+    "name": "Copa Libertadores Femenina",
     "teamtype": "women",
     "area_name": "South America"
   },
@@ -8346,6 +8361,12 @@
     "name": "Eredivisie Cup",
     "teamtype": "women",
     "area_name": "Netherlands"
+  },
+  {
+    "competition_id": "gx8z",
+    "name": "Taça da Liga Feminina",
+    "teamtype": "women",
+    "area_name": "Portugal"
   },
   {
     "competition_id": "8l83",

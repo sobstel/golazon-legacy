@@ -9,6 +9,10 @@ dotenv.config();
 
 const URL = `${process.env.NEXT_PUBLIC_HYENA_URL}competitions`;
 
+function composeCompetition(name: string) {
+  return name.replace("CONMEBOL", "Copa");
+}
+
 cli.action.start("Fetch competitions");
 request
   .get(URL)
@@ -19,7 +23,7 @@ request
     let searchIndex = res.body;
     searchIndex = searchIndex.map((item) => ({
       competition_id: item["competition_id"],
-      name: item["name"],
+      name: composeCompetition(item["name"]),
       teamtype: item["teamtype"],
       area_name: item["area_name"],
     }));

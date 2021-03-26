@@ -69,8 +69,18 @@ export default function PaginatedFixtures({
   const handlePrev = () => hasPrevPage && setPage(page - 1);
   const handleNext = () => hasNextPage && setPage(page + 1);
 
-  const sliceStart = (page - 1) * PAGE_SIZE;
-  const pageFixtures = fixtures?.slice(sliceStart, sliceStart + PAGE_SIZE);
+  let sliceStart = (page - 1) * PAGE_SIZE;
+  if (initialPage === "last") {
+    sliceStart = Math.max(sliceStart - (fixtures?.length % PAGE_SIZE), 0);
+  }
+  let sliceEnd = sliceStart + PAGE_SIZE;
+  if (initialPage === "last") {
+    if (page === 1) {
+      sliceEnd = fixtures?.length % PAGE_SIZE;
+    }
+  }
+
+  const pageFixtures = fixtures?.slice(sliceStart, sliceEnd);
   const hasFixtures = Boolean(pageFixtures?.length);
 
   return (

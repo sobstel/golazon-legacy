@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Cards extends Component {
-  render() {
-    const { match } = this.props;
+type Props = {
+  match: {
+    cards: {name: string, min: string, code: string}[],
+  }
+}
 
-    if (!match.cards || match.cards.length === 0) {
+export default function Cards({ match }: Props) {
+    if (!match.cards?.length) {
       return null;
     }
 

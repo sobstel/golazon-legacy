@@ -7,8 +7,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
+  if (typeof id !== "string") {
+    res.status(400);
+    return;
+  }
+
   const [{ data: match }] = await fetchResources([
-    () => resourcePatterns.match(id as string),
+    () => resourcePatterns.match(id),
   ]);
 
   res.setHeader(

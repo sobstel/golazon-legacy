@@ -7,16 +7,21 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
+  if (typeof id !== "string") {
+    res.status(400);
+    return;
+  }
+
   const [
     { data: team },
     { data: competitions },
     { data: recentFixtures },
     { data: upcomingFixtures },
   ] = await fetchResources([
-    () => resourcePatterns.team(id as string),
-    () => resourcePatterns.teamCompetitions(id as string),
-    () => resourcePatterns.teamRecentFixtures(id as string),
-    () => resourcePatterns.teamUpcomingFixtures(id as string),
+    () => resourcePatterns.team(id),
+    () => resourcePatterns.teamCompetitions(id),
+    () => resourcePatterns.teamRecentFixtures(id),
+    () => resourcePatterns.teamUpcomingFixtures(id),
   ]);
 
   res.setHeader(

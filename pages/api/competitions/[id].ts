@@ -7,12 +7,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     query: { id },
   } = req;
 
+  if (typeof id !== "string") {
+    res.status(400);
+    return;
+  }
+
   const [{ data: competition }] = await fetchResources([
-    () => resourcePatterns.competition(id as string),
+    () => resourcePatterns.competition(id),
   ]);
 
-  // @ts-expect-error
-  const seasonId = competition?.season["season_id"] ?? null;
+  const seasonId = competition?.["season"]?.["season_id"] ?? null;
 
   const [
     { data: standings },

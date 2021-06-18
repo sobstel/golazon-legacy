@@ -10,6 +10,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "tsc --noEmit && eslint '*/**/*.{js,ts,tsx}'",
     "competitions:update": "ts-node --project tsconfig.cli.json scripts/updateCompetitions.ts"
   },
   "dependencies": {

@@ -42,41 +42,35 @@ function PaginationLink({
 export default function PaginatedFixtures({
   resourceResult,
   header,
-  initialPage,
+  navigateBackward,
 }: {
   resourceResult: ResourceResult;
   header: string;
-  initialPage: "first" | "last";
+  navigateBackward: boolean;
 }) {
   const { data, error, loading } = resourceResult;
-  const fixtures = Array.isArray(data) ? data : null;
+  const fixtures = Array.isArray(data) ? data : undefined;
 
   if (error) {
     // TODO: show error
     console.log("fixtures", error);
   }
 
-  const [page, setPage] = useState(null);
+  const [page, setPage] = useState(1);
   const hasPrevPage = page && page > 1;
   const hasNextPage = page && page < getLastPage(fixtures);
-
-  useEffect(() => {
-    if (fixtures?.length) {
-      setPage(initialPage === "first" ? 1 : getLastPage(fixtures));
-    }
-  }, [initialPage, fixtures]);
 
   const handlePrev = () => hasPrevPage && setPage(page - 1);
   const handleNext = () => hasNextPage && setPage(page + 1);
 
   let sliceStart = (page - 1) * PAGE_SIZE;
-  if (initialPage === "last") {
-    sliceStart = Math.max(sliceStart - (fixtures?.length % PAGE_SIZE), 0);
-  }
   let sliceEnd = sliceStart + PAGE_SIZE;
-  if (initialPage === "last") {
-    if (page === 1) {
-      sliceEnd = fixtures?.length % PAGE_SIZE;
+
+  if (navigateBackward) {
+    sliceStart = -(page * PAGE_SIZE);
+    sliceEnd = sliceStart + PAGE_SIZE;
+    if (sliceEnd >= 0) {
+      sliceEnd = undefined;
     }
   }
 
@@ -89,14 +83,14 @@ export default function PaginatedFixtures({
         {header}
         <div className="paginated-fixtures__nav">
           <PaginationLink
-            active={hasPrevPage}
+            active={navigateBackward ? hasNextPage : hasPrevPage}
             text="❮ prev"
-            onClick={handlePrev}
+            onClick={navigateBackward ? handleNext : handlePrev}
           />
           <PaginationLink
-            active={hasNextPage}
+            active={navigateBackward ? hasPrevPage : hasNextPage}
             text="next ❯"
-            onClick={handleNext}
+            onClick={navigateBackward ? handlePrev : handleNext}
           />
         </div>
       </h2>

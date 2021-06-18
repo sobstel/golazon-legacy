@@ -84,7 +84,7 @@ function SeasonRecentMatches({ seasonId }: { seasonId: string }) {
     <PaginatedFixtures
       resourceResult={resourceResult}
       header="Recent matches"
-      initialPage="last"
+      navigateBackward
     />
   );
 }
@@ -98,7 +98,6 @@ function SeasonUpcomingFixtures({ seasonId }: { seasonId: string }) {
     <PaginatedFixtures
       resourceResult={resourceResult}
       header="Upcoming fixtures"
-      initialPage="first"
     />
   );
 }

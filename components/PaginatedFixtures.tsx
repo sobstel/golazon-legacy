@@ -46,7 +46,7 @@ export default function PaginatedFixtures({
 }: {
   resourceResult: ResourceResult;
   header: string;
-  navigateBackward: boolean;
+  navigateBackward?: boolean;
 }) {
   const { data, error, loading } = resourceResult;
   const fixtures = Array.isArray(data) ? data : undefined;

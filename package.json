@@ -16,7 +16,7 @@
   "dependencies": {
     "@rooks/use-did-update": "^4.11.2",
     "classnames": "^2.2.6",
-    "next": "^11.1.0",
+    "next": "^11.1.1",
     "normalize-scss": "^7.0.1",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",

@@ -65,14 +65,6 @@ export default function Layout({ title, header, children }: Props) {
           >
             github (source)
           </a>
-          {" • "}
-          <a
-            href="https://github.com/golazon/golazon#readme"
-            target="_blank"
-            rel="noreferrer"
-          >
-            about
-          </a>
         </p>
       </div>
     </div>

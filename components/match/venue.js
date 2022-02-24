@@ -8,6 +8,10 @@ export default class Venue extends Component {
       return null;
     }
 
+    if (match["home_country"] === "RUS") {
+      return null;
+    }
+
     return (
       <div>
         <h2>Venue</h2>

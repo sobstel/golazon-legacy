@@ -34,11 +34,11 @@ const MatchRow = ({ match }: { match: any }) => (
       {!match.min && match.period !== "HT" && (
         <td className="date">{formatDate(match.date, match.time)}</td>
       )}
-      <td className="host">{match.home_name}</td>
+      <td className="host">{match.home_country === "RUS" ? "..." : match.home_name}</td>
       <td className="status">
         <Score match={match} />
       </td>
-      <td className="away">{match.away_name}</td>
+      <td className="away">{match.away_country === "RUS" ? "..." : match.away_name}</td>
       <td className="link">
         <a href={`/m/${match.match_id}`}>&#10095;</a>
       </td>

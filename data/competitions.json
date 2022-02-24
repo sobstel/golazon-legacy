@@ -95,18 +95,13 @@
     "area_name": "Andorra"
   },
   {
-    "competition_id": "z7zy",
-    "name": "1ère Division",
-    "area_name": "Burkina Faso"
-  },
-  {
     "competition_id": "jk4",
     "name": "A Lyga",
     "area_name": "Lithuania"
   },
   {
     "competition_id": "vem",
-    "name": "A-League",
+    "name": "A-League Men",
     "area_name": "Australia"
   },
   {
@@ -152,7 +147,7 @@
   {
     "competition_id": "epz4",
     "name": "Campeonato Nacional",
-    "area_name": "Cape Verde Islands"
+    "area_name": "Cape Verde"
   },
   {
     "competition_id": "pnzd",
@@ -255,7 +250,7 @@
   },
   {
     "competition_id": "jme",
-    "name": "Elite ONE",
+    "name": "Elite One",
     "area_name": "Cameroon"
   },
   {
@@ -424,6 +419,11 @@
     "area_name": "Congo DR"
   },
   {
+    "competition_id": "z7zy",
+    "name": "Ligue 1",
+    "area_name": "Burkina Faso"
+  },
+  {
     "competition_id": "ye9v",
     "name": "Ligue 1",
     "area_name": "Niger"
@@ -577,11 +577,6 @@
     "competition_id": "rgj",
     "name": "Premier League",
     "area_name": "Hong Kong"
-  },
-  {
-    "competition_id": "lzm",
-    "name": "Premier League",
-    "area_name": "Russia"
   },
   {
     "competition_id": "4vv",
@@ -1084,14 +1079,14 @@
     "area_name": "Asia"
   },
   {
+    "competition_id": "gjyy",
+    "name": "Australia Cup",
+    "area_name": "Australia"
+  },
+  {
     "competition_id": "0pjv",
     "name": "Concacaf Gold Cup Qualification",
     "area_name": "N/C America"
-  },
-  {
-    "competition_id": "gjyy",
-    "name": "FFA Cup",
-    "area_name": "Australia"
   },
   {
     "competition_id": "wxrx",
@@ -1144,6 +1139,11 @@
     "area_name": "Norway"
   },
   {
+    "competition_id": "9nm",
+    "name": "1. Division",
+    "area_name": "Denmark"
+  },
+  {
     "competition_id": "9ze",
     "name": "1. Division",
     "area_name": "Belarus"
@@ -1157,11 +1157,6 @@
     "competition_id": "mje",
     "name": "1. Liga",
     "area_name": "Latvia"
-  },
-  {
-    "competition_id": "9nm",
-    "name": "1st Division",
-    "area_name": "Denmark"
   },
   {
     "competition_id": "d0m",
@@ -1337,11 +1332,6 @@
     "competition_id": "v1e",
     "name": "FNL",
     "area_name": "Czech Republic"
-  },
-  {
-    "competition_id": "e9e",
-    "name": "FNL",
-    "area_name": "Russia"
   },
   {
     "competition_id": "1x1y",
@@ -1615,6 +1605,11 @@
     "area_name": "Australia"
   },
   {
+    "competition_id": "gxgv",
+    "name": "Liga 3",
+    "area_name": "Portugal"
+  },
+  {
     "competition_id": "r748",
     "name": "UEFA Nations League",
     "area_name": "Europe"
@@ -1675,7 +1670,7 @@
   },
   {
     "competition_id": "n4kk",
-    "name": "Queensland FFA Cup Preliminary",
+    "name": "QLD Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -1735,6 +1730,11 @@
     "area_name": "Faroe Islands"
   },
   {
+    "competition_id": "3ew",
+    "name": "2. Division",
+    "area_name": "Denmark"
+  },
+  {
     "competition_id": "npr",
     "name": "2. Division",
     "area_name": "Norway"
@@ -1743,11 +1743,6 @@
     "competition_id": "x20x",
     "name": "2. Division",
     "area_name": "Belarus"
-  },
-  {
-    "competition_id": "3ew",
-    "name": "2nd Division",
-    "area_name": "Denmark"
   },
   {
     "competition_id": "yel2",
@@ -1831,8 +1826,8 @@
     "area_name": "Belgium"
   },
   {
-    "competition_id": "0el",
-    "name": "Football League",
+    "competition_id": "37r",
+    "name": "Gamma Ethniki",
     "area_name": "Greece"
   },
   {
@@ -1909,11 +1904,6 @@
     "competition_id": "7wl",
     "name": "PCSL",
     "area_name": "Canada"
-  },
-  {
-    "competition_id": "2j5",
-    "name": "PFL",
-    "area_name": "Russia"
   },
   {
     "competition_id": "30z",
@@ -2044,7 +2034,7 @@
   },
   {
     "competition_id": "l1v",
-    "name": "Tercera Division",
+    "name": "Tercera División RFEF",
     "area_name": "Spain"
   },
   {
@@ -2060,7 +2050,7 @@
   },
   {
     "competition_id": "xmkv",
-    "name": "Victoria FFA Cup Preliminary",
+    "name": "VA Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2104,6 +2094,11 @@
     "area_name": "Norway"
   },
   {
+    "competition_id": "kg1n",
+    "name": "3. Division",
+    "area_name": "Denmark"
+  },
+  {
     "competition_id": "1x3y",
     "name": "4. liga",
     "area_name": "Czech Republic"
@@ -2124,18 +2119,13 @@
     "area_name": "N/C America"
   },
   {
-    "competition_id": "0wp4",
-    "name": "Denmark Series",
-    "area_name": "Denmark"
-  },
-  {
     "competition_id": "ddm",
     "name": "Division 2",
     "area_name": "Sweden"
   },
   {
-    "competition_id": "37r",
-    "name": "Gamma Ethniki",
+    "competition_id": "0el",
+    "name": "Football League",
     "area_name": "Greece"
   },
   {
@@ -2147,11 +2137,6 @@
     "competition_id": "v2vp",
     "name": "II Liiga",
     "area_name": "Estonia"
-  },
-  {
-    "competition_id": "g7y0",
-    "name": "III Division",
-    "area_name": "Russia"
   },
   {
     "competition_id": "3p2",
@@ -2262,6 +2247,11 @@
     "area_name": "Australia"
   },
   {
+    "competition_id": "p7mg",
+    "name": "MLS Next Pro",
+    "area_name": "USA"
+  },
+  {
     "competition_id": "p710",
     "name": "New South Wales NPL Youth League",
     "teamtype": "youth",
@@ -2271,6 +2261,11 @@
     "competition_id": "wlkg",
     "name": "Autonómicas",
     "area_name": "Spain"
+  },
+  {
+    "competition_id": "8lzk",
+    "name": "IV Liga",
+    "area_name": "Poland"
   },
   {
     "competition_id": "79j",
@@ -2322,7 +2317,7 @@
   },
   {
     "competition_id": "gx9y",
-    "name": "NSW FFA Cup Preliminary",
+    "name": "NSW Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2352,6 +2347,11 @@
     "area_name": "Greece"
   },
   {
+    "competition_id": "0wp4",
+    "name": "Denmark Series",
+    "area_name": "Denmark"
+  },
+  {
     "competition_id": "13wr",
     "name": "Football League",
     "area_name": "Scotland"
@@ -2359,6 +2359,11 @@
   {
     "competition_id": "zjm",
     "name": "Friendlies"
+  },
+  {
+    "competition_id": "25vj",
+    "name": "Liga TDP",
+    "area_name": "Mexico"
   },
   {
     "competition_id": "3vxr",
@@ -2423,8 +2428,13 @@
     "area_name": "Argentina"
   },
   {
+    "competition_id": "y70x",
+    "name": "State Leagues",
+    "area_name": "Germany"
+  },
+  {
     "competition_id": "z3kr",
-    "name": "Western Australia FFA Cup Preliminary",
+    "name": "WA Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2505,7 +2515,7 @@
   },
   {
     "competition_id": "8l03",
-    "name": "Capital Territory FFA Cup Preliminary",
+    "name": "CT Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2539,13 +2549,13 @@
   },
   {
     "competition_id": "50v7",
-    "name": "Northern NSW Women's Premier League",
+    "name": "Northern NSW NPL Women",
     "teamtype": "women",
     "area_name": "Australia"
   },
   {
     "competition_id": "0ryl",
-    "name": "Northern NSW FFA Cup Preliminary",
+    "name": "NNSW Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2590,7 +2600,7 @@
   },
   {
     "competition_id": 1147,
-    "name": "South Australia FFA Cup Preliminary",
+    "name": "SA Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2624,7 +2634,7 @@
   },
   {
     "competition_id": "50g4",
-    "name": "Tasmania FFA Cup Preliminary",
+    "name": "FT Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -2692,6 +2702,11 @@
     "competition_id": "0rne",
     "name": "AIFF Super Cup",
     "area_name": "India"
+  },
+  {
+    "competition_id": "z3mm",
+    "name": "Arnold Clark Cup",
+    "teamtype": "women"
   },
   {
     "competition_id": "y712",
@@ -2856,11 +2871,6 @@
     "competition_id": "3nr",
     "name": "Cup",
     "area_name": "Ukraine"
-  },
-  {
-    "competition_id": "jl4",
-    "name": "Cup",
-    "area_name": "Russia"
   },
   {
     "competition_id": "ere",
@@ -3391,7 +3401,6 @@
   {
     "competition_id": "lmrz",
     "name": "IFA Shield",
-    "teamtype": "youth",
     "area_name": "India"
   },
   {
@@ -3470,6 +3479,11 @@
     "area_name": "Thailand"
   },
   {
+    "competition_id": "0rxn",
+    "name": "League Cup",
+    "area_name": "Egypt"
+  },
+  {
     "competition_id": "4y1",
     "name": "Malaysia Cup",
     "area_name": "Malaysia"
@@ -3511,7 +3525,7 @@
   },
   {
     "competition_id": "v1kp",
-    "name": "Northern Territory FFA Cup Preliminary",
+    "name": "NT Australia Cup Preliminary",
     "area_name": "Australia"
   },
   {
@@ -3554,6 +3568,11 @@
     "competition_id": "w3xv",
     "name": "Super Cup",
     "area_name": "Germany"
+  },
+  {
+    "competition_id": "50wj",
+    "name": "Ykköscup",
+    "area_name": "Finland"
   },
   {
     "competition_id": "eve",
@@ -3659,11 +3678,6 @@
     "competition_id": "ew4",
     "name": "Super Cup",
     "area_name": "Japan"
-  },
-  {
-    "competition_id": "j3e",
-    "name": "Super Cup",
-    "area_name": "Russia"
   },
   {
     "competition_id": "el4",
@@ -3936,6 +3950,11 @@
     "area_name": "Costa Rica"
   },
   {
+    "competition_id": "43rz",
+    "name": "Supercopa",
+    "area_name": "Paraguay"
+  },
+  {
     "competition_id": "jjve",
     "name": "Supercopa de Ecuador",
     "area_name": "Ecuador"
@@ -3966,6 +3985,11 @@
     "area_name": "Colombia"
   },
   {
+    "competition_id": "p7kg",
+    "name": "Thai Champions Cup",
+    "area_name": "Thailand"
+  },
+  {
     "competition_id": "nydx",
     "name": "Trophée des Champions",
     "area_name": "Haiti"
@@ -3982,7 +4006,7 @@
   },
   {
     "competition_id": "p70w",
-    "name": "Trofeo de Campeones de la Superliga",
+    "name": "Trofeo de Campeones",
     "area_name": "Argentina"
   },
   {
@@ -4400,6 +4424,12 @@
     "area_name": "Germany"
   },
   {
+    "competition_id": "z31m",
+    "name": "West Asia Championship U23",
+    "teamtype": "youth",
+    "area_name": "Asia"
+  },
+  {
     "competition_id": "8vep",
     "name": "Essex Senior Cup",
     "area_name": "England"
@@ -4417,6 +4447,11 @@
   {
     "competition_id": "0pm5",
     "name": "East Riding Senior Cup",
+    "area_name": "England"
+  },
+  {
+    "competition_id": "d5mx",
+    "name": "Hampshire Senior Cup",
     "area_name": "England"
   },
   {
@@ -4555,7 +4590,7 @@
   },
   {
     "competition_id": "v15m",
-    "name": "AFF U22 Championship",
+    "name": "AFF U23 Championship",
     "teamtype": "youth",
     "area_name": "Asia"
   },
@@ -4621,6 +4656,12 @@
     "area_name": "England"
   },
   {
+    "competition_id": "0w2n",
+    "name": "A-League Youth",
+    "teamtype": "youth",
+    "area_name": "Australia"
+  },
+  {
     "competition_id": "gxzz",
     "name": "AFC U20 Asian Cup",
     "teamtype": "youth",
@@ -4652,12 +4693,6 @@
     "name": "OFC U20 Championship",
     "teamtype": "youth",
     "area_name": "Oceania"
-  },
-  {
-    "competition_id": "0w2n",
-    "name": "Y-League",
-    "teamtype": "youth",
-    "area_name": "Australia"
   },
   {
     "competition_id": "yzkl",
@@ -4756,6 +4791,12 @@
     "area_name": "Europe"
   },
   {
+    "competition_id": "e53",
+    "name": "A-League Women",
+    "teamtype": "women",
+    "area_name": "Australia"
+  },
+  {
     "competition_id": "89ge",
     "name": "AFC U19 Championship",
     "teamtype": "youth",
@@ -4781,12 +4822,6 @@
   {
     "competition_id": "79xl",
     "name": "Other Competition Matches"
-  },
-  {
-    "competition_id": "e53",
-    "name": "W-League",
-    "teamtype": "women",
-    "area_name": "Australia"
   },
   {
     "competition_id": "gx2z",
@@ -4819,7 +4854,7 @@
   },
   {
     "competition_id": "kg37",
-    "name": "SAFF U18 Championship",
+    "name": "SAFF U19 Championship",
     "teamtype": "youth",
     "area_name": "Asia"
   },
@@ -4846,6 +4881,10 @@
     "name": "Sudamericano U17",
     "teamtype": "youth",
     "area_name": "South America"
+  },
+  {
+    "competition_id": "rvl8",
+    "name": "Medulin Cup"
   },
   {
     "competition_id": "d9x",
@@ -4923,7 +4962,7 @@
   },
   {
     "competition_id": "d9z",
-    "name": "Alagoano",
+    "name": "Alagoano 1",
     "area_name": "Brazil"
   },
   {
@@ -4984,7 +5023,7 @@
   },
   {
     "competition_id": "g2v",
-    "name": "Amazonense",
+    "name": "Amazonense 1",
     "area_name": "Brazil"
   },
   {
@@ -5057,12 +5096,12 @@
   },
   {
     "competition_id": "yxg",
-    "name": "Paraense",
+    "name": "Paraense 1",
     "area_name": "Brazil"
   },
   {
     "competition_id": "n2x",
-    "name": "Paraibano",
+    "name": "Paraibano 1",
     "area_name": "Brazil"
   },
   {
@@ -5292,11 +5331,6 @@
     "area_name": "Qatar"
   },
   {
-    "competition_id": "v2m1",
-    "name": "Play-offs 1/2",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "pnvg",
     "name": "Play-offs 1/2",
     "area_name": "South Africa"
@@ -5493,7 +5527,7 @@
   },
   {
     "competition_id": 491,
-    "name": "Potiguar",
+    "name": "Potiguar 1",
     "area_name": "Brazil"
   },
   {
@@ -5651,6 +5685,11 @@
     "area_name": "Uruguay"
   },
   {
+    "competition_id": "8lmk",
+    "name": "Play-offs 2/3",
+    "area_name": "China PR"
+  },
+  {
     "competition_id": "gx10",
     "name": "Play-offs 3/4",
     "area_name": "Korea Republic"
@@ -5691,6 +5730,12 @@
     "competition_id": "2l0m",
     "name": "Play-offs 4/5",
     "area_name": "Germany"
+  },
+  {
+    "competition_id": "507j",
+    "name": "CAF Women's Champions League",
+    "teamtype": "women",
+    "area_name": "Africa"
   },
   {
     "competition_id": "vj1",
@@ -5786,6 +5831,11 @@
     "competition_id": "r7k4",
     "name": "Play-offs 4/5",
     "area_name": "Scotland"
+  },
+  {
+    "competition_id": "xm9d",
+    "name": "Play-offs 4/5",
+    "area_name": "Japan"
   },
   {
     "competition_id": "8nk",
@@ -5893,6 +5943,11 @@
     "name": "J.League Cup / Copa Sudamericana Championship"
   },
   {
+    "competition_id": "v1r1",
+    "name": "Paraense 2",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "jjr4",
     "name": "Paraibano 2",
     "area_name": "Brazil"
@@ -5923,6 +5978,11 @@
     "area_name": "Africa"
   },
   {
+    "competition_id": "xm8d",
+    "name": "Alagoano 2",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "xmzn",
     "name": "Potiguar 2",
     "area_name": "Brazil"
@@ -5930,6 +5990,11 @@
   {
     "competition_id": "43z1",
     "name": "Sergipano 2",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "gxvv",
+    "name": "Amazonense 2",
     "area_name": "Brazil"
   },
   {
@@ -5945,6 +6010,16 @@
   {
     "competition_id": "p7vd",
     "name": "Gaúcho 3",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "3v4x",
+    "name": "Mineiro 3",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "kg9n",
+    "name": "Paranaense 3",
     "area_name": "Brazil"
   },
   {
@@ -6034,6 +6109,12 @@
     "area_name": "South America"
   },
   {
+    "competition_id": "rv48",
+    "name": "Concacaf W Gold Cup",
+    "teamtype": "women",
+    "area_name": "N/C America"
+  },
+  {
     "competition_id": "pjd5",
     "name": "Copa Gaúcha",
     "area_name": "Brazil"
@@ -6051,8 +6132,8 @@
     "area_name": "Europe"
   },
   {
-    "competition_id": "yekl",
-    "name": "Concacaf Women’s Olympic Qualifying",
+    "competition_id": "wlz1",
+    "name": "Concacaf W Gold Cup Qualification",
     "teamtype": "women",
     "area_name": "N/C America"
   },
@@ -6283,6 +6364,11 @@
     "competition_id": "e0g3",
     "name": "Reserve League",
     "area_name": "El Salvador"
+  },
+  {
+    "competition_id": "n4j1",
+    "name": "Reserve League",
+    "area_name": "Qatar"
   },
   {
     "competition_id": "m89m",
@@ -6585,6 +6671,11 @@
     "teamtype": "youth"
   },
   {
+    "competition_id": "wl01",
+    "name": "U15 Club Friendlies",
+    "teamtype": "youth"
+  },
+  {
     "competition_id": "myne",
     "name": "U21 Divisie 1",
     "teamtype": "youth",
@@ -6650,12 +6741,6 @@
     "area_name": "Denmark"
   },
   {
-    "competition_id": "9n81",
-    "name": "Youth Championship",
-    "teamtype": "youth",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "lkrz",
     "name": "Youth League",
     "teamtype": "youth",
@@ -6678,6 +6763,18 @@
     "name": "U21 Divisie 4",
     "teamtype": "youth",
     "area_name": "Netherlands"
+  },
+  {
+    "competition_id": "l05w",
+    "name": "Best of MLS Next",
+    "teamtype": "youth",
+    "area_name": "USA"
+  },
+  {
+    "competition_id": "y73x",
+    "name": "MLS Generation Cup U15",
+    "teamtype": "youth",
+    "area_name": "USA"
   },
   {
     "competition_id": "eeg3",
@@ -6799,8 +6896,32 @@
     "area_name": "Norway"
   },
   {
+    "competition_id": "e078",
+    "name": "Paraense U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "p78g",
+    "name": "Alagoano U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "v35z",
     "name": "Baiano U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "115x",
+    "name": "Potiguar U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "d5dx",
+    "name": "Sergipano U20",
     "teamtype": "youth",
     "area_name": "Brazil"
   },
@@ -6847,8 +6968,20 @@
     "area_name": "Spain"
   },
   {
+    "competition_id": "e0n8",
+    "name": "Brasiliense U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "1xkx",
     "name": "São Paulo Youth Cup",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "43wz",
+    "name": "Amazonense U20",
     "teamtype": "youth",
     "area_name": "Brazil"
   },
@@ -6883,9 +7016,15 @@
   },
   {
     "competition_id": "k072",
-    "name": "U19 Elit A",
+    "name": "U19 Süper Lig",
     "teamtype": "youth",
     "area_name": "Turkey"
+  },
+  {
+    "competition_id": "7lgk",
+    "name": "Campionato Primavera 4",
+    "teamtype": "youth",
+    "area_name": "Italy"
   },
   {
     "competition_id": "5j0d",
@@ -6930,6 +7069,12 @@
     "area_name": "Bulgaria"
   },
   {
+    "competition_id": "jjw3",
+    "name": "Goiano U20",
+    "teamtype": "youth",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "wlnw",
     "name": "ICC Futures Boys",
     "teamtype": "youth"
@@ -6938,6 +7083,12 @@
     "competition_id": "97ke",
     "name": "ICC Futures Girls",
     "teamtype": "women"
+  },
+  {
+    "competition_id": "p7p2",
+    "name": "Liga Elitelor U19",
+    "teamtype": "youth",
+    "area_name": "Romania"
   },
   {
     "competition_id": "wl5v",
@@ -7018,6 +7169,12 @@
     "area_name": "Denmark"
   },
   {
+    "competition_id": "7lmk",
+    "name": "U19 National League",
+    "teamtype": "youth",
+    "area_name": "Republic of Ireland"
+  },
+  {
     "competition_id": "0pd5",
     "name": "US Soccer Development Academy U18/19",
     "teamtype": "youth",
@@ -7030,6 +7187,12 @@
     "area_name": "Hungary"
   },
   {
+    "competition_id": "7l3k",
+    "name": "Cupa României U19",
+    "teamtype": "youth",
+    "area_name": "Romania"
+  },
+  {
     "competition_id": "89ml",
     "name": "Coupe Gambardella",
     "teamtype": "youth",
@@ -7037,9 +7200,15 @@
   },
   {
     "competition_id": "dpxx",
-    "name": "U19 Elit B",
+    "name": "U19 1. Lig",
     "teamtype": "youth",
     "area_name": "Turkey"
+  },
+  {
+    "competition_id": "z3xm",
+    "name": "Paraibano U19",
+    "teamtype": "youth",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "pjzd",
@@ -7120,14 +7289,14 @@
     "area_name": "Brazil"
   },
   {
-    "competition_id": "3v0l",
-    "name": "Reykjavík / Faxaflói U19 A-Division",
+    "competition_id": "v3zk",
+    "name": "Faxafloi U19",
     "teamtype": "youth",
     "area_name": "Iceland"
   },
   {
-    "competition_id": "mywe",
-    "name": "Reykjavík / Faxaflói U19 B-Division",
+    "competition_id": "zp38",
+    "name": "Reykjavik Youth Cup",
     "teamtype": "youth",
     "area_name": "Iceland"
   },
@@ -7152,6 +7321,12 @@
   {
     "competition_id": "13nk",
     "name": "U18 Premier League Cup",
+    "teamtype": "youth",
+    "area_name": "England"
+  },
+  {
+    "competition_id": 9781,
+    "name": "U18 Professional Development League Cup",
     "teamtype": "youth",
     "area_name": "England"
   },
@@ -7215,6 +7390,12 @@
     "area_name": "India"
   },
   {
+    "competition_id": "n4p1",
+    "name": "U18 League",
+    "teamtype": "youth",
+    "area_name": "Mexico"
+  },
+  {
     "competition_id": "wxdx",
     "name": "US Soccer Development Academy U17/18",
     "teamtype": "youth",
@@ -7229,6 +7410,12 @@
   {
     "competition_id": "v37p",
     "name": "Youth Alliance Cup",
+    "teamtype": "youth",
+    "area_name": "England"
+  },
+  {
+    "competition_id": "e018",
+    "name": "U17 Premier League Cup",
     "teamtype": "youth",
     "area_name": "England"
   },
@@ -7249,6 +7436,12 @@
     "name": "U17 Bundesliga",
     "teamtype": "youth",
     "area_name": "Germany"
+  },
+  {
+    "competition_id": "d50x",
+    "name": "Championnat National U17",
+    "teamtype": "youth",
+    "area_name": "France"
   },
   {
     "competition_id": "nen4",
@@ -7525,7 +7718,7 @@
   },
   {
     "competition_id": "9nnm",
-    "name": "Kadınlar Ligi",
+    "name": "Kadın Süper Ligi",
     "teamtype": "women",
     "area_name": "Turkey"
   },
@@ -7608,12 +7801,6 @@
     "area_name": "Morocco"
   },
   {
-    "competition_id": "17k",
-    "name": "Elitedivisionen",
-    "teamtype": "women",
-    "area_name": "Denmark"
-  },
-  {
     "competition_id": "v5z",
     "name": "First Division Women",
     "teamtype": "women",
@@ -7661,6 +7848,18 @@
     "area_name": "Finland"
   },
   {
+    "competition_id": "17k",
+    "name": "Kvindeliga",
+    "teamtype": "women",
+    "area_name": "Denmark"
+  },
+  {
+    "competition_id": "5pkd",
+    "name": "Liga 1 Feminin",
+    "teamtype": "women",
+    "area_name": "Romania"
+  },
+  {
     "competition_id": "v3jz",
     "name": "Liga e Femrave",
     "teamtype": "women",
@@ -7671,12 +7870,6 @@
     "name": "Liga Femenina",
     "teamtype": "women",
     "area_name": "Colombia"
-  },
-  {
-    "competition_id": "5pkd",
-    "name": "Liga I Feminin",
-    "teamtype": "women",
-    "area_name": "Romania"
   },
   {
     "competition_id": "k09n",
@@ -7779,12 +7972,6 @@
     "name": "Super Liga Žene",
     "teamtype": "women",
     "area_name": "Serbia"
-  },
-  {
-    "competition_id": "1mk",
-    "name": "Supreme Division Women",
-    "teamtype": "women",
-    "area_name": "Russia"
   },
   {
     "competition_id": "e83",
@@ -7950,7 +8137,7 @@
   },
   {
     "competition_id": "dxx",
-    "name": "1st Division Women",
+    "name": "1. Division Women",
     "teamtype": "women",
     "area_name": "Denmark"
   },
@@ -8000,6 +8187,12 @@
     "name": "First Division Women",
     "teamtype": "women",
     "area_name": "Belgium"
+  },
+  {
+    "competition_id": "jj43",
+    "name": "Liga 2 Feminin",
+    "teamtype": "women",
+    "area_name": "Romania"
   },
   {
     "competition_id": "m45",
@@ -8073,6 +8266,12 @@
     "teamtype": "women"
   },
   {
+    "competition_id": "43dz",
+    "name": "II Liga Women",
+    "teamtype": "women",
+    "area_name": "Poland"
+  },
+  {
     "competition_id": "3ezw",
     "name": "Primera Nacional Femenina",
     "teamtype": "women",
@@ -8132,6 +8331,18 @@
     "area_name": "Brazil"
   },
   {
+    "competition_id": "8ljk",
+    "name": "2. Division Women",
+    "teamtype": "women",
+    "area_name": "Denmark"
+  },
+  {
+    "competition_id": "0r1n",
+    "name": "Cearense Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "w3g1",
     "name": "Cyprus Women's Cup",
     "teamtype": "women"
@@ -8149,6 +8360,12 @@
     "area_name": "Belgium"
   },
   {
+    "competition_id": "25yj",
+    "name": "Brasiliense Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "p7e0",
     "name": "FFA Cup of Nations",
     "teamtype": "women"
@@ -8156,6 +8373,12 @@
   {
     "competition_id": "257d",
     "name": "Gaúcho Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "50nj",
+    "name": "Baiano Women",
     "teamtype": "women",
     "area_name": "Brazil"
   },
@@ -8183,6 +8406,11 @@
     "area_name": "England"
   },
   {
+    "competition_id": "xmdd",
+    "name": "KAIF Trophy",
+    "teamtype": "women"
+  },
+  {
     "competition_id": "wrx",
     "name": "Eerste Klasse Women",
     "teamtype": "women",
@@ -8196,6 +8424,18 @@
   {
     "competition_id": "3v1z",
     "name": "Mineiro Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "v1g1",
+    "name": "Alagoano Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
+    "competition_id": "l0nw",
+    "name": "Paraense Women",
     "teamtype": "women",
     "area_name": "Brazil"
   },
@@ -8222,9 +8462,21 @@
     "area_name": "Brazil"
   },
   {
+    "competition_id": "kgdn",
+    "name": "Sergipano Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
+  },
+  {
     "competition_id": "2gmd",
     "name": "SheBelieves Cup",
     "teamtype": "women"
+  },
+  {
+    "competition_id": "rv18",
+    "name": "Amazonense Women",
+    "teamtype": "women",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "d55p",
@@ -8355,12 +8607,6 @@
     "competition_id": "33gz",
     "name": "Tournament of Nations",
     "teamtype": "women"
-  },
-  {
-    "competition_id": "2xj",
-    "name": "Women's Cup",
-    "teamtype": "women",
-    "area_name": "Russia"
   },
   {
     "competition_id": "ey8",
@@ -8529,6 +8775,12 @@
     "area_name": "Scotland"
   },
   {
+    "competition_id": "0r2n",
+    "name": "Women's Play-offs 2/3",
+    "teamtype": "women",
+    "area_name": "Denmark"
+  },
+  {
     "competition_id": "rvvw",
     "name": "Women's Premiership League Cup",
     "teamtype": "women",
@@ -8541,8 +8793,8 @@
     "area_name": "South America"
   },
   {
-    "competition_id": "3vwz",
-    "name": "Women’s FA Community Shield",
+    "competition_id": "np1",
+    "name": "FA WNL Cup",
     "teamtype": "women",
     "area_name": "England"
   },
@@ -8563,6 +8815,11 @@
     "name": "Nadeshiko League Cup 2",
     "teamtype": "women",
     "area_name": "Japan"
+  },
+  {
+    "competition_id": "y7nx",
+    "name": "Super Cup",
+    "area_name": "Tunisia"
   },
   {
     "competition_id": "898e",
@@ -8601,16 +8858,16 @@
     "area_name": "Malta"
   },
   {
-    "competition_id": "my05",
-    "name": "Super Cup Women",
-    "teamtype": "women",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "25zd",
     "name": "Super Cup Women",
     "teamtype": "women",
     "area_name": "Faroe Islands"
+  },
+  {
+    "competition_id": "v1z1",
+    "name": "Supercopa Feminino",
+    "teamtype": "women",
+    "area_name": "Brazil"
   },
   {
     "competition_id": "kgpy",
@@ -8635,6 +8892,12 @@
     "name": "Women's Play-offs 2/3",
     "teamtype": "women",
     "area_name": "Scotland"
+  },
+  {
+    "competition_id": "3vwz",
+    "name": "Women’s FA Community Shield",
+    "teamtype": "women",
+    "area_name": "England"
   },
   {
     "competition_id": "d5xz",
@@ -8707,6 +8970,11 @@
   {
     "competition_id": "gxr5",
     "name": "Women's Friendship Tournament",
+    "teamtype": "women"
+  },
+  {
+    "competition_id": "11kx",
+    "name": "The Women's Cup",
     "teamtype": "women"
   },
   {
@@ -8810,6 +9078,18 @@
     "area_name": "Croatia"
   },
   {
+    "competition_id": "97j1",
+    "name": "Women's Play-offs 1/2",
+    "teamtype": "women",
+    "area_name": "Thailand"
+  },
+  {
+    "competition_id": "11zx",
+    "name": "Women's Play-offs 1/2",
+    "teamtype": "women",
+    "area_name": "Sweden"
+  },
+  {
     "competition_id": "0w8v",
     "name": "U17 Women's World Cup",
     "teamtype": "women"
@@ -8848,6 +9128,12 @@
     "name": "Women's Play-offs 2/3",
     "teamtype": "women",
     "area_name": "Belgium"
+  },
+  {
+    "competition_id": "wlw1",
+    "name": "Women's Play-offs 2/3",
+    "teamtype": "women",
+    "area_name": "Japan"
   },
   {
     "competition_id": "r79j",
@@ -8978,11 +9264,6 @@
     "area_name": "Indonesia"
   },
   {
-    "competition_id": "7lwj",
-    "name": "FFRT Cup",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "500d",
     "name": "Freiämter Cup",
     "area_name": "Switzerland"
@@ -9006,6 +9287,11 @@
     "competition_id": "8l5p",
     "name": "PostNord Cup",
     "area_name": "Norway"
+  },
+  {
+    "competition_id": "3vpx",
+    "name": "South Central Series",
+    "area_name": "New Zealand"
   },
   {
     "competition_id": "504v",
@@ -9054,11 +9340,6 @@
     "area_name": "South America"
   },
   {
-    "competition_id": "97dr",
-    "name": "Izhevsk Pre-Season Tournament",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "mykw",
     "name": "M-150 Cup U23",
     "teamtype": "youth",
@@ -9101,6 +9382,17 @@
     "area_name": "Asia"
   },
   {
+    "competition_id": "myxz",
+    "name": "Women's South Central Series",
+    "teamtype": "women",
+    "area_name": "New Zealand"
+  },
+  {
+    "competition_id": "gxkv",
+    "name": "Compact Cup",
+    "area_name": "South Africa"
+  },
+  {
     "competition_id": "13zr",
     "name": "Mobile Mini Sun Cup",
     "area_name": "USA"
@@ -9110,6 +9402,11 @@
     "name": "Vietnamese International U21 Championship",
     "teamtype": "youth",
     "area_name": "Asia"
+  },
+  {
+    "competition_id": "n4g1",
+    "name": "Copa Conecta",
+    "area_name": "Mexico"
   },
   {
     "competition_id": "9y4e",
@@ -9242,6 +9539,12 @@
     "area_name": "N/C America"
   },
   {
+    "competition_id": "yekl",
+    "name": "Concacaf Women’s Olympic Qualifying",
+    "teamtype": "women",
+    "area_name": "N/C America"
+  },
+  {
     "competition_id": "zpzy",
     "name": "Copa America Qualification",
     "area_name": "N/C America"
@@ -9295,12 +9598,6 @@
     "area_name": "Chinese Taipei"
   },
   {
-    "competition_id": "v3zk",
-    "name": "Faxafloi U19",
-    "teamtype": "youth",
-    "area_name": "Iceland"
-  },
-  {
     "competition_id": "0w3l",
     "name": "Federation Cup",
     "area_name": "India"
@@ -9324,12 +9621,6 @@
     "competition_id": "yz9v",
     "name": "ISC A",
     "area_name": "Indonesia"
-  },
-  {
-    "competition_id": "p7p2",
-    "name": "Liga Elitelor U19",
-    "teamtype": "youth",
-    "area_name": "Romania"
   },
   {
     "competition_id": "nekk",
@@ -9389,8 +9680,14 @@
     "area_name": "Uzbekistan"
   },
   {
-    "competition_id": "zp38",
-    "name": "Reykjavik Youth Cup",
+    "competition_id": "3v0l",
+    "name": "Reykjavík / Faxaflói U19 A-Division",
+    "teamtype": "youth",
+    "area_name": "Iceland"
+  },
+  {
+    "competition_id": "mywe",
+    "name": "Reykjavík / Faxaflói U19 B-Division",
     "teamtype": "youth",
     "area_name": "Iceland"
   },
@@ -9578,11 +9875,6 @@
     "area_name": "Indonesia"
   },
   {
-    "competition_id": "0m5",
-    "name": "PFL Cup - 2. Division",
-    "area_name": "Russia"
-  },
-  {
     "competition_id": "48y1",
     "name": "UFL Cup",
     "area_name": "Philippines"
@@ -9596,12 +9888,6 @@
     "competition_id": "k3y",
     "name": "Setanta Cup",
     "area_name": "Europe"
-  },
-  {
-    "competition_id": "j13",
-    "name": "1. Division Women",
-    "teamtype": "women",
-    "area_name": "Russia"
   },
   {
     "competition_id": "mpz",
@@ -9622,12 +9908,6 @@
     "competition_id": "m87z",
     "name": "3. Lig Promotion",
     "area_name": "Turkey"
-  },
-  {
-    "competition_id": "np1",
-    "name": "Women's League Cup",
-    "teamtype": "women",
-    "area_name": "England"
   },
   {
     "competition_id": "jx19",

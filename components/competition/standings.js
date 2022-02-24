@@ -39,10 +39,19 @@ export default class Standings extends Component {
                       <td className={this.rankClass(table.zone)}>
                         <span>{table.rank}</span>
                       </td>
-                      <td className="team" title={table.team_name}>
-                        <Link href={`/t/${table.team_id}`}>
-                          <a>{table.team_name}</a>
-                        </Link>
+                      <td
+                        className="team"
+                        title={
+                          table.country === "RUS" ? "..." : table.team_name
+                        }
+                      >
+                        {table.country === "RUS" ? (
+                          "..."
+                        ) : (
+                          <Link href={`/t/${table.team_id}`}>
+                            <a>{table.team_name}</a>
+                          </Link>
+                        )}
                       </td>
                       <td className="mp">{table.matches}</td>
                       <td className="gd">

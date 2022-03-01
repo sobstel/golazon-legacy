@@ -52,21 +52,13 @@ export default function MatchPage(props: any) {
 
   const header = match.match_id && (
     <span>
-      {match.home_country === "RUS" ? (
-        " ... "
-      ) : (
-        <Link href={`/t/${match["home_id"]}`}>
-          <a> {match.home_name} </a>
-        </Link>
-      )}
+      <Link href={`/t/${match["home_id"]}`}>
+        <a> {match.home_name} </a>
+      </Link>
       -
-      {match.away_country === "RUS" ? (
-        " ... "
-      ) : (
-        <Link href={`/t/${match["away_id"]}`}>
-          <a> {match.away_name} </a>
-        </Link>
-      )}
+      <Link href={`/t/${match["away_id"]}`}>
+        <a> {match.away_name} </a>
+      </Link>
       <Score match={match} />
     </span>
   );

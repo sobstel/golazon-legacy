@@ -20,7 +20,7 @@ request
       name: item["name"],
       teamtype: item["teamtype"],
       area_name: item["area_name"],
-    })).filter((item) => (item['area_name'] !== 'Russia'));
+    }));
 
     const fileName = `${__dirname}/../data/competitions.json`;
     const fileContent = JSON.stringify(searchIndex, null, 2);

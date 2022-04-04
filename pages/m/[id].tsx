@@ -50,8 +50,6 @@ export default function MatchPage(props: any) {
 
   const match = clientData || serverData;
 
-  console.log({ match });
-
   const header = match.match_id && (
     <span>
       {match["home_id"] ? (

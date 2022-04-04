@@ -50,15 +50,25 @@ export default function MatchPage(props: any) {
 
   const match = clientData || serverData;
 
+  console.log({ match });
+
   const header = match.match_id && (
     <span>
-      <Link href={`/t/${match["home_id"]}`}>
-        <a> {match.home_name} </a>
-      </Link>
+      {match["home_id"] ? (
+        <Link href={`/t/${match["home_id"]}`}>
+          <a> {match["home_name"]} </a>
+        </Link>
+      ) : (
+        <> {match["home_name"]} </>
+      )}
       -
-      <Link href={`/t/${match["away_id"]}`}>
-        <a> {match.away_name} </a>
-      </Link>
+      {match["away_id"] ? (
+        <Link href={`/t/${match["away_id"]}`}>
+          <a> {match["away_name"]} </a>
+        </Link>
+      ) : (
+        <> {match["away_name"]} </>
+      )}
       <Score match={match} />
     </span>
   );

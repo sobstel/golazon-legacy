@@ -31,7 +31,7 @@
     "@types/react": "^17.0.18",
     "@types/superagent": "^4.1.12",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.29.2",
+    "@typescript-eslint/parser": "^4.33.0",
     "cli-ux": "^6.0.9",
     "dotenv": "^10.0.0",
     "eslint": "^7.32.0",

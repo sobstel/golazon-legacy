@@ -29,7 +29,7 @@
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
     "@types/react": "^18.0.14",
-    "@types/superagent": "^4.1.12",
+    "@types/superagent": "^4.1.15",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "cli-ux": "^6.0.9",

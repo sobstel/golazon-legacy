@@ -33,7 +33,3 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     .status(200)
     .json({ team, competitions, recentFixtures, upcomingFixtures });
 };
-
-export const config = {
-  runtime: "experimental-edge",
-};

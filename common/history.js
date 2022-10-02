@@ -36,22 +36,18 @@ function saveHistory(history) {
  * Add history item (and make sure it's unique)
  */
 export function add(item) {
-  let history = fetchHistory();
+  const history = fetchHistory();
 
-  // find duplicate
-  const duplicateIndex = history.findIndex(
-    (historyItem) => item["competition_id"] === historyItem["competition_id"]
+  // remove duplicates
+  let nextHistory = history.filter(
+    (historyItem) => item["competition_id"] !== historyItem["competition_id"]
   );
-  if (duplicateIndex !== -1) {
-    history.splice(duplicateIndex, 1);
-  }
+  nextHistory.unshift(item);
+  nextHistory = nextHistory.slice(0, MAX_LENGTH - 1);
 
-  history.unshift(item);
-  history = history.slice(0, MAX_LENGTH - 1);
+  saveHistory(nextHistory);
 
-  saveHistory(history);
-
-  return history;
+  return nextHistory;
 }
 
 /**

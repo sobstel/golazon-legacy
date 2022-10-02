@@ -1,6 +1,5 @@
 import * as History from "common/history";
 
-// TODO: move under LiveMatches feature
 // TODO: type
 export default function groupFixturesByCompetitionId(fixtures: any[]) {
   const reversedHistoryResults = History.all().reverse();
@@ -19,7 +18,7 @@ export default function groupFixturesByCompetitionId(fixtures: any[]) {
           },
           matches: [match],
           _score: reversedHistoryResults.findIndex((result) => {
-            return result["id"] === match["competition_id"];
+            return result["competition_id"] === match["competition_id"];
           }),
         },
       };

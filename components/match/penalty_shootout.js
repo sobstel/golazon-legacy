@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 export default class PenaltyShootout extends Component {
   render() {
@@ -22,12 +22,12 @@ export default class PenaltyShootout extends Component {
       <div className="match__penalty-shootout">
         <h2>Penalty shootout</h2>
         <p className="block">
-          {match.penalty_shootout.map((event) => (
-            <span>
+          {match.penalty_shootout.map((event, index) => (
+            <Fragment key={index}>
               {event.name} ({eventLabel(event)})
-            </span>
+              {index < match.penalty_shootout.length - 1 && ", "}
+            </Fragment>
           ))}
-          ;
         </p>
       </div>
     );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 type Props = {
   match: {
@@ -20,15 +20,15 @@ export default function Goals({ match }: Props) {
     <div className="match__goals">
       <h2>Goals</h2>
       <p className="block">
-        {match.goals.map((goal) => (
-          <span key={`${goal.name}-${goal.code}-${goal.min}`}>
-            {goal.name} {goal.min}&apos;&nbsp;
-            {goal.code !== "G" && `[${goal.code}] `}(
+        {match.goals.map((goal, index) => (
+          <Fragment key={`${goal.name}-${goal.code}-${goal.min}`}>
             <strong>
               {goal.score[0]}:{goal.score[1]}
             </strong>
-            )
-          </span>
+            &nbsp;{goal.name}&nbsp;{goal.min}&apos;
+            {goal.code !== "G" && ` [${goal.code}]`}
+            {index < match.goals.length - 1 && ", "}
+          </Fragment>
         ))}
       </p>
     </div>

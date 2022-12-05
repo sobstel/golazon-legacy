@@ -9,18 +9,6 @@
     }
   }
 
-  &__goals span,
-  &__cards span,
-  &__penalty-shootout span {
-    &:after {
-      content: ", ";
-    }
-
-    &:last-child:after {
-      content: none;
-    }
-  }
-
   &__players {
     span {
       &:first-child:before {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 type Props = {
   match: {
@@ -19,10 +19,11 @@ export default function Cards({ match }: Props) {
     <div className="match__cards">
       <h2>Cards</h2>
       <p className="block">
-        {match.cards.map((event) => (
-          <span key={`${event.name}-${event.min}-${event.code}`}>
+        {match.cards.map((event, index) => (
+          <Fragment key={`${event.name}-${event.min}-${event.code}`}>
             {event.name} {event.min}&apos; ({event.code})
-          </span>
+            {index < match.cards.length - 1 && ", "}
+          </Fragment>
         ))}
       </p>
     </div>

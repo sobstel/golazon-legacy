@@ -14,8 +14,10 @@
     "competitions:update": "ts-node --project tsconfig.cli.json scripts/updateCompetitions.ts"
   },
   "dependencies": {
+    "@highlight-run/react": "^2.0.1",
     "@rooks/use-did-update": "^4.11.2",
     "classnames": "^2.3.2",
+    "highlight.run": "^5.4.2",
     "next": "^12.3.1",
     "normalize-scss": "^7.0.1",
     "nprogress": "^0.2.0",

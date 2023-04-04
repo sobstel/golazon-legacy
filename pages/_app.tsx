@@ -1,6 +1,18 @@
 import type { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
+import { H } from "highlight.run";
+
+H.init("zg006vg9", {
+  tracingOrigins: true,
+  networkRecording: {
+    enabled: true,
+    recordHeadersAndBody: true,
+    urlBlocklist: [
+      // insert urls you don't want to record here
+    ],
+  },
+});
 
 import "nprogress/nprogress.css";
 import "../styles/index.scss";

@@ -41,6 +41,11 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
+"@highlight-run/react@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@highlight-run/react/-/react-2.0.1.tgz#489537c6b5014e173a11b2c6f6c0f87ddafea3b2"
+  integrity sha512-g2QgFblfAAlv5pkPKP6q8OuV9enmkpX5ty4aVE7PuOMwC/ZFx+qJ/qMc8H4kG6FVnHd9ts5040db1ezbeAKTLA==
+
 "@humanwhocodes/config-array@^0.11.6":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"
@@ -1974,6 +1979,11 @@ highlight-words-core@^1.2.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
   integrity sha512-BXUKIkUuh6cmmxzi5OIbUJxrG8OAk2MqoL1DtO3Wo9D2faJg2ph5ntyuQeLqaHJmzER6H5tllCDA9ZnNe9BVGg==
+
+highlight.run@^5.4.2:
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/highlight.run/-/highlight.run-5.4.2.tgz#b4cf4b5072f750bc99321b5aeb647f0cb4735e05"
+  integrity sha512-N2g5Gz5luGvzv0JCzCLOk0o5/M6+vCJjxqMtUIw1KRIyWm/O/ZwDZQvHvy+P/D/G19H2PfwGCGc28R7WkFwdGA==
 
 http-cache-semantics@^4.0.0:
   version "4.1.1"

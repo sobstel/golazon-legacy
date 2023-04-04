@@ -3,7 +3,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import { H } from "highlight.run";
 
-H.init("zg006vg9", {
+H.init("jdk9y7e5", {
   tracingOrigins: true,
   networkRecording: {
     enabled: true,

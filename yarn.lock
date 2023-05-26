@@ -1985,10 +1985,10 @@ highlight-words-core@^1.2.0:
   resolved "https://registry.yarnpkg.com/highlight-words-core/-/highlight-words-core-1.2.2.tgz#1eff6d7d9f0a22f155042a00791237791b1eeaaa"
   integrity sha512-BXUKIkUuh6cmmxzi5OIbUJxrG8OAk2MqoL1DtO3Wo9D2faJg2ph5ntyuQeLqaHJmzER6H5tllCDA9ZnNe9BVGg==
 
-highlight.run@^5.4.2:
-  version "5.4.2"
-  resolved "https://registry.yarnpkg.com/highlight.run/-/highlight.run-5.4.2.tgz#b4cf4b5072f750bc99321b5aeb647f0cb4735e05"
-  integrity sha512-N2g5Gz5luGvzv0JCzCLOk0o5/M6+vCJjxqMtUIw1KRIyWm/O/ZwDZQvHvy+P/D/G19H2PfwGCGc28R7WkFwdGA==
+highlight.run@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/highlight.run/-/highlight.run-6.0.0.tgz#bdb127cea119a7678e19ee7cd009cd46f02edf29"
+  integrity sha512-DVrYRJ9pvPBjcpNiKLaOtM3QN8Nm2dDhhJjRbJZU+WP4i8f50gGbYWHz7pqNAtqotyr0chMCPZMeOFgKXDyc8A==
 
 http-cache-semantics@^4.0.0:
   version "4.1.1"
